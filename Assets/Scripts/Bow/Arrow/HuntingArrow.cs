@@ -7,6 +7,8 @@ using UnityEngine.Scripting.APIUpdating;
 public class HuntingArrow : MonoBehaviour
 {
     [SerializeField] private Transform Arrow_Transform;
+    //TODO might want to replace with a Arrow_Collider script instead of a BoxCollider2D
+    [SerializeField] private BoxCollider2D Arrow_Collider;
 
     private IEnumerator ArrowMoveRoutine;
 

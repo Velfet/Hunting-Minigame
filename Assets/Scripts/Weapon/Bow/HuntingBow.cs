@@ -45,6 +45,8 @@ public class HuntingBow : MonoBehaviour
             if(Input.GetMouseButtonDown(0))
             {
                 //TODO only for testing; later on, we need to check if the bow is cooling down or not before authorizing an arrow launch
+                TestArrow.ActivateArrow();
+                TestArrow.Setup_AttackStats(CurrentBowStat.ArrowStats);
                 TestArrow.StartArrowMovement(bowPos, mousePos, CurrentBowStat.HitDelay);
             }
         }

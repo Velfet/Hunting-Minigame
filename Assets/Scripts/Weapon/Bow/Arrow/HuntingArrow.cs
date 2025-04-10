@@ -7,13 +7,11 @@ using UnityEngine.Scripting.APIUpdating;
 public class HuntingArrow : MonoBehaviour
 {
     [SerializeField] private Transform Arrow_Transform;
-    //TODO might want to replace with a Arrow_Collider script instead of a BoxCollider2D
-    [SerializeField] private BoxCollider2D Arrow_Collider;
+    //might want to replace with a Arrow_Collider script instead of a BoxCollider2D, or maybe it's not necessary for now, at least
+    [SerializeField] private ArrowCollider Arrow_Collider;
+    //set the stats of the arrow, such as how much dmg it deals
 
     private IEnumerator ArrowMoveRoutine;
-
-
-
 
     public void InterruptArrowMovement()
     {
@@ -22,6 +20,16 @@ public class HuntingArrow : MonoBehaviour
             StopCoroutine(ArrowMoveRoutine);
             ArrowMoveRoutine = null;
         }
+    }
+
+    public void ActivateArrow()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Setup_AttackStats(HuntingAttackStats_SO newAttackStats)
+    {
+        Arrow_Collider.Setup_AttackStats(newAttackStats);
     }
 
     public void StartArrowMovement(Vector3 startPos, Vector3 endPos, float travelDuration)
@@ -34,6 +42,9 @@ public class HuntingArrow : MonoBehaviour
 
     private IEnumerator MoveArrow(Vector3 startPos, Vector3 endPos, float travelDuration, float parabolaHeight)
     {
+        //deactivate arrow's collider
+        Arrow_Collider.SetColliderState(false);
+
         float arrowPeakTime = BowConst.Arrow_PeakTime;
 
         float currentTimeNormalized = 0f;
@@ -83,7 +94,9 @@ public class HuntingArrow : MonoBehaviour
         }
 
         //arrow has reached its destination
-        Debug.LogWarning("Arrow has reached destination, might want to activate its collider now");
+        //deactivate arrow's collider
+        Arrow_Collider.SetColliderState(true);
+        //Debug.LogWarning("Arrow has reached destination, might want to activate its collider now");
     }
 
     //parabola where the arc is at the middle

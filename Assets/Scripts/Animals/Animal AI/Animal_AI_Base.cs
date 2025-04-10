@@ -32,7 +32,7 @@ public class Animal_AI_Base : MonoBehaviour
 
         //start a coroutine to make this animal walk to the walk destination
         MoveCoroutine = MoveToPoint(walkDestination, AnimalData.WalkSpeed);
-        Debug.LogWarning("Start move coroutine");
+        //Debug.LogWarning("Start move coroutine");
         StartCoroutine(MoveCoroutine);
     }
 
@@ -43,7 +43,7 @@ public class Animal_AI_Base : MonoBehaviour
 
         //start a coroutine to make this animal run to the walk destination
         MoveCoroutine = MoveToPoint(runDestination, AnimalData.RunSpeed);
-        Debug.LogWarning("Start move coroutine");
+        //Debug.LogWarning("Start move coroutine");
         StartCoroutine(MoveCoroutine);
     }
 
@@ -54,7 +54,7 @@ public class Animal_AI_Base : MonoBehaviour
 
         //start a coroutine to make this animal idle for the specified duration
         MoveCoroutine = IdleForSomeTime(idleDuration);
-        Debug.LogWarning("Start idle coroutine");
+        //Debug.LogWarning("Start idle coroutine");
         StartCoroutine(MoveCoroutine);
     }
 

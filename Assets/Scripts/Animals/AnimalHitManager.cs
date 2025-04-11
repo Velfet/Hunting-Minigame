@@ -18,15 +18,15 @@ public class AnimalHitManager : MonoBehaviour
         //currentHits = new List<(IAnimalPart_Hit bodyPart, HuntingAttackStats_SO attackData)>();
     }
 
-    public void RegisterHit(Collider2D bodyPartCollider , Collider2D weaponCollider)
+    public void RegisterHit(Collider bodyPartCollider , Collider weaponCollider)
     {
         IWeaponHitSource source = weaponCollider.GetComponent<IWeaponHitSource>();
         IAnimalPart_Hit part = bodyPartCollider.GetComponent<IAnimalPart_Hit>();
         //Debug.LogWarning("Register hit phase 1");
         if (source == null || part == null)
         {
-            Debug.LogWarning("NULL source: " + (source == null));
-            Debug.LogWarning("NULL weapon: " + (part == null));
+            // Debug.LogWarning("NULL source: " + (source == null));
+            // Debug.LogWarning("NULL weapon: " + (part == null));
             return;
         }
 
@@ -74,8 +74,13 @@ public class AnimalHitManager : MonoBehaviour
             if(chosenHit != null)
             {
                 chosenHit.Value.bodyPart.OnHit(chosenHit.Value.attackData);
-                //add the weapon collider to the list, we'll deactivate the parent game object later
-                toBeDeactivated.Add(hitData.Key);
+
+                if(chosenHit.Value.bodyPart.MakeWeaponDisappear == true)
+                {
+                    //add the weapon collider to the list, we'll deactivate the parent game object later
+                    toBeDeactivated.Add(hitData.Key);
+                }
+                
             }
         }
 

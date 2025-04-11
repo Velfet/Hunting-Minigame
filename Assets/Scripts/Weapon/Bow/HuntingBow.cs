@@ -16,6 +16,13 @@ public class HuntingBow : MonoBehaviour
     [SerializeField] private GameObject Bow_GO;
     [SerializeField] private float Bow_X_Offset;
     [SerializeField] private float Bow_Y_Offset;
+
+    [SerializeField] private float Pos_X_Min;
+    [SerializeField] private float Pos_X_Max;
+    [SerializeField] private float Pos_Y_Min;
+    [SerializeField] private float Pos_Y_Max;
+    
+
     [Space(10)]
     //TODO only a placeholder, need to replace with a hunting arrow object pooler manager or some sorts
     [SerializeField] private HuntingArrow TestArrow;
@@ -32,22 +39,48 @@ public class HuntingBow : MonoBehaviour
         //if bow is active, follow the mouse position with an offset
         if(BowState == Enum_BowState.Active)
         {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = 10f;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            Vector3 mousePos_Screen = Input.mousePosition;
+            mousePos_Screen.z = Bow_GO.transform.position.z - Camera.main.transform.position.z;
 
-            Vector3 bowPos = mousePos;
+            Vector3 mousePos_World = Camera.main.ScreenToWorldPoint(mousePos_Screen);
+
+            //get mouse pos in range of 0 to 1 for x and y position
+            // Vector2 mousePos_Normalized = new Vector2();
+            // mousePos_Normalized.x = mousePos_Screen.x / Screen.width;
+            // mousePos_Normalized.y = mousePos_Screen.y / Screen.height;
+            
+            Vector3 bowPos = new Vector3();
+            bowPos.x = mousePos_World.x;
+            bowPos.y = mousePos_World.y;
+            // bowPos.x = Mathf.Lerp(Pos_X_Min, Pos_X_Max, mousePos_Normalized.x);
+            // bowPos.y = Mathf.Lerp(Pos_Y_Min, Pos_Y_Max, mousePos_Normalized.y);
+
+
+            bowPos.z = Bow_GO.transform.position.z;
             bowPos.x -= Bow_X_Offset;
             bowPos.y -= Bow_Y_Offset;
+
+            //clamp the bow's x and y position
+            bowPos.x = Mathf.Clamp(bowPos.x, Pos_X_Min, Pos_X_Max);
+            bowPos.y = Mathf.Clamp(bowPos.y, Pos_Y_Min, Pos_Y_Max);
+
             Bow_GO.transform.position = bowPos;
 
             //check for left mouse button click
             if(Input.GetMouseButtonDown(0))
             {
                 //TODO only for testing; later on, we need to check if the bow is cooling down or not before authorizing an arrow launch
+                mousePos_Screen.z = 10f - Camera.main.transform.position.z;
+
+                Vector3 arrowTargetPos = Camera.main.ScreenToWorldPoint(mousePos_Screen);
+                arrowTargetPos.z = 10f;
+
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Vector3 travelDir_After = ray.direction.normalized;
+
                 TestArrow.ActivateArrow();
                 TestArrow.Setup_AttackStats(CurrentBowStat.ArrowStats);
-                TestArrow.StartArrowMovement(bowPos, mousePos, CurrentBowStat.HitDelay);
+                TestArrow.StartArrowMovement(bowPos, arrowTargetPos, CurrentBowStat.HitDelay, travelDir_After);
             }
         }
         

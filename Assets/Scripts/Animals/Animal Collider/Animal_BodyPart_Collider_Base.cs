@@ -5,14 +5,19 @@ using UnityEngine;
 public abstract class Animal_BodyPart_Collider_Base : MonoBehaviour, IAnimalPart_Hit
 {
     [SerializeField] protected AnimalHitManager HitManager;
+    [SerializeField] protected bool makeWeaponDisappear;
     [SerializeField] protected int hitPriority;
-    [SerializeField] protected Collider2D bodyPartCollider;
+    [SerializeField] protected Collider bodyPartCollider;
 
+    public bool MakeWeaponDisappear => makeWeaponDisappear;
     public int HitPriority => hitPriority;
-    public Collider2D BodyPartCollider => bodyPartCollider;
+    public Collider BodyPartCollider => bodyPartCollider;
+
+    
+
     //TODO might want to add reference to the animal
 
-    protected void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter(Collider other)
     {
         //register the arrow collider to the hit manager
         HitManager.RegisterHit(bodyPartCollider, other);

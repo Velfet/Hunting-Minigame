@@ -11,7 +11,7 @@ public class ArrowCollider : MonoBehaviour, IWeaponHitSource
     [SerializeField] private GameObject ParentGameObject;
     //set the stats of the arrow, such as how much dmg it deals
     [SerializeField] private HuntingAttackStats_SO AttackStats;
-    [SerializeField] private Collider2D TheCollider;
+    //[SerializeField] private Collider TheCollider;
 
     public void Setup_AttackStats(HuntingAttackStats_SO newAttackStats)
     {
@@ -25,7 +25,7 @@ public class ArrowCollider : MonoBehaviour, IWeaponHitSource
 
     public void SetColliderState(bool newState)
     {
-        TheCollider.enabled = newState;
+        //TheCollider.enabled = newState;
     }
 
     public void Set_GameObject_Active(bool newState)

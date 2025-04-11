@@ -32,20 +32,20 @@ public class HuntingArrow : MonoBehaviour
         Arrow_Collider.Setup_AttackStats(newAttackStats);
     }
 
-    public void StartArrowMovement(Vector3 startPos, Vector3 endPos, float travelDuration)
+    public void StartArrowMovement(Vector3 startPos, Vector3 endPos, float travelDuration, Vector3 direction_After)
     {
         InterruptArrowMovement();
 
-        ArrowMoveRoutine = MoveArrow(startPos, endPos, travelDuration, BowConst.ArrowParabolaHeight);
+        ArrowMoveRoutine = MoveArrow(startPos, endPos, travelDuration, BowConst.ArrowParabolaHeight, direction_After);
         StartCoroutine(ArrowMoveRoutine);
     }
 
-    private IEnumerator MoveArrow(Vector3 startPos, Vector3 endPos, float travelDuration, float parabolaHeight)
+    private IEnumerator MoveArrow(Vector3 startPos, Vector3 endPos, float travelDuration, float parabolaHeight, Vector3 direction_After)
     {
         //deactivate arrow's collider
-        Arrow_Collider.SetColliderState(false);
+        //Arrow_Collider.SetColliderState(false);
 
-        float arrowPeakTime = BowConst.Arrow_PeakTime;
+        //float arrowPeakTime = BowConst.Arrow_PeakTime;
 
         float currentTimeNormalized = 0f;
         Arrow_Transform.position = startPos;
@@ -55,36 +55,58 @@ public class HuntingArrow : MonoBehaviour
         Vector3 travelDirection = (endPos - startPos).normalized;
         Vector3 arcNormalDirection = new Vector3(-travelDirection.y, travelDirection.x, 0f);
 
-        while(currentTimeNormalized < 1f)
+        float totalDistance = Vector3.Distance(startPos, endPos);
+        float desiredSpeed = totalDistance / travelDuration; // units per second
+
+        while(currentTimeNormalized < 2f)
         {
             currentTimeNormalized += Time.deltaTime / travelDuration;
 
             //Get parabola position
-            Vector3 currentArrowPos = Vector3.Lerp(startPos, endPos, currentTimeNormalized);
+            Vector3 currentArrowPos;
+            if(currentTimeNormalized < 1f)
+            {
+                currentArrowPos = Vector3.Lerp(startPos, endPos, currentTimeNormalized);
+            }
+            else
+            {
+                //TODO add speed to the direction_After
+                currentArrowPos = Arrow_Transform.position + (desiredSpeed * direction_After * Time.deltaTime);
+                Debug.LogWarning("Speed: " + desiredSpeed);
+            }
             //float arrowHeight = parabolaHeight * 4f * (currentTimeNormalized - currentTimeNormalized * currentTimeNormalized);
             //float arrowHeight = GetArc(parabolaHeight, currentTimeNormalized);
-            float arrowHeight = GetArc_CustomPeakTime(parabolaHeight, currentTimeNormalized, arrowPeakTime);
+            //float arrowHeight = GetArc_CustomPeakTime(parabolaHeight, currentTimeNormalized, arrowPeakTime);
 
-            float testHeight = GetArc_CustomPeakTime(1f, currentTimeNormalized, arrowPeakTime);
             //Debug.LogWarning("[testParabola] normalized time: " + currentTimeNormalized);
             //Debug.LogWarning("[testParabola] height (0 to 1): " + testHeight);
-            currentArrowPos += arcNormalDirection * arrowHeight;
+            //currentArrowPos += arcNormalDirection * arrowHeight;
 
             //set position
             Arrow_Transform.position = currentArrowPos;
             //set scale
-            Arrow_Transform.localScale = Vector3.one * (1f - 0.35f*(currentTimeNormalized));
+            //Arrow_Transform.localScale = Vector3.one * (1f - 0.35f*(currentTimeNormalized));
 
             //get and set rotation of arrow
-            Vector2 moveDirection = currentArrowPos - lastArrowPos;
-            //Debug.LogWarning("[test] movedirection: " + moveDirection);
-            if(currentTimeNormalized< 1f)
-            {
-                float angle = Mathf.Atan2(moveDirection.y, moveDirection.x);
-                angle *= Mathf.Rad2Deg;
-                //Debug.LogWarning("[test2] angle: " + angle);
-                Arrow_Transform.rotation = Quaternion.Euler(0f, 0f, angle);
-            }
+            Arrow_Transform.forward = travelDirection;
+            // if(currentTimeNormalized < 1f)
+            // {
+            //     Arrow_Transform.forward = travelDirection;
+            // }
+            // else
+            // {
+            //     Arrow_Transform.forward = direction_After;
+            // }
+            
+            // Vector2 moveDirection = currentArrowPos - lastArrowPos;
+            // //Debug.LogWarning("[test] movedirection: " + moveDirection);
+            // if(currentTimeNormalized< 1f)
+            // {
+            //     float angle = Mathf.Atan2(moveDirection.y, moveDirection.x);
+            //     angle *= Mathf.Rad2Deg;
+            //     //Debug.LogWarning("[test2] angle: " + angle);
+            //     Arrow_Transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            // }
             
 
             //update last position
@@ -93,9 +115,13 @@ public class HuntingArrow : MonoBehaviour
             yield return null;
         }
 
+
+
         //arrow has reached its destination
         //deactivate arrow's collider
-        Arrow_Collider.SetColliderState(true);
+        Arrow_Collider.Set_GameObject_Active(false);
+
+        //Arrow_Collider.SetColliderState(true);
         //Debug.LogWarning("Arrow has reached destination, might want to activate its collider now");
     }
 

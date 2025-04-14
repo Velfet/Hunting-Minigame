@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class HuntingBow : MonoBehaviour
@@ -9,6 +10,8 @@ public class HuntingBow : MonoBehaviour
     [SerializeField] private BowStat_Single CurrentBowStat;
     //TODO only used for testing
     [SerializeField] private int TestJobRank;
+    //reference to hunting cursor
+    [SerializeField] private HuntingCursor_Base HuntingCursor;
     [Space(10)]
     //controls if the bow is able to move and shoot arrows or not; Does not manage cooldown state, that's someone else's job
     [SerializeField] private Enum_BowState BowState;
@@ -16,7 +19,7 @@ public class HuntingBow : MonoBehaviour
     [SerializeField] private GameObject Bow_GO;
     [SerializeField] private float Bow_X_Offset;
     [SerializeField] private float Bow_Y_Offset;
-
+    [Space(10)]
     [SerializeField] private float Pos_X_Min;
     [SerializeField] private float Pos_X_Max;
     [SerializeField] private float Pos_Y_Min;
@@ -26,6 +29,10 @@ public class HuntingBow : MonoBehaviour
     [Space(10)]
     //TODO only a placeholder, need to replace with a hunting arrow object pooler manager or some sorts
     [SerializeField] private HuntingArrow TestArrow;
+
+    //bow rotation fields
+    private Vector3 bowDirection;
+    private Quaternion bowLookDirection;
 
     private void Awake()
     {
@@ -39,10 +46,11 @@ public class HuntingBow : MonoBehaviour
         //if bow is active, follow the mouse position with an offset
         if(BowState == Enum_BowState.Active)
         {
-            Vector3 mousePos_Screen = Input.mousePosition;
-            mousePos_Screen.z = Bow_GO.transform.position.z - Camera.main.transform.position.z;
+            // Vector3 mousePos_Screen = Input.mousePosition;
+            // mousePos_Screen.z = Bow_GO.transform.position.z - Camera.main.transform.position.z;
 
-            Vector3 mousePos_World = Camera.main.ScreenToWorldPoint(mousePos_Screen);
+            //Vector3 mousePos_World = Camera.main.ScreenToWorldPoint(mousePos_Screen);
+            Vector3 mousePos_World = HuntingCursor.Get_HuntingCursor_Pos();
 
             //get mouse pos in range of 0 to 1 for x and y position
             // Vector2 mousePos_Normalized = new Vector2();
@@ -66,20 +74,40 @@ public class HuntingBow : MonoBehaviour
 
             Bow_GO.transform.position = bowPos;
 
+            //bow rotation
+            //mousePos_Screen.z = 10f - Camera.main.transform.position.z;
+            //Vector3 arrowTargetPos = Camera.main.ScreenToWorldPoint(mousePos_Screen);
+
+            Vector3 arrowTargetPos = Camera.main.WorldToScreenPoint(HuntingCursor.Get_HuntingCursor_Pos());
+            arrowTargetPos.z = 10f - Camera.main.transform.position.z;
+            arrowTargetPos = Camera.main.ScreenToWorldPoint(arrowTargetPos);
+            arrowTargetPos.z = 10f;
+
+            bowDirection = (arrowTargetPos - Bow_GO.transform.position).normalized;
+            bowLookDirection = Quaternion.LookRotation(bowDirection);
+
+            Bow_GO.transform.rotation = bowLookDirection * Quaternion.Euler(0, -90, 0);
+
             //check for left mouse button click
             if(Input.GetMouseButtonDown(0))
             {
                 //TODO only for testing; later on, we need to check if the bow is cooling down or not before authorizing an arrow launch
-                mousePos_Screen.z = 10f - Camera.main.transform.position.z;
+                // mousePos_Screen.z = 10f - Camera.main.transform.position.z;
 
-                Vector3 arrowTargetPos = Camera.main.ScreenToWorldPoint(mousePos_Screen);
-                arrowTargetPos.z = 10f;
+                // Vector3 arrowTargetPos = Camera.main.ScreenToWorldPoint(mousePos_Screen);
+                // arrowTargetPos.z = 10f;
 
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Vector3 travelDir_After = ray.direction.normalized;
+                //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                // Vector3 rayDirection = (HuntingCursor.Get_HuntingCursor_Pos() - Camera.main.transform.position).normalized;
+                // Ray ray = new Ray(Camera.main.transform.position, rayDirection);
+                // Vector3 travelDir_After = ray.direction.normalized;
+
+                Vector3 travelDir_After = (HuntingCursor.Get_HuntingCursor_Pos() - Camera.main.transform.position).normalized;
 
                 TestArrow.ActivateArrow();
                 TestArrow.Setup_AttackStats(CurrentBowStat.ArrowStats);
+                //TODO start pos might not be "bowPos"
                 TestArrow.StartArrowMovement(bowPos, arrowTargetPos, CurrentBowStat.HitDelay, travelDir_After);
             }
         }

@@ -36,7 +36,7 @@ public class Animal_AI_Base : MonoBehaviour
         StartCoroutine(MoveCoroutine);
     }
 
-    public void StarRunToPoint(Vector3 runDestination)
+    public void StartRunToPoint(Vector3 runDestination)
     {
         //stop the previous move coroutine if it exists
         InterruptMove();
@@ -87,7 +87,7 @@ public class Animal_AI_Base : MonoBehaviour
     public IEnumerator IdleForSomeTime(float idleDuration)
     {
         float currentTime = 0f;
-        while(currentTime <= idleDuration)
+        while(currentTime < idleDuration)
         {
             yield return null;
             currentTime += Time.deltaTime;

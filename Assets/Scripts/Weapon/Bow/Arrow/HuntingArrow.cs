@@ -72,7 +72,7 @@ public class HuntingArrow : MonoBehaviour
             {
                 //TODO add speed to the direction_After
                 currentArrowPos = Arrow_Transform.position + (desiredSpeed * direction_After * Time.deltaTime);
-                Debug.LogWarning("Speed: " + desiredSpeed);
+                //Debug.LogWarning("Speed: " + desiredSpeed);
             }
             //float arrowHeight = parabolaHeight * 4f * (currentTimeNormalized - currentTimeNormalized * currentTimeNormalized);
             //float arrowHeight = GetArc(parabolaHeight, currentTimeNormalized);
@@ -89,14 +89,20 @@ public class HuntingArrow : MonoBehaviour
 
             //get and set rotation of arrow
             Arrow_Transform.forward = travelDirection;
-            // if(currentTimeNormalized < 1f)
-            // {
-            //     Arrow_Transform.forward = travelDirection;
-            // }
-            // else
-            // {
-            //     Arrow_Transform.forward = direction_After;
-            // }
+
+            if(currentTimeNormalized < 1f)
+            {
+                Arrow_Transform.forward = travelDirection;
+            }
+            else
+            {
+                //maybe lerp the rotation instead of assigning it directly. Start is "travelDirection" and end is "direction_After"
+                //and the lerp t value will be "currentTimeNormalized-1f"
+                //lerp already clamps the t value, so need to clamp it ourself
+                Arrow_Transform.forward = Vector3.Lerp(travelDirection, direction_After, (currentTimeNormalized-1f));
+
+                //Arrow_Transform.forward = direction_After;
+            }
             
             // Vector2 moveDirection = currentArrowPos - lastArrowPos;
             // //Debug.LogWarning("[test] movedirection: " + moveDirection);

@@ -13,6 +13,6 @@ public class AnimalAction_RunToPoint : AnimalAction_Base
 
         //TODO add the finish action to the parameter
         //make this animal run to a specific point
-        theAnimal.StartWalkToPoint(RunDestination);
+        theAnimal.StartRunToPoint(RunDestination);
     }
 }

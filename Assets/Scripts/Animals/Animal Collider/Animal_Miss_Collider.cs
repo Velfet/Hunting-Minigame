@@ -8,5 +8,7 @@ public class Animal_Miss_Collider : Animal_BodyPart_Collider_Base
     {
         //tell the animal that the aura was hit, which might startle the animal, altering its behaviour
         Debug.LogWarning("Miss aura reacts to being hit");
+        //no need to transfer over the attack data for now
+        TheAnimal.Trigger_MissAuraHit_Action();
     }
 }

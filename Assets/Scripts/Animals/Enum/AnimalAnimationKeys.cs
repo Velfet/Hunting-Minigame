@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AnimalStatus
+public enum AnimalAnimationKeys
 {
-    Alive,
-    Dead,
-    Escaped,
-    Eaten
+    Idle,
+    Eat,
+    Walk,
+    Run,
+    Die
 }

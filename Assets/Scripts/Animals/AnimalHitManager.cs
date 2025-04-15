@@ -6,9 +6,7 @@ using UnityEngine;
 
 public class AnimalHitManager : MonoBehaviour
 {
-    // [SerializeField] private Animal_Miss_Collider Miss_Collider;
-    // [SerializeField] private Animal_Body_Collider body_Collider;
-    // [SerializeField] private Animal_Head_Collider head_Collider;
+    [SerializeField] private Animal_AI_Base TheAnimal;
     private Dictionary<IWeaponHitSource, List<IAnimalPart_Hit>> currentHits;
     //private List<(IAnimalPart_Hit bodyPart, HuntingAttackStats_SO attackData)> currentHits;
 
@@ -73,13 +71,13 @@ public class AnimalHitManager : MonoBehaviour
             //tell the body part that got hit with the highest priority to react
             if(chosenHit != null)
             {
-                chosenHit.Value.bodyPart.OnHit(chosenHit.Value.attackData);
-
-                if(chosenHit.Value.bodyPart.MakeWeaponDisappear == true)
+                if(chosenHit.Value.bodyPart.MakeWeaponDisappear == true && TheAnimal.GetAnimalStatus() == AnimalStatus.Alive)
                 {
                     //add the weapon collider to the list, we'll deactivate the parent game object later
                     toBeDeactivated.Add(hitData.Key);
                 }
+
+                chosenHit.Value.bodyPart.OnHit(chosenHit.Value.attackData);
                 
             }
         }

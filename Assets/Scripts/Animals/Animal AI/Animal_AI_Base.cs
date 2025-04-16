@@ -25,6 +25,10 @@ public class Animal_AI_Base : MonoBehaviour
     [SerializeReference] private AnimalFinishAction_Base HeadHit_Action;
     [Space(10)]
     [SerializeField] private AnimalAnimationManager AnimationManager;
+    [Space(10)]
+    [SerializeField] private ParticleSystem BloodHit_Particle;
+    [SerializeField] private Anim2DEffect WeaponHit_Effect;
+    [SerializeField] private Anim2DEffect AnimalDieBlood_Effect;
 
 
     public void SetupAnimal()
@@ -187,13 +191,21 @@ public class Animal_AI_Base : MonoBehaviour
     }
 
     //call this function when the body is hit
-    public void Trigger_BodyHit_Action(HuntingAttackStats_SO attackData)
+    public void Trigger_BodyHit_Action(HuntingAttackStats_SO attackData, Vector3 hitPosition)
     {
         //no reaction if the animal is not alive
         if(AnimalState != AnimalStatus.Alive)
         {
             return;
         }
+
+        //move the hit particle position and play it
+        WeaponHit_Effect.transform.position = hitPosition;
+        WeaponHit_Effect.PlayEffectAnim();
+
+        //play blood hit particle system
+        BloodHit_Particle.transform.position = hitPosition;
+        BloodHit_Particle.Play();
 
         //trigger the miss aura hit action
         AnimalAction_ActivateData animalAction_ActivateData = new AnimalAction_ActivateData{
@@ -205,13 +217,21 @@ public class Animal_AI_Base : MonoBehaviour
     }
 
     //call this function when the head is hit
-    public void Trigger_HeadHit_Action(HuntingAttackStats_SO attackData)
+    public void Trigger_HeadHit_Action(HuntingAttackStats_SO attackData, Vector3 hitPosition)
     {
         //no reaction if the animal is not alive
         if(AnimalState != AnimalStatus.Alive)
         {
             return;
         }
+
+        //move the hit particle position and play it
+        WeaponHit_Effect.transform.position = hitPosition;
+        WeaponHit_Effect.PlayEffectAnim();
+
+        //play blood hit particle system
+        BloodHit_Particle.transform.position = hitPosition;
+        BloodHit_Particle.Play();
         
         //trigger the miss aura hit action
         AnimalAction_ActivateData animalAction_ActivateData = new AnimalAction_ActivateData{
@@ -256,6 +276,9 @@ public class Animal_AI_Base : MonoBehaviour
                 StopAndDeleteAction();
                 //play dead animation
                 AnimationManager.Start_Animation(AnimalAnimationKeys.Die);
+                //show and play blood animation
+                AnimalDieBlood_Effect.gameObject.SetActive(true);
+                AnimalDieBlood_Effect.PlayEffectAnim();
                 break;
             case AnimalStatus.Escaped:
                 //stop the current animal action
@@ -271,6 +294,8 @@ public class Animal_AI_Base : MonoBehaviour
                 AnimationManager.Stop_Animation();
                 //hide animal sprite
                 AnimationManager.ToggleAnimalVisualVisibility(false);
+                //hide blood
+                AnimalDieBlood_Effect.gameObject.SetActive(true);
                 break;
         }
 

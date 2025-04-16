@@ -8,6 +8,7 @@ public abstract class Animal_BodyPart_Collider_Base : MonoBehaviour, IAnimalPart
     [SerializeField] protected bool makeWeaponDisappear;
     [SerializeField] protected int hitPriority;
     [SerializeField] protected Collider bodyPartCollider;
+    [SerializeField] protected Vector3 hitPosition;
 
     public bool MakeWeaponDisappear => makeWeaponDisappear;
     public int HitPriority => hitPriority;
@@ -22,6 +23,14 @@ public abstract class Animal_BodyPart_Collider_Base : MonoBehaviour, IAnimalPart
     {
         //register the arrow collider to the hit manager
         HitManager.RegisterHit(bodyPartCollider, other);
+
+        //store the hit position, aka the position on the animal where the weapon hitbox hits the animal
+        IWeaponHitSource source = other.GetComponent<IWeaponHitSource>();
+        if (source != null)
+        {
+            hitPosition = bodyPartCollider.ClosestPoint(other.transform.position);
+            hitPosition.z = TheAnimal.transform.position.z;
+        }
     }
 
     public virtual void OnHit(HuntingAttackStats_SO attackData)

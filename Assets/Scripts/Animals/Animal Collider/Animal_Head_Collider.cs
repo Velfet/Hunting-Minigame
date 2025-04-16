@@ -8,6 +8,6 @@ public class Animal_Head_Collider : Animal_BodyPart_Collider_Base
     {
         //tell the animal that the head was hit, which will then do damage to the animal and etc
         Debug.LogWarning("Head reacts to being hit");
-        TheAnimal.Trigger_HeadHit_Action(attackData);
+        TheAnimal.Trigger_HeadHit_Action(attackData, hitPosition);
     }
 }

@@ -12,6 +12,9 @@ public class Animal_AI_Base : MonoBehaviour
     [SerializeField] private AnimalData_SO AnimalData;
     [SerializeField] private AnimalStatus AnimalState;
     [Space(10)]
+    [SerializeField] private AnimalIdentity AnimalIdentity;
+    [Space(10)]
+    [SerializeField] private Animal_HP_UI Animal_HP_UI;
     [SerializeField] private int CurrentHP;
     [SerializeField] private int MaxHP;
     [Space(10)]
@@ -35,6 +38,8 @@ public class Animal_AI_Base : MonoBehaviour
     {
         MaxHP = AnimalData.Health;
         CurrentHP = MaxHP;
+        //setup the HP bar
+        Animal_HP_UI.UpdateInstant_HP_Slider_Visual(1f);
     }
 
     public void Start()
@@ -249,6 +254,7 @@ public class Animal_AI_Base : MonoBehaviour
         //TODO do some hit visual effect
         //reduce current hp of the animal
         CurrentHP = Math.Max(CurrentHP - damageAmount, 0);
+        Animal_HP_UI.Update_HP_Slider_Visual((float)CurrentHP/MaxHP);
         //Update animal state only if animal was not already dead
         if(CurrentHP == 0 && AnimalState != AnimalStatus.Dead)
         {

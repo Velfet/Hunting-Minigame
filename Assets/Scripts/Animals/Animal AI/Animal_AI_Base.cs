@@ -33,6 +33,7 @@ public class Animal_AI_Base : MonoBehaviour
     [SerializeField] private Anim2DEffect WeaponHit_Effect;
     [SerializeField] private Anim2DEffect AnimalDieBlood_Effect;
 
+    private HuntingCaseManager huntingCaseManager;
 
     public void SetupAnimal()
     {
@@ -42,21 +43,37 @@ public class Animal_AI_Base : MonoBehaviour
         Animal_HP_UI.UpdateInstant_HP_Slider_Visual(1f);
     }
 
-    public void Start()
+    public void SetupAnimal_Complete(HuntingCaseManager newManager)
     {
-        //TODO only for testing
+        //store reference to the hunting case manager
+        huntingCaseManager = newManager;
+
         //enable animal visibility
         AnimationManager.ToggleAnimalVisualVisibility(true);
 
         //set animal hp
         SetupAnimal();
 
+        //enable the animal
+        gameObject.SetActive(true);
+
         //activate initial action
         ActivateCurrentAction();
-        //end of testing
-
-
     }
+
+    // public void Start()
+    // {
+    //     //only for testing
+    //     //enable animal visibility
+    //     // AnimationManager.ToggleAnimalVisualVisibility(true);
+
+    //     // //set animal hp
+    //     // SetupAnimal();
+
+    //     // //activate initial action
+    //     // ActivateCurrentAction();
+    //     //end of testing
+    // }
 
     private IEnumerator MoveCoroutine;
 
@@ -285,6 +302,8 @@ public class Animal_AI_Base : MonoBehaviour
                 //show and play blood animation
                 AnimalDieBlood_Effect.gameObject.SetActive(true);
                 AnimalDieBlood_Effect.PlayEffectAnim();
+                //report status to the case manager
+                huntingCaseManager.ReportStatus(AnimalIdentity, AnimalState);
                 break;
             case AnimalStatus.Escaped:
                 //stop the current animal action
@@ -293,6 +312,8 @@ public class Animal_AI_Base : MonoBehaviour
                 AnimationManager.Stop_Animation();
                 //hide animal sprite
                 AnimationManager.ToggleAnimalVisualVisibility(false);
+                //report status to the case manager
+                huntingCaseManager.ReportStatus(AnimalIdentity, AnimalState);
                 break;
             //TODO eaten status has not yet been tested
             case AnimalStatus.Eaten:
@@ -302,6 +323,8 @@ public class Animal_AI_Base : MonoBehaviour
                 AnimationManager.ToggleAnimalVisualVisibility(false);
                 //hide blood
                 AnimalDieBlood_Effect.gameObject.SetActive(true);
+                //report status to the case manager
+                huntingCaseManager.ReportStatus(AnimalIdentity, AnimalState);
                 break;
         }
 

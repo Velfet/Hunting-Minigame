@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class HuntingBow : MonoBehaviour
 {
-    
     [SerializeField] private BowStat_SO BowStat_All;
     [SerializeField] private BowStat_Single CurrentBowStat;
     //TODO only used for testing
@@ -117,4 +116,15 @@ public class HuntingBow : MonoBehaviour
 
     }
     
+    public void Update_BowState(Enum_BowState newState)
+    {
+        if(BowState == newState)
+        {
+            return;
+        }
+
+        BowState = newState;
+        //edit state of hunting cursor as well
+        HuntingCursor.Update_BowState(newState);
+    }
 }

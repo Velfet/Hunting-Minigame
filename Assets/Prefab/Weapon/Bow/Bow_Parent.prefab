@@ -137,14 +137,14 @@ MonoBehaviour:
     ArrowStats: {fileID: 0}
   TestJobRank: 0
   HuntingCursor: {fileID: 0}
-  BowState: 1
+  BowState: 0
   Bow_GO: {fileID: 9063971130422100897}
-  Bow_X_Offset: 2
-  Bow_Y_Offset: -0.5
+  Bow_X_Offset: 0.5
+  Bow_Y_Offset: 0.5
   Pos_X_Min: 0
   Pos_X_Max: 0
-  Pos_Y_Min: -1.7
-  Pos_Y_Max: -1.7
+  Pos_Y_Min: -1.9
+  Pos_Y_Max: -1.9
   TestArrow: {fileID: 0}
 --- !u!1001 &6399787964891020580
 PrefabInstance:

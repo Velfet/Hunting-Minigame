@@ -24,7 +24,7 @@ public class HuntingCase_Data : MonoBehaviour
     {
         int currentRank_Index = currentRank - 1;
         //verify that current rank is valid
-        if(All_HuntingCase_Data.Count >= currentRank_Index || currentRank_Index < 0)
+        if(All_HuntingCase_Data.Count <= currentRank_Index || currentRank_Index < 0)
         {
             //current rank is not valid
             Debug.LogWarning("[HuntingCaseData] Rank is not valid: " + currentRank);
@@ -34,7 +34,7 @@ public class HuntingCase_Data : MonoBehaviour
         HuntingCase_Rank_Data currentRankData = All_HuntingCase_Data[currentRank_Index];
         int currentLevel_Index = currentLevel - 1;
         //verify that current level is valid
-        if(currentRankData.allLevel_HuntingCase_Data.Count >= currentLevel_Index || currentLevel_Index < 0)
+        if(currentRankData.allLevel_HuntingCase_Data.Count <= currentLevel_Index || currentLevel_Index < 0)
         {
             //current rank is not valid
             Debug.LogWarning("[HuntingCaseData] Level is not valid: " + currentLevel);
@@ -47,5 +47,20 @@ public class HuntingCase_Data : MonoBehaviour
         HuntingCase_SO selectedHuntingCaseData = currentLevelData.level_HuntingCases[randomIndex];
 
         return selectedHuntingCaseData;
+    }
+
+    public int GetLevelAmountInRank(int theRank)
+    {
+        int currentRank_Index = theRank - 1;
+        //verify that current rank is valid
+        if(All_HuntingCase_Data.Count <= currentRank_Index || currentRank_Index < 0)
+        {
+            //current rank is not valid
+            Debug.LogWarning("[HuntingCaseData] Rank is not valid: " + theRank);
+            return -1;
+        }
+
+        HuntingCase_Rank_Data currentRankData = All_HuntingCase_Data[currentRank_Index];
+        return currentRankData.allLevel_HuntingCase_Data.Count;
     }
 }

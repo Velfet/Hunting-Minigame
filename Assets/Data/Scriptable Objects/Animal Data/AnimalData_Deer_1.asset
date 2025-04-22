@@ -17,3 +17,4 @@ MonoBehaviour:
   RunSpeed: 3.25
   WalkSpeed: 2
   Experience: 6
+  LootData: 1

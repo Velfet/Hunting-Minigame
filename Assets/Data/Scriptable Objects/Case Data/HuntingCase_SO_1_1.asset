@@ -15,7 +15,7 @@ MonoBehaviour:
   All_AnimalSpawnData:
   - Animal_Prefab: {fileID: 5848898158238761782, guid: 8e85cc36b74431f4bb4175fed806780e, type: 3}
     SpawnTime: 0
-    SpawnPosition: {x: 13.5, y: 0.75, z: 12}
+    SpawnPosition: {x: 14, y: 1.05, z: 12}
   WinCondition:
     UsingDefaultCondition: 0
     DefaultCondition: 0

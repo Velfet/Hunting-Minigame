@@ -10,5 +10,6 @@ public class AnimalData_SO : ScriptableObject
     public float RunSpeed;
     public float WalkSpeed;
     public int Experience;
+    public Enum_LootOptions LootData;
     //TODO add loot drop data here
 }

@@ -12,6 +12,8 @@ public class ArrowCollider : MonoBehaviour, IWeaponHitSource
     //set the stats of the arrow, such as how much dmg it deals
     [SerializeField] private HuntingAttackStats_SO AttackStats;
     //[SerializeField] private Collider TheCollider;
+    
+    private HuntingArrow huntingArrow;
 
     public void Setup_AttackStats(HuntingAttackStats_SO newAttackStats)
     {
@@ -31,5 +33,12 @@ public class ArrowCollider : MonoBehaviour, IWeaponHitSource
     public void Set_GameObject_Active(bool newState)
     {
         ParentGameObject.SetActive(newState);
+
+        if(huntingArrow == null)
+        {
+            huntingArrow = ParentGameObject.GetComponent<HuntingArrow>();
+        }
+        huntingArrow.DestroyArrow();
+        
     }
 }

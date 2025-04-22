@@ -11,6 +11,8 @@ public class HuntingArrow : MonoBehaviour
     [SerializeField] private ArrowCollider Arrow_Collider;
     //set the stats of the arrow, such as how much dmg it deals
 
+    private ArrowPooler arrowPooler;
+
     private IEnumerator ArrowMoveRoutine;
 
     public void InterruptArrowMovement()
@@ -30,6 +32,11 @@ public class HuntingArrow : MonoBehaviour
     public void Setup_AttackStats(HuntingAttackStats_SO newAttackStats)
     {
         Arrow_Collider.Setup_AttackStats(newAttackStats);
+    }
+
+    public void Setup_PoolerReference(ArrowPooler newPooler)
+    {
+        arrowPooler = newPooler;
     }
 
     public void StartArrowMovement(Vector3 startPos, Vector3 endPos, float travelDuration, Vector3 direction_After)
@@ -70,7 +77,7 @@ public class HuntingArrow : MonoBehaviour
             }
             else
             {
-                //TODO add speed to the direction_After
+                //add speed to the direction_After
                 currentArrowPos = Arrow_Transform.position + (desiredSpeed * direction_After * Time.deltaTime);
                 //Debug.LogWarning("Speed: " + desiredSpeed);
             }
@@ -154,5 +161,10 @@ public class HuntingArrow : MonoBehaviour
         }
 
         return parabolaHeight * (1f - (1f - x) * (1f - x));
+    }
+
+    public void DestroyArrow()
+    {
+        arrowPooler.ReturnHuntingArrow(this);
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class HuntingCaseManager : MonoBehaviour
@@ -16,9 +17,9 @@ public class HuntingCaseManager : MonoBehaviour
 
     [SerializeField] private HuntingCase_Data HuntingCase_Data;
     [Space(10)]
+    [SerializeField] private int CurrentRank;  //1st rank is rank 1
+    [SerializeField] private int CurrentLevel; //1st level is level 1
     //TODO for test only, need to replace later for final implementation
-    [SerializeField] private int TestRank;  //1st rank is rank 1
-    [SerializeField] private int TestLevel; //1st level is level 1
     [SerializeField] private HuntingCase_SO TestCase;
     //end of test
     [Space(10)]
@@ -28,11 +29,12 @@ public class HuntingCaseManager : MonoBehaviour
     [SerializeField] private HuntingCase_SO CurrentHuntingCase;
     [SerializeField] private Enum_HuntingGameState CurrentHuntingGameState;
     [Space(10)]
-    [SerializeField] private HuntingStageTimer StageTimer;
+    [SerializeField] private HuntingUIManager HuntingUI;
     [SerializeField] private float MaxTimer;
     [SerializeField] private float CurrentTimer;    //this timer goes from MaxTimer to 0
     [Space(10)]
     [SerializeField] private List<GameObject> SpawnedAnimals;
+    [SerializeField] private List<GameObject> CurrentLevel_SpawnedAnimals;
     [Space(10)]
     [SerializeField] private List<AnimalIdentity> Animal_Dead;
     [SerializeField] private List<AnimalIdentity> Animal_Escape;
@@ -43,40 +45,114 @@ public class HuntingCaseManager : MonoBehaviour
     [SerializeField] private float CurrentTimer_GoUp;   //this timer goes from 0 to MaxTimer
     [Space(10)]
     [SerializeField] private HuntingBow HuntingBow;
+    [Space(10)]
+    [SerializeField] private ObjectPoolerManager ObjectPoolerManager;
 
 
     private void Start()
     {
         //TODO test only, get hunting case data
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
         if(TestCase != null)
         {
             CurrentHuntingCase = TestCase;
+            LoadCurrentLevel();
+        }
+    }
+
+    //function might not be necessary
+    public void ExitLevel()
+    {
+        if(CurrentLevel_SpawnedAnimals != null)
+        {
+            CurrentLevel_SpawnedAnimals.Clear();
+        }
+        
+        if(SpawnedAnimals != null)
+        {
+            for(int i = 0; i < SpawnedAnimals.Count; i++)
+            {
+                Destroy(SpawnedAnimals[i].gameObject);
+            }
+            SpawnedAnimals.Clear();
+        }
+    }
+
+    public void Load_NextLevel()
+    {
+        Load_SpecifiedLevel(CurrentRank, CurrentLevel+1);
+    }
+
+    //TODO call this function when wanting to load a specified level
+    public void Load_SpecifiedLevel(int newRank, int newLevel)
+    {
+        //clear previous level's spawned animal list
+        if(CurrentLevel_SpawnedAnimals != null)
+        {
+            CurrentLevel_SpawnedAnimals.Clear();
+        }
+        
+        if(SpawnedAnimals != null)
+        {
+            for(int i = 0; i < SpawnedAnimals.Count; i++)
+            {
+                Destroy(SpawnedAnimals[i].gameObject);
+            }
+            SpawnedAnimals.Clear();
+        }
+        
+
+        //load the specified level
+        CurrentRank = newRank;
+        CurrentLevel = newLevel;
+        CurrentHuntingCase = HuntingCase_Data.GetHuntingCaseData(CurrentRank, CurrentLevel);
+        LoadCurrentLevel();
+    }
+
+    public void ReloadCurrentLevel()
+    {
+        if(SpawnedAnimals != null)
+        {
+            CurrentLevel_SpawnedAnimals = new List<GameObject>(SpawnedAnimals);
         }
         else
         {
-            CurrentHuntingCase = HuntingCase_Data.GetHuntingCaseData(TestRank, TestLevel);
+            CurrentLevel_SpawnedAnimals = new List<GameObject>();
         }
+        
+        LoadCurrentLevel();
+    }
 
+    public void LoadCurrentLevel()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        //clear the list of spawned animals
+        SpawnedAnimals.Clear();
+        //empty list of dead, escaped, and eaten animals
+        Animal_Dead.Clear();
+        Animal_Escape.Clear();
+        Animal_Eaten.Clear();
         //store list of "AnimalSpawnData" from the case
+        if(CurrentHuntingCase == null)
+        {
+            Debug.LogWarning("case is null");
+        }
         AnimalSpawnData_List = new List<AnimalSpawnData>(CurrentHuntingCase.All_AnimalSpawnData);
         //store max timer and current timer from the case
         MaxTimer = CurrentHuntingCase.TimerDuration;
         CurrentTimer = MaxTimer;
         TickTimer = 0f;
         CurrentTimer_GoUp = 0f;
-        StageTimer.UpdateTimerValue(CurrentTimer);
+        HuntingUI.Toggle_Active_Timer(true);
+        HuntingUI.Update_TimerValue(CurrentTimer);
         //initialize the index of the current "AnimalSpawnData"
         Current_AnimalSpawnData_Index = 0;
         //change hunting game state to "Active"
         Update_HuntingGameState(Enum_HuntingGameState.Active);
         //enable hunting bow
+        HuntingBow.Setup_Bow();
         HuntingBow.Update_BowState(Enum_BowState.Active);
-        //end of test
-
-
     }
 
     public void Update()
@@ -100,7 +176,7 @@ public class HuntingCaseManager : MonoBehaviour
                 CurrentTimer_GoUp += TickRate;
                 CurrentTimer -= TickRate;
                 //Update timer UI
-                StageTimer.UpdateTimerValue(CurrentTimer);
+                HuntingUI.Update_TimerValue(CurrentTimer);
                 //check if we need to spawn any animal right now
                 CheckSpawnAnimal();
                 //check if the timer has run out
@@ -115,7 +191,24 @@ public class HuntingCaseManager : MonoBehaviour
         {
             AnimalSpawnData currentAnimalSpawnData = AnimalSpawnData_List[Current_AnimalSpawnData_Index];
             //Spawn animal
-            GameObject currentSpawnedAnimal = Instantiate(currentAnimalSpawnData.Animal_Prefab, currentAnimalSpawnData.SpawnPosition, currentAnimalSpawnData.Animal_Prefab.transform.rotation);
+            GameObject currentSpawnedAnimal = null;
+            if(CurrentLevel_SpawnedAnimals != null && CurrentLevel_SpawnedAnimals.Count > 0)
+            {
+                //use the animals that was spawned previously. Should only be used if reloading the same level
+                currentSpawnedAnimal = CurrentLevel_SpawnedAnimals[Current_AnimalSpawnData_Index];
+                currentSpawnedAnimal.transform.SetPositionAndRotation(currentAnimalSpawnData.SpawnPosition, currentAnimalSpawnData.Animal_Prefab.transform.rotation);
+            }
+            else
+            {
+                //create a new animal. Should be used if NOT reloading the level
+                currentSpawnedAnimal = Instantiate(currentAnimalSpawnData.Animal_Prefab, currentAnimalSpawnData.SpawnPosition, currentAnimalSpawnData.Animal_Prefab.transform.rotation);
+            }
+            
+            if(SpawnedAnimals == null)
+            {
+                SpawnedAnimals = new List<GameObject>();
+            }
+
             SpawnedAnimals.Add(currentSpawnedAnimal);
             //give reference of this case manager to the spawned animal
             currentSpawnedAnimal.GetComponent<Animal_AI_Base>().SetupAnimal_Complete(this);
@@ -169,20 +262,22 @@ public class HuntingCaseManager : MonoBehaviour
 
     public void Check_WinOrLose_Condition()
     {
-        bool winCondition_Met = CurrentHuntingCase.WinCondition.Get_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten);
-        if(winCondition_Met == true)
+        if(CurrentHuntingGameState != Enum_HuntingGameState.Inactive)
         {
-            WinEvent();
-            return;
-        }
+            bool winCondition_Met = CurrentHuntingCase.WinCondition.Get_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten);
+            if(winCondition_Met == true)
+            {
+                WinEvent();
+                return;
+            }
 
-        bool loseCondition_Met = CurrentHuntingCase.LoseCondition.Get_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten);
-        if(loseCondition_Met == true)
-        {
-            LoseEvent();
-            return;
+            bool loseCondition_Met = CurrentHuntingCase.LoseCondition.Get_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten);
+            if(loseCondition_Met == true)
+            {
+                LoseEvent();
+                return;
+            }
         }
-
     }
 
     //call this function if the timer runs out
@@ -198,33 +293,40 @@ public class HuntingCaseManager : MonoBehaviour
         }
     }
 
-
     private void WinEvent()
     {
         //stop the timer
         //change hunting game state to "Active"
+        HuntingUI.Toggle_Active_Timer(false);
         Update_HuntingGameState(Enum_HuntingGameState.Inactive);
         //disable hunting bow
         HuntingBow.Update_BowState(Enum_BowState.NonActive);
+        //disable arrows
+        ObjectPoolerManager.ReturnAllWeaponHitboxes();
         //enable mouse
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        //TODO win condition is met, trigger win event
-        Debug.LogWarning("Win event");
+        //open win panel
+        HuntingUI.Toggle_Active_WinPanel(true);
+        //Debug.LogWarning("Win event");
     }
 
     private void LoseEvent()
     {
         //stop the timer
         //change hunting game state to "Active"
+        HuntingUI.Toggle_Active_Timer(false);
         Update_HuntingGameState(Enum_HuntingGameState.Inactive);
         //disable hunting bow
         HuntingBow.Update_BowState(Enum_BowState.NonActive);
+        //disable arrows
+        ObjectPoolerManager.ReturnAllWeaponHitboxes();
         //enable mouse
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        //TODO lose condition is met, trigger lose event
-        Debug.LogWarning("Lose event");
+        //Open lose panel
+        HuntingUI.Toggle_Active_LosePanel(true);
+        //Debug.LogWarning("Lose event");
     }
 
     public void Update_HuntingGameState(Enum_HuntingGameState newState)
@@ -235,5 +337,36 @@ public class HuntingCaseManager : MonoBehaviour
         }
 
         CurrentHuntingGameState = newState;
+    }
+
+    public bool IsCurrentLevelTheLastLevel()
+    {
+        int maxLevel = HuntingCase_Data.GetLevelAmountInRank(CurrentRank);
+        return CurrentLevel == maxLevel;
+    }
+
+    public string GetLootData_String()
+    {
+        string theData = "";
+        //go through all spawned animals; Get the loot from the dead ones
+        for(int i = 0; i < SpawnedAnimals.Count; i++)
+        {
+            Animal_AI_Base theAnimal = SpawnedAnimals[i].GetComponent<Animal_AI_Base>();
+            if(theAnimal.GetAnimalStatus() == AnimalStatus.Dead)
+            {
+                if(string.IsNullOrEmpty(theData))
+                {
+                    //first loot data
+                    theData += theAnimal.GetLootData_String();
+                }
+                else
+                {
+                    //NOT first loot data
+                    theData += ", " + theAnimal.GetLootData_String();
+                }
+            }
+        }
+
+        return theData;
     }
 }

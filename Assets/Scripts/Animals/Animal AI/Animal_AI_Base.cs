@@ -39,6 +39,8 @@ public class Animal_AI_Base : MonoBehaviour
     {
         MaxHP = AnimalData.Health;
         CurrentHP = MaxHP;
+        //set animal state
+        UpdateAnimalStatus(AnimalStatus.Alive);
         //setup the HP bar
         Animal_HP_UI.UpdateInstant_HP_Slider_Visual(1f);
     }
@@ -48,11 +50,18 @@ public class Animal_AI_Base : MonoBehaviour
         //store reference to the hunting case manager
         huntingCaseManager = newManager;
 
-        //enable animal visibility
-        AnimationManager.ToggleAnimalVisualVisibility(true);
+        //stop previous action
+        StopAndDeleteAction();
+
+        //setup state index
+        MasterState_Index = 0;
+        State_Index = 0;
 
         //set animal hp
         SetupAnimal();
+
+        //enable animal visibility
+        AnimationManager.ToggleAnimalVisualVisibility(true);
 
         //enable the animal
         gameObject.SetActive(true);
@@ -349,6 +358,11 @@ public class Animal_AI_Base : MonoBehaviour
     public void SetMasterStateIndex(int newIndex)
     {
         MasterState_Index = newIndex;
+    }
+
+    public string GetLootData_String()
+    {
+        return AnimalData.LootData.ToString();
     }
 
     public int GetStateIndex()

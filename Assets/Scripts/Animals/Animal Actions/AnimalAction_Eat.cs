@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class AnimalAction_Idle : AnimalAction_Base
+public class AnimalAction_Eat : AnimalAction_Base
 {
-    public float IdleDuration;
+    public float EatDuration;
 
     public override void Activate_AnimalAction(AnimalAction_ActivateData animalAction_ActivateData)
     {
         //get reference to the animal that this action belongs to
         Animal_AI_Base theAnimal = animalAction_ActivateData.TheAnimal;
 
-        //make this animal idle for a specific amount of time
-        theAnimal.StartIdle(IdleDuration);
+        //make this animal eat for a specific amount of time
+        theAnimal.StartEat(EatDuration);
     }
 }

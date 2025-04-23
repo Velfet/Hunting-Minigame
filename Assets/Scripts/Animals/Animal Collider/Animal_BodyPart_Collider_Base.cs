@@ -16,7 +16,7 @@ public abstract class Animal_BodyPart_Collider_Base : MonoBehaviour, IAnimalPart
 
     
 
-    //TODO might want to add reference to the animal
+    //reference to the animal
     public Animal_AI_Base TheAnimal;
 
     protected void OnTriggerEnter(Collider other)

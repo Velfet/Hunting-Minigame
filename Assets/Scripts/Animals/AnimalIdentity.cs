@@ -8,10 +8,11 @@ public struct AnimalIdentity : IEquatable<AnimalIdentity>
 {
     public string Name;
     public AnimalType AnimalType;
+    public AnimalBehaviourType AnimalBehaviour;
 
     public bool Equals(AnimalIdentity other)
     {
-        return Name == other.Name && AnimalType == other.AnimalType;
+        return Name == other.Name && AnimalType == other.AnimalType && AnimalBehaviour == other.AnimalBehaviour;
     }
 
     public override bool Equals(object obj)
@@ -21,6 +22,6 @@ public struct AnimalIdentity : IEquatable<AnimalIdentity>
 
     public override int GetHashCode()
     {
-        return (Name, AnimalType).GetHashCode();
+        return (Name, AnimalType, AnimalBehaviour).GetHashCode();
     }
 }

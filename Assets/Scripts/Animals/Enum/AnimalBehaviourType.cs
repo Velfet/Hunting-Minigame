@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AnimalType
+public enum AnimalBehaviourType
 {
-    Deer,
-    Hyena,
-    Leopard
+    Prey,
+    Predator,
+    Flyer,
+    Scavenger
 }

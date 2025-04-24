@@ -39,6 +39,30 @@ public class AnimalAnimationManager : MonoBehaviour
         CurrentAnimation = newAnimation;
     }
 
+    public void Start_Animation_JumpToEnd(AnimalAnimationKeys newAnimation)
+    {
+        if(newAnimation == CurrentAnimation)
+        {
+            //don't replay the animation that is already ongoing
+            return;
+        }
+
+        if(Animator.enabled == false)
+        {
+            Animator.enabled = true;
+        }
+
+        if(AnimalAnimationClips_Dictionary == null)
+        {
+            Construct_AnimalAnimationClips_Dictionary();
+        }
+
+        Animator.Play(AnimalAnimationClips_Dictionary[newAnimation], 0, 1f);
+        Animator.Update(0f);
+
+        CurrentAnimation = newAnimation;
+    }
+
     public void Stop_Animation()
     {
         Animator.enabled = false;

@@ -49,22 +49,28 @@ public class Animal_React_Collider_Base : MonoBehaviour, IAnimalPart_React
         //TODO probably want to put all of these (from Start to End) in 1 function over at "Animal_AI_Base"
 
 
-        //TODO old, please delete later
+        //old
         //store a reference to the target animal
-        targetAnimal = theOtherAnimal;
+        // targetAnimal = theOtherAnimal;
 
-        //make this animal react by calling the function "OnReactColliderTriggered"
-        OnReactColliderTriggered();
+        // //make this animal react by calling the function "OnReactColliderTriggered"
+        // OnReactColliderTriggered();
         //end of old
+    }
+
+    protected virtual void OnTriggerExit(Collider other)
+    {
+
     }
 
 
     //might not be needed
-    public virtual void OnReactColliderTriggered()
-    {
-        //TODO might want to check if target animal is already eaten or not; the state can be
-        //determined by some field in this class
-        //tell the animal that the react collider was triggered
-        theAnimal.Trigger_ReactCollider_Action(ReactAction, targetAnimal);
-    }
+    // public virtual void OnReactColliderTriggered()
+    // {
+    //     //NOTE: might want to check if target animal is already eaten or not; the state can be
+    //
+    //     //determined by some field in this class
+    //     //tell the animal that the react collider was triggered
+    //     theAnimal.Trigger_ReactCollider_Action(ReactAction, targetAnimal);
+    // }
 }

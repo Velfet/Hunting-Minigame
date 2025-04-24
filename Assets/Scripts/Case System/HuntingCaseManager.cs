@@ -34,7 +34,7 @@ public class HuntingCaseManager : MonoBehaviour
     [SerializeField] private float CurrentTimer;    //this timer goes from MaxTimer to 0
     [Space(10)]
     [SerializeField] private List<GameObject> SpawnedAnimals;
-    [SerializeField] private List<GameObject> CurrentLevel_SpawnedAnimals;
+    //[SerializeField] private List<GameObject> CurrentLevel_SpawnedAnimals;  //used for reloading levels; Unused
     [Space(10)]
     [SerializeField] private List<AnimalIdentity> Animal_Dead;
     [SerializeField] private List<AnimalIdentity> Animal_Escape;
@@ -62,10 +62,10 @@ public class HuntingCaseManager : MonoBehaviour
     //function might not be necessary
     public void ExitLevel()
     {
-        if(CurrentLevel_SpawnedAnimals != null)
-        {
-            CurrentLevel_SpawnedAnimals.Clear();
-        }
+        // if(CurrentLevel_SpawnedAnimals != null)
+        // {
+        //     CurrentLevel_SpawnedAnimals.Clear();
+        // }
         
         if(SpawnedAnimals != null)
         {
@@ -86,10 +86,10 @@ public class HuntingCaseManager : MonoBehaviour
     public void Load_SpecifiedLevel(int newRank, int newLevel)
     {
         //clear previous level's spawned animal list
-        if(CurrentLevel_SpawnedAnimals != null)
-        {
-            CurrentLevel_SpawnedAnimals.Clear();
-        }
+        // if(CurrentLevel_SpawnedAnimals != null)
+        // {
+        //     CurrentLevel_SpawnedAnimals.Clear();
+        // }
         
         if(SpawnedAnimals != null)
         {
@@ -110,13 +110,23 @@ public class HuntingCaseManager : MonoBehaviour
 
     public void ReloadCurrentLevel()
     {
+        // if(SpawnedAnimals != null)
+        // {
+        //     CurrentLevel_SpawnedAnimals = new List<GameObject>(SpawnedAnimals);
+        // }
+        // else
+        // {
+        //     CurrentLevel_SpawnedAnimals = new List<GameObject>();
+        // }
+
+        //destroy any spawned animals before reloading the level
         if(SpawnedAnimals != null)
         {
-            CurrentLevel_SpawnedAnimals = new List<GameObject>(SpawnedAnimals);
-        }
-        else
-        {
-            CurrentLevel_SpawnedAnimals = new List<GameObject>();
+            for(int i = 0; i < SpawnedAnimals.Count; i++)
+            {
+                Destroy(SpawnedAnimals[i].gameObject);
+            }
+            SpawnedAnimals.Clear();
         }
         
         LoadCurrentLevel();
@@ -185,6 +195,7 @@ public class HuntingCaseManager : MonoBehaviour
         }
     }
 
+    //This spawns animals depending on the timer
     private void CheckSpawnAnimal()
     {
         while (Current_AnimalSpawnData_Index < AnimalSpawnData_List.Count && CurrentTimer_GoUp >= AnimalSpawnData_List[Current_AnimalSpawnData_Index].SpawnTime)
@@ -192,17 +203,18 @@ public class HuntingCaseManager : MonoBehaviour
             AnimalSpawnData currentAnimalSpawnData = AnimalSpawnData_List[Current_AnimalSpawnData_Index];
             //Spawn animal
             GameObject currentSpawnedAnimal = null;
-            if(CurrentLevel_SpawnedAnimals != null && CurrentLevel_SpawnedAnimals.Count > 0)
-            {
-                //use the animals that was spawned previously. Should only be used if reloading the same level
-                currentSpawnedAnimal = CurrentLevel_SpawnedAnimals[Current_AnimalSpawnData_Index];
-                currentSpawnedAnimal.transform.SetPositionAndRotation(currentAnimalSpawnData.SpawnPosition, currentAnimalSpawnData.Animal_Prefab.transform.rotation);
-            }
-            else
-            {
-                //create a new animal. Should be used if NOT reloading the level
-                currentSpawnedAnimal = Instantiate(currentAnimalSpawnData.Animal_Prefab, currentAnimalSpawnData.SpawnPosition, currentAnimalSpawnData.Animal_Prefab.transform.rotation);
-            }
+            currentSpawnedAnimal = Instantiate(currentAnimalSpawnData.Animal_Prefab, currentAnimalSpawnData.SpawnPosition, currentAnimalSpawnData.Animal_Prefab.transform.rotation);
+            // if(CurrentLevel_SpawnedAnimals != null && CurrentLevel_SpawnedAnimals.Count > 0)
+            // {
+            //     //use the animals that was spawned previously. Should only be used if reloading the same level
+            //     currentSpawnedAnimal = CurrentLevel_SpawnedAnimals[Current_AnimalSpawnData_Index];
+            //     currentSpawnedAnimal.transform.SetPositionAndRotation(currentAnimalSpawnData.SpawnPosition, currentAnimalSpawnData.Animal_Prefab.transform.rotation);
+            // }
+            // else
+            // {
+            //     //create a new animal. Should be used if NOT reloading the level
+            //     currentSpawnedAnimal = Instantiate(currentAnimalSpawnData.Animal_Prefab, currentAnimalSpawnData.SpawnPosition, currentAnimalSpawnData.Animal_Prefab.transform.rotation);
+            // }
             
             if(SpawnedAnimals == null)
             {
@@ -211,10 +223,17 @@ public class HuntingCaseManager : MonoBehaviour
 
             SpawnedAnimals.Add(currentSpawnedAnimal);
             //give reference of this case manager to the spawned animal
-            currentSpawnedAnimal.GetComponent<Animal_AI_Base>().SetupAnimal_Complete(this);
+            currentSpawnedAnimal.GetComponent<Animal_AI_Base>().SetupAnimal_Complete(this, currentAnimalSpawnData);
             //increment index
             Current_AnimalSpawnData_Index++;
         }
+    }
+
+    //TODO This spawns animals depending on conditions such as whether animal X is dead
+    //or animal X escape + animal Y died
+    private void CheckSpawnAnimal_Condition()
+    {
+        //when spawning animal, don't forget to include the animal spawn data
     }
 
     private void CheckOutOfTime()
@@ -230,18 +249,28 @@ public class HuntingCaseManager : MonoBehaviour
     //function for animals to report their status
     public void ReportStatus(AnimalIdentity theAnimal, AnimalStatus newStatus)
     {
+        //do not register any more status when the game state is inactive
+        if(CurrentHuntingGameState == Enum_HuntingGameState.Inactive)
+        {
+            return;
+        }
+
         //Note: an animal needs to die before it can be eaten
         switch(newStatus)
         {
             case AnimalStatus.Dead:
                 //add the animal to the list of dead animals
                 Animal_Dead.Add(theAnimal);
+                //TODO check if we need to spawn an animal
+
                 //check win and lose condition
                 Check_WinOrLose_Condition();
                 break;
             case AnimalStatus.Escaped:
                 //add the animal to the list of escaped animals
                 Animal_Escape.Add(theAnimal);
+                //TODO check if we need to spawn an animal
+
                 //check win and lose condition
                 Check_WinOrLose_Condition();
                 break;
@@ -250,6 +279,8 @@ public class HuntingCaseManager : MonoBehaviour
                 Animal_Dead.Remove(theAnimal);
                 //add the animal to the list of eaten animals
                 Animal_Eaten.Add(theAnimal);
+                //TODO check if we need to spawn an animal
+
                 //check win and lose condition
                 Check_WinOrLose_Condition();
                 break;
@@ -301,6 +332,8 @@ public class HuntingCaseManager : MonoBehaviour
         Update_HuntingGameState(Enum_HuntingGameState.Inactive);
         //disable hunting bow
         HuntingBow.Update_BowState(Enum_BowState.NonActive);
+        //TODO stop all animal actions
+
         //disable arrows
         ObjectPoolerManager.ReturnAllWeaponHitboxes();
         //enable mouse
@@ -319,6 +352,8 @@ public class HuntingCaseManager : MonoBehaviour
         Update_HuntingGameState(Enum_HuntingGameState.Inactive);
         //disable hunting bow
         HuntingBow.Update_BowState(Enum_BowState.NonActive);
+        //TODO stop all animal actions
+        
         //disable arrows
         ObjectPoolerManager.ReturnAllWeaponHitboxes();
         //enable mouse

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5887927c44cb945bd3262cfb1bbb33, type: 3}
+  m_Name: HuntingCase_SO_TestCorpse
+  m_EditorClassIdentifier: 
+  All_AnimalSpawnData:
+  - Animal_Prefab: {fileID: 5848898158238761782, guid: 8e85cc36b74431f4bb4175fed806780e, type: 3}
+    SpawnTime: 0
+    SpawnPosition: {x: 0, y: 1.05, z: 12}
+    DeadOnSpawn: 1
+  WinCondition:
+    UsingDefaultCondition: 1
+    DefaultCondition: 0
+    Must_Die: []
+    Must_Escape: []
+    Must_BeEaten: []
+  LoseCondition:
+    UsingDefaultCondition: 1
+    DefaultCondition: 0
+    Must_Die: []
+    Must_Escape: []
+    Must_BeEaten: []
+  TimerDuration: 12

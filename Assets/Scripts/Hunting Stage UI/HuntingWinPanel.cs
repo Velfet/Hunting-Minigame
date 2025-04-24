@@ -13,8 +13,8 @@ public class HuntingWinPanel : MonoBehaviour
     [SerializeField] private Button ContinueButton;
     [SerializeField] private Button TownButton;
 
-
     private bool hasStarted = false;
+
 
     void Start()
     {
@@ -82,5 +82,7 @@ public class HuntingWinPanel : MonoBehaviour
     public void Toggle_Active_State(bool activeState)
     {
         gameObject.SetActive(activeState);
+        
     }
+
 }

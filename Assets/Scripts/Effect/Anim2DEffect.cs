@@ -12,4 +12,10 @@ public class Anim2DEffect : MonoBehaviour
     {
         Animator.Play(AnimClipName, 0, 0f);
     }
+
+    public void PlayEffectAnim_JumpToEnd()
+    {
+        Animator.Play(AnimClipName, 0, 1f);
+        Animator.Update(0f);
+    }
 }

@@ -7,5 +7,6 @@ public enum AnimalReactState
     Default,
     ArrowHit,
     ChasePrey,
-    RunFromPredator
+    RunFromPredator,
+    Roaring
 }

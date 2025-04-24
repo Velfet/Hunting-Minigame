@@ -8,5 +8,6 @@ public enum AnimalAnimationKeys
     Eat,
     Walk,
     Run,
-    Die
+    Die,
+    Roar
 }

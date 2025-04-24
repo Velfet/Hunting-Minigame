@@ -6,5 +6,7 @@ public enum AnimalType
 {
     Deer,
     Hyena,
-    Leopard
+    Leopard,
+    Hawk,
+    Lion
 }

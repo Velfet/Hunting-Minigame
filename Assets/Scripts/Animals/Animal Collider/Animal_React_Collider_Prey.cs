@@ -23,16 +23,36 @@ public class Animal_React_Collider_Prey : Animal_React_Collider_Base
 
         //check prey's status
         AnimalStatus preyStatus = theOtherAnimal.GetAnimalStatus();
-        if(preyStatus != AnimalStatus.Alive || preyStatus != AnimalStatus.Dead)
+        if(preyStatus == AnimalStatus.Escaped || preyStatus == AnimalStatus.Eaten)
         {
             //prey has escaped or has been eaten, ignore it
             return;
         }
 
-        //TODO add prey to the animal's list
+        //add prey to the animal's list of preys
+        theAnimal.AddPrey(theOtherAnimal);
     }
 
-    //TODO add OnTriggerExit function
+    protected override void OnTriggerExit(Collider other)
+    {
+        //check if the "other" is an animal
+        Animal_AI_Base theOtherAnimal = other.GetComponent<Animal_AI_Base>();
+        if(theOtherAnimal == null)
+        {
+            //"other" is not an animal
+            return;
+        }
+        //check if the other animal makes this animal react or not
+        AnimalType otherAnimalType = theOtherAnimal.GetAnimalType();
+        if(reactSources.Contains(otherAnimalType) == false)
+        {
+            //the other animal's type does not make this animal react
+            return;
+        }
+
+        //remove prey from the animal's list of preys. No more, only remove prey from list if it is out of sight
+        //theAnimal.RemovePrey(theOtherAnimal);
+    }
 
 
 }

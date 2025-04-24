@@ -32,96 +32,6 @@ Transform:
   m_Father: {fileID: 5848898158238761769}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1026624657330579283
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1645473241172520539}
-  - component: {fileID: 3448018635220519481}
-  - component: {fileID: 1331550374293796704}
-  - component: {fileID: 6195844670124304802}
-  m_Layer: 0
-  m_Name: Deer_ReactCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1645473241172520539
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026624657330579283}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.59333336, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.25}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7773329110334508895}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3448018635220519481
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026624657330579283}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.2, y: 2.2, z: 1}
-  m_Center: {x: 0, y: 0.3, z: 0}
---- !u!54 &1331550374293796704
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026624657330579283}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!114 &6195844670124304802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026624657330579283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c172022b0bf55849800bfd174dc1275, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reactSources: 01000000
-  reactAction:
-    rid: 3243458672765435904
-  theAnimal: {fileID: 5848898158238761768}
-  references:
-    version: 2
-    RefIds:
-    - rid: 3243458672765435904
-      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        AlterValue_StateIndex: 1
-        AlterType_StateIndex: 1
-        AlterValue_ActionIndex: 0
-        AlterType_ActionIndex: 1
 --- !u!1 &1677901948386346028
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +154,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888098862201760763}
   m_CullTransparentMesh: 1
+--- !u!1 &2193950697184301188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9009960922326280897}
+  - component: {fileID: 6540120141038610290}
+  - component: {fileID: 3583911591454705358}
+  - component: {fileID: 6950296599040479973}
+  m_Layer: 0
+  m_Name: Deer_ReactCollider_Predator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9009960922326280897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2193950697184301188}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5933334, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7773329110334508895}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6540120141038610290
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2193950697184301188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.0487404, y: 2.2000003, z: 3}
+  m_Center: {x: 0.021749884, y: 0.3, z: 0}
+--- !u!54 &3583911591454705358
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2193950697184301188}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &6950296599040479973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2193950697184301188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4d793ff5f8081469182891b1f6d3d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reactSources: 01000000
+  reactAction:
+    rid: 3243458698102964224
+  theAnimal: {fileID: 4448282191427733293}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3243458698102964224
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        AlterValue_StateIndex: 1
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
 --- !u!1 &2786155932127036493
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ Transform:
   m_Children:
   - {fileID: 5848898157652286807}
   - {fileID: 3014776449036766625}
-  - {fileID: 1645473241172520539}
+  - {fileID: 9009960922326280897}
   - {fileID: 5848898158393973601}
   - {fileID: 7425452474265707425}
   m_Father: {fileID: 5848898158238761769}
@@ -863,7 +863,7 @@ MonoBehaviour:
   hitPriority: 2
   bodyPartCollider: {fileID: 7745500489215512837}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 5848898158238761768}
+  TheAnimal: {fileID: 4448282191427733293}
 --- !u!1 &5848898157896433701
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +944,7 @@ MonoBehaviour:
   hitPriority: 5
   bodyPartCollider: {fileID: 4676008751223539197}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 5848898158238761768}
+  TheAnimal: {fileID: 4448282191427733293}
 --- !u!1 &5848898158238761782
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +954,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5848898158238761769}
-  - component: {fileID: 5848898158238761768}
+  - component: {fileID: 4448282191427733293}
   - component: {fileID: 5848898158238761771}
   - component: {fileID: 1924988213664802989}
   m_Layer: 0
@@ -984,7 +984,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5848898158238761768
+--- !u!114 &4448282191427733293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -993,7 +993,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5848898158238761782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36fd4f36344d6a24f936f92d69b2e744, type: 3}
+  m_Script: {fileID: 11500000, guid: d9860777576ef054d9e0059c7df757be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 5848898158238761782}
@@ -1002,23 +1002,24 @@ MonoBehaviour:
   AnimalIdentity:
     Name: Deer
     AnimalType: 0
+    AnimalBehaviour: 0
   Animal_HP_UI: {fileID: 2098566144278072111}
   CurrentHP: 0
   MaxHP: 0
   AnimalMasterState:
     AnimalStates:
-    - rid: 3243458342108528640
-    - rid: 3243458497247969280
+    - rid: 3243458698102964225
+    - rid: 3243458698102964226
   MasterState_Index: 0
   State_Index: 0
   CurrentAnimalAction:
     rid: -2
   MissAuraHit_Action:
-    rid: 3243458497247969284
+    rid: 3243458698102964235
   BodyHit_Action:
-    rid: 3243458497247969285
+    rid: 3243458698102964236
   HeadHit_Action:
-    rid: 3243458497247969286
+    rid: 3243458698102964237
   AnimationManager: {fileID: 1924988213664802989}
   BloodHit_Particle: {fileID: 3895986136121655775}
   WeaponHit_Effect: {fileID: 265993974552987168}
@@ -1026,26 +1027,59 @@ MonoBehaviour:
   ReactState: 0
   Previous_MasterState_Index: 0
   Previous_State_Index: 0
+  Previous_ReactState: 0
+  SeePredator_Action:
+    rid: 3243458698102964238
+  NoMorePredator_Action:
+    rid: 3243458698102964239
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 3243458342108528640
+    - rid: 3243458698102964225
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
+        StateName: Default
         AnimalActions:
-        - rid: 3243458342108528641
-        - rid: 3243458360925749248
-        - rid: 3243458360925749250
-    - rid: 3243458342108528641
+        - rid: 3243458698102964227
+        - rid: 3243458698102964228
+        - rid: 3243458698102964229
+    - rid: 3243458698102964226
+      type: {class: AnimalState, ns: , asm: Assembly-CSharp}
+      data:
+        StateName: Shoot Arrow Or Run From Predator
+        AnimalActions:
+        - rid: 3243458698102964230
+    - rid: 3243458698102964227
       type: {class: AnimalAction_WalkToPoint, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
-          rid: 3243458342108528642
+          rid: 3243458698102964231
         ActionPriority: 0
         WalkDestination: {x: 5, y: 1.05, z: 12}
-    - rid: 3243458342108528642
+    - rid: 3243458698102964228
+      type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 3243458698102964232
+        ActionPriority: 0
+        IdleDuration: 4.5
+    - rid: 3243458698102964229
+      type: {class: AnimalAction_WalkToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 3243458698102964233
+        ActionPriority: 0
+        WalkDestination: {x: -13, y: 1.05, z: 12}
+    - rid: 3243458698102964230
+      type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 3243458698102964234
+        ActionPriority: 0
+        RunDestination: {x: -13, y: 1.05, z: 12}
+    - rid: 3243458698102964231
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -1053,14 +1087,7 @@ MonoBehaviour:
         AlterType_StateIndex: 2
         AlterValue_ActionIndex: 1
         AlterType_ActionIndex: 1
-    - rid: 3243458360925749248
-      type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
-      data:
-        AnimalFinishAction:
-          rid: 3243458360925749249
-        ActionPriority: 0
-        IdleDuration: 4.5
-    - rid: 3243458360925749249
+    - rid: 3243458698102964232
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -1068,26 +1095,17 @@ MonoBehaviour:
         AlterType_StateIndex: 0
         AlterValue_ActionIndex: 1
         AlterType_ActionIndex: 0
-    - rid: 3243458360925749250
-      type: {class: AnimalAction_WalkToPoint, ns: , asm: Assembly-CSharp}
+    - rid: 3243458698102964233
+      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:
-        AnimalFinishAction:
-          rid: 3243458497247969287
-        ActionPriority: 0
-        WalkDestination: {x: -13, y: 1.05, z: 12}
-    - rid: 3243458497247969280
-      type: {class: AnimalState, ns: , asm: Assembly-CSharp}
+        FinishActionPriority: 0
+        NewStatus: 2
+    - rid: 3243458698102964234
+      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:
-        AnimalActions:
-        - rid: 3243458497247969281
-    - rid: 3243458497247969281
-      type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
-      data:
-        AnimalFinishAction:
-          rid: 3243458497247969288
-        ActionPriority: 0
-        RunDestination: {x: -13, y: 1.05, z: 12}
-    - rid: 3243458497247969284
+        FinishActionPriority: 0
+        NewStatus: 2
+    - rid: 3243458698102964235
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -1095,7 +1113,7 @@ MonoBehaviour:
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
         AlterType_ActionIndex: 1
-    - rid: 3243458497247969285
+    - rid: 3243458698102964236
       type: {class: AnimalFinishAction_DamageAndAlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -1104,7 +1122,7 @@ MonoBehaviour:
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
         AlterType_ActionIndex: 1
-    - rid: 3243458497247969286
+    - rid: 3243458698102964237
       type: {class: AnimalFinishAction_DamageAndAlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -1113,16 +1131,22 @@ MonoBehaviour:
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
         AlterType_ActionIndex: 1
-    - rid: 3243458497247969287
-      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
+    - rid: 3243458698102964238
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
-        NewStatus: 2
-    - rid: 3243458497247969288
-      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
+        AlterValue_StateIndex: 1
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
+    - rid: 3243458698102964239
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
-        NewStatus: 2
+        AlterValue_StateIndex: 1
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
 --- !u!114 &5848898158238761771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,7 +1159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb024639bd80994bb384159456dcf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TheAnimal: {fileID: 5848898158238761768}
+  TheAnimal: {fileID: 4448282191427733293}
 --- !u!114 &1924988213664802989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,7 +1500,7 @@ MonoBehaviour:
   hitPriority: 1
   bodyPartCollider: {fileID: 4728959822563788053}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 5848898158238761768}
+  TheAnimal: {fileID: 4448282191427733293}
 --- !u!1001 &4840860080618514584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1721,6 +1745,10 @@ PrefabInstance:
     - target: {fileID: 5821549190899430898, guid: 73742e3f8ca78974ea3e286a98088d20, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821549190899430899, guid: 73742e3f8ca78974ea3e286a98088d20, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73742e3f8ca78974ea3e286a98088d20, type: 3}

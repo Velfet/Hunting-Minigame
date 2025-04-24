@@ -7,6 +7,10 @@ public class HuntingUIManager : MonoBehaviour
     [SerializeField] private HuntingStageTimer StageTimer;
     [SerializeField] private HuntingLosePanel LosePanel;
     [SerializeField] private HuntingWinPanel WinPanel;
+    [SerializeField] private float ActivateDelayDuration;
+
+
+    private IEnumerator DelayActivateWinPanel_Coroutine;
 
 
     #region stage timer function
@@ -30,7 +34,47 @@ public class HuntingUIManager : MonoBehaviour
     #region  win panel function
     public void Toggle_Active_WinPanel(bool activeState)
     {
-        WinPanel.Toggle_Active_State(activeState);
+        if(activeState == false)
+        {
+            WinPanel.Toggle_Active_State(false);
+        }
+        else
+        {
+            //function to start coroutine
+            Start_DelayActivatePanel();
+        }
+    }
+
+    private void Interrupt_DelayActivatePanel()
+    {
+        if(DelayActivateWinPanel_Coroutine != null)
+        {
+            StopCoroutine(DelayActivateWinPanel_Coroutine);
+            DelayActivateWinPanel_Coroutine = null;
+        }
+    }
+
+    private void Start_DelayActivatePanel()
+    {
+        Interrupt_DelayActivatePanel();
+
+        //set and start the coroutine
+        DelayActivateWinPanel_Coroutine = DelayActivatePanel(ActivateDelayDuration);
+        StartCoroutine(DelayActivateWinPanel_Coroutine);
+    }
+
+    private IEnumerator DelayActivatePanel(float delayDuration)
+    {
+        float currentTime = 0f;
+
+        while(currentTime < delayDuration)
+        {
+            yield return null;
+            currentTime += Time.deltaTime;
+        }
+
+        //delay is done, activate the panel now
+        WinPanel.Toggle_Active_State(true);
     }
     #endregion
 

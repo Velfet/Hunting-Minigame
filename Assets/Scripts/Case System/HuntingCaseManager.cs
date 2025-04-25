@@ -332,8 +332,8 @@ public class HuntingCaseManager : MonoBehaviour
         Update_HuntingGameState(Enum_HuntingGameState.Inactive);
         //disable hunting bow
         HuntingBow.Update_BowState(Enum_BowState.NonActive);
-        //TODO stop all animal actions
-
+        //stop all animal actions
+        StopAllAnimals();
         //disable arrows
         ObjectPoolerManager.ReturnAllWeaponHitboxes();
         //enable mouse
@@ -352,8 +352,8 @@ public class HuntingCaseManager : MonoBehaviour
         Update_HuntingGameState(Enum_HuntingGameState.Inactive);
         //disable hunting bow
         HuntingBow.Update_BowState(Enum_BowState.NonActive);
-        //TODO stop all animal actions
-        
+        //stop all animal actions
+        StopAllAnimals();
         //disable arrows
         ObjectPoolerManager.ReturnAllWeaponHitboxes();
         //enable mouse
@@ -378,6 +378,14 @@ public class HuntingCaseManager : MonoBehaviour
     {
         int maxLevel = HuntingCase_Data.GetLevelAmountInRank(CurrentRank);
         return CurrentLevel == maxLevel;
+    }
+
+    public void StopAllAnimals()
+    {
+        for(int i = 0; i < SpawnedAnimals.Count; i++)
+        {
+            SpawnedAnimals[i].GetComponent<Animal_AI_Base>().StopAndDeleteAction();
+        }
     }
 
     public string GetLootData_String()

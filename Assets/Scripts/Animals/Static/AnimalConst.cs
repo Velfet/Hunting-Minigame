@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class AnimalConst
 {
-    public const float CloseEnough_Distance = 0.2f;
+    public const float CloseEnough_Distance = 0.1f;
 }

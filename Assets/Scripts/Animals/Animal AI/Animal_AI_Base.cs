@@ -47,18 +47,44 @@ public class Animal_AI_Base : MonoBehaviour
     protected Animal_AI_Base currentPrey;
     protected Animal_AI_Base currentPredator;
 
+    //TODO list of potential preys;
+    //gets populated if the prey is not in an ideal state and it enters the prey react collider
+    //gets emptied if the prey escapes/gets eaten or is out of sight (exit) sight collider; also when setting up animal
+    //gets moved to the react list if the prey is now in a valid state
+    //example: prey was being eaten (invalid) -> prey no longer being eaten but can still be eaten (valid)
+    //in the example above, what happened was the animal that was eating the prey stopped eating
+    //the prey before it could finish, therefore, the prey is now a valid target for some other animals
+    protected List<Animal_AI_Base> potentialPreys;
+    
+    //TODO list of prey animals in the react collider
+    //gets populated if the prey enters the prey react collider
+    //gets emptied if the prey escapes/gets eaten or exits the react collider; also when setting up animal
+    //this will be used when detecting if an animal
+    //should be moved from react list to the potential list of preys
+    //(should be moved if: the animal is still in the react collider)
+    protected List<Animal_AI_Base> reactCollider_Preys;
+
     //invoke action
-    //have other animals subscribe to action
-    //have other animals unsubscribe to action
     public event Action<Animal_AI_Base> OnDeath;
-    public event Action<Animal_AI_Base> OnEaten;
+    public event Action<Animal_AI_Base> OnEaten;    //gets called when the animal is done being eaten, no more corpse
     public event Action<Animal_AI_Base> OnEscape;
+    //TODO invoke these actions; also, subscribe/unsubsribe from these actions
+    public event Action<Animal_AI_Base, Animal_AI_Base> OnBeingEaten_Start;     //first parameter is the eat target, second parameter is the eater animal
+    public event Action<Animal_AI_Base, Animal_AI_Base> OnBeingEaten_Interrupt; //so, only 1 of these two should run at a time: OnEaten and OnBeingEaten_Interrupt
+    //first parameter is the eat target, second parameter is the previous eater animal that got interrupted
+
+    //TODO bool fields to mark eaten and eating state; set to false at setup
+    //update these fields accordingly
+    protected bool isBeingEaten;
+    protected bool isEating;
 
     //function: add or remove animal to prey or predator list, this function will call function to potentialy alter behaviour of animal
     //function: make functions to subscribe to prey or predator's:
     //1. death event
-    //2. eaten event
+    //2. eaten event    (eat has ended properly, no corpse remains)
     //3. escape event
+    //4. eaten start
+    //5. eaten interrupt (eat ended prematurely, corpse does remain)
     //function: potentially alter behaviour of animal depending on current prey and predator list
     //TODO finish actions for the following (might not be needed right now):
     //1. react prey seen
@@ -119,8 +145,14 @@ public class Animal_AI_Base : MonoBehaviour
         myPredators = new List<Animal_AI_Base>();
         myPreys_Visible = new List<Animal_AI_Base>();
         myPredators_Visible = new List<Animal_AI_Base>();
+        potentialPreys = new List<Animal_AI_Base>();
+        reactCollider_Preys = new List<Animal_AI_Base>();
         currentPrey = null;
         currentPredator = null;
+
+        //set eat bool fields
+        isBeingEaten = false;
+        isEating = false;
 
         //stop previous action
         StopAndDeleteAction();
@@ -323,6 +355,7 @@ public class Animal_AI_Base : MonoBehaviour
 
             //update destinationPos
             destinationPos = targetTransform.position;
+            destinationPos.z = Animal_GO.transform.position.z;
             //update distance
             distanceToTarget = Vector3.Distance(Animal_GO.transform.position, destinationPos);
             
@@ -347,6 +380,10 @@ public class Animal_AI_Base : MonoBehaviour
 
     public IEnumerator EatForSomeTime(float eatDuration, Animal_AI_Base theEatenAnimal)
     {
+        //start eat here
+        isEating = true;
+        //inform the eaten animal that it is being eaten
+        theEatenAnimal.BeingEaten_Begin(this);
         float currentTime = 0f;
         while(currentTime < eatDuration)
         {
@@ -354,10 +391,12 @@ public class Animal_AI_Base : MonoBehaviour
             currentTime += Time.deltaTime;
         }
 
-        //Animal has finished eating, mark the eaten animal as "Eaten"
-        theEatenAnimal.UpdateAnimalStatus(AnimalStatus.Eaten);
+        //finish eating here
+        isEating = false;
         //trigger finish action
         ActivateCurrentAction_FinishAction();
+        //Animal has finished eating, mark the eaten animal as "Eaten"
+        theEatenAnimal.UpdateAnimalStatus(AnimalStatus.Eaten);
     }
 
     #endregion
@@ -366,6 +405,12 @@ public class Animal_AI_Base : MonoBehaviour
     {
         //stop current action
         InterruptMove();
+        //play the animal's idle animation if animal is alive
+        if(AnimalState == AnimalStatus.Alive)
+        {
+            AnimationManager.Start_Animation(AnimalAnimationKeys.Idle);
+        }
+        
 
         //set current action to null
         CurrentAnimalAction = null;
@@ -373,6 +418,13 @@ public class Animal_AI_Base : MonoBehaviour
 
     public void ActivateCurrentAction(Animal_AI_Base targetAnimal = null)
     {
+        //animal can't act if it is not alive
+        if(AnimalState != AnimalStatus.Alive)
+        {
+            Debug.LogWarning("Animal is not alive, it cannot activate current action. Animal: " + AnimalIdentity.Name);
+            return;
+        }
+
         AnimalAction_ActivateData animalAction_ActivateData = new AnimalAction_ActivateData{
             TheAnimal = this,
             TheTargetAnimal = targetAnimal
@@ -399,6 +451,13 @@ public class Animal_AI_Base : MonoBehaviour
     {
         if(MoveCoroutine != null)
         {
+            //check if animal is currently eating
+            if(isEating == true)
+            {
+                //animal was eating but is interrupted, inform the eaten animal
+                currentPrey.BeingEaten_Interrupt(this);
+            }
+
             //interrupt current move coroutine
             StopCoroutine(MoveCoroutine);
             MoveCoroutine = null;
@@ -419,7 +478,10 @@ public class Animal_AI_Base : MonoBehaviour
             TheAnimal = this
         };
 
-        MissAuraHit_Action.Activate_FinishAction(animalAction_ActivateData);
+        if(MissAuraHit_Action != null)
+        {
+            MissAuraHit_Action.Activate_FinishAction(animalAction_ActivateData);
+        }
     }
 
     //call this function when the body is hit
@@ -516,12 +578,8 @@ public class Animal_AI_Base : MonoBehaviour
         {
             //add the prey to the list of preys
             myPreys.Add(thePrey);
-            //old
-            //subscribe to the prey's events
-            // thePrey.OnDeath += Handle_MyPrey_Die;
-            // thePrey.OnEscape += Handle_MyPrey_Escape;
-            // thePrey.OnEaten += Handle_MyPrey_Eaten;
-            //end of old
+            //add prey to the reactcollider_preys
+            reactCollider_Preys.Add(thePrey);
             //potentially alter behaviour, call a function here
             React_PreyPredator_AddRemove();
         }
@@ -532,24 +590,11 @@ public class Animal_AI_Base : MonoBehaviour
     {
         //new: do nothing; only remove prey if it is out of sight
 
-        //check if the prey is in the prey list
-        //if(myPreys.Remove(thePrey) == true)
-        //{
-            //prey was in the prey list, it has now been removed
-            //old
-            //unsubscribe from the prey's events
-            // thePrey.OnDeath -= Handle_MyPrey_Die;
-            // thePrey.OnEscape -= Handle_MyPrey_Escape;
-            // thePrey.OnEaten -= Handle_MyPrey_Eaten;
-            // //check if removed prey is current prey; If so, current prey is null
-            // if(currentPrey == thePrey)
-            // {
-            //     currentPrey = null;
-            // }
-            //potentially alter behaviour, call a function here
-            //React_PreyPredator_AddRemove();
-            //end of old
-        //}
+        //remove from potential preys
+        potentialPreys.Remove(thePrey);
+
+        //remove from reactcollider_preys
+        reactCollider_Preys.Remove(thePrey);
     }
 
     //call this function, enter react and predator is alive
@@ -560,12 +605,6 @@ public class Animal_AI_Base : MonoBehaviour
         {
             //add the predator the the list of predators
             myPredators.Add(thePredator);
-            //old
-            //subscribe to the predator's events
-            // thePredator.OnDeath += Handle_MyPredator_Die;
-            // thePredator.OnEscape += Handle_MyPredator_Escape;
-            // thePredator.OnEaten += Handle_MyPredator_Eaten;
-            //end of old
             //potentially alter behaviour, call a function here
             React_PreyPredator_AddRemove();
         }
@@ -575,28 +614,9 @@ public class Animal_AI_Base : MonoBehaviour
     public virtual void RemovePredator(Animal_AI_Base thePredator)
     {
         //new: do nothing; only remove prey if it is out of sight
-
-        //check if the predator is in the predator list
-        //if(myPredators.Remove(thePredator) == true)
-        //{
-            //predator was in the predator list, it has not been removed
-            //old
-            //unsubscribe from the predator's events
-            // thePredator.OnDeath -= Handle_MyPredator_Die;
-            // thePredator.OnEscape -= Handle_MyPredator_Escape;
-            // thePredator.OnEaten -= Handle_MyPredator_Eaten;
-            // //check if removed predator is current predator; If so, current predator is null
-            // if(currentPredator == thePredator)
-            // {
-            //     currentPredator = null;
-            // }
-            //potentiall alter behaviour, call a function here
-            //React_PreyPredator_AddRemove();
-            //end of old
-        //}
     }
 
-    //TODO enter sight
+    //enter sight
     public virtual void AddPrey_Visible(Animal_AI_Base thePrey)
     {
         //check if the prey has not already been added to the prey list
@@ -605,13 +625,11 @@ public class Animal_AI_Base : MonoBehaviour
             //add the prey to the list of visible preys
             myPreys_Visible.Add(thePrey);
             //subscribe to the prey's events
-            thePrey.OnDeath += Handle_MyPrey_Die;
-            thePrey.OnEscape += Handle_MyPrey_Escape;
-            thePrey.OnEaten += Handle_MyPrey_Eaten;
+            Sub_Or_Unsub_PreyEvents(thePrey, true);
         }
     }
 
-    //TODO exit sight
+    //exit sight
     public virtual void RemovePrey_Visible(Animal_AI_Base thePrey)
     {
         //check if the prey is in the prey list
@@ -621,9 +639,7 @@ public class Animal_AI_Base : MonoBehaviour
             myPreys.Remove(thePrey);
 
             //unsubscribe from the prey's events
-            thePrey.OnDeath -= Handle_MyPrey_Die;
-            thePrey.OnEscape -= Handle_MyPrey_Escape;
-            thePrey.OnEaten -= Handle_MyPrey_Eaten;
+            Sub_Or_Unsub_PreyEvents(thePrey, false);
             //check if removed prey is current prey; If so, current prey is null
             if(currentPrey == thePrey)
             {
@@ -635,7 +651,7 @@ public class Animal_AI_Base : MonoBehaviour
         
     }
 
-    //TODO enter sight
+    //enter sight
     public virtual void AddPredator_Visible(Animal_AI_Base thePredator)
     {
         //check if the predator has not already been added to the predator list
@@ -644,26 +660,24 @@ public class Animal_AI_Base : MonoBehaviour
             //add the predator to the list of visible predators
             myPredators_Visible.Add(thePredator);
             //subscribe to the predator's events
-            thePredator.OnDeath += Handle_MyPredator_Die;
-            thePredator.OnEscape += Handle_MyPredator_Escape;
-            thePredator.OnEaten += Handle_MyPredator_Eaten;
+            Sub_Or_Unsub_PredatorEvents(thePredator, true);
         }
             
     }
 
-    //TODO exit sight
+    //exit sight
     public virtual void RemovePredator_Visible(Animal_AI_Base thePredator)
     {
         //check if the predator is in the predator list
         if(myPredators_Visible.Remove(thePredator) == true)
         {
+            //predator was in the predator list, it has not been removed
+
             //also remove from react list
             myPredators.Remove(thePredator);
-            //predator was in the predator list, it has not been removed
+            
             //unsubscribe from the predator's events
-            thePredator.OnDeath -= Handle_MyPredator_Die;
-            thePredator.OnEscape -= Handle_MyPredator_Escape;
-            thePredator.OnEaten -= Handle_MyPredator_Eaten;
+            Sub_Or_Unsub_PredatorEvents(thePredator, false);
             //check if removed predator is current predator; If so, current predator is null
             if(currentPredator == thePredator)
             {
@@ -743,6 +757,7 @@ public class Animal_AI_Base : MonoBehaviour
     protected virtual void Handle_MyPredator_Eaten(Animal_AI_Base theEatenPredator)
     {
         //should not run because an animal needs to die before it is eaten
+        //and after it died, we should already have unsubscribed from that dead animal's event actions
         Debug.LogWarning("Predator eaten handler is called. Should not happen because the handler should already be removed when the predator died");
     }
     
@@ -774,6 +789,61 @@ public class Animal_AI_Base : MonoBehaviour
         RemovePrey(theEatenPrey);
         //also remove from visible list
         RemovePrey_Visible(theEatenPrey);
+    }
+
+    protected virtual void Handle_MyPrey_EatenBySomeoneElse(Animal_AI_Base theEatenPrey, Animal_AI_Base theEater)
+    {
+        //fing out if we are the eater or not
+        if(theEater == this)
+        {
+            //we are the eater, no need to do anything else
+            return;
+        }
+
+        //we are not the eater, our prey is being eaten by someone else
+
+        //find out if the eaten prey is in the reactcollider_prey list
+        if(reactCollider_Preys.Contains(theEatenPrey) == true)
+        {
+            //the eaten prey is still in the react collider of this animal
+            //remove the eaten prey from the "myPreys" list
+            myPreys.Remove(theEatenPrey);
+            //and add it to the "potentialPreys" list
+            potentialPreys.Add(theEatenPrey);
+        }
+        else
+        {
+            //the eaten prey is no longer is the react collider of this animal
+            //just remove the eaten prey from the "mypreys" list
+            myPreys.Remove(theEatenPrey);
+        }
+
+        //potentially alter behaviour
+        React_PreyPredator_AddRemove();
+    }
+
+    //gets called when the prey was getting eaten but the eater was interrupted, so the prey's corpse remains
+    protected virtual void Handle_MyPrey_EatenGotInterrupted(Animal_AI_Base theEatenPrey, Animal_AI_Base thePreviousEater)
+    {
+        //fing out if we are the previous eater or not
+        if(thePreviousEater == this)
+        {
+            //we are the previous eater, no need to do anything else
+            return;
+        }
+
+        //we are not the previous eater, try to move the eaten prey from the "potentialPreys" list
+        //to the "myPreys" list
+        if(potentialPreys.Contains(theEatenPrey) == true)
+        {
+            //remove from "potentialPreys" list
+            potentialPreys.Remove(theEatenPrey);
+            //add to "myPreys" list
+            myPreys.Add(theEatenPrey);
+            //potentially alter behaviour
+            React_PreyPredator_AddRemove();
+        }
+
     }
 
     public void UpdateAnimalStatus(AnimalStatus newStatus, bool instantDeath = false)
@@ -825,6 +895,8 @@ public class Animal_AI_Base : MonoBehaviour
                 break;
             //TODO eaten status has not yet been tested
             case AnimalStatus.Eaten:
+                //update is being eaten status
+                isBeingEaten = false;
                 //stop animation
                 AnimationManager.Stop_Animation();
                 //hide animal sprite
@@ -891,11 +963,30 @@ public class Animal_AI_Base : MonoBehaviour
         return CurrentAnimalAction;
     }
 
-    // public void SetCurrentTargetAnimal(Animal_AI_Base newTargetAnimal)
-    // {
-    //     currentPrey = newTargetAnimal;
-    // }
+    public void BeingEaten_Begin(Animal_AI_Base theEater)
+    {
+        //set the being eaten status
+        isBeingEaten = true;
+        //invoke the being eaten event
+        OnBeingEaten_Start?.Invoke(this, theEater);
+    }
 
+    public void BeingEaten_Interrupt(Animal_AI_Base thePreviousEater)
+    {
+        //set the being eaten status
+        isBeingEaten = false;
+        //invoke the being eaten interrupt event
+        OnBeingEaten_Interrupt?.Invoke(this, thePreviousEater);
+    }
+
+    public bool Get_IsBeingEaten_Status()
+    {
+        return isBeingEaten;
+    }
+    public bool Get_IsEating_Status()
+    {
+        return isEating;
+    }
 
     protected Animal_AI_Base GetClosestAnimal(List<Animal_AI_Base> animalList)
     {
@@ -925,4 +1016,46 @@ public class Animal_AI_Base : MonoBehaviour
 
         return closestAnimal;
     }
+
+    protected void Sub_Or_Unsub_PreyEvents(Animal_AI_Base thePrey, bool isSubscribing)
+    {
+        if(isSubscribing == true)
+        {
+            //sub to the prey's events
+            thePrey.OnDeath += Handle_MyPrey_Die;
+            thePrey.OnEaten += Handle_MyPrey_Eaten;
+            thePrey.OnEscape += Handle_MyPrey_Escape;
+            thePrey.OnBeingEaten_Start += Handle_MyPrey_EatenBySomeoneElse;
+            thePrey.OnBeingEaten_Interrupt += Handle_MyPrey_EatenGotInterrupted;
+        }
+        else
+        {
+            //unsub from the prey's events
+            thePrey.OnDeath -= Handle_MyPrey_Die;
+            thePrey.OnEaten -= Handle_MyPrey_Eaten;
+            thePrey.OnEscape -= Handle_MyPrey_Escape;
+            thePrey.OnBeingEaten_Start -= Handle_MyPrey_EatenBySomeoneElse;
+            thePrey.OnBeingEaten_Interrupt -= Handle_MyPrey_EatenGotInterrupted;
+
+        }
+    }
+
+    protected void Sub_Or_Unsub_PredatorEvents(Animal_AI_Base thePredator, bool isSubscribing)
+    {
+        if(isSubscribing == true)
+        {
+            //sub to the predator's events
+            thePredator.OnDeath += Handle_MyPredator_Die;
+            thePredator.OnEaten += Handle_MyPredator_Eaten;
+            thePredator.OnEscape += Handle_MyPredator_Escape;
+        }
+        else
+        {
+            //unsub from the predator's events
+            thePredator.OnDeath -= Handle_MyPredator_Die;
+            thePredator.OnEaten -= Handle_MyPredator_Eaten;
+            thePredator.OnEscape -= Handle_MyPredator_Escape;
+        }
+    }
+
 }

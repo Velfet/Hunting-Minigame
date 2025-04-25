@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7350837907908889441}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2466520326745132551
 BoxCollider:
@@ -45,7 +45,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.0487404, y: 2.2000003, z: 3}
+  m_Size: {x: 4.04874, y: 2.2000003, z: 6}
   m_Center: {x: 0.021749884, y: 0.3, z: 0}
 --- !u!54 &2277022094451700574
 Rigidbody:
@@ -78,7 +78,7 @@ MonoBehaviour:
   reactSources: 00000000
   reactAction:
     rid: -2
-  theAnimal: {fileID: 6685717237477771030}
+  theAnimal: {fileID: 2308406785459082537}
   references:
     version: 2
     RefIds:
@@ -196,7 +196,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.544, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -302,7 +302,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7350837907908889441}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5530017697975564961
 BoxCollider:
@@ -315,7 +315,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.719994, y: 2.2000003, z: 3}
+  m_Size: {x: 8.719994, y: 2.2000003, z: 6}
   m_Center: {x: -3.761609, y: 0.3, z: 0}
 --- !u!54 &8964691083528860686
 Rigidbody:
@@ -345,7 +345,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e3f890242de944992ff28731986cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TheAnimal: {fileID: 6685717237477771030}
+  TheAnimal: {fileID: 2308406785459082537}
+--- !u!1 &3216375758005076418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7204703460244453801}
+  - component: {fileID: 4726762093652263156}
+  - component: {fileID: 3129459209336426212}
+  - component: {fileID: 8693588264206024951}
+  m_Layer: 0
+  m_Name: SightCollider_Predator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7204703460244453801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3216375758005076418}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.59333336, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7350837907908889441}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4726762093652263156
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3216375758005076418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 2.2000003, z: 6}
+  m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!54 &3129459209336426212
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3216375758005076418}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &8693588264206024951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3216375758005076418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9901bc35c2bbfa146930d1e7ef631ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reactSources: 
+  theAnimal: {fileID: 2308406785459082537}
 --- !u!1 &3379591705013867623
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +455,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7350837907908889441}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7615101171306705173
 BoxCollider:
@@ -391,7 +468,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.0487404, y: 2.2000003, z: 3}
+  m_Size: {x: 4.0487404, y: 2.2000003, z: 6}
   m_Center: {x: 0.021749884, y: 0.3, z: 0}
 --- !u!54 &4175810890785502146
 Rigidbody:
@@ -424,7 +501,7 @@ MonoBehaviour:
   reactSources: 
   reactAction:
     rid: -2
-  theAnimal: {fileID: 6685717237477771030}
+  theAnimal: {fileID: 2308406785459082537}
   references:
     version: 2
     RefIds:
@@ -462,6 +539,82 @@ Transform:
   m_Father: {fileID: 6685717237477771031}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4265176631172855467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4768941150018910103}
+  - component: {fileID: 4435650615152205327}
+  - component: {fileID: 580845881639155929}
+  - component: {fileID: 3844874143424647083}
+  m_Layer: 0
+  m_Name: AnimalDetected_Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4768941150018910103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265176631172855467}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5933334, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7350837907908889441}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4435650615152205327
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265176631172855467}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2, y: 2.2, z: 6}
+  m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!54 &580845881639155929
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265176631172855467}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &3844874143424647083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265176631172855467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac74f457e16f34429bdfa793af1489f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheAnimal: {fileID: 2308406785459082537}
 --- !u!1 &4381670292524516481
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,11 +644,14 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6685717238267156841}
-  - {fileID: 2609174835919538591}
-  - {fileID: 1961001754462792293}
-  - {fileID: 7053342273652934519}
-  - {fileID: 2238941170993871766}
   - {fileID: 6685717236852842335}
+  - {fileID: 4768941150018910103}
+  - {fileID: 2609174835919538591}
+  - {fileID: 7053342273652934519}
+  - {fileID: 1961001754462792293}
+  - {fileID: 2238941170993871766}
+  - {fileID: 837078838680236091}
+  - {fileID: 7204703460244453801}
   - {fileID: 7705522805138565023}
   m_Father: {fileID: 6685717237477771031}
   m_RootOrder: 0
@@ -749,6 +905,83 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
+--- !u!1 &5638035936245753541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 837078838680236091}
+  - component: {fileID: 8112287284944815127}
+  - component: {fileID: 7764954477329007711}
+  - component: {fileID: 3680861513211009794}
+  m_Layer: 0
+  m_Name: SightCollider_Prey
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &837078838680236091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638035936245753541}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.59333336, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7350837907908889441}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8112287284944815127
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638035936245753541}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 2.2000003, z: 6}
+  m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!54 &7764954477329007711
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638035936245753541}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &3680861513211009794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638035936245753541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05bf5a710d963374fbea3cfa79530cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reactSources: 0000000003000000
+  theAnimal: {fileID: 2308406785459082537}
 --- !u!1 &5695969655756757805
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +1013,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7350837907908889441}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4002881479117661341
 SpriteRenderer:
@@ -961,7 +1194,7 @@ Transform:
   m_Children:
   - {fileID: 6685717237350905381}
   m_Father: {fileID: 7350837907908889441}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6685717236852842334
 SpriteRenderer:
@@ -1095,7 +1328,7 @@ MonoBehaviour:
   hitPriority: 2
   bodyPartCollider: {fileID: 7394503963097011515}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 6685717237477771030}
+  TheAnimal: {fileID: 2308406785459082537}
 --- !u!1 &6685717237418492955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1409,7 @@ MonoBehaviour:
   hitPriority: 5
   bodyPartCollider: {fileID: 5550546534172426691}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 6685717237477771030}
+  TheAnimal: {fileID: 2308406785459082537}
 --- !u!1 &6685717237477771016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6685717237477771031}
-  - component: {fileID: 6685717237477771030}
+  - component: {fileID: 2308406785459082537}
   - component: {fileID: 6685717237477771029}
   - component: {fileID: 1681508497253887123}
   m_Layer: 0
@@ -1195,7 +1428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6685717237477771031
 Transform:
   m_ObjectHideFlags: 0
@@ -1216,7 +1449,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6685717237477771030
+--- !u!114 &2308406785459082537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1225,7 +1458,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6685717237477771016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36fd4f36344d6a24f936f92d69b2e744, type: 3}
+  m_Script: {fileID: 11500000, guid: 847417a0bda154243976cb859d7066ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 6685717237477771016}
@@ -1240,9 +1473,9 @@ MonoBehaviour:
   MaxHP: 0
   AnimalMasterState:
     AnimalStates:
-    - rid: 3243458342108528640
-    - rid: 3243458679944773635
-    - rid: 3243458679944773644
+    - rid: 3243458722425208832
+    - rid: 3243458722425208833
+    - rid: 3243458722425208834
   MasterState_Index: 0
   State_Index: 0
   CurrentAnimalAction:
@@ -1250,9 +1483,9 @@ MonoBehaviour:
   MissAuraHit_Action:
     rid: -2
   BodyHit_Action:
-    rid: 3243458679944773633
+    rid: 3243458722425208843
   HeadHit_Action:
-    rid: 3243458679944773634
+    rid: 3243458722425208844
   AnimationManager: {fileID: 1681508497253887123}
   BloodHit_Particle: {fileID: 4319610902789965281}
   WeaponHit_Effect: {fileID: 1031893419920949790}
@@ -1261,81 +1494,78 @@ MonoBehaviour:
   Previous_MasterState_Index: 0
   Previous_State_Index: 0
   Previous_ReactState: 0
+  SeePrey_Action:
+    rid: 3243458722425208850
+  SeeScavengerOrFlyer_Action:
+    rid: 3243458722425208851
+  Roar_Action:
+    rid: -2
+  RoarCollider_GO: {fileID: 3189554806199375127}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 3243458342108528640
+    - rid: 3243458722425208832
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
         StateName: Default
         AnimalActions:
-        - rid: 3243458342108528641
-    - rid: 3243458342108528641
-      type: {class: AnimalAction_WalkToPoint, ns: , asm: Assembly-CSharp}
-      data:
-        AnimalFinishAction:
-          rid: 3243458679944773640
-        ActionPriority: 0
-        WalkDestination: {x: -13, y: 1.05, z: 14}
-    - rid: 3243458679944773633
-      type: {class: AnimalFinishAction_Damage, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        DamageMultiplier: 1
-    - rid: 3243458679944773634
-      type: {class: AnimalFinishAction_Damage, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        DamageMultiplier: 1.7
-    - rid: 3243458679944773635
+        - rid: 3243458722425208835
+    - rid: 3243458722425208833
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
         StateName: Run After Prey
         AnimalActions:
-        - rid: 3243458679944773641
-        - rid: 3243458679944773638
-    - rid: 3243458679944773638
-      type: {class: AnimalAction_Eat, ns: , asm: Assembly-CSharp}
-      data:
-        AnimalFinishAction:
-          rid: -2
-        ActionPriority: 0
-        EatDuration: 1.5
-    - rid: 3243458679944773640
-      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        NewStatus: 2
-    - rid: 3243458679944773641
-      type: {class: AnimalAction_RunToTarget, ns: , asm: Assembly-CSharp}
-      data:
-        AnimalFinishAction:
-          rid: 3243458679944773642
-        ActionPriority: 0
-    - rid: 3243458679944773642
-      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        AlterValue_StateIndex: 0
-        AlterType_StateIndex: 0
-        AlterValue_ActionIndex: 1
-        AlterType_ActionIndex: 0
-    - rid: 3243458679944773644
+        - rid: 3243458722425208852
+        - rid: 3243458722425208836
+        - rid: 3243458722425208837
+    - rid: 3243458722425208834
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
         StateName: Walk To Scavenger Or Flyer
         AnimalActions:
-        - rid: 3243458679944773645
-        - rid: 3243458679944773647
-    - rid: 3243458679944773645
+        - rid: 3243458722425208838
+        - rid: 3243458722425208839
+    - rid: 3243458722425208835
+      type: {class: AnimalAction_WalkToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 3243458722425208840
+        ActionPriority: 0
+        WalkDestination: {x: -14, y: 1.05, z: 14}
+    - rid: 3243458722425208836
+      type: {class: AnimalAction_RunToTarget, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 3243458722425208841
+        ActionPriority: 0
+    - rid: 3243458722425208837
+      type: {class: AnimalAction_Eat, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: -2
+        ActionPriority: 0
+        EatDuration: 1.5
+    - rid: 3243458722425208838
       type: {class: AnimalAction_WalkToTarget, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
-          rid: 3243458679944773646
+          rid: 3243458722425208842
         ActionPriority: 0
-    - rid: 3243458679944773646
+    - rid: 3243458722425208839
+      type: {class: AnimalAction_Eat, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: -2
+        ActionPriority: 0
+        EatDuration: 1.5
+    - rid: 3243458722425208840
+      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        NewStatus: 2
+    - rid: 3243458722425208841
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -1343,13 +1573,55 @@ MonoBehaviour:
         AlterType_StateIndex: 0
         AlterValue_ActionIndex: 1
         AlterType_ActionIndex: 0
-    - rid: 3243458679944773647
-      type: {class: AnimalAction_Eat, ns: , asm: Assembly-CSharp}
+    - rid: 3243458722425208842
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
+    - rid: 3243458722425208843
+      type: {class: AnimalFinishAction_Damage, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        DamageMultiplier: 1
+    - rid: 3243458722425208844
+      type: {class: AnimalFinishAction_Damage, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        DamageMultiplier: 1.7
+    - rid: 3243458722425208850
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        AlterValue_StateIndex: 1
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
+    - rid: 3243458722425208851
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        AlterValue_StateIndex: 2
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
+    - rid: 3243458722425208852
+      type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
-          rid: -2
+          rid: 3243458722425208853
         ActionPriority: 0
-        EatDuration: 1.5
+        IdleDuration: 0.5
+    - rid: 3243458722425208853
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
 --- !u!114 &6685717237477771029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1362,7 +1634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb024639bd80994bb384159456dcf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TheAnimal: {fileID: 6685717237477771030}
+  TheAnimal: {fileID: 2308406785459082537}
 --- !u!114 &1681508497253887123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1503,7 +1775,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7350837907908889441}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5495418910776869163
 BoxCollider:
@@ -1551,7 +1823,7 @@ MonoBehaviour:
   hitPriority: 1
   bodyPartCollider: {fileID: 5495418910776869163}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 6685717237477771030}
+  TheAnimal: {fileID: 2308406785459082537}
 --- !u!1 &9010494551499414624
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AnimalData_Hyena_2
   m_EditorClassIdentifier: 
   Name: Hyena
-  Health: 18
-  RunSpeed: 3
+  Health: 15
+  RunSpeed: 2.9
   WalkSpeed: 2
   Experience: 6
   LootData: 2

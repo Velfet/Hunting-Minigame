@@ -11,13 +11,39 @@ public class Animal_AI_Predator : Animal_AI_Base
     [Space(10)]
     [SerializeField] protected GameObject RoarCollider_GO;
 
+    //TODO check if prey should be added to potentialPreys list instead of myPreys
+    //and if so, we don't want to call "React_PreyPredator_AddRemove" or the "React_Roar" function
     public override void AddPrey(Animal_AI_Base thePrey)
     {
+        //this bool will tell if the prey should be added to the "myPreys" list
+        //or the "potentialPreys" list. Either way, it still gets added to the "reactcollider_preys" list
+        //The prey is currently being eaten, and since this animal has just received this prey,
+        //it is not possible for that eater to be this animal.
+        //So, the prey is currently being eaten by another animal
+        //, making the prey not optimal
+        bool preyIsNotOptimal = thePrey.Get_IsBeingEaten_Status() == true;
+
+        if(preyIsNotOptimal == true)
+        {
+            //prey is not optimal
+            //add prey to the potential prey list
+            if(potentialPreys.Contains(thePrey) == false)
+            {
+                potentialPreys.Add(thePrey);
+                //also add to the reactcollider_preys list
+                reactCollider_Preys.Add(thePrey);
+            }
+
+            return;
+        }
+
         //check if the prey has not already been added to the prey list
         if(myPreys.Contains(thePrey) == false)
         {
             //add the prey to the list of preys
             myPreys.Add(thePrey);
+            //add prey to the reactcollider_preys
+            reactCollider_Preys.Add(thePrey);
 
             if(Roar_Action == null || thePrey.GetAnimalStatus() != AnimalStatus.Alive)
             {
@@ -123,6 +149,7 @@ public class Animal_AI_Predator : Animal_AI_Base
             State_Index = Previous_State_Index;
             //update state
             newReactState = Previous_ReactState;
+            Debug.LogWarning("[PredatorAI] no more prey, reloading previous state index");
             ActivateCurrentAction();
         }
 
@@ -160,9 +187,6 @@ public class Animal_AI_Predator : Animal_AI_Base
             TheTargetAnimal = thePrey
         };
 
-        //set current prey as null
-        currentPrey = null;
-
         //store previous masterstate_index and state_index in their previous variable counterpart, also the react state
         Previous_MasterState_Index = MasterState_Index;
         Previous_State_Index = State_Index;
@@ -178,6 +202,9 @@ public class Animal_AI_Predator : Animal_AI_Base
     {
         //stop the previous move coroutine if it exists
         InterruptMove();
+
+        //set current prey as null
+        currentPrey = null;
 
         //start roar animation
         AnimationManager.Start_Animation(AnimalAnimationKeys.Roar);

@@ -34,9 +34,9 @@ public class Animal_AI_Prey : Animal_AI_Base
                 //get closest predator to this animal
                 currentPredator = GetClosestAnimal(myPredators);
                 //determine predator behaviour type
-                AnimalBehaviourType predatorBehaviourType = currentPrey.GetAnimalBehaviourType();
+                AnimalBehaviourType predatorBehaviourType = currentPredator.GetAnimalBehaviourType();
                 //activate action depending on the current predator's behaviour type
-                React_See_Predator(currentPrey, predatorBehaviourType);
+                React_See_Predator(currentPredator, predatorBehaviourType);
             }
             else
             {
@@ -47,9 +47,9 @@ public class Animal_AI_Prey : Animal_AI_Base
                     //replace current predator with the closest predator
                     currentPredator = closestPredator;
                     //determine predator behaviour type
-                    AnimalBehaviourType predatorBehaviourType = currentPrey.GetAnimalBehaviourType();
+                    AnimalBehaviourType predatorBehaviourType = currentPredator.GetAnimalBehaviourType();
                     //activate action depending on the current predator's behaviour type
-                    React_See_Predator(currentPrey, predatorBehaviourType);
+                    React_See_Predator(currentPredator, predatorBehaviourType);
                 }
             }
             

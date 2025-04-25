@@ -1214,9 +1214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HuntingCase_Data: {fileID: 397264971}
-  CurrentRank: 0
-  CurrentLevel: 0
-  TestCase: {fileID: 0}
+  CurrentRank: 1
+  CurrentLevel: 1
+  TestCase: {fileID: 11400000, guid: c079e99bcf33a1248aa6434b64281ac1, type: 2}
   AnimalSpawnData_List: []
   Current_AnimalSpawnData_Index: 0
   CurrentHuntingCase: {fileID: 0}
@@ -1250,7 +1250,7 @@ MonoBehaviour:
     - level_HuntingCases:
       - {fileID: 11400000, guid: 12e47a618c579e247a3b55a9cdf71d24, type: 2}
     - level_HuntingCases:
-      - {fileID: 11400000, guid: 12e47a618c579e247a3b55a9cdf71d24, type: 2}
+      - {fileID: 11400000, guid: c079e99bcf33a1248aa6434b64281ac1, type: 2}
     - level_HuntingCases:
       - {fileID: 11400000, guid: 12e47a618c579e247a3b55a9cdf71d24, type: 2}
   - allLevel_HuntingCase_Data:
@@ -3490,7 +3490,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781754561}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c322c112f18049d43a8a3ce105751cce, type: 3}
   m_Name: 
@@ -4206,13 +4206,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lion_Predator_Roar
       objectReference: {fileID: 0}
-    - target: {fileID: 5167639331286558894, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 381606223924918939, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5167639331286558894, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.544
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167639331286558894, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}

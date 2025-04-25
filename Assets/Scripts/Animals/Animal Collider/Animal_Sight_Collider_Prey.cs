@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Animal_React_Collider_Prey : Animal_React_Collider_Base
+public class Animal_Sight_Collider_Prey : Animal_Sight_Collider_Base
 {
     protected override void OnTriggerEnter(Collider other)
     {
@@ -37,8 +37,8 @@ public class Animal_React_Collider_Prey : Animal_React_Collider_Base
             return;
         }
 
-        //add prey to the animal's list of preys
-        theAnimal.AddPrey(theOtherAnimal);
+        //add prey to the animal's list of visible preys
+        theAnimal.AddPrey_Visible(theOtherAnimal);
     }
 
     protected override void OnTriggerExit(Collider other)
@@ -66,12 +66,8 @@ public class Animal_React_Collider_Prey : Animal_React_Collider_Base
             return;
         }
 
-        //remove the prey from potential prey list AND reactcollider_preys list
-        theAnimal.RemovePrey(theOtherAnimal);
-
-
-        //remove prey from the animal's list of preys. No more, only remove prey from list if it is out of sight
-        //theAnimal.RemovePrey(theOtherAnimal);
+        //remove the prey from the animal's list of visible preys
+        theAnimal.RemovePrey_Visible(theOtherAnimal);
     }
 
 

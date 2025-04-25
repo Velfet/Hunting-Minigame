@@ -5,10 +5,12 @@ using UnityEngine;
 public class Animal_React_Collider_Base : MonoBehaviour, IAnimalPart_React
 {
     [SerializeField] protected List<AnimalType> reactSources;
+    //unused right now
     [SerializeReference] protected AnimalFinishAction_Base reactAction;
     [SerializeField] protected Animal_AI_Base theAnimal;
 
     public List<AnimalType> ReactSources => reactSources;
+    //unused right now
     public AnimalFinishAction_Base ReactAction => reactAction;
     public Animal_AI_Base TheAnimal => theAnimal;
 
@@ -37,16 +39,15 @@ public class Animal_React_Collider_Base : MonoBehaviour, IAnimalPart_React
 
         //AnimalAction_RunToTarget no longer set the target animal
 
-        //TODO add OnTriggerExit function
 
         //Start
         //depending on some field in this class, store "theOtherAnimal"
         //as either this animal's "target animal" or "predator animal". Also check if the prey or predator animal is in a valid state to be considered
         //predator: Alive
         //prey: Alive, Dead
-        //TODO also, the animal need to subscribe to the death, escape, and eaten event of the prey/predatory animal
+        //also, the animal need to subscribe to the death, escape, and eaten event of the prey/predatory animal
         //End
-        //TODO probably want to put all of these (from Start to End) in 1 function over at "Animal_AI_Base"
+        //put all of these (from Start to End) in 1 function over at "Animal_AI_Base"
 
 
         //old

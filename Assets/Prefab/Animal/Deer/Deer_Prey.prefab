@@ -32,6 +32,83 @@ Transform:
   m_Father: {fileID: 5848898158238761769}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &707760860913168046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2756272927626543951}
+  - component: {fileID: 5312758348009926678}
+  - component: {fileID: 1802597215456172617}
+  - component: {fileID: 8130594291632274850}
+  m_Layer: 0
+  m_Name: SightCollider_Predator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2756272927626543951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707760860913168046}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5933334, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7773329110334508895}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5312758348009926678
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707760860913168046}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 2.2000003, z: 6}
+  m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!54 &1802597215456172617
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707760860913168046}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &8130594291632274850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707760860913168046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9901bc35c2bbfa146930d1e7ef631ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reactSources: 01000000
+  theAnimal: {fileID: 4448282191427733293}
 --- !u!1 &1677901948386346028
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +244,7 @@ GameObject:
   - component: {fileID: 3583911591454705358}
   - component: {fileID: 6950296599040479973}
   m_Layer: 0
-  m_Name: Deer_ReactCollider_Predator
+  m_Name: ReactCollider_Predator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +263,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7773329110334508895}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6540120141038610290
 BoxCollider:
@@ -199,7 +276,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.0487404, y: 2.2000003, z: 3}
+  m_Size: {x: 4.0487404, y: 2.2000003, z: 6}
   m_Center: {x: 0.021749884, y: 0.3, z: 0}
 --- !u!54 &3583911591454705358
 Rigidbody:
@@ -276,6 +353,82 @@ Transform:
   m_Father: {fileID: 5848898158238761769}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3042272102093150542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3578182147709194696}
+  - component: {fileID: 7429779275480025318}
+  - component: {fileID: 1827777427259737232}
+  - component: {fileID: 6948970161048624024}
+  m_Layer: 0
+  m_Name: AnimalDetected_Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3578182147709194696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3042272102093150542}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5933334, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7773329110334508895}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7429779275480025318
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3042272102093150542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2, y: 2.2, z: 6}
+  m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!54 &1827777427259737232
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3042272102093150542}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &6948970161048624024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3042272102093150542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac74f457e16f34429bdfa793af1489f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheAnimal: {fileID: 4448282191427733293}
 --- !u!1 &3543722055371178175
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,10 +457,12 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3578182147709194696}
   - {fileID: 5848898157652286807}
+  - {fileID: 5848898158393973601}
   - {fileID: 3014776449036766625}
   - {fileID: 9009960922326280897}
-  - {fileID: 5848898158393973601}
+  - {fileID: 2756272927626543951}
   - {fileID: 7425452474265707425}
   m_Father: {fileID: 5848898158238761769}
   m_RootOrder: 0
@@ -457,7 +612,7 @@ GameObject:
   - component: {fileID: 4210323567279071395}
   - component: {fileID: 3070643328356653327}
   m_Layer: 0
-  m_Name: Deer_Male_Anim
+  m_Name: Animal_Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,7 +631,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7773329110334508895}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4210323567279071395
 SpriteRenderer:
@@ -709,7 +864,7 @@ GameObject:
   - component: {fileID: 5848898157652286807}
   - component: {fileID: 5848898157652286806}
   m_Layer: 0
-  m_Name: Deer_Sprite_Body
+  m_Name: Sprite_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -729,7 +884,7 @@ Transform:
   m_Children:
   - {fileID: 5848898157896433700}
   m_Father: {fileID: 7773329110334508895}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5848898157652286806
 SpriteRenderer:
@@ -1010,6 +1165,7 @@ MonoBehaviour:
     AnimalStates:
     - rid: 3243458698102964225
     - rid: 3243458698102964226
+    - rid: 3243458722425208854
   MasterState_Index: 0
   State_Index: 0
   CurrentAnimalAction:
@@ -1048,7 +1204,7 @@ MonoBehaviour:
     - rid: 3243458698102964226
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: Shoot Arrow Or Run From Predator
+        StateName: Shoot Arrow
         AnimalActions:
         - rid: 3243458698102964230
     - rid: 3243458698102964227
@@ -1135,7 +1291,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
-        AlterValue_StateIndex: 1
+        AlterValue_StateIndex: 2
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
         AlterType_ActionIndex: 1
@@ -1143,10 +1299,44 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
-        AlterValue_StateIndex: 1
+        AlterValue_StateIndex: 2
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
         AlterType_ActionIndex: 1
+    - rid: 3243458722425208854
+      type: {class: AnimalState, ns: , asm: Assembly-CSharp}
+      data:
+        StateName: Run From Predator with slight delay
+        AnimalActions:
+        - rid: 3243458722425208855
+        - rid: 3243458722425208857
+    - rid: 3243458722425208855
+      type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 3243458722425208856
+        ActionPriority: 0
+        IdleDuration: 0.1
+    - rid: 3243458722425208856
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
+    - rid: 3243458722425208857
+      type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 3243458722425208858
+        ActionPriority: 0
+        RunDestination: {x: -13, y: 1.05, z: 12}
+    - rid: 3243458722425208858
+      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        NewStatus: 2
 --- !u!114 &5848898158238761771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,7 +1384,7 @@ GameObject:
   - component: {fileID: 5848898158393973601}
   - component: {fileID: 5848898158393973600}
   m_Layer: 0
-  m_Name: Deer_Sprite_Head
+  m_Name: Sprite_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1214,7 +1404,7 @@ Transform:
   m_Children:
   - {fileID: 5848898157828780571}
   m_Father: {fileID: 7773329110334508895}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5848898158393973600
 SpriteRenderer:
@@ -1433,7 +1623,7 @@ GameObject:
   - component: {fileID: 4018793557288693854}
   - component: {fileID: 4868136934535224747}
   m_Layer: 0
-  m_Name: Deer_MissCollider
+  m_Name: MissCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1452,7 +1642,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7773329110334508895}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4728959822563788053
 BoxCollider:

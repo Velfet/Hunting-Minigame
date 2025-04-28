@@ -8,6 +8,7 @@ public class AnimalAnimationManager : MonoBehaviour
     [SerializeField] private Animator Animator;
     [SerializeField] private AnimalAnimationKeys CurrentAnimation;
     [SerializeField] private bool IsFacingRight_CurrentStatus;
+    [SerializeField] private bool DefaultFaceIsRight;
     [Space(20)]
     [SerializeField] private List<AnimalAnimationKeys> AnimalAnimationClipKeys;
     [SerializeField] private List<string> AnimalAnimationClipNames;
@@ -79,11 +80,28 @@ public class AnimalAnimationManager : MonoBehaviour
 
         if(isFacingRight == true)
         {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            //Face right
+            if(DefaultFaceIsRight == true)
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+            
         }
         else
         {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            //Face left
+            if(DefaultFaceIsRight == true)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
         }
     }
 

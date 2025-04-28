@@ -9,6 +9,7 @@ public class AnimalFinishAction_AlterIndex : AnimalFinishAction_Base
     public Enum_AlterType AlterType_StateIndex;
     public int AlterValue_ActionIndex;
     public Enum_AlterType AlterType_ActionIndex;
+    
 
     public override void Activate_FinishAction(AnimalAction_ActivateData animalAction_ActivateData)
     {
@@ -51,6 +52,6 @@ public class AnimalFinishAction_AlterIndex : AnimalFinishAction_Base
 
         //also trigger the next action
         Debug.LogWarning("Next action start");
-        theAnimal.ActivateCurrentAction(animalAction_ActivateData.TheTargetAnimal);
+        theAnimal.ActivateCurrentAction(animalAction_ActivateData.TheTargetAnimal, ExecuteEvenIfDead);
     }
 }

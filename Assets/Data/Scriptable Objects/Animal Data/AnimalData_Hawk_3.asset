@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a9799588efb1804a90a8eac639fcd15, type: 3}
-  m_Name: AnimalData_Hyena_2
+  m_Name: AnimalData_Hawk_3
   m_EditorClassIdentifier: 
-  Name: Hyena
-  Health: 15
-  RunSpeed: 2.9
+  Name: Hawk
+  Health: 6
+  RunSpeed: 3
   WalkSpeed: 2
-  FallSpeed: 0
-  Experience: 7
-  LootData: 2
+  FallSpeed: 4.5
+  Experience: 3
+  LootData: 3

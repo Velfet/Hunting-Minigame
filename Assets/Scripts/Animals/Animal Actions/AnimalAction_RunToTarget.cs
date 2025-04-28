@@ -23,7 +23,19 @@ public class AnimalAction_RunToTarget : AnimalAction_Base
         //store the reference to the target animal
         //theAnimal.SetCurrentTargetAnimal(targetAnimal);
 
-        //make this animal run to the target transform
-        theAnimal.StartRunToTransform(targetTransform);
+
+        //if the animal is flying, don't track the Y pos, only follow the X pos
+        if(targetAnimal.GetAnimalBehaviourType() != AnimalBehaviourType.Flyer)
+        {
+            //Follow X and Y pos
+            //make this animal run to the target transform
+            theAnimal.StartRunToTransform(targetTransform);
+        }
+        else
+        {
+            //Only follow the X pos
+            theAnimal.StartRunToTransform_X(targetTransform);
+        }
+        
     }
 }

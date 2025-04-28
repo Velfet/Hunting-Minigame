@@ -23,9 +23,13 @@ public class Animal_AI_Base : MonoBehaviour
     [SerializeField] protected int State_Index;
     [SerializeReference] protected AnimalAction_Base CurrentAnimalAction;
     [Space(10)]
+    [SerializeField] protected Animal_Detected_Collider Animal_Detected_Collider;
+    [Space(10)]
     [SerializeReference] protected AnimalFinishAction_Base MissAuraHit_Action;
     [SerializeReference] protected AnimalFinishAction_Base BodyHit_Action;
     [SerializeReference] protected AnimalFinishAction_Base HeadHit_Action;
+    [Space(10)]
+    [SerializeReference] protected AnimalFinishAction_Base OnDeath_Action;
     [Space(10)]
     [SerializeField] protected AnimalAnimationManager AnimationManager;
     [Space(10)]
@@ -228,7 +232,20 @@ public class Animal_AI_Base : MonoBehaviour
         StartCoroutine(MoveCoroutine);
     }
 
-    public void StartWalkToTransform(Transform runTarget)
+    public void StartFallToPoint(float yPos)
+    {
+        //stop the previous move coroutine if it exists
+        InterruptMove();
+
+        //TODO maybe we can start a fall animation here later; for now, just play the dead animation
+        AnimationManager.Start_Animation(AnimalAnimationKeys.Die);
+        //start a coroutine to make this animal fall to the designated Y pos
+        MoveCoroutine = MoveToPoint_Y(yPos, AnimalData.FallSpeed);
+        //Debug.LogWarning("Start move coroutine");
+        StartCoroutine(MoveCoroutine);
+    }
+
+    public void StartWalkToTransform(Transform walkTarget)
     {
         //stop the previous move coroutine if it exists
         InterruptMove();
@@ -236,7 +253,20 @@ public class Animal_AI_Base : MonoBehaviour
         //start walk animation
         AnimationManager.Start_Animation(AnimalAnimationKeys.Walk);
         //start a coroutine to make this animal walk to the walk target
-        MoveCoroutine = MoveToTransform_XY(runTarget, AnimalData.WalkSpeed);
+        MoveCoroutine = MoveToTransform_XY(walkTarget, AnimalData.WalkSpeed);
+        //Debug.LogWarning("Start move coroutine");
+        StartCoroutine(MoveCoroutine);
+    }
+
+    public void StartWalkToTransform_X(Transform walkTarget)
+    {
+        //stop the previous move coroutine if it exists
+        InterruptMove();
+
+        //start walk animation
+        AnimationManager.Start_Animation(AnimalAnimationKeys.Walk);
+        //start a coroutine to make this animal walk to the walk target, but only following the X position of the target transform
+        MoveCoroutine = MoveToTransform_X(walkTarget, AnimalData.WalkSpeed);
         //Debug.LogWarning("Start move coroutine");
         StartCoroutine(MoveCoroutine);
     }
@@ -250,6 +280,19 @@ public class Animal_AI_Base : MonoBehaviour
         AnimationManager.Start_Animation(AnimalAnimationKeys.Run);
         //start a coroutine to make this animal run to the run target
         MoveCoroutine = MoveToTransform_XY(runTarget, AnimalData.RunSpeed);
+        //Debug.LogWarning("Start move coroutine");
+        StartCoroutine(MoveCoroutine);
+    }
+
+    public void StartRunToTransform_X(Transform runTarget)
+    {
+        //stop the previous move coroutine if it exists
+        InterruptMove();
+
+        //start run animation
+        AnimationManager.Start_Animation(AnimalAnimationKeys.Run);
+        //start a coroutine to make this animal run to the run target, but only following the X position of the target transform
+        MoveCoroutine = MoveToTransform_X(runTarget, AnimalData.RunSpeed);
         //Debug.LogWarning("Start move coroutine");
         StartCoroutine(MoveCoroutine);
     }
@@ -292,11 +335,24 @@ public class Animal_AI_Base : MonoBehaviour
     public IEnumerator MoveToPoint(Vector3 destinationPos, float moveSpeed)
     {
         float distanceToTarget = Vector3.Distance(Animal_GO.transform.position, destinationPos);
+        Vector3 moveDirection = destinationPos - Animal_GO.transform.position;
+
+        if(moveDirection.x > 0)
+        {
+            //face right
+            AnimationManager.SetPlayerFaceDirection(true);
+        }
+        else if(moveDirection.x < 0)
+        {
+            //face left
+            AnimationManager.SetPlayerFaceDirection(false);
+        }
+
         while(Vector3.Distance(Animal_GO.transform.position, destinationPos) > AnimalConst.CloseEnough_Distance)
         {
             yield return null;
             //animal is not close enough to its goal, keep moving
-            Vector3 moveDirection = destinationPos - Animal_GO.transform.position;
+            
 
             if(distanceToTarget <= moveSpeed * Time.deltaTime)
             {
@@ -318,6 +374,38 @@ public class Animal_AI_Base : MonoBehaviour
 
     }
 
+    public IEnumerator MoveToPoint_Y(float destination_Y_Pos, float moveSpeed)
+    {
+        Vector3 destinationPos = Animal_GO.transform.position;
+        destinationPos.y = destination_Y_Pos;
+
+        float distanceToTarget = Vector3.Distance(Animal_GO.transform.position, destinationPos);
+        while(Vector3.Distance(Animal_GO.transform.position, destinationPos) > AnimalConst.CloseEnough_Distance)
+        {
+            yield return null;
+            //animal is not close enough to its goal, keep moving
+            Vector3 moveDirection = destinationPos - Animal_GO.transform.position;
+
+            if(distanceToTarget <= moveSpeed * Time.deltaTime)
+            {
+                // animal is close enough to target, just snap to it
+                Animal_GO.transform.position = destinationPos;
+            }
+            else
+            {
+                moveDirection = moveDirection.normalized;
+                Animal_GO.transform.position += moveDirection * moveSpeed * Time.deltaTime;
+            }
+
+            //update distance
+            distanceToTarget = Vector3.Distance(Animal_GO.transform.position, destinationPos);
+        }
+        Animal_GO.transform.position = destinationPos;
+
+        //Animal has reached its destination, now do something after its done
+        ActivateCurrentAction_FinishAction();
+    }
+
     public IEnumerator MoveToTransform_XY(Transform targetTransform, float moveSpeed)
     {
         //Make a vector 3 for the destination position; The X and Y position will follow the "targetTransform",
@@ -336,7 +424,7 @@ public class Animal_AI_Base : MonoBehaviour
 
         float distanceToTarget = Vector3.Distance(Animal_GO.transform.position, destinationPos);
         //keep running towards the target animal as long as they're alive, even if we have already reached the target animal
-        while(Vector3.Distance(Animal_GO.transform.position, destinationPos) > AnimalConst.CloseEnough_Distance || targetAnimal.GetAnimalStatus() == AnimalStatus.Alive)
+        while(Vector3.Distance(Animal_GO.transform.position, destinationPos) > AnimalConst.CloseEnough_Eat_Distance || targetAnimal.GetAnimalStatus() == AnimalStatus.Alive)
         {
             yield return null;
             //animal is not close enough to its goal, keep moving
@@ -358,6 +446,80 @@ public class Animal_AI_Base : MonoBehaviour
             destinationPos.z = Animal_GO.transform.position.z;
             //update distance
             distanceToTarget = Vector3.Distance(Animal_GO.transform.position, destinationPos);
+
+            //update face direction
+            if(moveDirection.x > 0)
+            {
+                //face right
+                AnimationManager.SetPlayerFaceDirection(true);
+            }
+            else if(moveDirection.x < 0)
+            {
+                //face left
+                AnimationManager.SetPlayerFaceDirection(false);
+            }
+            
+        }
+
+        //Animal has reached its destination, now do something after its done
+        ActivateCurrentAction_FinishAction();
+    }
+
+    //only follow the target transform's X position
+    public IEnumerator MoveToTransform_X(Transform targetTransform, float moveSpeed)
+    {
+        //Make a vector 3 for the destination position; The X and Y position will follow the "targetTransform",
+        //but the Z will follow this animal's Z posiiton
+        Vector3 destinationPos = targetTransform.position;
+        destinationPos.z = Animal_GO.transform.position.z;
+        destinationPos.y = Animal_GO.transform.position.y;
+
+        //get reference to the target animal
+        Animal_AI_Base targetAnimal = targetTransform.GetComponent<Animal_AI_Base>();
+        if(targetAnimal == null)
+        {
+            //not moving towards an animal
+            Debug.LogWarning("Not moving towards an animal, cannot proceed");
+            yield break;
+        }
+
+        float distanceToTarget = Vector3.Distance(Animal_GO.transform.position, destinationPos);
+        //keep running towards the target animal as long as they're alive, even if we have already reached the target animal
+        while(Vector3.Distance(Animal_GO.transform.position, destinationPos) > AnimalConst.CloseEnough_Eat_Distance || targetAnimal.GetAnimalStatus() == AnimalStatus.Alive)
+        {
+            yield return null;
+            //animal is not close enough to its goal, keep moving
+            Vector3 moveDirection = destinationPos - Animal_GO.transform.position;
+
+            if(distanceToTarget <= moveSpeed * Time.deltaTime)
+            {
+                // animal is close enough to target, just snap to it
+                Animal_GO.transform.position = destinationPos;
+            }
+            else
+            {
+                moveDirection = moveDirection.normalized;
+                Animal_GO.transform.position += moveDirection * moveSpeed * Time.deltaTime;
+            }
+
+            //update destinationPos
+            destinationPos = targetTransform.position;
+            destinationPos.z = Animal_GO.transform.position.z;
+            destinationPos.y = Animal_GO.transform.position.y;
+            //update distance
+            distanceToTarget = Vector3.Distance(Animal_GO.transform.position, destinationPos);
+
+            //update face direction
+            if(moveDirection.x > 0)
+            {
+                //face right
+                AnimationManager.SetPlayerFaceDirection(true);
+            }
+            else if(moveDirection.x < 0)
+            {
+                //face left
+                AnimationManager.SetPlayerFaceDirection(false);
+            }
             
         }
 
@@ -416,10 +578,10 @@ public class Animal_AI_Base : MonoBehaviour
         CurrentAnimalAction = null;
     }
 
-    public void ActivateCurrentAction(Animal_AI_Base targetAnimal = null)
+    public void ActivateCurrentAction(Animal_AI_Base targetAnimal = null, bool executeEvenIfDead = false)
     {
         //animal can't act if it is not alive
-        if(AnimalState != AnimalStatus.Alive)
+        if(AnimalState != AnimalStatus.Alive && executeEvenIfDead == false)
         {
             Debug.LogWarning("Animal is not alive, it cannot activate current action. Animal: " + AnimalIdentity.Name);
             return;
@@ -570,6 +732,7 @@ public class Animal_AI_Base : MonoBehaviour
 
     }
 
+    #region add or remove prey
     //call this function, enter reach and prey is alive or dead
     public virtual void AddPrey(Animal_AI_Base thePrey)
     {
@@ -689,6 +852,7 @@ public class Animal_AI_Base : MonoBehaviour
 
         
     }
+    #endregion
 
     //function to potentially alter behaviour because a prey/predator have been added/removed
     public virtual void React_PreyPredator_AddRemove()
@@ -697,8 +861,6 @@ public class Animal_AI_Base : MonoBehaviour
 
         //potentially alter the animal react state of this animal
         AnimalReactState newReactState = ReactState;
-        
-        //TODO
         
         //priority A: prey -> is previous prey valid? If not, replace with new prey and enact action
         //Enact action if previous prey (can be null) is not the same as current prey (should not be null)
@@ -846,7 +1008,7 @@ public class Animal_AI_Base : MonoBehaviour
 
     }
 
-    public void UpdateAnimalStatus(AnimalStatus newStatus, bool instantDeath = false)
+    public virtual void UpdateAnimalStatus(AnimalStatus newStatus, bool instantDeath = false)
     {
         if(AnimalState == newStatus)
         {
@@ -863,7 +1025,7 @@ public class Animal_AI_Base : MonoBehaviour
                 //stop the current animal action
                 StopAndDeleteAction();
                 //play dead animation
-                //show and play blood animation
+                //[942] show and play blood animation
                 if(instantDeath == false)
                 {
                     AnimationManager.Start_Animation(AnimalAnimationKeys.Die);
@@ -893,7 +1055,6 @@ public class Animal_AI_Base : MonoBehaviour
                 //report status to the case manager
                 huntingCaseManager.ReportStatus(AnimalIdentity, AnimalState);
                 break;
-            //TODO eaten status has not yet been tested
             case AnimalStatus.Eaten:
                 //update is being eaten status
                 isBeingEaten = false;
@@ -1002,7 +1163,7 @@ public class Animal_AI_Base : MonoBehaviour
                 continue;
             }
 
-            float newDistance = Vector2.Distance(this.transform.position, closestAnimal.transform.position);
+            float newDistance = Vector2.Distance(this.transform.position, animalList[i].transform.position);
 
             //compare new distance and previous distance
             if(newDistance < smallestDistance)
@@ -1014,6 +1175,7 @@ public class Animal_AI_Base : MonoBehaviour
             }
         }
 
+        Debug.LogWarning("[PreySensor] closest animal: " + closestAnimal.GetAnimalType());
         return closestAnimal;
     }
 
@@ -1056,6 +1218,35 @@ public class Animal_AI_Base : MonoBehaviour
             thePredator.OnEaten -= Handle_MyPredator_Eaten;
             thePredator.OnEscape -= Handle_MyPredator_Escape;
         }
+    }
+
+    public void FinalizeDeath()
+    {
+        //1. re-enable the "Animal_Detected_Collider"
+        Animal_Detected_Collider.gameObject.SetActive(true);
+        //2. spawn blood effect and play die animation
+        AnimationManager.Start_Animation(AnimalAnimationKeys.Die);
+        AnimalDieBlood_Effect.gameObject.SetActive(true);
+        AnimalDieBlood_Effect.PlayEffectAnim();
+        //3. invoke dead action (Raise_OnDeathEvent)
+        OnDeath?.Invoke(this);
+        //activate finish action if it is not null
+        ActivateCurrentAction_FinishAction();
+    }
+
+    protected void Raise_OnDeathEvent()
+    {
+        OnDeath?.Invoke(this);
+    }
+
+    protected void Raise_OnEscapeEvent()
+    {
+        OnEscape?.Invoke(this);
+    }
+
+    protected void Raise_OnEatenEvent()
+    {
+        OnEaten?.Invoke(this);
     }
 
 }

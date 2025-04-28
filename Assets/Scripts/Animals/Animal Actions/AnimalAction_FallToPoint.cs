@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class AnimalAction_WalkToPoint : AnimalAction_Base
+public class AnimalAction_FallToPoint : AnimalAction_Base
 {
-    public Vector3 WalkDestination;
+    public float yPosDestination;
 
     public override void Activate_AnimalAction(AnimalAction_ActivateData animalAction_ActivateData)
     {
@@ -14,6 +14,6 @@ public class AnimalAction_WalkToPoint : AnimalAction_Base
         Animal_AI_Base theAnimal = animalAction_ActivateData.TheAnimal;
 
         //make this animal walk to a specific point
-        theAnimal.StartWalkToPoint(WalkDestination);
+        theAnimal.StartFallToPoint(yPosDestination);
     }
 }

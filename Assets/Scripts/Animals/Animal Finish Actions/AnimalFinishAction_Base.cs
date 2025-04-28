@@ -7,6 +7,7 @@ using UnityEngine;
 public class AnimalFinishAction_Base
 {
     public int FinishActionPriority = 0;
+    public bool ExecuteEvenIfDead = false;
     public virtual void Activate_FinishAction(AnimalAction_ActivateData animalAction_ActivateData)
     {
         Debug.LogWarning("Base animal finish action, should not be used");

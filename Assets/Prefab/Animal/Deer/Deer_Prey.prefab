@@ -317,6 +317,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 1
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
@@ -1170,12 +1171,15 @@ MonoBehaviour:
   State_Index: 0
   CurrentAnimalAction:
     rid: -2
+  Animal_Detected_Collider: {fileID: 0}
   MissAuraHit_Action:
     rid: 3243458698102964235
   BodyHit_Action:
     rid: 3243458698102964236
   HeadHit_Action:
     rid: 3243458698102964237
+  OnDeath_Action:
+    rid: -2
   AnimationManager: {fileID: 1924988213664802989}
   BloodHit_Particle: {fileID: 3895986136121655775}
   WeaponHit_Effect: {fileID: 265993974552987168}
@@ -1239,6 +1243,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 0
         AlterType_StateIndex: 2
         AlterValue_ActionIndex: 1
@@ -1247,6 +1252,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 0
         AlterType_StateIndex: 0
         AlterValue_ActionIndex: 1
@@ -1255,16 +1261,19 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         NewStatus: 2
     - rid: 3243458698102964234
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         NewStatus: 2
     - rid: 3243458698102964235
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 1
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
@@ -1273,6 +1282,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_DamageAndAlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         DamageMultiplier: 1
         AlterValue_StateIndex: 1
         AlterType_StateIndex: 1
@@ -1282,6 +1292,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_DamageAndAlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         DamageMultiplier: 1.7
         AlterValue_StateIndex: 1
         AlterType_StateIndex: 1
@@ -1291,6 +1302,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 2
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
@@ -1299,6 +1311,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 2
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
@@ -1321,6 +1334,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 0
         AlterType_StateIndex: 0
         AlterValue_ActionIndex: 1
@@ -1336,6 +1350,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         NewStatus: 2
 --- !u!114 &5848898158238761771
 MonoBehaviour:
@@ -1366,6 +1381,7 @@ MonoBehaviour:
   Animator: {fileID: 3070643328356653327}
   CurrentAnimation: 0
   IsFacingRight_CurrentStatus: 0
+  DefaultFaceIsRight: 0
   AnimalAnimationClipKeys: 0000000001000000020000000300000004000000
   AnimalAnimationClipNames:
   - Deer_IDLE_Male

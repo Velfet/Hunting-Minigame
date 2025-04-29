@@ -11,7 +11,7 @@ public class Animal_AI_Predator : Animal_AI_Base
     [Space(10)]
     [SerializeField] protected GameObject RoarCollider_GO;
 
-    //TODO check if prey should be added to potentialPreys list instead of myPreys
+    //check if prey should be added to potentialPreys list instead of myPreys
     //and if so, we don't want to call "React_PreyPredator_AddRemove" or the "React_Roar" function
     public override void AddPrey(Animal_AI_Base thePrey)
     {

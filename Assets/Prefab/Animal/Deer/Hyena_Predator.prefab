@@ -1658,6 +1658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855cd7650b6b80a42911fde80d31bb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Visual_Transform: {fileID: 7350837907908889441}
   AnimalSprite: {fileID: 4002881479117661341}
   Animator: {fileID: 2845738763522186545}
   CurrentAnimation: 0

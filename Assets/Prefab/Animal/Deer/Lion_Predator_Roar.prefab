@@ -394,12 +394,15 @@ MonoBehaviour:
   State_Index: 0
   CurrentAnimalAction:
     rid: -2
+  Animal_Detected_Collider: {fileID: 0}
   MissAuraHit_Action:
     rid: -2
   BodyHit_Action:
     rid: 3243458701720289291
   HeadHit_Action:
     rid: 3243458701720289292
+  OnDeath_Action:
+    rid: -2
   AnimationManager: {fileID: 5680771551143694592}
   BloodHit_Particle: {fileID: 7093621913032702066}
   WeaponHit_Effect: {fileID: 6328060125772611469}
@@ -477,11 +480,13 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         NewStatus: 2
     - rid: 3243458701720289289
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 0
         AlterType_StateIndex: 0
         AlterValue_ActionIndex: 1
@@ -490,6 +495,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 0
         AlterType_StateIndex: 0
         AlterValue_ActionIndex: 1
@@ -498,16 +504,19 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_Damage, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         DamageMultiplier: 1
     - rid: 3243458701720289292
       type: {class: AnimalFinishAction_Damage, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         DamageMultiplier: 1.7
     - rid: 3243458701720289293
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 1
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
@@ -516,6 +525,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 2
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
@@ -524,6 +534,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
         AlterValue_StateIndex: 3
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
@@ -545,6 +556,7 @@ MonoBehaviour:
       type: {class: AnimalFinishAction_AfterRoar, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
 --- !u!114 &381606223924918918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,10 +582,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855cd7650b6b80a42911fde80d31bb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Visual_Transform: {fileID: 4575833763689035506}
   AnimalSprite: {fileID: 7930517672951978254}
   Animator: {fileID: 9150704089154347170}
   CurrentAnimation: 0
   IsFacingRight_CurrentStatus: 0
+  DefaultFaceIsRight: 0
   AnimalAnimationClipKeys: 0000000001000000020000000300000004000000
   AnimalAnimationClipNames:
   - Deer_IDLE_Male

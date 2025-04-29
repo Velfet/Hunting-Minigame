@@ -15,6 +15,7 @@ MonoBehaviour:
   Name: Hyena
   Health: 15
   RunSpeed: 2.9
+  RunSpeed_Faster: 3.1
   WalkSpeed: 2
   FallSpeed: 0
   Experience: 7

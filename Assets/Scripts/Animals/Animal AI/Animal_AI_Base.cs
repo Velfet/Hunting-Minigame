@@ -232,6 +232,19 @@ public class Animal_AI_Base : MonoBehaviour
         StartCoroutine(MoveCoroutine);
     }
 
+    public void StartRunFasterToPoint(Vector3 runDestination)
+    {
+        //stop the previous move coroutine if it exists
+        InterruptMove();
+
+        //start run animation
+        AnimationManager.Start_Animation(AnimalAnimationKeys.Run);
+        //start a coroutine to make this animal run to the run destination
+        MoveCoroutine = MoveToPoint(runDestination, AnimalData.RunSpeed_Faster);
+        //Debug.LogWarning("Start move coroutine");
+        StartCoroutine(MoveCoroutine);
+    }
+
     public void StartFallToPoint(float yPos)
     {
         //stop the previous move coroutine if it exists
@@ -563,7 +576,7 @@ public class Animal_AI_Base : MonoBehaviour
 
     #endregion
 
-    public void StopAndDeleteAction()
+    public virtual void StopAndDeleteAction()
     {
         //stop current action
         InterruptMove();

@@ -1200,7 +1200,7 @@ MonoBehaviour:
     - rid: 3243458698102964225
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: Default
+        StateName: 'Default: Walk, Idle, Walk'
         AnimalActions:
         - rid: 3243458698102964227
         - rid: 3243458698102964228
@@ -1208,7 +1208,7 @@ MonoBehaviour:
     - rid: 3243458698102964226
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: Shoot Arrow
+        StateName: Shoot Arrow, Run
         AnimalActions:
         - rid: 3243458698102964230
     - rid: 3243458698102964227
@@ -1377,6 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855cd7650b6b80a42911fde80d31bb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Visual_Transform: {fileID: 7773329110334508895}
   AnimalSprite: {fileID: 4210323567279071395}
   Animator: {fileID: 3070643328356653327}
   CurrentAnimation: 0

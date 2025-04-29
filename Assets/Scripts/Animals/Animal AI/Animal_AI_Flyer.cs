@@ -4,7 +4,200 @@ using UnityEngine;
 
 public class Animal_AI_Flyer : Animal_AI_Base
 {
-    
+    [Space(10)]
+    [SerializeReference] protected AnimalFinishAction_Base SeePrey_Action;  //should only activate if the prey is dead
+
+    public override void StopAndDeleteAction()
+    {
+        //stop current action if the current action does not execute if the animal dies
+        if(CurrentAnimalAction != null && CurrentAnimalAction.AnimalFinishAction.ExecuteEvenIfDead == true)
+        {
+            //don't interrupt the move
+        }
+        else
+        {
+            //interrupt the move
+            InterruptMove();
+
+            //play the animal's idle animation if animal is alive
+            if(AnimalState == AnimalStatus.Alive)
+            {
+                AnimationManager.Start_Animation(AnimalAnimationKeys.Idle);
+            }
+            
+
+            //set current action to null
+            CurrentAnimalAction = null;
+        }
+        
+        
+    }
+
+    //function to react when prey dies, escaped, or eaten;  we'll make override of them in the child classes if needed
+    protected override void Handle_MyPrey_Die(Animal_AI_Base theDeadPrey)
+    {
+        Debug.LogWarning("[Flyer] prey just died");
+        //prey is dead; a dead prey a valid prey, so remove it from the "potentialPreys" list and add it to the "myPreys" list
+        //and also call "React_PreyPredator_AddRemove" to potentially alter this animal's behaviour
+        //BUT this only happens if the prey is stil in the "potentialPreys" list
+        if(potentialPreys.Contains(theDeadPrey) == true)
+        {
+            //remove from "potentialPreys" list
+            potentialPreys.Remove(theDeadPrey);
+            //add to "myPreys" list
+            myPreys.Add(theDeadPrey);
+            //potentially alter behaviour
+            React_PreyPredator_AddRemove();
+        }
+    }
+
+    //check if prey should be added to potentialPreys list instead of myPreys
+    //and if so, we don't want to call "React_PreyPredator_AddRemove" or the "React_Roar" function
+    public override void AddPrey(Animal_AI_Base thePrey)
+    {
+        //this bool will tell if the prey should be added to the "myPreys" list
+        //or the "potentialPreys" list. Either way, it still gets added to the "reactcollider_preys" list
+        //The prey is currently being eaten, and since this animal has just received this prey,
+        //it is not possible for that eater to be this animal.
+        //So, the prey is currently being eaten by another animal
+        //, making the prey not optimal
+        bool isPreyBeingEaten = thePrey.Get_IsBeingEaten_Status() == true;
+        //For the flyer type, a prey also need to be "dead" to be considered optimal
+        bool isPreyDead = thePrey.GetAnimalStatus() == AnimalStatus.Dead;
+
+        bool preyIsNotOptimal;
+        if(isPreyBeingEaten == false && isPreyDead == true)
+        {
+            //prey is optimal
+            preyIsNotOptimal = false;
+        }
+        else
+        {
+            //prey is not optimal
+            preyIsNotOptimal = true;
+        }
+
+        if(preyIsNotOptimal == true)
+        {
+            //prey is not optimal
+            //add prey to the potential prey list
+            if(potentialPreys.Contains(thePrey) == false)
+            {
+                potentialPreys.Add(thePrey);
+                //also add to the reactcollider_preys list
+                reactCollider_Preys.Add(thePrey);
+            }
+
+            return;
+        }
+
+        //check if the prey has not already been added to the prey list
+        if(myPreys.Contains(thePrey) == false)
+        {
+            //add the prey to the list of preys
+            myPreys.Add(thePrey);
+            //add prey to the reactcollider_preys
+            reactCollider_Preys.Add(thePrey);
+
+            React_PreyPredator_AddRemove();
+            
+        }
+    }
+
+    public override void React_PreyPredator_AddRemove()
+    {
+        //local index and state to avoid tampering
+        int local_Previous_MasterState_Index = MasterState_Index;
+        int local_Previous_State_Index = State_Index;
+        AnimalReactState local_Previous_ReactState = ReactState;
+
+        AnimalReactState currentReactState = ReactState;
+
+        //potentially alter the animal react state of this animal
+        AnimalReactState newReactState = ReactState;
+        
+        //priority A: prey -> is previous prey valid? If not, replace with new prey and enact action
+        //Enact action if previous prey (can be null) is not the same as current prey (should not be null)
+        if(myPreys.Count > 0)
+        {
+            //check current prey
+            if(currentPrey == null)
+            {
+                //get closest prey to this animal
+                currentPrey = GetClosestAnimal(myPreys);
+                //determine prey behaviour type
+                AnimalBehaviourType preyBehaviourType = currentPrey.GetAnimalBehaviourType();
+                //activate action depending on the current prey's behaviour type
+                React_See_Prey(currentPrey, preyBehaviourType);
+            }
+            else
+            {
+                //check closest prey
+                Animal_AI_Base closestPrey = GetClosestAnimal(myPreys);
+                if(closestPrey != currentPrey)
+                {
+                    //replace current prey with the closest prey
+                    currentPrey = closestPrey;
+                    //determine prey behaviour type
+                    AnimalBehaviourType preyBehaviourType = currentPrey.GetAnimalBehaviourType();
+                    //activate action depending on the current prey's behaviour type
+                    React_See_Prey(currentPrey, preyBehaviourType);
+                }
+            }
+            
+            //update state
+            newReactState = AnimalReactState.ChasePrey;
+        }
+
+        //Not used by the predator
+        //priority B: predator -> is previous predator valid? If not, replace with new predator
+        //Enact action if previous predator (can be null) is not the same as the current predator (should not be null)
+
+        
+        //if going from default or arrowhit to chaseprey or RunFromPredator
+        //, then store the previous masterstate_index and state_index in their previous variable counterpart
+        bool isCurrentState_ReactToPreyOrPredator = currentReactState == AnimalReactState.ChasePrey || currentReactState == AnimalReactState.RunFromPredator;
+        bool isNewState_ReactToPreyOrPredator = newReactState == AnimalReactState.ChasePrey || newReactState == AnimalReactState.RunFromPredator;
+        if(isCurrentState_ReactToPreyOrPredator == false && isNewState_ReactToPreyOrPredator)
+        {
+            //going from not reacting to prey/predator TO reacting to prey/predator
+            //store previous masterstate_index and state_index in their previous variable counterpart, also the react state
+            Previous_MasterState_Index = local_Previous_MasterState_Index;
+            Previous_State_Index = local_Previous_State_Index;
+            Previous_ReactState = local_Previous_ReactState;
+        }
+
+        //priority C: no prey, no predator -> use previous master state index and previous state index to go back
+        //to doing what the animal was doing before it reacted to prey/predator
+        //If going from prey -> no prey, might start custom action
+        //If going from predator -> no predator, might start custom action
+        if(myPreys.Count == 0)
+        {
+            //load previous index and start action
+            MasterState_Index = Previous_MasterState_Index;
+            State_Index = Previous_State_Index;
+            //update state
+            newReactState = Previous_ReactState;
+            Debug.LogWarning("[FlyerAI] no more prey, reloading previous state index");
+            ActivateCurrentAction();
+        }
+
+        //set current state
+        ReactState = newReactState;
+    }
+
+    protected void React_See_Prey(Animal_AI_Base thePrey, AnimalBehaviourType behaviourType)
+    {
+        AnimalAction_ActivateData animalAction_ActivateData = new AnimalAction_ActivateData{
+            TheAnimal = this,
+            TheTargetAnimal = thePrey
+        };
+
+        //execute "see prey" action
+        SeePrey_Action.Activate_FinishAction(animalAction_ActivateData);
+    }
+
+
 
     public override void UpdateAnimalStatus(AnimalStatus newStatus, bool instantDeath = false)
     {
@@ -24,7 +217,7 @@ public class Animal_AI_Flyer : Animal_AI_Base
                 //stop the current animal action
                 StopAndDeleteAction();
                 //play dead animation
-                //TODO activate "OnDeath_Action" which should make:
+                //activate "OnDeath_Action" which should make:
                 React_Die_Start();
                 //0. disable the "Animal_Detected_Collider"
                 //1. the animal fall to the ground

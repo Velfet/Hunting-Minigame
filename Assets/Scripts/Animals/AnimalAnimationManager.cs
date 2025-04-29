@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AnimalAnimationManager : MonoBehaviour
 {
+    [SerializeField] private Transform Visual_Transform;
     [SerializeField] private SpriteRenderer AnimalSprite;
     [SerializeField] private Animator Animator;
     [SerializeField] private AnimalAnimationKeys CurrentAnimation;
@@ -83,11 +84,11 @@ public class AnimalAnimationManager : MonoBehaviour
             //Face right
             if(DefaultFaceIsRight == true)
             {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                Visual_Transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
             else
             {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                Visual_Transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
             
         }
@@ -96,11 +97,11 @@ public class AnimalAnimationManager : MonoBehaviour
             //Face left
             if(DefaultFaceIsRight == true)
             {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                Visual_Transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
             else
             {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                Visual_Transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
         }
     }

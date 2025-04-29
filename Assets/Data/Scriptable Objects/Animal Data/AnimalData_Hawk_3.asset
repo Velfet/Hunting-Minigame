@@ -15,6 +15,7 @@ MonoBehaviour:
   Name: Hawk
   Health: 6
   RunSpeed: 3
+  RunSpeed_Faster: 3.25
   WalkSpeed: 2
   FallSpeed: 4.5
   Experience: 3

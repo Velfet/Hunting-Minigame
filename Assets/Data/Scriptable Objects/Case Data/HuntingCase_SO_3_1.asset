@@ -25,19 +25,42 @@ MonoBehaviour:
     SpawnTime: 2
     SpawnPosition: {x: 14, y: 1.05, z: 12.5}
     DeadOnSpawn: 0
-  WinCondition:
+  WinCondition_Immediate_MultiChain:
     UsingDefaultCondition: 0
     DefaultCondition: 0
-    Must_Die:
-    - Name: Hyena
-      AnimalType: 1
-      AnimalBehaviour: 1
-    Must_Escape: []
-    Must_BeEaten: []
-  LoseCondition:
+    AllHuntingCondition_Chains:
+    - UsingDefaultCondition: 0
+      DefaultCondition: 0
+      AllHuntingConditions:
+      - UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die:
+        - Name: Hyena
+          AnimalType: 1
+          AnimalBehaviour: 1
+        Must_Escape: []
+        Must_BeEaten: []
+  LoseCondition_Immediate_MultiChain:
     UsingDefaultCondition: 1
     DefaultCondition: 0
-    Must_Die: []
-    Must_Escape: []
-    Must_BeEaten: []
+    AllHuntingCondition_Chains: []
+  WinCondition_Timer_MultiChain:
+    UsingDefaultCondition: 0
+    DefaultCondition: 0
+    AllHuntingCondition_Chains:
+    - UsingDefaultCondition: 0
+      DefaultCondition: 0
+      AllHuntingConditions:
+      - UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die:
+        - Name: Hyena
+          AnimalType: 1
+          AnimalBehaviour: 1
+        Must_Escape: []
+        Must_BeEaten: []
+  LoseCondition_Timer_MultiChain:
+    UsingDefaultCondition: 1
+    DefaultCondition: 1
+    AllHuntingCondition_Chains: []
   TimerDuration: 18

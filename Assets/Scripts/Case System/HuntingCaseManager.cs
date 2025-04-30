@@ -234,6 +234,8 @@ public class HuntingCaseManager : MonoBehaviour
     private void CheckSpawnAnimal_Condition()
     {
         //when spawning animal, don't forget to include the animal spawn data
+        //also need to keep track of which animal has been spawned using conditions
+        //We'll use this data to determine if all animals spawned with conditions have been spawned or not
     }
 
     private void CheckOutOfTime()
@@ -289,20 +291,25 @@ public class HuntingCaseManager : MonoBehaviour
                 //nothing for now
                 break;
         }
+
+        //TODO might want to check if there are any animals left to spawn
+        //if there isn't and no animals are alive, we can stop the timer
+        //and check for the win/lose condtion timer varian since we already checked the non-timer variant above us
+
     }
 
     public void Check_WinOrLose_Condition()
     {
         if(CurrentHuntingGameState != Enum_HuntingGameState.Inactive)
         {
-            bool winCondition_Met = CurrentHuntingCase.WinCondition.Get_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten);
+            bool winCondition_Met = CurrentHuntingCase.WinCondition_Immediate_MultiChain.Get_MultiChain_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten);
             if(winCondition_Met == true)
             {
                 WinEvent();
                 return;
             }
 
-            bool loseCondition_Met = CurrentHuntingCase.LoseCondition.Get_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten);
+            bool loseCondition_Met = CurrentHuntingCase.LoseCondition_Immediate_MultiChain.Get_MultiChain_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten);
             if(loseCondition_Met == true)
             {
                 LoseEvent();
@@ -311,11 +318,28 @@ public class HuntingCaseManager : MonoBehaviour
         }
     }
 
+    public void Check_WinOrLose_Condition_Timer()
+    {
+        bool winCondition_Met = CurrentHuntingCase.WinCondition_Timer_MultiChain.Get_MultiChain_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten);
+        if(winCondition_Met == true)
+        {
+            WinEvent();
+            return;
+        }
+
+        bool loseCondition_Met = CurrentHuntingCase.LoseCondition_Timer_MultiChain.Get_MultiChain_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten);
+        if(loseCondition_Met == true)
+        {
+            LoseEvent();
+            return;
+        }
+    }
+
     //call this function if the timer runs out
     public void Lose_OutOfTime()
     {
-        //check if the win or lose condition is met
-        Check_WinOrLose_Condition();
+        //check if the win or lose condition is met (timer variant)
+        Check_WinOrLose_Condition_Timer();
 
         //timer has run out, trigger lose condition
         if(CurrentHuntingGameState != Enum_HuntingGameState.Inactive)
@@ -372,6 +396,16 @@ public class HuntingCaseManager : MonoBehaviour
         }
 
         CurrentHuntingGameState = newState;
+    }
+
+    public bool Check_AreThereMoreAnimalsToSpawn()
+    {
+        //bool to check if animals spawned based on timer are all spawned
+        bool timerSpawnAnimal_Done = Current_AnimalSpawnData_Index >= AnimalSpawnData_List.Count;
+        //TODO bool to check if animals spawned based on conditions (dead/escaped/eaten animals) are all spawned
+
+        //TODO temporary return value, delete later
+        return timerSpawnAnimal_Done == false;
     }
 
     public bool IsCurrentLevelTheLastLevel()

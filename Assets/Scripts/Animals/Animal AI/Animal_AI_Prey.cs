@@ -56,6 +56,11 @@ public class Animal_AI_Prey : Animal_AI_Base
             //update state
             newReactState = AnimalReactState.RunFromPredator;
         }
+        else
+        {
+            //update state
+            newReactState = Previous_ReactState;
+        }
 
         
 

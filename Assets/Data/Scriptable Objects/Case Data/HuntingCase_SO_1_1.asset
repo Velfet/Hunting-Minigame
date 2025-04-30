@@ -16,18 +16,43 @@ MonoBehaviour:
   - Animal_Prefab: {fileID: 5848898158238761782, guid: 8e85cc36b74431f4bb4175fed806780e, type: 3}
     SpawnTime: 0
     SpawnPosition: {x: 14, y: 1.05, z: 12}
-  WinCondition:
+    DeadOnSpawn: 0
+  WinCondition_Immediate_MultiChain:
     UsingDefaultCondition: 0
     DefaultCondition: 0
-    Must_Die:
-    - Name: Deer
-      AnimalType: 0
-    Must_Escape: []
-    Must_BeEaten: []
-  LoseCondition:
+    AllHuntingCondition_Chains:
+    - UsingDefaultCondition: 0
+      DefaultCondition: 0
+      AllHuntingConditions:
+      - UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die:
+        - Name: Deer
+          AnimalType: 0
+          AnimalBehaviour: 0
+        Must_Escape: []
+        Must_BeEaten: []
+  LoseCondition_Immediate_MultiChain:
     UsingDefaultCondition: 1
     DefaultCondition: 0
-    Must_Die: []
-    Must_Escape: []
-    Must_BeEaten: []
+    AllHuntingCondition_Chains: []
+  WinCondition_Timer_MultiChain:
+    UsingDefaultCondition: 0
+    DefaultCondition: 0
+    AllHuntingCondition_Chains:
+    - UsingDefaultCondition: 0
+      DefaultCondition: 0
+      AllHuntingConditions:
+      - UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die:
+        - Name: Deer
+          AnimalType: 0
+          AnimalBehaviour: 0
+        Must_Escape: []
+        Must_BeEaten: []
+  LoseCondition_Timer_MultiChain:
+    UsingDefaultCondition: 1
+    DefaultCondition: 1
+    AllHuntingCondition_Chains: []
   TimerDuration: 12

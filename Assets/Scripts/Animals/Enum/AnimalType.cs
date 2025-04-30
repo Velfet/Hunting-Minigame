@@ -8,5 +8,6 @@ public enum AnimalType
     Hyena,
     Leopard,
     Hawk,
-    Lion
+    Lion,
+    Boar
 }

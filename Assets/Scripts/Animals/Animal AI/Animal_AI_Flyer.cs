@@ -10,7 +10,7 @@ public class Animal_AI_Flyer : Animal_AI_Base
     public override void StopAndDeleteAction()
     {
         //stop current action if the current action does not execute if the animal dies
-        if(CurrentAnimalAction != null && CurrentAnimalAction.AnimalFinishAction.ExecuteEvenIfDead == true)
+        if(CurrentAnimalAction != null && CurrentAnimalAction.AnimalFinishAction != null && CurrentAnimalAction.AnimalFinishAction.ExecuteEvenIfDead == true)
         {
             //don't interrupt the move
         }

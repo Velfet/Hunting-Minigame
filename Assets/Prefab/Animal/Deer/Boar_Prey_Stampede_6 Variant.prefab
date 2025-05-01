@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &696733326521778328
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 813624129229100450, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_Name
+      value: Boar_Prey_Stampede_6 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100450, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5311444444033075095, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.544
+      objectReference: {fileID: 0}
+    - target: {fileID: 5311444444033075095, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: AnimalData
+      value: 
+      objectReference: {fileID: 11400000, guid: da14501bed07bf142af26bca851ec41b, type: 2}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[3243458837987459072].RunDestination.x
+      value: 21
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}

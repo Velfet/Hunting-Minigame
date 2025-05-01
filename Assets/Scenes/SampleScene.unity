@@ -152,8 +152,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 619394802}
-  - {fileID: 2047410641}
   - {fileID: 661749493}
+  - {fileID: 2047410641}
   - {fileID: 9205660648556974373}
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -1213,9 +1213,11 @@ MonoBehaviour:
   HuntingCase_Data: {fileID: 397264971}
   CurrentRank: 1
   CurrentLevel: 1
-  TestCase: {fileID: 11400000, guid: a19290e94dab39544a925b0176ec55d9, type: 2}
+  TestCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
   AnimalSpawnData_List: []
   Current_AnimalSpawnData_Index: 0
+  AnimalSpawnData_Condition_List_NotYetSpawned: []
+  AnimalSpawnData_Condition_List_AlreadySpawned: []
   CurrentHuntingCase: {fileID: 0}
   CurrentHuntingGameState: 1
   HuntingUI: {fileID: 341133969}
@@ -1225,6 +1227,7 @@ MonoBehaviour:
   Animal_Dead: []
   Animal_Escape: []
   Animal_Eaten: []
+  Animal_Killed: []
   TickRate: 1
   TickTimer: 0
   CurrentTimer_GoUp: 0
@@ -1796,7 +1799,7 @@ Transform:
   m_Children:
   - {fileID: 1436323843}
   m_Father: {fileID: 13140823}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &684155039 stripped
 MonoBehaviour:
@@ -4045,7 +4048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 813624129229100477, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4114,7 +4117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8981987491745362945, guid: d81485f03c725964799c0808099ae8f3, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8981987491745362945, guid: d81485f03c725964799c0808099ae8f3, type: 3}
       propertyPath: m_LocalPosition.x

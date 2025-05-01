@@ -443,7 +443,20 @@ public class Animal_AI_Base : MonoBehaviour
             //animal is not close enough to its goal, keep moving
             Vector3 moveDirection = destinationPos - Animal_GO.transform.position;
 
-            if(distanceToTarget <= moveSpeed * Time.deltaTime)
+            float finalMoveSpeed = moveSpeed;
+
+            // if(distanceToTarget <= moveSpeed * Time.deltaTime)
+            // {
+            //     // animal is close enough to target, just snap to it
+            //     Animal_GO.transform.position = destinationPos;
+            // }
+            if(distanceToTarget < AnimalConst.CloseEnough_Eat_Distance)
+            {
+                //animal is close enough, slow down significantly
+                finalMoveSpeed = moveSpeed / 32f;
+            }
+
+            if(distanceToTarget <= finalMoveSpeed * Time.deltaTime)
             {
                 // animal is close enough to target, just snap to it
                 Animal_GO.transform.position = destinationPos;
@@ -451,7 +464,7 @@ public class Animal_AI_Base : MonoBehaviour
             else
             {
                 moveDirection = moveDirection.normalized;
-                Animal_GO.transform.position += moveDirection * moveSpeed * Time.deltaTime;
+                Animal_GO.transform.position += moveDirection * finalMoveSpeed * Time.deltaTime;
             }
 
             //update destinationPos

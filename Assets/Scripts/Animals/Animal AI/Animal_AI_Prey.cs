@@ -118,7 +118,10 @@ public class Animal_AI_Prey : Animal_AI_Base
         switch(behaviourType)
         {
             case AnimalBehaviourType.Predator:
-                SeePredator_Action.Activate_FinishAction(animalAction_ActivateData);
+                if(SeePredator_Action != null)
+                {
+                    SeePredator_Action.Activate_FinishAction(animalAction_ActivateData);
+                }
                 break;
             default:
                 break;
@@ -133,6 +136,9 @@ public class Animal_AI_Prey : Animal_AI_Base
         };
 
         //execute the action
-        NoMorePredator_Action.Activate_FinishAction(animalAction_ActivateData);
+        if(NoMorePredator_Action != null)
+        {
+            NoMorePredator_Action.Activate_FinishAction(animalAction_ActivateData);
+        }
     }
 }

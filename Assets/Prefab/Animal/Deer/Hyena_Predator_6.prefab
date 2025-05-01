@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630c6afc3e6c78a4a8e5795fdbcb3298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 0000000003000000
+  reactSources: 000000000300000005000000
   reactAction:
     rid: -2
   theAnimal: {fileID: 2308406785459082537}
@@ -980,7 +980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bf5a710d963374fbea3cfa79530cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 0000000003000000
+  reactSources: 000000000300000005000000
   theAnimal: {fileID: 2308406785459082537}
 --- !u!1 &5695969655756757805
 GameObject:
@@ -1423,7 +1423,7 @@ GameObject:
   - component: {fileID: 6685717237477771029}
   - component: {fileID: 1681508497253887123}
   m_Layer: 0
-  m_Name: Hyena_Predator
+  m_Name: Hyena_Predator_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 6685717237477771016}
-  AnimalData: {fileID: 11400000, guid: 0aa6f9883e1221045b21938297b9cd2b, type: 2}
+  AnimalData: {fileID: 11400000, guid: 941f05dec2486014b8676e36218b8c93, type: 2}
   AnimalState: 0
   AnimalIdentity:
     Name: Hyena
@@ -1512,7 +1512,7 @@ MonoBehaviour:
     - rid: 3243458722425208832
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: 'Default: Walk to Left'
+        StateName: 'Default: Walk to Right'
         AnimalActions:
         - rid: 3243458722425208835
     - rid: 3243458722425208833
@@ -1536,7 +1536,7 @@ MonoBehaviour:
         AnimalFinishAction:
           rid: 3243458722425208840
         ActionPriority: 0
-        WalkDestination: {x: -14, y: 1.05, z: 12.5}
+        WalkDestination: {x: 14, y: 1.05, z: 12.5}
     - rid: 3243458722425208836
       type: {class: AnimalAction_RunToTarget, ns: , asm: Assembly-CSharp}
       data:

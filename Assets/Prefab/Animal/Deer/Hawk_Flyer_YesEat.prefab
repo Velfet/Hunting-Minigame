@@ -499,7 +499,7 @@ MonoBehaviour:
   AnimalSprite: {fileID: 8273497649301798284}
   Animator: {fileID: 7071303881961587744}
   CurrentAnimation: 0
-  IsFacingRight_CurrentStatus: 0
+  IsFacingRight_CurrentStatus: 1
   DefaultFaceIsRight: 1
   AnimalAnimationClipKeys: 0000000001000000020000000300000004000000
   AnimalAnimationClipNames:

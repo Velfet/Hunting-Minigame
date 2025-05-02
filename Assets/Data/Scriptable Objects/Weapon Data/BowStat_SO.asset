@@ -16,9 +16,9 @@ MonoBehaviour:
   - HitDelay: 0.6
     HitCooldown: 0.6
     ArrowStats: {fileID: 11400000, guid: db251f375ac645146bac1dae20c49fb6, type: 2}
+  - HitDelay: 0.5
+    HitCooldown: 0.5
+    ArrowStats: {fileID: 11400000, guid: db251f375ac645146bac1dae20c49fb6, type: 2}
   - HitDelay: 0.4
     HitCooldown: 0.4
-    ArrowStats: {fileID: 11400000, guid: 227dc46fe99ced44c988eaafa923270f, type: 2}
-  - HitDelay: 0.3
-    HitCooldown: 0.3
-    ArrowStats: {fileID: 11400000, guid: 8729ac1ce21e9bf4d84aeacb0fc6e6c2, type: 2}
+    ArrowStats: {fileID: 11400000, guid: db251f375ac645146bac1dae20c49fb6, type: 2}

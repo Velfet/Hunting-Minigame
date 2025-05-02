@@ -62,9 +62,9 @@ public class Animal_AI_Predator : Animal_AI_Base
     public virtual void ReturnFromRoar()
     {
         //Load previous state index and react state
-        MasterState_Index = Previous_MasterState_Index;
-        State_Index = Previous_State_Index;
-        ReactState = Previous_ReactState;
+        // MasterState_Index = Previous_MasterState_Index;
+        // State_Index = Previous_State_Index;
+        // ReactState = Previous_ReactState;
         //run React_PreyPredator_AddRemove
         React_PreyPredator_AddRemove();
     }
@@ -127,7 +127,7 @@ public class Animal_AI_Predator : Animal_AI_Base
         
         //if going from default or arrowhit to chaseprey or RunFromPredator
         //, then store the previous masterstate_index and state_index in their previous variable counterpart
-        bool isCurrentState_ReactToPreyOrPredator = currentReactState == AnimalReactState.ChasePrey || currentReactState == AnimalReactState.RunFromPredator;
+        bool isCurrentState_ReactToPreyOrPredator = currentReactState == AnimalReactState.ChasePrey || currentReactState == AnimalReactState.RunFromPredator || currentReactState == AnimalReactState.Roaring;
         bool isNewState_ReactToPreyOrPredator = newReactState == AnimalReactState.ChasePrey || newReactState == AnimalReactState.RunFromPredator;
         if(isCurrentState_ReactToPreyOrPredator == false && isNewState_ReactToPreyOrPredator)
         {
@@ -188,9 +188,9 @@ public class Animal_AI_Predator : Animal_AI_Base
         };
 
         //store previous masterstate_index and state_index in their previous variable counterpart, also the react state
-        Previous_MasterState_Index = MasterState_Index;
-        Previous_State_Index = State_Index;
-        Previous_ReactState = ReactState;
+        // Previous_MasterState_Index = MasterState_Index;
+        // Previous_State_Index = State_Index;
+        // Previous_ReactState = ReactState;
 
         //set react state as roaring
         ReactState = AnimalReactState.Roaring;

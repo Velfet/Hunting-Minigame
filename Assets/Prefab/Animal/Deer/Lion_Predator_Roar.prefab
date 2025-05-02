@@ -107,7 +107,7 @@ Transform:
   m_Children:
   - {fileID: 381606223512816566}
   m_Father: {fileID: 4575833763689035506}
-  m_RootOrder: 8
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &381606223014732493
 SpriteRenderer:
@@ -206,8 +206,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0020131, y: 0.5737914, z: 1}
-  m_Center: {x: 0.018334687, y: 0.2831043, z: 0}
+  m_Size: {x: 1.2288731, y: 0.83976454, z: 1}
+  m_Center: {x: 0.1239416, y: 0.41609082, z: 0}
 --- !u!54 &3678384702230510353
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   hitPriority: 5
   bodyPartCollider: {fileID: 1478390257120541776}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 0}
+  TheAnimal: {fileID: 7089660190061956381}
 --- !u!1 &381606223512816565
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,8 +287,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.54393417, y: 0.69519055, z: 1}
-  m_Center: {x: 0.12196705, y: 0.5275952, z: 0}
+  m_Size: {x: 0.68825245, y: 1.0105454, z: 1}
+  m_Center: {x: -0.15358329, y: 0.08829992, z: 0}
 --- !u!54 &2867338704730626358
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -322,7 +322,7 @@ MonoBehaviour:
   hitPriority: 2
   bodyPartCollider: {fileID: 4547864437420419240}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 0}
+  TheAnimal: {fileID: 7089660190061956381}
 --- !u!1 &381606223924918939
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &381606223924918916
 Transform:
   m_ObjectHideFlags: 0
@@ -350,7 +350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381606223924918939}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.5, y: 0.75, z: 14}
+  m_LocalPosition: {x: 13.5, y: 0.75, z: 12.5}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 381606223924918939}
-  AnimalData: {fileID: 11400000, guid: 0aa6f9883e1221045b21938297b9cd2b, type: 2}
+  AnimalData: {fileID: 11400000, guid: 82670474610d7de48a11d4472fb37b59, type: 2}
   AnimalState: 0
   AnimalIdentity:
     Name: Lion
@@ -394,7 +394,7 @@ MonoBehaviour:
   State_Index: 0
   CurrentAnimalAction:
     rid: -2
-  Animal_Detected_Collider: {fileID: 0}
+  Animal_Detected_Collider: {fileID: 8788174355082438085}
   MissAuraHit_Action:
     rid: -2
   BodyHit_Action:
@@ -423,18 +423,33 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 1805994083109044224
+      type: {class: AnimalAction_WalkToTarget, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994083109044225
+        ActionPriority: 0
+    - rid: 1805994083109044225
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
     - rid: 3243458701720289280
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: Default
+        StateName: 'Default: Walk to Right'
         AnimalActions:
         - rid: 3243458701720289283
     - rid: 3243458701720289281
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: Run After Prey
+        StateName: Walk After Prey
         AnimalActions:
-        - rid: 3243458701720289284
+        - rid: 1805994083109044224
         - rid: 3243458701720289285
     - rid: 3243458701720289282
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
@@ -449,20 +464,14 @@ MonoBehaviour:
         AnimalFinishAction:
           rid: 3243458701720289288
         ActionPriority: 0
-        WalkDestination: {x: -13, y: 1.05, z: 14}
-    - rid: 3243458701720289284
-      type: {class: AnimalAction_RunToTarget, ns: , asm: Assembly-CSharp}
-      data:
-        AnimalFinishAction:
-          rid: 3243458701720289289
-        ActionPriority: 0
+        WalkDestination: {x: 14, y: 1.05, z: 14}
     - rid: 3243458701720289285
       type: {class: AnimalAction_Eat, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
           rid: -2
         ActionPriority: 0
-        EatDuration: 1.5
+        EatDuration: 3.5
     - rid: 3243458701720289286
       type: {class: AnimalAction_WalkToTarget, ns: , asm: Assembly-CSharp}
       data:
@@ -475,22 +484,13 @@ MonoBehaviour:
         AnimalFinishAction:
           rid: -2
         ActionPriority: 0
-        EatDuration: 1.5
+        EatDuration: 3.5
     - rid: 3243458701720289288
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
         ExecuteEvenIfDead: 0
         NewStatus: 2
-    - rid: 3243458701720289289
-      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        ExecuteEvenIfDead: 0
-        AlterValue_StateIndex: 0
-        AlterType_StateIndex: 0
-        AlterValue_ActionIndex: 1
-        AlterType_ActionIndex: 0
     - rid: 3243458701720289290
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
@@ -588,13 +588,14 @@ MonoBehaviour:
   CurrentAnimation: 0
   IsFacingRight_CurrentStatus: 0
   DefaultFaceIsRight: 0
-  AnimalAnimationClipKeys: 0000000001000000020000000300000004000000
+  AnimalAnimationClipKeys: 000000000100000002000000030000000400000005000000
   AnimalAnimationClipNames:
-  - Deer_IDLE_Male
-  - Deer_EAT_Male
-  - Deer_WALK_Male
-  - Deer_RUN_Male
-  - Deer_DEATH_Male
+  - Bear_IDLE
+  - Bear_EAT
+  - Bear_WALK
+  - Bear_RUN
+  - Bear_DEATH
+  - Bear_ATTACK
 --- !u!1 &381606224276251897
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +794,7 @@ GameObject:
   - component: {fileID: 7930517672951978254}
   - component: {fileID: 9150704089154347170}
   m_Layer: 0
-  m_Name: Hyena_Male_Anim
+  m_Name: Animal_Anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -855,7 +856,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 38869047e3f6a674f8d3b0ff6b6460d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bda6ce401b7f23d40918978f77cecd4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -876,7 +877,7 @@ Animator:
   m_GameObject: {fileID: 1625775860932404926}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6e6c82ffc7055ee42b0c1577937b5307, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3014d0c5ada960247b00be56bda5a251, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1142,7 +1143,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4575833763689035506}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2077310318006421848
 BoxCollider:
@@ -1219,7 +1220,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4575833763689035506}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1567370125489683640
 BoxCollider:
@@ -1267,7 +1268,7 @@ MonoBehaviour:
   hitPriority: 1
   bodyPartCollider: {fileID: 1567370125489683640}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 0}
+  TheAnimal: {fileID: 7089660190061956381}
 --- !u!1 &4518037872313516330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,7 +1301,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4575833763689035506}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8270202079159626906
 BoxCollider:
@@ -1378,7 +1379,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.544, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1530,7 +1531,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4575833763689035506}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8915187286927373204
 BoxCollider:
@@ -1573,10 +1574,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630c6afc3e6c78a4a8e5795fdbcb3298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 00000000
+  reactSources: 0100000000000000
   reactAction:
     rid: -2
-  theAnimal: {fileID: 0}
+  theAnimal: {fileID: 7089660190061956381}
   references:
     version: 2
     RefIds:
@@ -1614,7 +1615,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4575833763689035506}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3435724733856322031
 BoxCollider:
@@ -1657,7 +1658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bf5a710d963374fbea3cfa79530cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 000000000100000003000000
+  reactSources: 0100000000000000
   theAnimal: {fileID: 7089660190061956381}
 --- !u!1 &6966827765490454649
 GameObject:
@@ -1701,7 +1702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4575833763689035506}
   m_Layer: 0
-  m_Name: Hyena_Visual
+  m_Name: Animal_Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1720,6 +1721,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 381606224276251898}
+  - {fileID: 381606223014732492}
   - {fileID: 723211928608841466}
   - {fileID: 9058544255149126668}
   - {fileID: 4062613948063202020}
@@ -1727,7 +1729,6 @@ Transform:
   - {fileID: 5085018700367054341}
   - {fileID: 7066094912303108418}
   - {fileID: 3374729418836568920}
-  - {fileID: 381606223014732492}
   - {fileID: 3705416425678723596}
   m_Father: {fileID: 381606223924918916}
   m_RootOrder: 0
@@ -1796,7 +1797,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4575833763689035506}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1530482239911626546
 BoxCollider:
@@ -1872,7 +1873,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4575833763689035506}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3471583282773838982
 BoxCollider:

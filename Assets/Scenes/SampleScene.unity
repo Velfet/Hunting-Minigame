@@ -1213,7 +1213,7 @@ MonoBehaviour:
   HuntingCase_Data: {fileID: 397264971}
   CurrentRank: 1
   CurrentLevel: 1
-  TestCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
+  TestCase: {fileID: 11400000, guid: 164311a592ca1b949885a71b96f70e77, type: 2}
   AnimalSpawnData_List: []
   Current_AnimalSpawnData_Index: 0
   AnimalSpawnData_Condition_List_NotYetSpawned: []
@@ -1248,19 +1248,72 @@ MonoBehaviour:
   All_HuntingCase_Data:
   - allLevel_HuntingCase_Data:
     - level_HuntingCases:
-      - {fileID: 11400000, guid: 12e47a618c579e247a3b55a9cdf71d24, type: 2}
+      - weight: 50
+        theHuntingCase: {fileID: 11400000, guid: 12e47a618c579e247a3b55a9cdf71d24, type: 2}
+      - weight: 15
+        theHuntingCase: {fileID: 11400000, guid: 12e47a618c579e247a3b55a9cdf71d24, type: 2}
+      - weight: 30
+        theHuntingCase: {fileID: 11400000, guid: 12e47a618c579e247a3b55a9cdf71d24, type: 2}
+      - weight: 5
+        theHuntingCase: {fileID: 11400000, guid: 12e47a618c579e247a3b55a9cdf71d24, type: 2}
     - level_HuntingCases:
-      - {fileID: 11400000, guid: c079e99bcf33a1248aa6434b64281ac1, type: 2}
+      - weight: 50
+        theHuntingCase: {fileID: 11400000, guid: c079e99bcf33a1248aa6434b64281ac1, type: 2}
+      - weight: 30
+        theHuntingCase: {fileID: 11400000, guid: c079e99bcf33a1248aa6434b64281ac1, type: 2}
+      - weight: 20
+        theHuntingCase: {fileID: 11400000, guid: c079e99bcf33a1248aa6434b64281ac1, type: 2}
     - level_HuntingCases:
-      - {fileID: 11400000, guid: 12e47a618c579e247a3b55a9cdf71d24, type: 2}
+      - weight: 40
+        theHuntingCase: {fileID: 11400000, guid: 4740798ee2e8e2e469e3c0643cd07ea7, type: 2}
+      - weight: 40
+        theHuntingCase: {fileID: 11400000, guid: 4740798ee2e8e2e469e3c0643cd07ea7, type: 2}
+      - weight: 20
+        theHuntingCase: {fileID: 11400000, guid: 4740798ee2e8e2e469e3c0643cd07ea7, type: 2}
   - allLevel_HuntingCase_Data:
-    - level_HuntingCases: []
-    - level_HuntingCases: []
-    - level_HuntingCases: []
+    - level_HuntingCases:
+      - weight: 40
+        theHuntingCase: {fileID: 11400000, guid: 53e48d12eaeb1dc4ab8178bf6aa8c677, type: 2}
+      - weight: 20
+        theHuntingCase: {fileID: 11400000, guid: 53e48d12eaeb1dc4ab8178bf6aa8c677, type: 2}
+      - weight: 20
+        theHuntingCase: {fileID: 11400000, guid: 53e48d12eaeb1dc4ab8178bf6aa8c677, type: 2}
+      - weight: 20
+        theHuntingCase: {fileID: 11400000, guid: 53e48d12eaeb1dc4ab8178bf6aa8c677, type: 2}
+    - level_HuntingCases:
+      - weight: 80
+        theHuntingCase: {fileID: 11400000, guid: a19290e94dab39544a925b0176ec55d9, type: 2}
+      - weight: 20
+        theHuntingCase: {fileID: 11400000, guid: a19290e94dab39544a925b0176ec55d9, type: 2}
+    - level_HuntingCases:
+      - weight: 30
+        theHuntingCase: {fileID: 11400000, guid: 164311a592ca1b949885a71b96f70e77, type: 2}
+      - weight: 30
+        theHuntingCase: {fileID: 11400000, guid: 164311a592ca1b949885a71b96f70e77, type: 2}
+      - weight: 20
+        theHuntingCase: {fileID: 11400000, guid: 164311a592ca1b949885a71b96f70e77, type: 2}
+      - weight: 20
+        theHuntingCase: {fileID: 11400000, guid: 164311a592ca1b949885a71b96f70e77, type: 2}
   - allLevel_HuntingCase_Data:
-    - level_HuntingCases: []
-    - level_HuntingCases: []
-    - level_HuntingCases: []
+    - level_HuntingCases:
+      - weight: 30
+        theHuntingCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
+      - weight: 30
+        theHuntingCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
+      - weight: 20
+        theHuntingCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
+      - weight: 20
+        theHuntingCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
+    - level_HuntingCases:
+      - weight: 50
+        theHuntingCase: {fileID: 11400000, guid: 44e3b09520795ce4e8ec23b143c42601, type: 2}
+      - weight: 50
+        theHuntingCase: {fileID: 11400000, guid: 44e3b09520795ce4e8ec23b143c42601, type: 2}
+    - level_HuntingCases:
+      - weight: 50
+        theHuntingCase: {fileID: 11400000, guid: 44e3b09520795ce4e8ec23b143c42601, type: 2}
+      - weight: 50
+        theHuntingCase: {fileID: 11400000, guid: 44e3b09520795ce4e8ec23b143c42601, type: 2}
 --- !u!1 &442099884
 GameObject:
   m_ObjectHideFlags: 0
@@ -4248,6 +4301,10 @@ PrefabInstance:
       propertyPath: ArrowPooler
       value: 
       objectReference: {fileID: 1227373103}
+    - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
+      propertyPath: TestJobRank
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
       propertyPath: BowCooldownUI
       value: 

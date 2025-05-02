@@ -51,7 +51,7 @@ public class Animal_AI_Base : MonoBehaviour
     protected Animal_AI_Base currentPrey;
     protected Animal_AI_Base currentPredator;
 
-    //TODO list of potential preys;
+    //list of potential preys;
     //gets populated if the prey is not in an ideal state and it enters the prey react collider
     //gets emptied if the prey escapes/gets eaten or is out of sight (exit) sight collider; also when setting up animal
     //gets moved to the react list if the prey is now in a valid state
@@ -60,7 +60,7 @@ public class Animal_AI_Base : MonoBehaviour
     //the prey before it could finish, therefore, the prey is now a valid target for some other animals
     protected List<Animal_AI_Base> potentialPreys;
     
-    //TODO list of prey animals in the react collider
+    //list of prey animals in the react collider
     //gets populated if the prey enters the prey react collider
     //gets emptied if the prey escapes/gets eaten or exits the react collider; also when setting up animal
     //this will be used when detecting if an animal
@@ -72,13 +72,11 @@ public class Animal_AI_Base : MonoBehaviour
     public event Action<Animal_AI_Base> OnDeath;
     public event Action<Animal_AI_Base> OnEaten;    //gets called when the animal is done being eaten, no more corpse
     public event Action<Animal_AI_Base> OnEscape;
-    //TODO invoke these actions; also, subscribe/unsubsribe from these actions
     public event Action<Animal_AI_Base, Animal_AI_Base> OnBeingEaten_Start;     //first parameter is the eat target, second parameter is the eater animal
     public event Action<Animal_AI_Base, Animal_AI_Base> OnBeingEaten_Interrupt; //so, only 1 of these two should run at a time: OnEaten and OnBeingEaten_Interrupt
     //first parameter is the eat target, second parameter is the previous eater animal that got interrupted
 
-    //TODO bool fields to mark eaten and eating state; set to false at setup
-    //update these fields accordingly
+    //bool fields to mark eaten and eating state; set to false at setup
     protected bool isBeingEaten;
     protected bool isEating;
 
@@ -642,6 +640,8 @@ public class Animal_AI_Base : MonoBehaviour
             //check if animal is currently eating
             if(isEating == true)
             {
+                //No longer eating
+                isEating = false;
                 //animal was eating but is interrupted, inform the eaten animal
                 currentPrey.BeingEaten_Interrupt(this);
             }
@@ -653,7 +653,7 @@ public class Animal_AI_Base : MonoBehaviour
     }
     
     //call this function when the miss aura is hit
-    public void Trigger_MissAuraHit_Action()
+    public virtual void Trigger_MissAuraHit_Action()
     {
         //no reaction if the animal is not alive
         if(AnimalState != AnimalStatus.Alive)
@@ -673,7 +673,7 @@ public class Animal_AI_Base : MonoBehaviour
     }
 
     //call this function when the body is hit
-    public void Trigger_BodyHit_Action(HuntingAttackStats_SO attackData, Vector3 hitPosition)
+    public virtual void Trigger_BodyHit_Action(HuntingAttackStats_SO attackData, Vector3 hitPosition)
     {
         //no reaction if the animal is not alive
         if(AnimalState != AnimalStatus.Alive)
@@ -700,7 +700,7 @@ public class Animal_AI_Base : MonoBehaviour
     }
 
     //call this function when the head is hit
-    public void Trigger_HeadHit_Action(HuntingAttackStats_SO attackData, Vector3 hitPosition)
+    public virtual void Trigger_HeadHit_Action(HuntingAttackStats_SO attackData, Vector3 hitPosition)
     {
         //no reaction if the animal is not alive
         if(AnimalState != AnimalStatus.Alive)
@@ -1201,7 +1201,7 @@ public class Animal_AI_Base : MonoBehaviour
             }
         }
 
-        Debug.LogWarning("[PreySensor] closest animal: " + closestAnimal.GetAnimalType());
+        //Debug.LogWarning("[PreySensor] closest animal: " + closestAnimal.GetAnimalType());
         return closestAnimal;
     }
 

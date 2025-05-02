@@ -17,16 +17,21 @@ MonoBehaviour:
     SpawnTime: 0
     SpawnPosition: {x: 0, y: 1.05, z: 12}
     DeadOnSpawn: 1
-  WinCondition:
-    UsingDefaultCondition: 1
+  All_AnimalSpawnData_Condition: []
+  WinCondition_Immediate_MultiChain:
+    UsingDefaultCondition: 0
     DefaultCondition: 0
-    Must_Die: []
-    Must_Escape: []
-    Must_BeEaten: []
-  LoseCondition:
-    UsingDefaultCondition: 1
+    AllHuntingCondition_Chains: []
+  LoseCondition_Immediate_MultiChain:
+    UsingDefaultCondition: 0
     DefaultCondition: 0
-    Must_Die: []
-    Must_Escape: []
-    Must_BeEaten: []
+    AllHuntingCondition_Chains: []
+  WinCondition_Timer_MultiChain:
+    UsingDefaultCondition: 0
+    DefaultCondition: 0
+    AllHuntingCondition_Chains: []
+  LoseCondition_Timer_MultiChain:
+    UsingDefaultCondition: 0
+    DefaultCondition: 0
+    AllHuntingCondition_Chains: []
   TimerDuration: 12

@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5887927c44cb945bd3262cfb1bbb33, type: 3}
+  m_Name: HuntingCase_SO_8_1
+  m_EditorClassIdentifier: 
+  All_AnimalSpawnData:
+  - Animal_Prefab: {fileID: 5526649761390754851, guid: 2e189cf48de63b24abbf93826d2eea27, type: 3}
+    SpawnTime: 0
+    SpawnPosition: {x: 0, y: 1.05, z: 12}
+    DeadOnSpawn: 1
+  - Animal_Prefab: {fileID: 381606223924918939, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+    SpawnTime: 0
+    SpawnPosition: {x: -14, y: 1.05, z: 12.5}
+    DeadOnSpawn: 0
+  - Animal_Prefab: {fileID: 4228822538139295346, guid: e5145de304f74814c88c0e2379c93387, type: 3}
+    SpawnTime: 0
+    SpawnPosition: {x: 14, y: 1.05, z: 12}
+    DeadOnSpawn: 0
+  All_AnimalSpawnData_Condition:
+  - Animal_Prefab: {fileID: 4228822538139295346, guid: e5145de304f74814c88c0e2379c93387, type: 3}
+    SpawnTime: 0
+    SpawnPosition: {x: 14, y: 1.05, z: 12}
+    DeadOnSpawn: 0
+    SpawnCondition_MultiChain:
+      UsingDefaultCondition: 0
+      DefaultCondition: 0
+      AllHuntingCondition_Chains:
+      - UsingDefaultCondition: 0
+        DefaultCondition: 0
+        AllHuntingConditions:
+        - UsingDefaultCondition: 0
+          DefaultCondition: 0
+          Must_Die: []
+          Must_Escape: []
+          Must_BeEaten: []
+          Must_BeKilled:
+          - Name: Hyena
+            AnimalType: 1
+            AnimalBehaviour: 3
+      - UsingDefaultCondition: 0
+        DefaultCondition: 0
+        AllHuntingConditions:
+        - UsingDefaultCondition: 0
+          DefaultCondition: 0
+          Must_Die: []
+          Must_Escape:
+          - Name: Hyena
+            AnimalType: 1
+            AnimalBehaviour: 3
+          Must_BeEaten: []
+          Must_BeKilled: []
+  WinCondition_Immediate_MultiChain:
+    UsingDefaultCondition: 0
+    DefaultCondition: 0
+    AllHuntingCondition_Chains:
+    - UsingDefaultCondition: 0
+      DefaultCondition: 0
+      AllHuntingConditions:
+      - UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die: []
+        Must_Escape: []
+        Must_BeEaten: []
+        Must_BeKilled:
+        - Name: Lion
+          AnimalType: 4
+          AnimalBehaviour: 1
+  LoseCondition_Immediate_MultiChain:
+    UsingDefaultCondition: 1
+    DefaultCondition: 0
+    AllHuntingCondition_Chains: []
+  WinCondition_Timer_MultiChain:
+    UsingDefaultCondition: 0
+    DefaultCondition: 0
+    AllHuntingCondition_Chains:
+    - UsingDefaultCondition: 0
+      DefaultCondition: 0
+      AllHuntingConditions:
+      - UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die: []
+        Must_Escape: []
+        Must_BeEaten: []
+        Must_BeKilled:
+        - Name: Lion
+          AnimalType: 4
+          AnimalBehaviour: 1
+  LoseCondition_Timer_MultiChain:
+    UsingDefaultCondition: 1
+    DefaultCondition: 1
+    AllHuntingCondition_Chains: []
+  TimerDuration: 21

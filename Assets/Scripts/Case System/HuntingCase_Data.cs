@@ -14,7 +14,14 @@ public class HuntingCase_Data : MonoBehaviour
     [Serializable]
     public class HuntingCase_Level_Data
     {
-        public List<HuntingCase_SO> level_HuntingCases;
+        public List<Single_Huntingcase_Data> level_HuntingCases;
+    }
+
+    [Serializable]
+    public class Single_Huntingcase_Data
+    {
+        public int weight;  //the higher the weight, the more likely this case will be chosen
+        public HuntingCase_SO theHuntingCase;
     }
 
     [SerializeField] private List<HuntingCase_Rank_Data> All_HuntingCase_Data;
@@ -43,8 +50,29 @@ public class HuntingCase_Data : MonoBehaviour
 
         HuntingCase_Level_Data currentLevelData = currentRankData.allLevel_HuntingCase_Data[currentLevel_Index];
         //select a random case for the current rank and level and return it
-        int randomIndex = UnityEngine.Random.Range(0, currentLevelData.level_HuntingCases.Count);
-        HuntingCase_SO selectedHuntingCaseData = currentLevelData.level_HuntingCases[randomIndex];
+        int totalWeight = 0;
+        List<int> choiceIndex = new List<int>();
+        for(int i = 0; i < currentLevelData.level_HuntingCases.Count; i++)
+        {
+            totalWeight += currentLevelData.level_HuntingCases[i].weight;
+            choiceIndex.Add(totalWeight);
+        }
+
+        int randomWeight = UnityEngine.Random.Range(0, totalWeight);
+        int chosenIndex = 0;
+        for(int i = 0; i < choiceIndex.Count; i++)
+        {
+            if(randomWeight < choiceIndex[i])
+            {
+                //i is the chosen index, get out of this for loop
+                chosenIndex = i;
+                break;
+            }
+        }
+
+        HuntingCase_SO selectedHuntingCaseData = currentLevelData.level_HuntingCases[chosenIndex].theHuntingCase;
+
+        //Debug.LogWarning($"[Test] random weight: {randomWeight}, chosen index: {chosenIndex}, total weight: {totalWeight}");
 
         return selectedHuntingCaseData;
     }

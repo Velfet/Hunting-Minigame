@@ -1,0 +1,132 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class HoverVisual_Text_UI : MonoBehaviour
+{
+    [SerializeField] private CursorManager CursorManager;
+    [Space(10)]
+    [SerializeField] private Transform tooltipGO;
+    [SerializeField] private TextMeshProUGUI textMesh;
+    [SerializeField] private RectTransform textRectTransform;
+    [Space(10)]
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private RectTransform Canvas_UI_RT;
+
+    Camera mainCamera;
+    private Vector2 offsetPos;
+    private float textBoxSizeX, textBoxSizeY;
+    Vector2 mousePosWorldPoint, mousePosScreen;
+
+
+    public void Disable_HoverVisual()
+    {
+        tooltipGO.gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        mainCamera = Camera.main;
+    }
+
+    private void Update()
+    {
+        if(tooltipGO.gameObject.activeInHierarchy == false)
+        {
+            return;
+        }
+        //update position to follow active cursor's position; may need to make some sort of "CursorManager" class
+        //get cursor screen position
+        mousePosScreen = CursorManager.Get_CurrentCursor_ScreenPos();
+        //get cursor world position
+        mousePosWorldPoint = CursorManager.Get_CurrentCursor_WorldPos();
+        //mousePosWorldPoint = mainCamera.ScreenToWorldPoint(mousePosScreen);
+
+        //get point in the canvas, canvas should be the same as screen size
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            Canvas_UI_RT,
+            mousePosScreen,
+            canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera,
+            out localPoint
+        );
+
+        //get half size of the hover visual box
+        Vector2 halfSize = textRectTransform.sizeDelta * 0.5f;
+
+        //get the variables to clamp the x and y position
+        float clampX = Canvas_UI_RT.sizeDelta.x * 0.5f - halfSize.x;
+        float clampY = Canvas_UI_RT.sizeDelta.y * 0.5f - halfSize.y;
+
+        //clamp the hover visual box
+        localPoint.x = Mathf.Clamp(localPoint.x, -clampX, clampX);
+        localPoint.y = Mathf.Clamp(localPoint.y, -clampY, clampY);
+        textRectTransform.anchoredPosition = localPoint;
+
+
+
+        //offset the position
+        //OffsetPosition();
+
+        //set position
+        //tooltipGO.transform.position = mainCamera.WorldToScreenPoint(mousePosWorldPoint + new Vector2(offsetPos.x, offsetPos.y));
+        //tooltipGO.transform.position = mainCamera.WorldToScreenPoint(mousePosWorldPoint);
+        //tooltipGO.transform.position = mousePosScreen;
+    }
+
+    public void SetHoverText(string theText)
+    {
+        if(tooltipGO.gameObject.activeInHierarchy == false)
+        {
+            tooltipGO.gameObject.SetActive(true);
+        }
+
+        textMesh.text = theText;
+    }
+
+    //--- Offsets the position of the tooltip box so it doesn't go beyond the screen boundaries ---
+    public void OffsetPosition()
+    {
+        textBoxSizeX = HalfTextBoxWidth();
+        textBoxSizeY = HalfTextBoxHeight();
+
+        if(mousePosScreen.x <= textBoxSizeX)
+        {
+            offsetPos.x = (HalfTextBoxWidth() / 95) - mousePosScreen.x / 110;
+        }
+        else if(mousePosScreen.x >= Screen.width - textBoxSizeX)
+        {
+            float diff1 = Screen.width - textBoxSizeX;
+            float diff2 = mousePosScreen.x - diff1 <= 0 ? 0 : mousePosScreen.x - diff1;
+
+            offsetPos.x = (textBoxSizeX - Screen.width) / 10000 - diff2 / 110;
+        }
+        else
+        {
+            offsetPos.x = 0;
+        }
+
+        if (mousePosScreen.y < textBoxSizeY)
+        {
+            offsetPos.y = (textBoxSizeY / 75) - mousePosScreen.y / 110;
+        }
+        else if (mousePosScreen.y >= Screen.height - textBoxSizeY * 2)
+        {
+            float diff1 = Screen.height - textBoxSizeY;
+            float diff2 = mousePosScreen.y - diff1 <= 0 ? 0 : mousePosScreen.y - diff1;
+
+            offsetPos.y = (textBoxSizeY - Screen.height) / 10000 - diff2 / 110;
+        }
+        else
+        {
+            offsetPos.y = textBoxSizeY / 75;
+        }
+    }
+
+    float HalfTextBoxWidth() => textRectTransform.sizeDelta.x / 2;
+
+    float HalfTextBoxHeight() => textRectTransform.sizeDelta.y / 2;
+
+
+}

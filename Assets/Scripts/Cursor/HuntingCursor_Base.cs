@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,17 @@ public class HuntingCursor_Base : MonoBehaviour
     [Space(10)]
     [SerializeField] private Enum_BowState BowState;
     [Space(10)]
+    [SerializeField] private CursorHover_WorldSpace_UI CursorHover;
+    [Space(10)]
     [SerializeField] private float MoveSpeed;
     [Space(10)]
     [SerializeField] private float Pos_X_Min;
     [SerializeField] private float Pos_X_Max;
     [SerializeField] private float Pos_Y_Min;
     [SerializeField] private float Pos_Y_Max;
+
+
+    public event Action<bool> On_UpdateCustomCursor_State;
 
     private void Update()
     {
@@ -67,14 +73,19 @@ public class HuntingCursor_Base : MonoBehaviour
         }
 
         BowState = newState;
+        
         //show the hunting cursor if the state is active
         //and hide the hunting cursor if the state is non-active
         switch(BowState)
         {
             case Enum_BowState.Active:
+                CursorHover.Set_ActiveState(true);
+                On_UpdateCustomCursor_State?.Invoke(true);
                 gameObject.SetActive(true);
                 break;
             case Enum_BowState.NonActive:
+                CursorHover.Set_ActiveState(false);
+                On_UpdateCustomCursor_State?.Invoke(false);
                 gameObject.SetActive(false);
                 break;
             default:

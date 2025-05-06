@@ -9,5 +9,6 @@ public enum AnimalType
     Leopard,
     Hawk,
     Lion,
-    Boar
+    Boar,
+    Rabbit
 }

@@ -9,6 +9,8 @@ public class HuntingCase_SO : ScriptableObject
     public List<AnimalSpawnData> All_AnimalSpawnData;
     //list of animal spawn data and the condition that need to be fullfilled to spawn that animal
     public List<AnimalSpawnData_Condition> All_AnimalSpawnData_Condition;
+    //list of animal spawn data and the weird condition that need to be fillfilled to spawn that animal
+    public List<AnimalSpawnData_Condition> All_AnimalSpawnData_WeirdCondition;
     //2. win condition class data (checks 3 lists of "AnimalIdentity", a list for the following status of the animal: die, escaped, eaten)
     public HuntingCondition_MultiChain WinCondition_Immediate_MultiChain;
     //3. lose condition class data (can be null, similar to win condition class)

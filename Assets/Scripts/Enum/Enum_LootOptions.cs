@@ -10,4 +10,5 @@ public enum Enum_LootOptions
     Loot3,
     Loot4,
     Loot5,
+    Loot6,
 }

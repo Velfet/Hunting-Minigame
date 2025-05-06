@@ -568,6 +568,8 @@ public class Animal_AI_Base : MonoBehaviour
     {
         //start eat here
         isEating = true;
+        //tell the case manager that this animal has started eating
+        huntingCaseManager.Report_IsEating(AnimalIdentity);
         //inform the eaten animal that it is being eaten
         theEatenAnimal.BeingEaten_Begin(this);
         float currentTime = 0f;

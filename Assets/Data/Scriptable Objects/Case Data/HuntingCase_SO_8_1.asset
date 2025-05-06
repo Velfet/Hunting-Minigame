@@ -37,27 +37,12 @@ MonoBehaviour:
       - UsingDefaultCondition: 0
         DefaultCondition: 0
         AllHuntingConditions:
-        - UsingDefaultCondition: 0
-          DefaultCondition: 0
-          Must_Die: []
-          Must_Escape: []
-          Must_BeEaten: []
-          Must_BeKilled:
-          - Name: Hyena
-            AnimalType: 1
-            AnimalBehaviour: 3
+        - rid: 1805994175564087319
       - UsingDefaultCondition: 0
         DefaultCondition: 0
         AllHuntingConditions:
-        - UsingDefaultCondition: 0
-          DefaultCondition: 0
-          Must_Die: []
-          Must_Escape:
-          - Name: Hyena
-            AnimalType: 1
-            AnimalBehaviour: 3
-          Must_BeEaten: []
-          Must_BeKilled: []
+        - rid: 1805994175564087320
+  All_AnimalSpawnData_WeirdCondition: []
   WinCondition_Immediate_MultiChain:
     UsingDefaultCondition: 0
     DefaultCondition: 0
@@ -65,15 +50,7 @@ MonoBehaviour:
     - UsingDefaultCondition: 0
       DefaultCondition: 0
       AllHuntingConditions:
-      - UsingDefaultCondition: 0
-        DefaultCondition: 0
-        Must_Die: []
-        Must_Escape: []
-        Must_BeEaten: []
-        Must_BeKilled:
-        - Name: Lion
-          AnimalType: 4
-          AnimalBehaviour: 1
+      - rid: 1805994175564087297
   LoseCondition_Immediate_MultiChain:
     UsingDefaultCondition: 1
     DefaultCondition: 0
@@ -85,7 +62,19 @@ MonoBehaviour:
     - UsingDefaultCondition: 0
       DefaultCondition: 0
       AllHuntingConditions:
-      - UsingDefaultCondition: 0
+      - rid: 1805994175564087315
+  LoseCondition_Timer_MultiChain:
+    UsingDefaultCondition: 1
+    DefaultCondition: 1
+    AllHuntingCondition_Chains: []
+  TimerDuration: 21
+  references:
+    version: 2
+    RefIds:
+    - rid: 1805994175564087297
+      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
+      data:
+        UsingDefaultCondition: 0
         DefaultCondition: 0
         Must_Die: []
         Must_Escape: []
@@ -94,8 +83,39 @@ MonoBehaviour:
         - Name: Lion
           AnimalType: 4
           AnimalBehaviour: 1
-  LoseCondition_Timer_MultiChain:
-    UsingDefaultCondition: 1
-    DefaultCondition: 1
-    AllHuntingCondition_Chains: []
-  TimerDuration: 21
+    - rid: 1805994175564087315
+      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
+      data:
+        UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die: []
+        Must_Escape: []
+        Must_BeEaten: []
+        Must_BeKilled:
+        - Name: Lion
+          AnimalType: 4
+          AnimalBehaviour: 1
+    - rid: 1805994175564087319
+      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
+      data:
+        UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die: []
+        Must_Escape: []
+        Must_BeEaten: []
+        Must_BeKilled:
+        - Name: Hyena
+          AnimalType: 1
+          AnimalBehaviour: 3
+    - rid: 1805994175564087320
+      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
+      data:
+        UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die: []
+        Must_Escape:
+        - Name: Hyena
+          AnimalType: 1
+          AnimalBehaviour: 3
+        Must_BeEaten: []
+        Must_BeKilled: []

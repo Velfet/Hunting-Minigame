@@ -21,6 +21,8 @@ MonoBehaviour:
     SpawnTime: 2
     SpawnPosition: {x: -14, y: 1.05, z: 12}
     DeadOnSpawn: 0
+  All_AnimalSpawnData_Condition: []
+  All_AnimalSpawnData_WeirdCondition: []
   WinCondition_Immediate_MultiChain:
     UsingDefaultCondition: 0
     DefaultCondition: 0
@@ -28,17 +30,7 @@ MonoBehaviour:
     - UsingDefaultCondition: 0
       DefaultCondition: 0
       AllHuntingConditions:
-      - UsingDefaultCondition: 0
-        DefaultCondition: 0
-        Must_Die:
-        - Name: Boar
-          AnimalType: 5
-          AnimalBehaviour: 0
-        - Name: Boar
-          AnimalType: 5
-          AnimalBehaviour: 0
-        Must_Escape: []
-        Must_BeEaten: []
+      - rid: 1805994175564087308
   LoseCondition_Immediate_MultiChain:
     UsingDefaultCondition: 1
     DefaultCondition: 0
@@ -50,16 +42,39 @@ MonoBehaviour:
     - UsingDefaultCondition: 0
       DefaultCondition: 0
       AllHuntingConditions:
-      - UsingDefaultCondition: 0
-        DefaultCondition: 0
-        Must_Die:
-        - Name: Boar
-          AnimalType: 5
-          AnimalBehaviour: 0
-        Must_Escape: []
-        Must_BeEaten: []
+      - rid: 1805994175564087309
   LoseCondition_Timer_MultiChain:
     UsingDefaultCondition: 1
     DefaultCondition: 1
     AllHuntingCondition_Chains: []
   TimerDuration: 18
+  references:
+    version: 2
+    RefIds:
+    - rid: 1805994175564087308
+      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
+      data:
+        UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die: []
+        Must_Escape: []
+        Must_BeEaten: []
+        Must_BeKilled:
+        - Name: Boar
+          AnimalType: 5
+          AnimalBehaviour: 0
+        - Name: Boar
+          AnimalType: 5
+          AnimalBehaviour: 0
+    - rid: 1805994175564087309
+      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
+      data:
+        UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die: []
+        Must_Escape: []
+        Must_BeEaten: []
+        Must_BeKilled:
+        - Name: Boar
+          AnimalType: 5
+          AnimalBehaviour: 0

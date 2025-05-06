@@ -179,4 +179,11 @@ public class HuntingBow : MonoBehaviour
         }
         
     }
+
+
+    public void Set_BowRank(int newRank)
+    {
+        TestJobRank = newRank;
+    }
+
 }

@@ -17,18 +17,26 @@ public class HoverManager_UI : MonoBehaviour
             return;
         }
 
+        if(hoveredObject == null)
+        {
+            //tell the previous hover object that it is no longer being hovered on
+            CurrentHoverTarget.OnStopBeingHovered();
+        }
+
         //update current hover target
         CurrentHoverTarget = hoveredObject;
         //update visual
         if(CurrentHoverTarget == null)
         {
-            Debug.LogWarning("hover null");
+            //Debug.LogWarning("hover null");
             hoverVisual_Text_UI.Disable_HoverVisual();
         }
         else
         {
-            Debug.LogWarning("hover not null");
+            //Debug.LogWarning("hover not null");
             hoverVisual_Text_UI.SetHoverText(CurrentHoverTarget.HoverText);
+            //tell the current hover object that is is being hovered on
+            CurrentHoverTarget.OnBeingHovered();
         }
 
     }

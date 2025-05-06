@@ -29,6 +29,10 @@ public class HuntingCaseManager : MonoBehaviour
     [SerializeField] private List<AnimalSpawnData_Condition> AnimalSpawnData_Condition_List_NotYetSpawned;
     [SerializeField] private List<AnimalSpawnData_Condition> AnimalSpawnData_Condition_List_AlreadySpawned;
     [Space(10)]
+    [SerializeField] private List<AnimalSpawnData_Condition> AnimalSpawnData_WeirdCondition_List_NotYetSpawned;
+    [SerializeField] private List<AnimalSpawnData_Condition> AnimalSpawnData_WeirdCondition_List_AlreadySpawned;
+
+    [Space(10)]
     [SerializeField] private HuntingCase_SO CurrentHuntingCase;
     [SerializeField] private Enum_HuntingGameState CurrentHuntingGameState;
     [Space(10)]
@@ -158,6 +162,10 @@ public class HuntingCaseManager : MonoBehaviour
         AnimalSpawnData_Condition_List_NotYetSpawned = new List<AnimalSpawnData_Condition>(CurrentHuntingCase.All_AnimalSpawnData_Condition);
         //empty the list of "AnimalSpawnData_Condition" that refers to animals that has been spawned
         AnimalSpawnData_Condition_List_AlreadySpawned = new List<AnimalSpawnData_Condition>();
+        //store the list of animal spawn data that need to be spawned by weird condition
+        AnimalSpawnData_WeirdCondition_List_NotYetSpawned = new List<AnimalSpawnData_Condition>(CurrentHuntingCase.All_AnimalSpawnData_WeirdCondition);
+        //empty the list of animal that is spawned by weird conditions
+        AnimalSpawnData_WeirdCondition_List_AlreadySpawned = new List<AnimalSpawnData_Condition>();
         //store max timer and current timer from the case
         MaxTimer = CurrentHuntingCase.TimerDuration;
         CurrentTimer = MaxTimer;
@@ -248,11 +256,18 @@ public class HuntingCaseManager : MonoBehaviour
 
         List<AnimalSpawnData_Condition> spawnedAnimalData = new List<AnimalSpawnData_Condition>();
 
+        HuntingCondition_Arguments theArgument = new HuntingCondition_Arguments();
+        theArgument.Animal_Die = Animal_Dead;
+        theArgument.Animal_Escape = Animal_Escape;
+        theArgument.Animal_BeEaten = Animal_Eaten;
+        theArgument.Animal_BeKilled = Animal_Killed;
+
         for(int i = 0; i < AnimalSpawnData_Condition_List_NotYetSpawned.Count; i++)
         {
             AnimalSpawnData_Condition currentSpawnData = AnimalSpawnData_Condition_List_NotYetSpawned[i];
             //check if the condition has been met to spawn this animal
-            if(currentSpawnData.SpawnCondition_MultiChain.Get_MultiChain_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten, Animal_Killed) == true)
+            
+            if(currentSpawnData.SpawnCondition_MultiChain.Get_MultiChain_ConditionStatus(theArgument) == true)
             {
                 //spawn the animal
                 GameObject currentSpawnedAnimal = null;
@@ -287,6 +302,49 @@ public class HuntingCaseManager : MonoBehaviour
         }
     }
 
+    private void CheckSpawnAnimal_WeirdCondition(HuntingCondition_Arguments theArguments)
+    {
+        List<AnimalSpawnData_Condition> spawnedAnimalData = new List<AnimalSpawnData_Condition>();
+
+        for(int i = 0; i < AnimalSpawnData_WeirdCondition_List_NotYetSpawned.Count; i++)
+        {
+            AnimalSpawnData_Condition currentSpawnData = AnimalSpawnData_WeirdCondition_List_NotYetSpawned[i];
+            //check if the condition has been met to spawn this animal
+            if(currentSpawnData.SpawnCondition_MultiChain.Get_MultiChain_ConditionStatus(theArguments) == true)
+            {
+                //spawn the animal
+                GameObject currentSpawnedAnimal = null;
+                currentSpawnedAnimal = Instantiate(currentSpawnData.Animal_Prefab, currentSpawnData.SpawnPosition, currentSpawnData.Animal_Prefab.transform.rotation);
+                
+                if(SpawnedAnimals == null)
+                {
+                    SpawnedAnimals = new List<GameObject>();
+                }
+
+                SpawnedAnimals.Add(currentSpawnedAnimal);
+                //give reference of this case manager to the spawned animal
+                currentSpawnedAnimal.GetComponent<Animal_AI_Base>().SetupAnimal_Complete(this, currentSpawnData);
+                //add the animal to the "spawnedAnimalData" list;
+                //we'll use that list to remove the animal(s) from the
+                //"not yet spawned" list and add them to the "already spawned list"
+                spawnedAnimalData.Add(currentSpawnData);
+            }
+
+        }
+
+
+        //use the data in the "spawnedAnimalData" list
+        //to remove the data from the "not yet spawned list"
+        //and add it to the "already spawned list"
+        for(int i = 0; i < spawnedAnimalData.Count; i++)
+        {
+            //remove from "not yet spawned list"
+            AnimalSpawnData_WeirdCondition_List_NotYetSpawned.Remove(spawnedAnimalData[i]);
+            //add to "already spawned list"
+            AnimalSpawnData_WeirdCondition_List_AlreadySpawned.Add(spawnedAnimalData[i]);
+        }
+    }
+
     private void CheckOutOfTime()
     {
         if(CurrentTimer <= 0f)
@@ -296,6 +354,15 @@ public class HuntingCaseManager : MonoBehaviour
         }
     }
     
+
+    public void Report_IsEating(AnimalIdentity theEatingAnimal)
+    {
+        HuntingCondition_Arguments arguments = new HuntingCondition_Arguments();
+        arguments.Animal_IsEating = new List<AnimalIdentity>();
+        arguments.Animal_IsEating.Add(theEatingAnimal);
+        //check if we need to spawn an animal
+        CheckSpawnAnimal_WeirdCondition(arguments);
+    }
 
     //function for animals to report their status
     public void ReportStatus(AnimalIdentity theAnimal, AnimalStatus newStatus)
@@ -365,14 +432,20 @@ public class HuntingCaseManager : MonoBehaviour
     {
         if(CurrentHuntingGameState != Enum_HuntingGameState.Inactive)
         {
-            bool winCondition_Met = CurrentHuntingCase.WinCondition_Immediate_MultiChain.Get_MultiChain_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten, Animal_Killed);
+            HuntingCondition_Arguments theArgument = new HuntingCondition_Arguments();
+            theArgument.Animal_Die = Animal_Dead;
+            theArgument.Animal_Escape = Animal_Escape;
+            theArgument.Animal_BeEaten = Animal_Eaten;
+            theArgument.Animal_BeKilled = Animal_Killed;
+
+            bool winCondition_Met = CurrentHuntingCase.WinCondition_Immediate_MultiChain.Get_MultiChain_ConditionStatus(theArgument);
             if(winCondition_Met == true)
             {
                 WinEvent();
                 return;
             }
 
-            bool loseCondition_Met = CurrentHuntingCase.LoseCondition_Immediate_MultiChain.Get_MultiChain_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten, Animal_Killed);
+            bool loseCondition_Met = CurrentHuntingCase.LoseCondition_Immediate_MultiChain.Get_MultiChain_ConditionStatus(theArgument);
             if(loseCondition_Met == true)
             {
                 LoseEvent();
@@ -385,14 +458,20 @@ public class HuntingCaseManager : MonoBehaviour
     {
         if(CurrentHuntingGameState != Enum_HuntingGameState.Inactive)
         {
-            bool winCondition_Met = CurrentHuntingCase.WinCondition_Timer_MultiChain.Get_MultiChain_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten, Animal_Killed);
+            HuntingCondition_Arguments theArgument = new HuntingCondition_Arguments();
+            theArgument.Animal_Die = Animal_Dead;
+            theArgument.Animal_Escape = Animal_Escape;
+            theArgument.Animal_BeEaten = Animal_Eaten;
+            theArgument.Animal_BeKilled = Animal_Killed;
+
+            bool winCondition_Met = CurrentHuntingCase.WinCondition_Timer_MultiChain.Get_MultiChain_ConditionStatus(theArgument);
             if(winCondition_Met == true)
             {
                 WinEvent();
                 return;
             }
 
-            bool loseCondition_Met = CurrentHuntingCase.LoseCondition_Timer_MultiChain.Get_MultiChain_ConditionStatus(Animal_Dead, Animal_Escape, Animal_Eaten, Animal_Killed);
+            bool loseCondition_Met = CurrentHuntingCase.LoseCondition_Timer_MultiChain.Get_MultiChain_ConditionStatus(theArgument);
             if(loseCondition_Met == true)
             {
                 LoseEvent();
@@ -486,9 +565,10 @@ public class HuntingCaseManager : MonoBehaviour
         bool timerSpawnAnimal_Done = Current_AnimalSpawnData_Index >= AnimalSpawnData_List.Count;
         //bool to check if animals spawned based on conditions (dead/escaped/eaten animals) are all spawned
         bool conditionSpawnAnimal_Done = AnimalSpawnData_Condition_List_NotYetSpawned.Count == 0;
+        //bool to check if animals spawned based on weird condition (animal A started to eat) are all spawned
+        bool weirdConditionSpawnAnimal_Done = AnimalSpawnData_WeirdCondition_List_NotYetSpawned.Count == 0;
         
-        //temporary return value, delete later
-        return timerSpawnAnimal_Done == false || conditionSpawnAnimal_Done == false;
+        return timerSpawnAnimal_Done == false || conditionSpawnAnimal_Done == false || weirdConditionSpawnAnimal_Done == false;
     }
 
     public bool Check_NoAnimalAlive()

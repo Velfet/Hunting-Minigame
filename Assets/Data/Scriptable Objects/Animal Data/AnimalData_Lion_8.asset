@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9799588efb1804a90a8eac639fcd15, type: 3}
   m_Name: AnimalData_Lion_8
   m_EditorClassIdentifier: 
-  Name: Hyena
+  Name: Lion
   Health: 21
   RunSpeed: 2.9
   RunSpeed_Faster: 3.1

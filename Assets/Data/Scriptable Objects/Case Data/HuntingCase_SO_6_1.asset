@@ -29,6 +29,8 @@ MonoBehaviour:
     SpawnTime: 10
     SpawnPosition: {x: -14, y: 6, z: 13}
     DeadOnSpawn: 0
+  All_AnimalSpawnData_Condition: []
+  All_AnimalSpawnData_WeirdCondition: []
   WinCondition_Immediate_MultiChain:
     UsingDefaultCondition: 0
     DefaultCondition: 0
@@ -36,24 +38,7 @@ MonoBehaviour:
     - UsingDefaultCondition: 0
       DefaultCondition: 0
       AllHuntingConditions:
-      - UsingDefaultCondition: 0
-        DefaultCondition: 0
-        Must_Die: []
-        Must_Escape: []
-        Must_BeEaten: []
-        Must_BeKilled:
-        - Name: Boar
-          AnimalType: 5
-          AnimalBehaviour: 0
-        - Name: Hawk
-          AnimalType: 3
-          AnimalBehaviour: 2
-        - Name: Hyena
-          AnimalType: 1
-          AnimalBehaviour: 1
-        - Name: Hawk
-          AnimalType: 3
-          AnimalBehaviour: 2
+      - rid: 1805994175564087311
   LoseCondition_Immediate_MultiChain:
     UsingDefaultCondition: 1
     DefaultCondition: 0
@@ -65,7 +50,19 @@ MonoBehaviour:
     - UsingDefaultCondition: 0
       DefaultCondition: 0
       AllHuntingConditions:
-      - UsingDefaultCondition: 0
+      - rid: 1805994175564087310
+  LoseCondition_Timer_MultiChain:
+    UsingDefaultCondition: 1
+    DefaultCondition: 1
+    AllHuntingCondition_Chains: []
+  TimerDuration: 18
+  references:
+    version: 2
+    RefIds:
+    - rid: 1805994175564087310
+      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
+      data:
+        UsingDefaultCondition: 0
         DefaultCondition: 0
         Must_Die: []
         Must_Escape: []
@@ -77,8 +74,24 @@ MonoBehaviour:
         - Name: Hyena
           AnimalType: 1
           AnimalBehaviour: 1
-  LoseCondition_Timer_MultiChain:
-    UsingDefaultCondition: 1
-    DefaultCondition: 1
-    AllHuntingCondition_Chains: []
-  TimerDuration: 18
+    - rid: 1805994175564087311
+      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
+      data:
+        UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die: []
+        Must_Escape: []
+        Must_BeEaten: []
+        Must_BeKilled:
+        - Name: Boar
+          AnimalType: 4
+          AnimalBehaviour: 0
+        - Name: Hawk
+          AnimalType: 3
+          AnimalBehaviour: 2
+        - Name: Hyena
+          AnimalType: 1
+          AnimalBehaviour: 1
+        - Name: Hawk
+          AnimalType: 3
+          AnimalBehaviour: 2

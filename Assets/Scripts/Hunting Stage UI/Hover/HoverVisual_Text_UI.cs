@@ -32,6 +32,24 @@ public class HoverVisual_Text_UI : MonoBehaviour
 
     private void Update()
     {
+        UpdatePosition();
+    }
+
+    public void SetHoverText(string theText)
+    {
+        if(tooltipGO.gameObject.activeInHierarchy == false)
+        {
+            tooltipGO.gameObject.SetActive(true);
+        }
+
+        textMesh.text = theText;
+        UpdatePosition();
+    }
+
+
+
+    private void UpdatePosition()
+    {
         if(tooltipGO.gameObject.activeInHierarchy == false)
         {
             return;
@@ -64,69 +82,9 @@ public class HoverVisual_Text_UI : MonoBehaviour
         localPoint.y = Mathf.Clamp(localPoint.y, -clampY, clampY);
         textRectTransform.anchoredPosition = localPoint;
 
-
-
-        //offset the position
-        //OffsetPosition();
-
-        //set position
-        //tooltipGO.transform.position = mainCamera.WorldToScreenPoint(mousePosWorldPoint + new Vector2(offsetPos.x, offsetPos.y));
-        //tooltipGO.transform.position = mainCamera.WorldToScreenPoint(mousePosWorldPoint);
-        //tooltipGO.transform.position = mousePosScreen;
     }
 
-    public void SetHoverText(string theText)
-    {
-        if(tooltipGO.gameObject.activeInHierarchy == false)
-        {
-            tooltipGO.gameObject.SetActive(true);
-        }
-
-        textMesh.text = theText;
-    }
-
-    //--- Offsets the position of the tooltip box so it doesn't go beyond the screen boundaries ---
-    public void OffsetPosition()
-    {
-        textBoxSizeX = HalfTextBoxWidth();
-        textBoxSizeY = HalfTextBoxHeight();
-
-        if(mousePosScreen.x <= textBoxSizeX)
-        {
-            offsetPos.x = (HalfTextBoxWidth() / 95) - mousePosScreen.x / 110;
-        }
-        else if(mousePosScreen.x >= Screen.width - textBoxSizeX)
-        {
-            float diff1 = Screen.width - textBoxSizeX;
-            float diff2 = mousePosScreen.x - diff1 <= 0 ? 0 : mousePosScreen.x - diff1;
-
-            offsetPos.x = (textBoxSizeX - Screen.width) / 10000 - diff2 / 110;
-        }
-        else
-        {
-            offsetPos.x = 0;
-        }
-
-        if (mousePosScreen.y < textBoxSizeY)
-        {
-            offsetPos.y = (textBoxSizeY / 75) - mousePosScreen.y / 110;
-        }
-        else if (mousePosScreen.y >= Screen.height - textBoxSizeY * 2)
-        {
-            float diff1 = Screen.height - textBoxSizeY;
-            float diff2 = mousePosScreen.y - diff1 <= 0 ? 0 : mousePosScreen.y - diff1;
-
-            offsetPos.y = (textBoxSizeY - Screen.height) / 10000 - diff2 / 110;
-        }
-        else
-        {
-            offsetPos.y = textBoxSizeY / 75;
-        }
-    }
-
-    float HalfTextBoxWidth() => textRectTransform.sizeDelta.x / 2;
-
-    float HalfTextBoxHeight() => textRectTransform.sizeDelta.y / 2;
+    
 
 
 }

@@ -75,10 +75,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630c6afc3e6c78a4a8e5795fdbcb3298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 000000000300000005000000
+  reactSources: 000000000600000003000000
   reactAction:
     rid: -2
-  theAnimal: {fileID: 2308406785459082537}
+  theAnimal: {fileID: 9137159398527090071}
   references:
     version: 2
     RefIds:
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e3f890242de944992ff28731986cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TheAnimal: {fileID: 2308406785459082537}
+  TheAnimal: {fileID: 0}
 --- !u!1 &3216375758005076418
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reactSources: 
-  theAnimal: {fileID: 2308406785459082537}
+  theAnimal: {fileID: 0}
 --- !u!1 &3379591705013867623
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +501,7 @@ MonoBehaviour:
   reactSources: 
   reactAction:
     rid: -2
-  theAnimal: {fileID: 2308406785459082537}
+  theAnimal: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac74f457e16f34429bdfa793af1489f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TheAnimal: {fileID: 2308406785459082537}
+  TheAnimal: {fileID: 9137159398527090071}
 --- !u!1 &4381670292524516481
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,8 +980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bf5a710d963374fbea3cfa79530cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 000000000300000005000000
-  theAnimal: {fileID: 2308406785459082537}
+  reactSources: 000000000600000003000000
+  theAnimal: {fileID: 9137159398527090071}
 --- !u!1 &5695969655756757805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   hitPriority: 2
   bodyPartCollider: {fileID: 7394503963097011515}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 2308406785459082537}
+  TheAnimal: {fileID: 9137159398527090071}
 --- !u!1 &6685717237418492955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1409,7 @@ MonoBehaviour:
   hitPriority: 5
   bodyPartCollider: {fileID: 5550546534172426691}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 2308406785459082537}
+  TheAnimal: {fileID: 9137159398527090071}
 --- !u!1 &6685717237477771016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,11 +1419,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6685717237477771031}
-  - component: {fileID: 2308406785459082537}
+  - component: {fileID: 9137159398527090071}
   - component: {fileID: 6685717237477771029}
   - component: {fileID: 1681508497253887123}
   m_Layer: 0
-  m_Name: Hyena_Predator_6
+  m_Name: Hyena_Scavenger_7_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1449,7 +1449,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2308406785459082537
+--- !u!114 &9137159398527090071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1458,7 +1458,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6685717237477771016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 847417a0bda154243976cb859d7066ce, type: 3}
+  m_Script: {fileID: 11500000, guid: d8e9ecf830d6c364ab3f5e0c121815ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 6685717237477771016}
@@ -1467,26 +1467,26 @@ MonoBehaviour:
   AnimalIdentity:
     Name: Hyena
     AnimalType: 1
-    AnimalBehaviour: 1
+    AnimalBehaviour: 3
   Animal_HP_UI: {fileID: 1224028362377826065}
   CurrentHP: 0
   MaxHP: 0
   AnimalMasterState:
     AnimalStates:
-    - rid: 3243458722425208832
-    - rid: 3243458722425208833
-    - rid: 3243458722425208834
+    - rid: 1805994195917471768
+    - rid: 1805994195917471769
+    - rid: 1805994195917471770
   MasterState_Index: 0
   State_Index: 0
   CurrentAnimalAction:
     rid: -2
-  Animal_Detected_Collider: {fileID: 0}
+  Animal_Detected_Collider: {fileID: 3844874143424647083}
   MissAuraHit_Action:
     rid: -2
   BodyHit_Action:
-    rid: 3243458722425208843
+    rid: 1805994195917471781
   HeadHit_Action:
-    rid: 3243458722425208844
+    rid: 1805994195917471782
   OnDeath_Action:
     rid: -2
   AnimationManager: {fileID: 1681508497253887123}
@@ -1498,78 +1498,84 @@ MonoBehaviour:
   Previous_State_Index: 0
   Previous_ReactState: 0
   SeePrey_Action:
-    rid: 3243458722425208850
-  SeeScavengerOrFlyer_Action:
-    rid: 3243458722425208851
-  Roar_Action:
+    rid: 1805994195917471783
+  SeePredator_Action:
     rid: -2
-  RoarCollider_GO: {fileID: 3189554806199375127}
+  NoMorePredator_Action:
+    rid: -2
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 3243458722425208832
+    - rid: 1805994195917471768
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
         StateName: 'Default: Walk to Right'
         AnimalActions:
-        - rid: 3243458722425208835
-    - rid: 3243458722425208833
+        - rid: 1805994195917471771
+    - rid: 1805994195917471769
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
         StateName: Run After Prey
         AnimalActions:
-        - rid: 3243458722425208852
-        - rid: 3243458722425208836
-        - rid: 3243458722425208837
-    - rid: 3243458722425208834
+        - rid: 1805994195917471772
+        - rid: 1805994195917471773
+        - rid: 1805994195917471774
+    - rid: 1805994195917471770
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
         StateName: Walk To Scavenger Or Flyer
         AnimalActions:
-        - rid: 3243458722425208838
-        - rid: 3243458722425208839
-    - rid: 3243458722425208835
+        - rid: 1805994195917471775
+        - rid: 1805994195917471776
+    - rid: 1805994195917471771
       type: {class: AnimalAction_WalkToPoint, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
-          rid: 3243458722425208840
+          rid: 1805994195917471777
         ActionPriority: 0
         WalkDestination: {x: 14, y: 1.05, z: 12.5}
-    - rid: 3243458722425208836
+    - rid: 1805994195917471772
+      type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994195917471778
+        ActionPriority: 0
+        IdleDuration: 0.1
+    - rid: 1805994195917471773
       type: {class: AnimalAction_RunToTarget, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
-          rid: 3243458722425208841
+          rid: 1805994195917471779
         ActionPriority: 0
-    - rid: 3243458722425208837
+    - rid: 1805994195917471774
       type: {class: AnimalAction_Eat, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
           rid: -2
         ActionPriority: 0
         EatDuration: 2.5
-    - rid: 3243458722425208838
+    - rid: 1805994195917471775
       type: {class: AnimalAction_WalkToTarget, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
-          rid: 3243458722425208842
+          rid: 1805994195917471780
         ActionPriority: 0
-    - rid: 3243458722425208839
+    - rid: 1805994195917471776
       type: {class: AnimalAction_Eat, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
           rid: -2
         ActionPriority: 0
         EatDuration: 1.5
-    - rid: 3243458722425208840
+    - rid: 1805994195917471777
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
         ExecuteEvenIfDead: 0
         NewStatus: 2
-    - rid: 3243458722425208841
+    - rid: 1805994195917471778
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -1578,7 +1584,7 @@ MonoBehaviour:
         AlterType_StateIndex: 0
         AlterValue_ActionIndex: 1
         AlterType_ActionIndex: 0
-    - rid: 3243458722425208842
+    - rid: 1805994195917471779
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -1587,19 +1593,28 @@ MonoBehaviour:
         AlterType_StateIndex: 0
         AlterValue_ActionIndex: 1
         AlterType_ActionIndex: 0
-    - rid: 3243458722425208843
+    - rid: 1805994195917471780
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
+    - rid: 1805994195917471781
       type: {class: AnimalFinishAction_Damage, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
         ExecuteEvenIfDead: 0
         DamageMultiplier: 1
-    - rid: 3243458722425208844
+    - rid: 1805994195917471782
       type: {class: AnimalFinishAction_Damage, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
         ExecuteEvenIfDead: 0
         DamageMultiplier: 1.7
-    - rid: 3243458722425208850
+    - rid: 1805994195917471783
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -1608,31 +1623,6 @@ MonoBehaviour:
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
         AlterType_ActionIndex: 1
-    - rid: 3243458722425208851
-      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        ExecuteEvenIfDead: 0
-        AlterValue_StateIndex: 2
-        AlterType_StateIndex: 1
-        AlterValue_ActionIndex: 0
-        AlterType_ActionIndex: 1
-    - rid: 3243458722425208852
-      type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
-      data:
-        AnimalFinishAction:
-          rid: 3243458722425208853
-        ActionPriority: 0
-        IdleDuration: 0.1
-    - rid: 3243458722425208853
-      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        ExecuteEvenIfDead: 0
-        AlterValue_StateIndex: 0
-        AlterType_StateIndex: 0
-        AlterValue_ActionIndex: 1
-        AlterType_ActionIndex: 0
 --- !u!114 &6685717237477771029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1645,7 +1635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb024639bd80994bb384159456dcf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TheAnimal: {fileID: 2308406785459082537}
+  TheAnimal: {fileID: 9137159398527090071}
 --- !u!114 &1681508497253887123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1836,7 +1826,7 @@ MonoBehaviour:
   hitPriority: 1
   bodyPartCollider: {fileID: 5495418910776869163}
   hitPosition: {x: 0, y: 0, z: 0}
-  TheAnimal: {fileID: 2308406785459082537}
+  TheAnimal: {fileID: 9137159398527090071}
 --- !u!1 &9010494551499414624
 GameObject:
   m_ObjectHideFlags: 0

@@ -572,6 +572,18 @@ public class Animal_AI_Base : MonoBehaviour
         huntingCaseManager.Report_IsEating(AnimalIdentity);
         //inform the eaten animal that it is being eaten
         theEatenAnimal.BeingEaten_Begin(this);
+        //Face the eaten animal
+        Vector3 moveDirection = theEatenAnimal.transform.position - Animal_GO.transform.position;
+        if(moveDirection.x > 0)
+        {
+            //face right
+            AnimationManager.SetPlayerFaceDirection(true);
+        }
+        else if(moveDirection.x < 0)
+        {
+            //face left
+            AnimationManager.SetPlayerFaceDirection(false);
+        }
         float currentTime = 0f;
         while(currentTime < eatDuration)
         {
@@ -1000,12 +1012,18 @@ public class Animal_AI_Base : MonoBehaviour
             myPreys.Remove(theEatenPrey);
             //and add it to the "potentialPreys" list
             potentialPreys.Add(theEatenPrey);
+            Debug.LogWarning($"Remove {theEatenPrey.AnimalIdentity.Name} from prey list, it is potential prey now. This animal: {gameObject.name}");
         }
         else
         {
             //the eaten prey is no longer is the react collider of this animal
             //just remove the eaten prey from the "mypreys" list
             myPreys.Remove(theEatenPrey);
+        }
+
+        if(currentPrey == theEatenPrey)
+        {
+            currentPrey = null;
         }
 
         //potentially alter behaviour
@@ -1050,6 +1068,8 @@ public class Animal_AI_Base : MonoBehaviour
                 //nothing for now; Maybe set current hp to max hp?
                 break;
             case AnimalStatus.Dead:
+                //unsubscribe from event of prey and predators
+                UnsubFromEvents_ThisAnimalDied();
                 //stop the current animal action
                 StopAndDeleteAction();
                 //play dead animation
@@ -1275,6 +1295,19 @@ public class Animal_AI_Base : MonoBehaviour
     protected void Raise_OnEatenEvent()
     {
         OnEaten?.Invoke(this);
+    }
+
+    protected void UnsubFromEvents_ThisAnimalDied()
+    {
+        for(int i = 0; i < myPreys_Visible.Count; i++)
+        {
+            Sub_Or_Unsub_PreyEvents(myPreys_Visible[i], false);
+        }
+
+        for(int i = 0; i < myPredators_Visible.Count; i++)
+        {
+            Sub_Or_Unsub_PreyEvents(myPredators_Visible[i], false);
+        }
     }
 
 }

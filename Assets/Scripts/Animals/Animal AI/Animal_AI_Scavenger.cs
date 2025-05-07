@@ -133,6 +133,10 @@ public class Animal_AI_Scavenger : Animal_AI_Base
             preyIsNotOptimal = true;
         }
 
+        Debug.LogWarning("[PreySensor] prey not optimal status: " + preyIsNotOptimal);
+        Debug.LogWarning("[PreySensor] prey being eaten status: " + isPreyBeingEaten);
+        Debug.LogWarning("[PreySensor] prey dead status: " + isPreyDead);
+
         if(preyIsNotOptimal == true)
         {
             //prey is not optimal
@@ -162,6 +166,11 @@ public class Animal_AI_Scavenger : Animal_AI_Base
 
     public override void React_PreyPredator_AddRemove()
     {
+        if(AnimalState != AnimalStatus.Alive)
+        {
+            return;
+        }
+        
         Debug.LogWarning("[Scavenger] prey/predator was added");
         //if scavenger is running away from predator or reacting from being shot, don't interrupt them
         if(ReactState == AnimalReactState.RunFromPredator || ReactState == AnimalReactState.ArrowHit)
@@ -218,19 +227,24 @@ public class Animal_AI_Scavenger : Animal_AI_Base
         }
 
         
-
-        //if going from default or arrowhit to chaseprey or RunFromPredator
-        //, then store the previous masterstate_index and state_index in their previous variable counterpart
-        bool isCurrentState_ReactToPreyOrPredator = currentReactState == AnimalReactState.ChasePrey || currentReactState == AnimalReactState.RunFromPredator;
-        bool isNewState_ReactToPreyOrPredator = newReactState == AnimalReactState.ChasePrey || newReactState == AnimalReactState.RunFromPredator;
-        if(isCurrentState_ReactToPreyOrPredator == false && isNewState_ReactToPreyOrPredator == true)
+        bool isCurrentState_ReactToPreyOrPredator;
+        bool isNewState_ReactToPreyOrPredator;
+        if(myPredators.Count > 0)
         {
-            //going from not reacting to prey/predator TO reacting to prey/predator
-            //store previous masterstate_index and state_index in their previous variable counterpart, also the react state
-            Previous_MasterState_Index = local_Previous_MasterState_Index;
-            Previous_State_Index = local_Previous_State_Index;
-            Previous_ReactState = local_Previous_ReactState;
+            //if going from default or arrowhit to chaseprey or RunFromPredator
+            //, then store the previous masterstate_index and state_index in their previous variable counterpart
+            isCurrentState_ReactToPreyOrPredator = currentReactState == AnimalReactState.ChasePrey || currentReactState == AnimalReactState.RunFromPredator;
+            isNewState_ReactToPreyOrPredator = newReactState == AnimalReactState.ChasePrey || newReactState == AnimalReactState.RunFromPredator;
+            if(isCurrentState_ReactToPreyOrPredator == false && isNewState_ReactToPreyOrPredator == true)
+            {
+                //going from not reacting to prey/predator TO reacting to prey/predator
+                //store previous masterstate_index and state_index in their previous variable counterpart, also the react state
+                Previous_MasterState_Index = local_Previous_MasterState_Index;
+                Previous_State_Index = local_Previous_State_Index;
+                Previous_ReactState = local_Previous_ReactState;
+            }
         }
+        
 
         //priority C: no prey, no predator -> use previous master state index and previous state index to go back
         //to doing what the animal was doing before it reacted to prey/predator
@@ -274,13 +288,39 @@ public class Animal_AI_Scavenger : Animal_AI_Base
                 //update state
                 newReactState = AnimalReactState.ChasePrey;
             }
-            //check if state is: reacting to predator -> no predator
-            else if(isCurrentState_ReactToPreyOrPredator == true && isNewState_ReactToPreyOrPredator == false)
+
+            //if going from default or arrowhit to chaseprey or RunFromPredator
+            //, then store the previous masterstate_index and state_index in their previous variable counterpart
+            isCurrentState_ReactToPreyOrPredator = currentReactState == AnimalReactState.ChasePrey || currentReactState == AnimalReactState.RunFromPredator;
+            isNewState_ReactToPreyOrPredator = newReactState == AnimalReactState.ChasePrey || newReactState == AnimalReactState.RunFromPredator;
+            if(isCurrentState_ReactToPreyOrPredator == false && isNewState_ReactToPreyOrPredator == true)
             {
-                //reacting to predator -> no predator
-                React_NoMore_Predator();
+                //going from not reacting to prey/predator TO reacting to prey/predator
+                //store previous masterstate_index and state_index in their previous variable counterpart, also the react state
+                Previous_MasterState_Index = local_Previous_MasterState_Index;
+                Previous_State_Index = local_Previous_State_Index;
+                Previous_ReactState = local_Previous_ReactState;
             }
-            else
+
+            //check if state is: reacting to predator -> no predator
+            if(myPreys.Count == 0 && isCurrentState_ReactToPreyOrPredator == true && isNewState_ReactToPreyOrPredator == false)
+            {
+                bool isCurrentState_ReactToPredator = currentReactState == AnimalReactState.RunFromPredator;
+                //reacting to predator -> no predator
+                if(isCurrentState_ReactToPredator == true)
+                {
+                    React_NoMore_Predator();
+                }
+                else
+                {
+                    //reacting to prey -> no prey
+                    MasterState_Index = Previous_MasterState_Index;
+                    State_Index = Previous_State_Index;
+                    ActivateCurrentAction();
+                }
+                
+            }
+            else if(myPreys.Count == 0)
             {
                 //no predator -> no predator
                 //load previous index and start action

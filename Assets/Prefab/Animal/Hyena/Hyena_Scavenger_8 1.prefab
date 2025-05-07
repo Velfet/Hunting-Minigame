@@ -933,7 +933,7 @@ GameObject:
   - component: {fileID: 8156670692813354473}
   - component: {fileID: 5368637609515767146}
   m_Layer: 0
-  m_Name: Hyena_Scavenger_8
+  m_Name: Hyena_Scavenger_8 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 4228822538139295346}
-  AnimalData: {fileID: 11400000, guid: bdd70330174f31446be7f78d850c2fb0, type: 2}
+  AnimalData: {fileID: 11400000, guid: ddd21bc58817dad47a92587f25fa75ff, type: 2}
   AnimalState: 0
   AnimalIdentity:
     Name: Hyena

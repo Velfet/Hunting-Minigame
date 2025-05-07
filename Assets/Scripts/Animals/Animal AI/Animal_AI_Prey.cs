@@ -10,6 +10,11 @@ public class Animal_AI_Prey : Animal_AI_Base
 
     public override void React_PreyPredator_AddRemove()
     {
+        if(AnimalState != AnimalStatus.Alive)
+        {
+            return;
+        }
+        
         AnimalReactState currentReactState = ReactState;
 
         //potentially alter the animal react state of this animal
@@ -118,6 +123,12 @@ public class Animal_AI_Prey : Animal_AI_Base
         switch(behaviourType)
         {
             case AnimalBehaviourType.Predator:
+                if(SeePredator_Action != null)
+                {
+                    SeePredator_Action.Activate_FinishAction(animalAction_ActivateData);
+                }
+                break;
+            case AnimalBehaviourType.Scavenger:
                 if(SeePredator_Action != null)
                 {
                     SeePredator_Action.Activate_FinishAction(animalAction_ActivateData);

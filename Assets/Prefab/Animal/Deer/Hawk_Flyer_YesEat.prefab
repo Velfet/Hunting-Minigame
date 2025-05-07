@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bf5a710d963374fbea3cfa79530cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 0000000001000000
+  reactSources: 000000000100000006000000
   theAnimal: {fileID: 5522563246538131948}
 --- !u!1 &1843161223474208281
 GameObject:
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 1843161223474208281}
-  AnimalData: {fileID: 11400000, guid: 8ad4c8db75caacf4e8efe7e80433db12, type: 2}
+  AnimalData: {fileID: 11400000, guid: f43d4c3a055b93c41a9a286b86b9995c, type: 2}
   AnimalState: 0
   AnimalIdentity:
     Name: Hawk
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630c6afc3e6c78a4a8e5795fdbcb3298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 0000000001000000
+  reactSources: 000000000100000006000000
   reactAction:
     rid: -2
   theAnimal: {fileID: 5522563246538131948}

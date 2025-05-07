@@ -26,7 +26,7 @@ MonoBehaviour:
     SpawnPosition: {x: 14, y: 1.05, z: 12}
     DeadOnSpawn: 0
   All_AnimalSpawnData_Condition:
-  - Animal_Prefab: {fileID: 4228822538139295346, guid: e5145de304f74814c88c0e2379c93387, type: 3}
+  - Animal_Prefab: {fileID: 4228822538139295346, guid: 81a8b497c9ffaa845856598418900c89, type: 3}
     SpawnTime: 0
     SpawnPosition: {x: 14, y: 1.05, z: 12}
     DeadOnSpawn: 0

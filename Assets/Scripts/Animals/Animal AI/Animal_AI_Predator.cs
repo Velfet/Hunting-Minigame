@@ -71,6 +71,11 @@ public class Animal_AI_Predator : Animal_AI_Base
 
     public override void React_PreyPredator_AddRemove()
     {
+        if(AnimalState != AnimalStatus.Alive)
+        {
+            return;
+        }
+        
         //if predator is roaring, do not interrupt them
         if(RoarCollider_GO.activeInHierarchy == true)
         {

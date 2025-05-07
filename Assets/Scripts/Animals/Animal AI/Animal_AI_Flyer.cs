@@ -106,6 +106,11 @@ public class Animal_AI_Flyer : Animal_AI_Base
 
     public override void React_PreyPredator_AddRemove()
     {
+        if(AnimalState != AnimalStatus.Alive)
+        {
+            return;
+        }
+
         //local index and state to avoid tampering
         int local_Previous_MasterState_Index = MasterState_Index;
         int local_Previous_State_Index = State_Index;
@@ -214,6 +219,8 @@ public class Animal_AI_Flyer : Animal_AI_Base
                 //nothing for now; Maybe set current hp to max hp?
                 break;
             case AnimalStatus.Dead:
+                //unsubscribe from event of prey and predators
+                UnsubFromEvents_ThisAnimalDied();
                 //stop the current animal action
                 StopAndDeleteAction();
                 //play dead animation

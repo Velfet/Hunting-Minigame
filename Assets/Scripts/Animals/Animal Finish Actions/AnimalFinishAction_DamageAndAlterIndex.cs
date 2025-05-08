@@ -21,8 +21,8 @@ public class AnimalFinishAction_DamageAndAlterIndex : AnimalFinishAction_Base
         Debug.LogWarning("Damage amount: " + damageAmount);
         theAnimal.DamageAnimal((int) damageAmount);
 
-        //IF animal is not dead
-        if(theAnimal.GetAnimalStatus() == AnimalStatus.Alive)
+        //IF animal is not dead and the animal is not running away from predator
+        if(theAnimal.GetAnimalStatus() == AnimalStatus.Alive && theAnimal.GetAnimalReactState() != AnimalReactState.RunFromPredator)
         {
             //alter the index of the specified animal
             int final_MasterStateIndex = MyMathUtils.AlterValue(theAnimal.GetMasterStateIndex(), AlterType_StateIndex, AlterValue_StateIndex);

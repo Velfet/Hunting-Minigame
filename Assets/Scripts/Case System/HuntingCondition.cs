@@ -30,5 +30,21 @@ public class HuntingCondition
         return dieCondition_Met && escapeCondition_Met && eatenCondition_Met && killedCondition_Met;
     }
 
+    public virtual bool CanConditionStillBeFulfilled(HuntingCondition_Arguments theArgument)
+    {
+        bool mustBeKilled_AlreadyEscaped = MyListUtils.Is_ListA_Inside_ListB(Must_BeKilled, theArgument.Animal_Escape);
+
+        if(mustBeKilled_AlreadyEscaped == true)
+        {
+            //the animal that is supposed to be killed has already escaped; this condition can no longer be fulfilled
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+        
+    }
+
 
 }

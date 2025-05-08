@@ -561,12 +561,64 @@ public class HuntingCaseManager : MonoBehaviour
 
     public bool Check_AreThereMoreAnimalsToSpawn()
     {
-        //bool to check if animals spawned based on timer are all spawned
+        HuntingCondition_Arguments theArgument = new HuntingCondition_Arguments();
+        theArgument.Animal_Die = Animal_Dead;
+        theArgument.Animal_Escape = Animal_Escape;
+        theArgument.Animal_BeEaten = Animal_Eaten;
+        theArgument.Animal_BeKilled = Animal_Killed;
+        List<AnimalSpawnData_Condition> toBeRemoved_List = new List<AnimalSpawnData_Condition>();
+        List<AnimalSpawnData_Condition> notYetSpawned_Copy;
+
+        //A. bool to check if animals spawned based on timer are all spawned
         bool timerSpawnAnimal_Done = Current_AnimalSpawnData_Index >= AnimalSpawnData_List.Count;
-        //bool to check if animals spawned based on conditions (dead/escaped/eaten animals) are all spawned
-        bool conditionSpawnAnimal_Done = AnimalSpawnData_Condition_List_NotYetSpawned.Count == 0;
-        //bool to check if animals spawned based on weird condition (animal A started to eat) are all spawned
-        bool weirdConditionSpawnAnimal_Done = AnimalSpawnData_WeirdCondition_List_NotYetSpawned.Count == 0;
+        //B. bool to check if animals spawned based on conditions (dead/escaped/eaten animals) are all spawned
+        toBeRemoved_List = new List<AnimalSpawnData_Condition>();
+        notYetSpawned_Copy = new List<AnimalSpawnData_Condition>(AnimalSpawnData_Condition_List_NotYetSpawned);
+        for(int i = 0; i < notYetSpawned_Copy.Count; i++)
+        {
+            AnimalSpawnData_Condition currentSpawnData = notYetSpawned_Copy[i];
+            //find out if the condition can still be fulfilled
+            bool canBeSpawned = currentSpawnData.SpawnCondition_MultiChain.Can_MultiChain_StillBeFulfilled(theArgument);
+            if(canBeSpawned == false)
+            {
+                toBeRemoved_List.Add(currentSpawnData);
+            }
+        }
+
+        //remove from the "notYetSpawned_Copy" list according to the "toBeRemoved_List"
+        for(int i = 0; i < toBeRemoved_List.Count; i++)
+        {
+            notYetSpawned_Copy.Remove(toBeRemoved_List[i]);
+        }
+
+
+        bool conditionSpawnAnimal_Done = notYetSpawned_Copy.Count == 0;
+        //old
+        //bool conditionSpawnAnimal_Done = AnimalSpawnData_Condition_List_NotYetSpawned.Count == 0;
+
+        //C. bool to check if animals spawned based on weird condition (animal A started to eat) are all spawned
+        toBeRemoved_List = new List<AnimalSpawnData_Condition>();
+        notYetSpawned_Copy = new List<AnimalSpawnData_Condition>(AnimalSpawnData_WeirdCondition_List_NotYetSpawned);
+        for(int i = 0; i < notYetSpawned_Copy.Count; i++)
+        {
+            AnimalSpawnData_Condition currentSpawnData = notYetSpawned_Copy[i];
+            //find out if the condition can still be fulfilled
+            bool canBeSpawned = currentSpawnData.SpawnCondition_MultiChain.Can_MultiChain_StillBeFulfilled(theArgument);
+            if(canBeSpawned == false)
+            {
+                toBeRemoved_List.Add(currentSpawnData);
+            }
+        }
+
+        //remove from the "notYetSpawned_Copy" list according to the "toBeRemoved_List"
+        for(int i = 0; i < toBeRemoved_List.Count; i++)
+        {
+            notYetSpawned_Copy.Remove(toBeRemoved_List[i]);
+        }
+
+        bool weirdConditionSpawnAnimal_Done = notYetSpawned_Copy.Count == 0;
+        //old
+        //bool weirdConditionSpawnAnimal_Done = AnimalSpawnData_WeirdCondition_List_NotYetSpawned.Count == 0;
         
         return timerSpawnAnimal_Done == false || conditionSpawnAnimal_Done == false || weirdConditionSpawnAnimal_Done == false;
     }
@@ -625,4 +677,24 @@ public class HuntingCaseManager : MonoBehaviour
 
         return theData;
     }
+
+    //TODO call this to get the list of loot in enum form
+    public List<Enum_LootOptions> GetLootData_List()
+    {
+        List<Enum_LootOptions> lootData = new List<Enum_LootOptions>();
+
+        //go through all spawned animals; Get the loot from the dead ones
+        for(int i = 0; i < SpawnedAnimals.Count; i++)
+        {
+            Animal_AI_Base theAnimal = SpawnedAnimals[i].GetComponent<Animal_AI_Base>();
+            if(theAnimal.GetAnimalStatus() == AnimalStatus.Dead)
+            {
+                lootData.Add(theAnimal.GetLootData());
+            }
+        }
+
+        return lootData;
+    }
+
+
 }

@@ -1366,7 +1366,7 @@ MonoBehaviour:
   HuntingCase_Data: {fileID: 397264971}
   CurrentRank: 1
   CurrentLevel: 1
-  TestCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
+  TestCase: {fileID: 11400000, guid: 42dfe362aa44c6341855b2cd6e4b6189, type: 2}
   AnimalSpawnData_List: []
   Current_AnimalSpawnData_Index: 0
   AnimalSpawnData_Condition_List_NotYetSpawned: []

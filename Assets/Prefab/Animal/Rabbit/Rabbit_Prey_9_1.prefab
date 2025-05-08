@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 2533507548205317665}
   - component: {fileID: 7545016771061978535}
   m_Layer: 0
-  m_Name: Rabbit_Prey_7
+  m_Name: Rabbit_Prey_9_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
     - rid: 3243458698102964225
     - rid: 3243458698102964226
     - rid: 3243458722425208854
-    - rid: 1805994218289102884
+    - rid: 1805994218289102892
   MasterState_Index: 0
   State_Index: 0
   CurrentAnimalAction:
@@ -333,9 +333,9 @@ MonoBehaviour:
   SeePredator_Action:
     rid: 3243458698102964238
   SeePredator_PredatorAtLeft_Action:
-    rid: 1805994218289102889
+    rid: 1805994218289102897
   SeePredator_PredatorAtRight_Action:
-    rid: 1805994218289102890
+    rid: 1805994218289102898
   NoMorePredator_Action:
     rid: -2
   references:
@@ -349,28 +349,28 @@ MonoBehaviour:
         FinishActionPriority: 0
         ExecuteEvenIfDead: 0
         NewStatus: 2
-    - rid: 1805994218289102884
+    - rid: 1805994218289102892
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
         StateName: Run From Predator with slight delay (Right)
         AnimalActions:
-        - rid: 1805994218289102885
-        - rid: 1805994218289102886
-    - rid: 1805994218289102885
+        - rid: 1805994218289102893
+        - rid: 1805994218289102894
+    - rid: 1805994218289102893
       type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
-          rid: 1805994218289102887
+          rid: 1805994218289102895
         ActionPriority: 0
         IdleDuration: 0.1
-    - rid: 1805994218289102886
+    - rid: 1805994218289102894
       type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
-          rid: 1805994218289102888
+          rid: 1805994218289102896
         ActionPriority: 0
         RunDestination: {x: 14, y: 1.05, z: 12}
-    - rid: 1805994218289102887
+    - rid: 1805994218289102895
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -379,13 +379,13 @@ MonoBehaviour:
         AlterType_StateIndex: 0
         AlterValue_ActionIndex: 1
         AlterType_ActionIndex: 0
-    - rid: 1805994218289102888
+    - rid: 1805994218289102896
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
         ExecuteEvenIfDead: 0
         NewStatus: 2
-    - rid: 1805994218289102889
+    - rid: 1805994218289102897
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
         AlterType_ActionIndex: 1
-    - rid: 1805994218289102890
+    - rid: 1805994218289102898
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -406,9 +406,8 @@ MonoBehaviour:
     - rid: 3243458698102964225
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: 'Default: Walk, Idle'
+        StateName: 'Default: Idle'
         AnimalActions:
-        - rid: 3243458698102964227
         - rid: 3243458698102964228
     - rid: 3243458698102964226
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
@@ -416,13 +415,6 @@ MonoBehaviour:
         StateName: Shoot Arrow, Run
         AnimalActions:
         - rid: 3243458698102964230
-    - rid: 3243458698102964227
-      type: {class: AnimalAction_WalkToPoint, ns: , asm: Assembly-CSharp}
-      data:
-        AnimalFinishAction:
-          rid: 3243458698102964231
-        ActionPriority: 0
-        WalkDestination: {x: 5, y: 1.05, z: 12}
     - rid: 3243458698102964228
       type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
       data:
@@ -436,16 +428,7 @@ MonoBehaviour:
         AnimalFinishAction:
           rid: 3243458698102964234
         ActionPriority: 0
-        RunDestination: {x: -14, y: 1.05, z: 12}
-    - rid: 3243458698102964231
-      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        ExecuteEvenIfDead: 0
-        AlterValue_StateIndex: 0
-        AlterType_StateIndex: 2
-        AlterValue_ActionIndex: 1
-        AlterType_ActionIndex: 1
+        RunDestination: {x: 14, y: 1.05, z: 12}
     - rid: 3243458698102964234
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:

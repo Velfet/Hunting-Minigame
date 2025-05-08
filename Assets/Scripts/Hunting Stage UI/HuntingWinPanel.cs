@@ -50,6 +50,9 @@ public class HuntingWinPanel : MonoBehaviour
 
         //Update loot info text
         LootInfo.text = HuntingCaseManager.GetLootData_String();
+
+        //TODO use this list of enums to get the real loot later
+        List<Enum_LootOptions> lootDrop = HuntingCaseManager.GetLootData_List();
     }
 
     void OnDisable()

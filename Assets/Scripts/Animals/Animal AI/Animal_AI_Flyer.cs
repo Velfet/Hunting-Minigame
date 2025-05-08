@@ -36,7 +36,7 @@ public class Animal_AI_Flyer : Animal_AI_Base
     //function to react when prey dies, escaped, or eaten;  we'll make override of them in the child classes if needed
     protected override void Handle_MyPrey_Die(Animal_AI_Base theDeadPrey)
     {
-        Debug.LogWarning("[Flyer] prey just died");
+        Debug.LogWarning($"[Flyer] this animal: {gameObject.name},  prey just died which is {theDeadPrey.gameObject.name}");
         //prey is dead; a dead prey a valid prey, so remove it from the "potentialPreys" list and add it to the "myPreys" list
         //and also call "React_PreyPredator_AddRemove" to potentially alter this animal's behaviour
         //BUT this only happens if the prey is stil in the "potentialPreys" list
@@ -130,8 +130,12 @@ public class Animal_AI_Flyer : Animal_AI_Base
             {
                 //get closest prey to this animal
                 currentPrey = GetClosestAnimal(myPreys);
+                Debug.LogWarning($"A this animal is {gameObject.name}, current prey just got updated which is {currentPrey.gameObject.name}");
                 //determine prey behaviour type
                 AnimalBehaviourType preyBehaviourType = currentPrey.GetAnimalBehaviourType();
+                //set index
+                MasterState_Index = Previous_MasterState_Index;
+                State_Index = Previous_State_Index;
                 //activate action depending on the current prey's behaviour type
                 React_See_Prey(currentPrey, preyBehaviourType);
             }
@@ -139,14 +143,22 @@ public class Animal_AI_Flyer : Animal_AI_Base
             {
                 //check closest prey
                 Animal_AI_Base closestPrey = GetClosestAnimal(myPreys);
+                Debug.LogWarning($"B this animal is {gameObject.name}, current prey just got updated which is {currentPrey.gameObject.name}");
                 if(closestPrey != currentPrey)
                 {
                     //replace current prey with the closest prey
                     currentPrey = closestPrey;
                     //determine prey behaviour type
                     AnimalBehaviourType preyBehaviourType = currentPrey.GetAnimalBehaviourType();
+                    //set index
+                    MasterState_Index = Previous_MasterState_Index;
+                    State_Index = Previous_State_Index;
                     //activate action depending on the current prey's behaviour type
                     React_See_Prey(currentPrey, preyBehaviourType);
+                }
+                else
+                {
+                    Debug.LogWarning($"this animal is {gameObject.name}, the closes prey is the same as current prey which is {closestPrey.gameObject.name}");
                 }
             }
             

@@ -846,7 +846,11 @@ public class Animal_AI_Base : MonoBehaviour
             //check if removed prey is current prey; If so, current prey is null
             if(currentPrey == thePrey)
             {
+                Debug.LogWarning($"[TestRemovePrey] this animal {gameObject.name}, lost prey: {thePrey.gameObject.name}");
                 currentPrey = null;
+                //also update the action
+                MasterState_Index = Previous_MasterState_Index;
+                State_Index = Previous_State_Index;
             }
             //potentially alter behaviour, call a function here
             React_PreyPredator_AddRemove();
@@ -1013,6 +1017,11 @@ public class Animal_AI_Base : MonoBehaviour
             //and add it to the "potentialPreys" list
             potentialPreys.Add(theEatenPrey);
             Debug.LogWarning($"Remove {theEatenPrey.AnimalIdentity.Name} from prey list, it is potential prey now. This animal: {gameObject.name}");
+            if(currentPrey != null)
+            {
+                Debug.LogWarning($"Previous prey is {currentPrey.gameObject.name}. This animal: {gameObject.name}");
+            }
+            
         }
         else
         {
@@ -1157,6 +1166,11 @@ public class Animal_AI_Base : MonoBehaviour
         return AnimalData.LootData.ToString();
     }
 
+    public Enum_LootOptions GetLootData()
+    {
+        return AnimalData.LootData;
+    }
+
     public int GetStateIndex()
     {
         return State_Index;
@@ -1223,7 +1237,7 @@ public class Animal_AI_Base : MonoBehaviour
             }
         }
 
-        //Debug.LogWarning("[PreySensor] closest animal: " + closestAnimal.GetAnimalType());
+        Debug.LogWarning($"[PreySensor] this animal is {gameObject.name}, closest animal: " + closestAnimal.gameObject.name);
         return closestAnimal;
     }
 
@@ -1308,6 +1322,11 @@ public class Animal_AI_Base : MonoBehaviour
         {
             Sub_Or_Unsub_PreyEvents(myPredators_Visible[i], false);
         }
+    }
+
+    public AnimalReactState GetAnimalReactState()
+    {
+        return ReactState;
     }
 
 }

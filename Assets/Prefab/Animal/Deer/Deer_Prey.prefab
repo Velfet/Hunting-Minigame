@@ -1167,6 +1167,7 @@ MonoBehaviour:
     - rid: 3243458698102964225
     - rid: 3243458698102964226
     - rid: 3243458722425208854
+    - rid: 1805994218289102908
   MasterState_Index: 0
   State_Index: 0
   CurrentAnimalAction:
@@ -1190,13 +1191,71 @@ MonoBehaviour:
   Previous_ReactState: 0
   SeePredator_Action:
     rid: 3243458698102964238
+  SeePredator_PredatorAtLeft_Action:
+    rid: 1805994218289102913
+  SeePredator_PredatorAtRight_Action:
+    rid: 1805994218289102914
   NoMorePredator_Action:
-    rid: 3243458698102964239
+    rid: -2
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 1805994218289102908
+      type: {class: AnimalState, ns: , asm: Assembly-CSharp}
+      data:
+        StateName: Run From Predator with slight delay (Right)
+        AnimalActions:
+        - rid: 1805994218289102909
+        - rid: 1805994218289102910
+    - rid: 1805994218289102909
+      type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994218289102911
+        ActionPriority: 0
+        IdleDuration: 0.1
+    - rid: 1805994218289102910
+      type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994218289102912
+        ActionPriority: 0
+        RunDestination: {x: 14, y: 1.05, z: 12}
+    - rid: 1805994218289102911
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
+    - rid: 1805994218289102912
+      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        NewStatus: 2
+    - rid: 1805994218289102913
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 3
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
+    - rid: 1805994218289102914
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 2
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
     - rid: 3243458698102964225
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
@@ -1307,19 +1366,10 @@ MonoBehaviour:
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
         AlterType_ActionIndex: 1
-    - rid: 3243458698102964239
-      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        ExecuteEvenIfDead: 0
-        AlterValue_StateIndex: 2
-        AlterType_StateIndex: 1
-        AlterValue_ActionIndex: 0
-        AlterType_ActionIndex: 1
     - rid: 3243458722425208854
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: Run From Predator with slight delay
+        StateName: Run From Predator with slight delay (Left)
         AnimalActions:
         - rid: 3243458722425208855
         - rid: 3243458722425208857
@@ -1345,7 +1395,7 @@ MonoBehaviour:
         AnimalFinishAction:
           rid: 3243458722425208858
         ActionPriority: 0
-        RunDestination: {x: -13, y: 1.05, z: 12}
+        RunDestination: {x: -14, y: 1.05, z: 12}
     - rid: 3243458722425208858
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:

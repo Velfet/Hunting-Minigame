@@ -9,6 +9,9 @@ public class Animal_AI_Predator : Animal_AI_Base
     [SerializeReference] protected AnimalFinishAction_Base SeeScavengerOrFlyer_Action;
     [SerializeReference] protected AnimalFinishAction_Base Roar_Action; //can be null
     [Space(10)]
+    [SerializeField] protected List<AnimalType> roarReactSources;   //animals that are in this type and also are detected by the prey
+    //will trigger the roar action
+
     [SerializeField] protected GameObject RoarCollider_GO;
 
     //check if prey should be added to potentialPreys list instead of myPreys
@@ -45,7 +48,10 @@ public class Animal_AI_Predator : Animal_AI_Base
             //add prey to the reactcollider_preys
             reactCollider_Preys.Add(thePrey);
 
-            if(Roar_Action == null || thePrey.GetAnimalStatus() != AnimalStatus.Alive)
+            AnimalType preyAnimalType = thePrey.GetAnimalType();
+            bool doesAnimalCauseRoar = roarReactSources.Contains(preyAnimalType);
+
+            if(Roar_Action == null || thePrey.GetAnimalStatus() != AnimalStatus.Alive || doesAnimalCauseRoar == false)
             {
                 //potentially alter behaviour, call a function here
                 React_PreyPredator_AddRemove();

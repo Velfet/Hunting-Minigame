@@ -1051,6 +1051,7 @@ MonoBehaviour:
     rid: 1805994083109044241
   NoMorePredator_Action:
     rid: 1805994083109044242
+  ReactToArrow: 1
   references:
     version: 2
     RefIds:

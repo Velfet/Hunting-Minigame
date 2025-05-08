@@ -8,6 +8,8 @@ public class Animal_AI_Scavenger : Animal_AI_Base
     [SerializeReference] protected AnimalFinishAction_Base SeePrey_Action;  //should only activate if the prey is dead
     [SerializeReference] protected AnimalFinishAction_Base SeePredator_Action;
     [SerializeReference] protected AnimalFinishAction_Base NoMorePredator_Action;
+    [Space(10)]
+    [SerializeField] protected bool ReactToArrow;
 
     //call this function when the miss aura is hit
     public override void Trigger_MissAuraHit_Action()
@@ -26,7 +28,11 @@ public class Animal_AI_Scavenger : Animal_AI_Base
         if(MissAuraHit_Action != null)
         {
             //update react state
-            ReactState = AnimalReactState.ArrowHit;
+            if(ReactToArrow == true)
+            {
+                ReactState = AnimalReactState.ArrowHit;
+            }
+            
             MissAuraHit_Action.Activate_FinishAction(animalAction_ActivateData);
         }
     }
@@ -56,7 +62,10 @@ public class Animal_AI_Scavenger : Animal_AI_Base
         };
 
         //update react state
-        ReactState = AnimalReactState.ArrowHit;
+        if(ReactToArrow == true)
+        {
+            ReactState = AnimalReactState.ArrowHit;
+        }
         BodyHit_Action.Activate_FinishAction(animalAction_ActivateData);
     }
 
@@ -85,7 +94,10 @@ public class Animal_AI_Scavenger : Animal_AI_Base
         };
 
         //update react state
-        ReactState = AnimalReactState.ArrowHit;
+        if(ReactToArrow == true)
+        {
+            ReactState = AnimalReactState.ArrowHit;
+        }
         HeadHit_Action.Activate_FinishAction(animalAction_ActivateData);
     }
 

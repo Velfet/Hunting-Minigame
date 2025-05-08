@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bf5a710d963374fbea3cfa79530cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 0000000001000000
+  reactSources: 00000000010000000600000003000000
   theAnimal: {fileID: 5368637609515767146}
 --- !u!1 &2984652831873417815
 GameObject:
@@ -933,7 +933,7 @@ GameObject:
   - component: {fileID: 8156670692813354473}
   - component: {fileID: 5368637609515767146}
   m_Layer: 0
-  m_Name: Hyena_Scavenger_8
+  m_Name: Hyena_Scavenger_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 4228822538139295346}
-  AnimalData: {fileID: 11400000, guid: bdd70330174f31446be7f78d850c2fb0, type: 2}
+  AnimalData: {fileID: 11400000, guid: ddd21bc58817dad47a92587f25fa75ff, type: 2}
   AnimalState: 0
   AnimalIdentity:
     Name: Hyena
@@ -1060,9 +1060,9 @@ MonoBehaviour:
     - rid: 1805994083109044226
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: 'Default: Run to Left'
+        StateName: 'Default: Walk to Right'
         AnimalActions:
-        - rid: 1805994083109044243
+        - rid: 1805994218289102917
     - rid: 1805994083109044229
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
@@ -1095,7 +1095,7 @@ MonoBehaviour:
     - rid: 1805994083109044233
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: 'See Predator Or Shot by Arrow: Run To Right'
+        StateName: 'See Predator Or Shot by Arrow: Run To Left'
         AnimalActions:
         - rid: 1805994083109044234
     - rid: 1805994083109044234
@@ -1104,7 +1104,7 @@ MonoBehaviour:
         AnimalFinishAction:
           rid: 1805994083109044235
         ActionPriority: 0
-        RunDestination: {x: 14, y: 1.05, z: 12}
+        RunDestination: {x: -14, y: 1.05, z: 12}
     - rid: 1805994083109044235
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:
@@ -1167,14 +1167,14 @@ MonoBehaviour:
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
         AlterType_ActionIndex: 1
-    - rid: 1805994083109044243
-      type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
+    - rid: 1805994218289102917
+      type: {class: AnimalAction_WalkToPoint, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
-          rid: 1805994083109044244
+          rid: 1805994218289102918
         ActionPriority: 0
-        RunDestination: {x: -14, y: 1.05, z: 12}
-    - rid: 1805994083109044244
+        WalkDestination: {x: 14, y: 1.05, z: 12}
+    - rid: 1805994218289102918
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630c6afc3e6c78a4a8e5795fdbcb3298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 0000000001000000
+  reactSources: 00000000010000000600000003000000
   reactAction:
     rid: -2
   theAnimal: {fileID: 5368637609515767146}

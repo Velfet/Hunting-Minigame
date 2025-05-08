@@ -336,12 +336,12 @@ GameObject:
   - component: {fileID: 381606223924918918}
   - component: {fileID: 5680771551143694592}
   m_Layer: 0
-  m_Name: Lion_Predator_Roar
+  m_Name: Lion_Predator_Roar_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &381606223924918916
 Transform:
   m_ObjectHideFlags: 0
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 381606223924918939}
-  AnimalData: {fileID: 11400000, guid: 82670474610d7de48a11d4472fb37b59, type: 2}
+  AnimalData: {fileID: 11400000, guid: 4b35f6e2b7b03f94681a207449e6d5a0, type: 2}
   AnimalState: 0
   AnimalIdentity:
     Name: Lion
@@ -417,19 +417,20 @@ MonoBehaviour:
     rid: 3243458701720289294
   Roar_Action:
     rid: 3243458701720289295
+  roarReactSources: 01000000
   RoarCollider_GO: {fileID: 8484886716135090308}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 1805994083109044224
-      type: {class: AnimalAction_WalkToTarget, ns: , asm: Assembly-CSharp}
+    - rid: 1805994218289102919
+      type: {class: AnimalAction_RunToTarget, ns: , asm: Assembly-CSharp}
       data:
         AnimalFinishAction:
-          rid: 1805994083109044225
+          rid: 1805994218289102920
         ActionPriority: 0
-    - rid: 1805994083109044225
+    - rid: 1805994218289102920
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
         FinishActionPriority: 0
@@ -441,15 +442,15 @@ MonoBehaviour:
     - rid: 3243458701720289280
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: 'Default: Walk to Right'
+        StateName: 'Default: Walk to Left'
         AnimalActions:
         - rid: 3243458701720289283
     - rid: 3243458701720289281
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
-        StateName: Walk After Prey
+        StateName: Run After Prey
         AnimalActions:
-        - rid: 1805994083109044224
+        - rid: 1805994218289102919
         - rid: 3243458701720289285
     - rid: 3243458701720289282
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
@@ -464,7 +465,7 @@ MonoBehaviour:
         AnimalFinishAction:
           rid: 3243458701720289288
         ActionPriority: 0
-        WalkDestination: {x: 14, y: 1.05, z: 14}
+        WalkDestination: {x: -14, y: 1.05, z: 14}
     - rid: 3243458701720289285
       type: {class: AnimalAction_Eat, ns: , asm: Assembly-CSharp}
       data:
@@ -1379,7 +1380,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.544, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1574,7 +1575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630c6afc3e6c78a4a8e5795fdbcb3298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 0100000000000000
+  reactSources: 01000000000000000600000003000000
   reactAction:
     rid: -2
   theAnimal: {fileID: 7089660190061956381}
@@ -1658,7 +1659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bf5a710d963374fbea3cfa79530cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 0100000000000000
+  reactSources: 01000000000000000600000003000000
   theAnimal: {fileID: 7089660190061956381}
 --- !u!1 &6966827765490454649
 GameObject:

@@ -6,6 +6,8 @@ public class Animal_AI_Prey : Animal_AI_Base
 {
     [Space(10)]
     [SerializeReference] protected AnimalFinishAction_Base SeePredator_Action;
+    [SerializeReference] protected AnimalFinishAction_Base SeePredator_PredatorAtLeft_Action;
+    [SerializeReference] protected AnimalFinishAction_Base SeePredator_PredatorAtRight_Action;
     [SerializeReference] protected AnimalFinishAction_Base NoMorePredator_Action;
 
     public override void React_PreyPredator_AddRemove()
@@ -119,19 +121,46 @@ public class Animal_AI_Prey : Animal_AI_Base
             ThePredatorAnimal = thePredator
         };
 
+        Vector3 moveDirection = thePredator.transform.position - Animal_GO.transform.position;
+        
+
         //execute different action depending on the behaviour type of the predator; for now, it's all the same
         switch(behaviourType)
         {
             case AnimalBehaviourType.Predator:
                 if(SeePredator_Action != null)
                 {
-                    SeePredator_Action.Activate_FinishAction(animalAction_ActivateData);
+                    if(moveDirection.x <= 0)
+                    {
+                        //run away to the right
+                        SeePredator_PredatorAtLeft_Action.Activate_FinishAction(animalAction_ActivateData);
+                    }
+                    else if(moveDirection.x > 0)
+                    {
+                        //run away to the left
+                        SeePredator_PredatorAtRight_Action.Activate_FinishAction(animalAction_ActivateData);
+                    }
+
+                    //old
+                    //SeePredator_Action.Activate_FinishAction(animalAction_ActivateData);
                 }
                 break;
             case AnimalBehaviourType.Scavenger:
                 if(SeePredator_Action != null)
                 {
-                    SeePredator_Action.Activate_FinishAction(animalAction_ActivateData);
+                    if(moveDirection.x <= 0)
+                    {
+                        //run away to the right
+                        SeePredator_PredatorAtLeft_Action.Activate_FinishAction(animalAction_ActivateData);
+                    }
+                    else if(moveDirection.x > 0)
+                    {
+                        //run away to the left
+                        SeePredator_PredatorAtRight_Action.Activate_FinishAction(animalAction_ActivateData);
+                    }
+
+                    //old
+                    //SeePredator_Action.Activate_FinishAction(animalAction_ActivateData);
                 }
                 break;
             default:

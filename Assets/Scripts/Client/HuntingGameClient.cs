@@ -33,5 +33,11 @@ public class HuntingGameClient : MonoBehaviour
         TestRank = newRank;
     }
 
+    public void Start_HuntingMinigame(int theRank)
+    {
+        SetRank(theRank);
+        Start_TestCase();
+    }
+
     
 }

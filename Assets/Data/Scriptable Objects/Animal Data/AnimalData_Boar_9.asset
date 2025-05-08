@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a9799588efb1804a90a8eac639fcd15, type: 3}
-  m_Name: AnimalData_Rabbit_1
+  m_Name: AnimalData_Boar_9
   m_EditorClassIdentifier: 
-  Name: Rabbit
-  Health: 6
-  RunSpeed: 3.4
-  RunSpeed_Faster: 4.5
-  WalkSpeed: 2.35
+  Name: Boar
+  Health: 48
+  RunSpeed: 3.75
+  RunSpeed_Faster: 4.3
+  WalkSpeed: 2
   FallSpeed: 0
   Experience: 10
-  LootData: 6
+  LootData: 4

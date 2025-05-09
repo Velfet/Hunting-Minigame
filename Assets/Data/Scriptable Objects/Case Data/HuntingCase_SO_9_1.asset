@@ -60,17 +60,9 @@ MonoBehaviour:
         AllHuntingConditions:
         - rid: 1805994218289102867
   WinCondition_Immediate_MultiChain:
-    UsingDefaultCondition: 0
+    UsingDefaultCondition: 1
     DefaultCondition: 0
-    AllHuntingCondition_Chains:
-    - UsingDefaultCondition: 0
-      DefaultCondition: 0
-      AllHuntingConditions:
-      - rid: 1805994218289102871
-    - UsingDefaultCondition: 0
-      DefaultCondition: 0
-      AllHuntingConditions:
-      - rid: 1805994218289102872
+    AllHuntingCondition_Chains: []
   LoseCondition_Immediate_MultiChain:
     UsingDefaultCondition: 1
     DefaultCondition: 0
@@ -104,6 +96,7 @@ MonoBehaviour:
         Must_Escape: []
         Must_BeEaten: []
         Must_BeKilled: []
+        Must_BeAlive: []
         AnimalThatBeganToEat:
           Name: Lion
           AnimalType: 4
@@ -120,39 +113,10 @@ MonoBehaviour:
         - Name: Deer
           AnimalType: 0
           AnimalBehaviour: 0
-    - rid: 1805994218289102871
-      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
-      data:
-        UsingDefaultCondition: 0
-        DefaultCondition: 0
-        Must_Die: []
-        Must_Escape: []
-        Must_BeEaten: []
-        Must_BeKilled:
+        Must_BeAlive:
         - Name: Lion
           AnimalType: 4
           AnimalBehaviour: 1
-        - Name: Rabbit
-          AnimalType: 6
-          AnimalBehaviour: 0
-        - Name: Rabbit
-          AnimalType: 6
-          AnimalBehaviour: 0
-        - Name: Hyena
-          AnimalType: 1
-          AnimalBehaviour: 3
-    - rid: 1805994218289102872
-      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
-      data:
-        UsingDefaultCondition: 0
-        DefaultCondition: 0
-        Must_Die: []
-        Must_Escape: []
-        Must_BeEaten: []
-        Must_BeKilled:
-        - Name: Boar
-          AnimalType: 5
-          AnimalBehaviour: 0
     - rid: 1805994218289102873
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
       data:
@@ -174,6 +138,7 @@ MonoBehaviour:
         - Name: Hyena
           AnimalType: 1
           AnimalBehaviour: 3
+        Must_BeAlive: []
     - rid: 1805994218289102874
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
       data:
@@ -186,3 +151,4 @@ MonoBehaviour:
         - Name: Boar
           AnimalType: 5
           AnimalBehaviour: 0
+        Must_BeAlive: []

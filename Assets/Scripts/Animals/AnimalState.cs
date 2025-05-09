@@ -13,7 +13,7 @@ public class AnimalState
 
     public AnimalAction_Base GetAnimalAction(int index)
     {
-        Debug.LogWarning($"[TestB] the index: {index}, state name: {StateName}");
+        //Debug.LogWarning($"[TestB] the index: {index}, state name: {StateName}");
         return AnimalActions[index];
     }
 }

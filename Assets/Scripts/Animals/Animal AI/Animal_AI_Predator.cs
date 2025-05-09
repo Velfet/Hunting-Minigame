@@ -109,6 +109,9 @@ public class Animal_AI_Predator : Animal_AI_Base
                 currentPrey = GetClosestAnimal(myPreys);
                 //determine prey behaviour type
                 AnimalBehaviourType preyBehaviourType = currentPrey.GetAnimalBehaviourType();
+                //set index
+                MasterState_Index = Previous_MasterState_Index;
+                State_Index = Previous_State_Index;
                 //activate action depending on the current prey's behaviour type
                 React_See_Prey(currentPrey, preyBehaviourType);
             }
@@ -122,6 +125,9 @@ public class Animal_AI_Predator : Animal_AI_Base
                     currentPrey = closestPrey;
                     //determine prey behaviour type
                     AnimalBehaviourType preyBehaviourType = currentPrey.GetAnimalBehaviourType();
+                    //set index
+                    MasterState_Index = Previous_MasterState_Index;
+                    State_Index = Previous_State_Index;
                     //activate action depending on the current prey's behaviour type
                     React_See_Prey(currentPrey, preyBehaviourType);
                 }

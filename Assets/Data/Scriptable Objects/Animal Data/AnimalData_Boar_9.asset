@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AnimalData_Boar_9
   m_EditorClassIdentifier: 
   Name: Boar
-  Health: 48
+  Health: 60
   RunSpeed: 3.75
   RunSpeed_Faster: 4.3
   WalkSpeed: 2

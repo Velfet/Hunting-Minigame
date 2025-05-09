@@ -38,6 +38,7 @@ public class Animal_AI_Base : MonoBehaviour
     [SerializeField] protected Anim2DEffect AnimalDieBlood_Effect;
 
     protected HuntingCaseManager huntingCaseManager;
+    protected HuntingUIManager huntingUIManager;
     //need to remove this; we'll use the list of prey or predator instead
     //protected Animal_AI_Base currentTargetAnimal;
 
@@ -138,6 +139,7 @@ public class Animal_AI_Base : MonoBehaviour
     {
         //store reference to the hunting case manager
         huntingCaseManager = newManager;
+        huntingUIManager = huntingCaseManager.Get_HuntingUIManager();
 
         //no target animal
         //currentTargetAnimal = null;
@@ -700,7 +702,7 @@ public class Animal_AI_Base : MonoBehaviour
         WeaponHit_Effect.PlayEffectAnim();
 
         //play blood hit particle system
-        Debug.LogWarning("Play blood hit effect");
+        //Debug.LogWarning("Play blood hit effect");
         BloodHit_Particle.transform.position = hitPosition;
         BloodHit_Particle.Play();
 
@@ -730,6 +732,9 @@ public class Animal_AI_Base : MonoBehaviour
         Debug.LogWarning("Play blood hit effect 2");
         BloodHit_Particle.transform.position = hitPosition;
         BloodHit_Particle.Play();
+
+        //Show crit text
+        ShowCritText(transform.position);
         
         //trigger the head hit action
         AnimalAction_ActivateData animalAction_ActivateData = new AnimalAction_ActivateData{
@@ -1151,6 +1156,11 @@ public class Animal_AI_Base : MonoBehaviour
         return AnimalIdentity.AnimalBehaviour;
     }
 
+    public AnimalIdentity GetAnimalIdentity()
+    {
+        return AnimalIdentity;
+    }
+
     public int GetMasterStateIndex()
     {
         return MasterState_Index;
@@ -1327,6 +1337,15 @@ public class Animal_AI_Base : MonoBehaviour
     public AnimalReactState GetAnimalReactState()
     {
         return ReactState;
+    }
+
+    protected void ShowCritText(Vector3 worldPos)
+    {
+        //Show crit text
+        if(huntingUIManager != null)
+        {
+            huntingUIManager.Activate_FloatingText("CRIT!", worldPos);
+        }
     }
 
 }

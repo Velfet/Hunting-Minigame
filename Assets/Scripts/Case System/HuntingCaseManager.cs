@@ -566,6 +566,18 @@ public class HuntingCaseManager : MonoBehaviour
         theArgument.Animal_Escape = Animal_Escape;
         theArgument.Animal_BeEaten = Animal_Eaten;
         theArgument.Animal_BeKilled = Animal_Killed;
+        //also add the list of animal identities that are alive
+        List<AnimalIdentity> aliveAnimals = new List<AnimalIdentity>();
+        for(int i = 0; i < SpawnedAnimals.Count; i++)
+        {
+            Animal_AI_Base theAnimal = SpawnedAnimals[i].GetComponent<Animal_AI_Base>();
+            if(theAnimal != null && theAnimal.GetAnimalStatus() == AnimalStatus.Alive)
+            {
+                aliveAnimals.Add(theAnimal.GetAnimalIdentity());
+            }
+        }
+        theArgument.Animal_IsAlive = aliveAnimals;
+
         List<AnimalSpawnData_Condition> toBeRemoved_List = new List<AnimalSpawnData_Condition>();
         List<AnimalSpawnData_Condition> notYetSpawned_Copy;
 
@@ -694,6 +706,11 @@ public class HuntingCaseManager : MonoBehaviour
         }
 
         return lootData;
+    }
+
+    public HuntingUIManager Get_HuntingUIManager()
+    {
+        return HuntingUI;
     }
 
 

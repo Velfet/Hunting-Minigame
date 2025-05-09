@@ -86,6 +86,9 @@ public class Animal_AI_Scavenger : Animal_AI_Base
         Debug.LogWarning("Play blood hit effect 2");
         BloodHit_Particle.transform.position = hitPosition;
         BloodHit_Particle.Play();
+
+        //Show crit text
+        ShowCritText(transform.position);
         
         //trigger the head hit action
         AnimalAction_ActivateData animalAction_ActivateData = new AnimalAction_ActivateData{
@@ -279,6 +282,9 @@ public class Animal_AI_Scavenger : Animal_AI_Base
                     currentPrey = GetClosestAnimal(myPreys);
                     //determine prey behaviour type
                     AnimalBehaviourType preyBehaviourType = currentPrey.GetAnimalBehaviourType();
+                    //set index
+                    MasterState_Index = Previous_MasterState_Index;
+                    State_Index = Previous_State_Index;
                     //activate action depending on the current prey's behaviour type
                     React_See_Prey(currentPrey, preyBehaviourType);
                 }
@@ -292,6 +298,9 @@ public class Animal_AI_Scavenger : Animal_AI_Base
                         currentPrey = closestPrey;
                         //determine prey behaviour type
                         AnimalBehaviourType preyBehaviourType = currentPrey.GetAnimalBehaviourType();
+                        //set index
+                        MasterState_Index = Previous_MasterState_Index;
+                        State_Index = Previous_State_Index;
                         //activate action depending on the current prey's behaviour type
                         React_See_Prey(currentPrey, preyBehaviourType);
                     }

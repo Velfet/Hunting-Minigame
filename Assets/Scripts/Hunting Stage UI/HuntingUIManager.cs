@@ -8,6 +8,8 @@ public class HuntingUIManager : MonoBehaviour
     [SerializeField] private HuntingLosePanel LosePanel;
     [SerializeField] private HuntingWinPanel WinPanel;
     [SerializeField] private float ActivateDelayDuration;
+    [Space(10)]
+    [SerializeField] private FloatingReactionText_Manager FloatingReactionText_Manager;
 
 
     private IEnumerator DelayActivateWinPanel_Coroutine;
@@ -75,6 +77,14 @@ public class HuntingUIManager : MonoBehaviour
 
         //delay is done, activate the panel now
         WinPanel.Toggle_Active_State(true);
+    }
+    #endregion
+
+
+    #region floating text
+    public void Activate_FloatingText(string theText, Vector3 worldPos)
+    {
+        FloatingReactionText_Manager.ActivateFloatingText(theText, worldPos);
     }
     #endregion
 

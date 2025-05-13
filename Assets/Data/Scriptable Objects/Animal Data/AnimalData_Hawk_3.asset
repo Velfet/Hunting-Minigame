@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Hawk
   Health: 6
-  RunSpeed: 3
+  RunSpeed: 4.2
   RunSpeed_Faster: 3.25
   WalkSpeed: 2
   FallSpeed: 4.5

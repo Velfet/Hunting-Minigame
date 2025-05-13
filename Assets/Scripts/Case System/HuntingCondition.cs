@@ -40,7 +40,6 @@ public class HuntingCondition
         //check the "Must_BeAlive" list
         bool mustBeAliveCondition_Met = MyListUtils.Is_ListA_Inside_ListB(Must_BeAlive, theArgument.Animal_IsAlive);
 
-
         if(mustBeKilled_AlreadyEscaped == true || mustBeAliveCondition_Met == false)
         {
             //the animal that is supposed to be killed has already escaped;

@@ -26,7 +26,7 @@ public class HuntingCondition_AnimalBeginEat : HuntingCondition
     public override bool CanConditionStillBeFulfilled(HuntingCondition_Arguments theArgument)
     {
         //if the animal that is supposed to began to eat is alredy dead, this condition can no longer be fulfilled
-        if(theArgument.Animal_BeKilled.Contains(AnimalThatBeganToEat) == true)
+        if(theArgument.Animal_BeKilled.Contains(AnimalThatBeganToEat) == true || theArgument.Animal_Escape.Contains(AnimalThatBeganToEat) == true)
         {
             //Debug.LogWarning("[TestCondition] condition can not be fulfilled");
             return false;

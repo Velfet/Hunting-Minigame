@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5887927c44cb945bd3262cfb1bbb33, type: 3}
+  m_Name: HuntingCase_SO_1_4
+  m_EditorClassIdentifier: 
+  All_AnimalSpawnData:
+  - Animal_Prefab: {fileID: 3727285629777403911, guid: e2b70aa21897697458fb4c9563be66ef, type: 3}
+    SpawnTime: 0
+    SpawnPosition: {x: 14, y: 1.05, z: 12}
+    DeadOnSpawn: 0
+  All_AnimalSpawnData_Condition: []
+  All_AnimalSpawnData_WeirdCondition: []
+  WinCondition_Immediate_MultiChain:
+    UsingDefaultCondition: 0
+    DefaultCondition: 0
+    AllHuntingCondition_Chains:
+    - UsingDefaultCondition: 0
+      DefaultCondition: 0
+      AllHuntingConditions:
+      - rid: 1805994175564087300
+  LoseCondition_Immediate_MultiChain:
+    UsingDefaultCondition: 1
+    DefaultCondition: 0
+    AllHuntingCondition_Chains: []
+  WinCondition_Timer_MultiChain:
+    UsingDefaultCondition: 0
+    DefaultCondition: 0
+    AllHuntingCondition_Chains:
+    - UsingDefaultCondition: 0
+      DefaultCondition: 0
+      AllHuntingConditions:
+      - rid: 1805994175564087301
+  LoseCondition_Timer_MultiChain:
+    UsingDefaultCondition: 1
+    DefaultCondition: 1
+    AllHuntingCondition_Chains: []
+  TimerDuration: 12
+  references:
+    version: 2
+    RefIds:
+    - rid: 1805994175564087300
+      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
+      data:
+        UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die: []
+        Must_Escape: []
+        Must_BeEaten: []
+        Must_BeKilled:
+        - Name: Rabbit
+          AnimalType: 6
+          AnimalBehaviour: 0
+        Must_BeAlive: []
+    - rid: 1805994175564087301
+      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
+      data:
+        UsingDefaultCondition: 0
+        DefaultCondition: 0
+        Must_Die: []
+        Must_Escape: []
+        Must_BeEaten: []
+        Must_BeKilled:
+        - Name: Rabbit
+          AnimalType: 6
+          AnimalBehaviour: 0
+        Must_BeAlive: []

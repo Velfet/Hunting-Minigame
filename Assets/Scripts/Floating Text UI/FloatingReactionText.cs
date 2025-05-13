@@ -22,8 +22,7 @@ public class FloatingReactionText : MonoBehaviour
         //set position
         Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, targetWorldPos);
         Vector2 canvasPos;
-        //TODO [25] this doesn't give the correct result
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPoint, null, out canvasPos);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPoint, Camera.main, out canvasPos);
         MyRect.anchoredPosition = canvasPos;
 
         //set text

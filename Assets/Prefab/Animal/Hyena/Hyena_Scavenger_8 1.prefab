@@ -1047,8 +1047,10 @@ MonoBehaviour:
   Previous_ReactState: 0
   SeePrey_Action:
     rid: 1805994083109044240
-  SeePredator_Action:
-    rid: 1805994083109044241
+  SeePredator_PredatorAtLeft_Action:
+    rid: 1805994332198273063
+  SeePredator_PredatorAtRight_Action:
+    rid: 1805994332198273064
   NoMorePredator_Action:
     rid: 1805994083109044242
   ReactToArrow: 1
@@ -1149,15 +1151,6 @@ MonoBehaviour:
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
         AlterType_ActionIndex: 1
-    - rid: 1805994083109044241
-      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        ExecuteEvenIfDead: 0
-        AlterValue_StateIndex: 2
-        AlterType_StateIndex: 1
-        AlterValue_ActionIndex: 0
-        AlterType_ActionIndex: 1
     - rid: 1805994083109044242
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
@@ -1180,6 +1173,24 @@ MonoBehaviour:
         FinishActionPriority: 0
         ExecuteEvenIfDead: 0
         NewStatus: 2
+    - rid: 1805994332198273063
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 2
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
+    - rid: 1805994332198273064
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 2
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
 --- !u!1 &4248041917090188073
 GameObject:
   m_ObjectHideFlags: 0

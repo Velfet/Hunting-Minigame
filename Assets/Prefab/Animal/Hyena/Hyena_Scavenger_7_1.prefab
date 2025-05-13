@@ -1499,10 +1499,13 @@ MonoBehaviour:
   Previous_ReactState: 0
   SeePrey_Action:
     rid: 1805994195917471783
-  SeePredator_Action:
+  SeePredator_PredatorAtLeft_Action:
+    rid: -2
+  SeePredator_PredatorAtRight_Action:
     rid: -2
   NoMorePredator_Action:
     rid: -2
+  ReactToArrow: 0
   references:
     version: 2
     RefIds:

@@ -19,7 +19,7 @@ MonoBehaviour:
     DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 3594437038610991596, guid: 353cc8ce9fc36c54db67980c82df8145, type: 3}
     SpawnTime: 0
-    SpawnPosition: {x: -14, y: 6, z: 13}
+    SpawnPosition: {x: -14, y: 4.8, z: 13}
     DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 6685717237477771016, guid: c0033134ee2c3e74599025911b95b986, type: 3}
     SpawnTime: 0.5
@@ -27,7 +27,7 @@ MonoBehaviour:
     DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 3594437038610991596, guid: 353cc8ce9fc36c54db67980c82df8145, type: 3}
     SpawnTime: 10
-    SpawnPosition: {x: -14, y: 6, z: 13}
+    SpawnPosition: {x: -14, y: 4.8, z: 13}
     DeadOnSpawn: 0
   All_AnimalSpawnData_Condition: []
   All_AnimalSpawnData_WeirdCondition: []
@@ -74,6 +74,7 @@ MonoBehaviour:
         - Name: Hyena
           AnimalType: 1
           AnimalBehaviour: 1
+        Must_BeAlive: []
     - rid: 1805994175564087311
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
       data:
@@ -95,3 +96,4 @@ MonoBehaviour:
         - Name: Hawk
           AnimalType: 3
           AnimalBehaviour: 2
+        Must_BeAlive: []

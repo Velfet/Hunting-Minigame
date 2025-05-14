@@ -1057,7 +1057,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e076bcf91a173b04a8354f2a0ed0c806, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1293,8 +1293,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6501156, y: 0.6321788, z: 1}
-  m_Center: {x: 0.09697288, y: 0.053306527, z: 0}
+  m_Size: {x: 0.68080187, y: 0.72603697, z: 1}
+  m_Center: {x: -0.110013485, y: 0.03332723, z: 0}
 --- !u!54 &9099833028846052517
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1374,8 +1374,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9149003, y: 0.51315016, z: 1}
-  m_Center: {x: 0.11009455, y: 0.1485195, z: 0}
+  m_Size: {x: 0.9453136, y: 0.77001125, z: 1}
+  m_Center: {x: 0.12530118, y: 0.33000275, z: 0}
 --- !u!54 &7678623985275291266
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1745,11 +1745,11 @@ MonoBehaviour:
   DefaultFaceIsRight: 0
   AnimalAnimationClipKeys: 0000000001000000020000000300000004000000
   AnimalAnimationClipNames:
-  - Wolf_IDLE
-  - Wolf_ATTACK
-  - Wolf_WALK
-  - Wolf_RUN
-  - Wolf_DEATH
+  - Hyena_Idle
+  - Hyena_Eat
+  - Hyena_Walk
+  - Hyena_Run
+  - Hyena_Die
 --- !u!1 &6685717238267156842
 GameObject:
   m_ObjectHideFlags: 0

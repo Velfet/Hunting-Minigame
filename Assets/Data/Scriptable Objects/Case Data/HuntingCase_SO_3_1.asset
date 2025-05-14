@@ -19,7 +19,7 @@ MonoBehaviour:
     DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 3594437038610991596, guid: 353cc8ce9fc36c54db67980c82df8145, type: 3}
     SpawnTime: 0
-    SpawnPosition: {x: -14, y: 6, z: 13}
+    SpawnPosition: {x: -14, y: 4.8, z: 13}
     DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 6685717237477771016, guid: 20fceea8e76d51e4b8493af1f3e7e5bf, type: 3}
     SpawnTime: 2
@@ -67,6 +67,7 @@ MonoBehaviour:
         - Name: Hyena
           AnimalType: 1
           AnimalBehaviour: 1
+        Must_BeAlive: []
     - rid: 1805994175564087305
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
       data:
@@ -79,3 +80,4 @@ MonoBehaviour:
         - Name: Hyena
           AnimalType: 1
           AnimalBehaviour: 1
+        Must_BeAlive: []

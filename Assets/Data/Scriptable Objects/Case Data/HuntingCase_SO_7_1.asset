@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: HuntingCase_SO_7_1
   m_EditorClassIdentifier: 
   All_AnimalSpawnData:
-  - Animal_Prefab: {fileID: 5526649761390754851, guid: 2e189cf48de63b24abbf93826d2eea27, type: 3}
+  - Animal_Prefab: {fileID: 3542341469290630306, guid: 69f91ba0bbcba35489e893975797f2b7, type: 3}
     SpawnTime: 0
     SpawnPosition: {x: -0.25, y: 1.05, z: 12}
     DeadOnSpawn: 0
-  - Animal_Prefab: {fileID: 2533507548205317692, guid: 174587ebe8e2aa745b52262c11ac7bcf, type: 3}
+  - Animal_Prefab: {fileID: 358278062878647755, guid: e917e770eb148f244abee7ab03eee7c6, type: 3}
     SpawnTime: 0
     SpawnPosition: {x: 14, y: 1.05, z: 12}
     DeadOnSpawn: 0
   All_AnimalSpawnData_Condition:
-  - Animal_Prefab: {fileID: 6685717237477771016, guid: 66c052b5bb99edd4b846e5786a3844dd, type: 3}
+  - Animal_Prefab: {fileID: 7407410829400022801, guid: d1d79fc8ef10daf488540c5e7a677e67, type: 3}
     SpawnTime: 0
     SpawnPosition: {x: -14, y: 1.05, z: 12.5}
     DeadOnSpawn: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
         DefaultCondition: 0
         AllHuntingConditions:
         - rid: 1805994175564087316
-  - Animal_Prefab: {fileID: 6685717237477771016, guid: 9c5c067842b3f3143ac1827c0c30a43e, type: 3}
+  - Animal_Prefab: {fileID: 7159369405722547954, guid: 3eb1cd6e3fdbcd04ab9ae38dcbc9d5b7, type: 3}
     SpawnTime: 0
     SpawnPosition: {x: 14, y: 1.05, z: 12.5}
     DeadOnSpawn: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
         - rid: 1805994195917471766
   - Animal_Prefab: {fileID: 1843161223474208281, guid: e9fcfe0d014b6bc4a80b30ff7afb1218, type: 3}
     SpawnTime: 0
-    SpawnPosition: {x: -14, y: 6, z: 13}
+    SpawnPosition: {x: -14, y: 4.8, z: 13}
     DeadOnSpawn: 0
     SpawnCondition_MultiChain:
       UsingDefaultCondition: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
         - rid: 1805994175564087317
   - Animal_Prefab: {fileID: 3637393954337427599, guid: 8f24e14c73b81a643928854a53247ffa, type: 3}
     SpawnTime: 0
-    SpawnPosition: {x: 14, y: 6, z: 13}
+    SpawnPosition: {x: 14, y: 4.8, z: 13}
     DeadOnSpawn: 0
     SpawnCondition_MultiChain:
       UsingDefaultCondition: 0
@@ -72,13 +72,9 @@ MonoBehaviour:
         - rid: 1805994175564087318
   All_AnimalSpawnData_WeirdCondition: []
   WinCondition_Immediate_MultiChain:
-    UsingDefaultCondition: 0
+    UsingDefaultCondition: 1
     DefaultCondition: 0
-    AllHuntingCondition_Chains:
-    - UsingDefaultCondition: 0
-      DefaultCondition: 0
-      AllHuntingConditions:
-      - rid: 1805994175564087314
+    AllHuntingCondition_Chains: []
   LoseCondition_Immediate_MultiChain:
     UsingDefaultCondition: 1
     DefaultCondition: 0
@@ -114,27 +110,7 @@ MonoBehaviour:
         - Name: Hawk
           AnimalType: 3
           AnimalBehaviour: 2
-    - rid: 1805994175564087314
-      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
-      data:
-        UsingDefaultCondition: 0
-        DefaultCondition: 0
-        Must_Die: []
-        Must_Escape: []
-        Must_BeEaten: []
-        Must_BeKilled:
-        - Name: Deer
-          AnimalType: 0
-          AnimalBehaviour: 0
-        - Name: Hyena
-          AnimalType: 1
-          AnimalBehaviour: 1
-        - Name: Hawk
-          AnimalType: 3
-          AnimalBehaviour: 2
-        - Name: Hawk
-          AnimalType: 3
-          AnimalBehaviour: 2
+        Must_BeAlive: []
     - rid: 1805994175564087316
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
       data:
@@ -144,9 +120,10 @@ MonoBehaviour:
         Must_Escape: []
         Must_BeEaten: []
         Must_BeKilled:
-        - Name: Deer
-          AnimalType: 0
-          AnimalBehaviour: 0
+        - Name: Hyena
+          AnimalType: 1
+          AnimalBehaviour: 3
+        Must_BeAlive: []
     - rid: 1805994175564087317
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
       data:
@@ -156,9 +133,10 @@ MonoBehaviour:
         Must_Escape: []
         Must_BeEaten: []
         Must_BeKilled:
-        - Name: Deer
-          AnimalType: 0
-          AnimalBehaviour: 0
+        - Name: Hyena
+          AnimalType: 1
+          AnimalBehaviour: 3
+        Must_BeAlive: []
     - rid: 1805994175564087318
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
       data:
@@ -168,9 +146,10 @@ MonoBehaviour:
         Must_Escape: []
         Must_BeEaten: []
         Must_BeKilled:
-        - Name: Deer
-          AnimalType: 0
-          AnimalBehaviour: 0
+        - Name: Hyena
+          AnimalType: 1
+          AnimalBehaviour: 3
+        Must_BeAlive: []
     - rid: 1805994195917471766
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
       data:
@@ -180,6 +159,7 @@ MonoBehaviour:
         Must_Escape: []
         Must_BeEaten: []
         Must_BeKilled:
-        - Name: Deer
-          AnimalType: 0
-          AnimalBehaviour: 0
+        - Name: Hyena
+          AnimalType: 1
+          AnimalBehaviour: 3
+        Must_BeAlive: []

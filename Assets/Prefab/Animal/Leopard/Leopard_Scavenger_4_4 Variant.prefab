@@ -1,0 +1,414 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3516798012400503841
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 70157994322605, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: theAnimal
+      value: 
+      objectReference: {fileID: 8204322099080816994}
+    - target: {fileID: 775096105251132894, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390566166251800514, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 8204322099080816994}
+    - target: {fileID: 1640934679290207099, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: theAnimal
+      value: 
+      objectReference: {fileID: 8204322099080816994}
+    - target: {fileID: 1668884658036777870, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668884658036777870, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984737928689708773, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474071267137517519, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410840237336855873, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: theAnimal
+      value: 
+      objectReference: {fileID: 8204322099080816994}
+    - target: {fileID: 5148147487059390246, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 8204322099080816994}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214502, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 8204322099080816994}
+    - target: {fileID: 6185000846327214523, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_Name
+      value: Leopard_Scavenger_4_4 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214523, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846402155156, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 8204322099080816994}
+    - target: {fileID: 6185000846468759703, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 8204322099080816994}
+    - target: {fileID: 7557959777763537720, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: theAnimal
+      value: 
+      objectReference: {fileID: 8204322099080816994}
+    m_RemovedComponents:
+    - {fileID: 3674300918801794621, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+--- !u!198 &153548953736888179 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3670344487301821266, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3516798012400503841}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1848101465512600260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2984737928689708773, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3516798012400503841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac74f457e16f34429bdfa793af1489f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2967673693010228611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1864884595851000226, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3516798012400503841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f107131d1d237c44a5acb7252ee9958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3352437198932907521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2182014867330636320, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3516798012400503841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7285597867408653722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 855cd7650b6b80a42911fde80d31bb06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3999708112651974796 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 526917302075061421, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3516798012400503841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16dfa3177a92dda47aa371d3817e1fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4857614938214996478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8333799116962338271, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3516798012400503841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16dfa3177a92dda47aa371d3817e1fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7285597867408653722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6185000846327214523, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3516798012400503841}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8204322099080816994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7285597867408653722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e9ecf830d6c364ab3f5e0c121815ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animal_GO: {fileID: 7285597867408653722}
+  AnimalData: {fileID: 11400000, guid: 5b82fbc493fff9145afc37b482bd272b, type: 2}
+  AnimalState: 0
+  AnimalIdentity:
+    Name: Leopard
+    AnimalType: 2
+    AnimalBehaviour: 3
+  Animal_HP_UI: {fileID: 2967673693010228611}
+  CurrentHP: 0
+  MaxHP: 0
+  AnimalMasterState:
+    AnimalStates:
+    - rid: 1805994356322074624
+    - rid: 1805994356322074625
+    - rid: 1805994356322074626
+    - rid: 1805994356322074627
+  MasterState_Index: 0
+  State_Index: 0
+  CurrentAnimalAction:
+    rid: -2
+  Animal_Detected_Collider: {fileID: 1848101465512600260}
+  MissAuraHit_Action:
+    rid: 1805994332198273058
+  BodyHit_Action:
+    rid: 1805994332198273059
+  HeadHit_Action:
+    rid: 1805994332198273060
+  OnDeath_Action:
+    rid: -2
+  AnimationManager: {fileID: 3352437198932907521}
+  BloodHit_Particle: {fileID: 153548953736888179}
+  WeaponHit_Effect: {fileID: 3999708112651974796}
+  AnimalDieBlood_Effect: {fileID: 4857614938214996478}
+  ReactState: 0
+  Previous_MasterState_Index: 0
+  Previous_State_Index: 0
+  Previous_ReactState: 0
+  SeePrey_Action:
+    rid: 1805994195917471783
+  SeePredator_PredatorAtLeft_Action:
+    rid: 1805994332198273061
+  SeePredator_PredatorAtRight_Action:
+    rid: 1805994332198273062
+  NoMorePredator_Action:
+    rid: -2
+  ReactToArrow: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 1805994195917471783
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 1
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
+    - rid: 1805994332198273058
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 1
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
+    - rid: 1805994332198273059
+      type: {class: AnimalFinishAction_DamageAndAlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        DamageMultiplier: 1
+        AlterValue_StateIndex: 1
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
+    - rid: 1805994332198273060
+      type: {class: AnimalFinishAction_DamageAndAlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        DamageMultiplier: 1.7
+        AlterValue_StateIndex: 1
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
+    - rid: 1805994332198273061
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 3
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
+    - rid: 1805994332198273062
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 2
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1
+    - rid: 1805994356322074624
+      type: {class: AnimalState, ns: , asm: Assembly-CSharp}
+      data:
+        StateName: 'Default: Run Right to Left'
+        AnimalActions:
+        - rid: 1805994356322074628
+    - rid: 1805994356322074625
+      type: {class: AnimalState, ns: , asm: Assembly-CSharp}
+      data:
+        StateName: Shoot Arrow, Run Faster
+        AnimalActions:
+        - rid: 1805994356322074629
+    - rid: 1805994356322074626
+      type: {class: AnimalState, ns: , asm: Assembly-CSharp}
+      data:
+        StateName: Run From Predator with slight delay (Left)
+        AnimalActions:
+        - rid: 1805994356322074630
+        - rid: 1805994356322074631
+    - rid: 1805994356322074627
+      type: {class: AnimalState, ns: , asm: Assembly-CSharp}
+      data:
+        StateName: Run From Predator with slight delay (Right)
+        AnimalActions:
+        - rid: 1805994356322074632
+        - rid: 1805994356322074633
+    - rid: 1805994356322074628
+      type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994356322074634
+        ActionPriority: 0
+        RunDestination: {x: -14, y: 1.05, z: 12}
+    - rid: 1805994356322074629
+      type: {class: AnimalAction_RunFasterToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994356322074635
+        ActionPriority: 0
+        RunDestination: {x: -14, y: 1.05, z: 12}
+    - rid: 1805994356322074630
+      type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994356322074636
+        ActionPriority: 0
+        IdleDuration: 0.1
+    - rid: 1805994356322074631
+      type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994356322074637
+        ActionPriority: 0
+        RunDestination: {x: -14, y: 1.05, z: 12}
+    - rid: 1805994356322074632
+      type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994356322074638
+        ActionPriority: 0
+        IdleDuration: 0.1
+    - rid: 1805994356322074633
+      type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994356322074639
+        ActionPriority: 0
+        RunDestination: {x: 14, y: 1.05, z: 12}
+    - rid: 1805994356322074634
+      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        NewStatus: 2
+    - rid: 1805994356322074635
+      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        NewStatus: 2
+    - rid: 1805994356322074636
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
+    - rid: 1805994356322074637
+      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        NewStatus: 2
+    - rid: 1805994356322074638
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
+    - rid: 1805994356322074639
+      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        NewStatus: 2

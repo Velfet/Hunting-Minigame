@@ -1,0 +1,354 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3682222003841396394
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 70157994322605, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: theAnimal
+      value: 
+      objectReference: {fileID: 1746458747073951440}
+    - target: {fileID: 1390566166251800514, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 1746458747073951440}
+    - target: {fileID: 1640934679290207099, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: theAnimal
+      value: 
+      objectReference: {fileID: 1746458747073951440}
+    - target: {fileID: 1668884658036777870, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.544
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668884658036777870, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984737928689708773, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 1746458747073951440}
+    - target: {fileID: 4410840237336855873, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: theAnimal
+      value: 
+      objectReference: {fileID: 1746458747073951440}
+    - target: {fileID: 5148147487059390246, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 1746458747073951440}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214502, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 1746458747073951440}
+    - target: {fileID: 6185000846327214523, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_Name
+      value: Leopard_Scavenger_NoRoar_7_2_1 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214523, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846402155156, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 1746458747073951440}
+    - target: {fileID: 6185000846468759703, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: TheAnimal
+      value: 
+      objectReference: {fileID: 1746458747073951440}
+    - target: {fileID: 7557959777763537720, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: theAnimal
+      value: 
+      objectReference: {fileID: 1746458747073951440}
+    m_RemovedComponents:
+    - {fileID: 3674300918801794621, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+--- !u!198 &141388099998965240 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3670344487301821266, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3682222003841396394}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1905596802870575183 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2984737928689708773, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3682222003841396394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac74f457e16f34429bdfa793af1489f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3096374071002928904 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1864884595851000226, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3682222003841396394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f107131d1d237c44a5acb7252ee9958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3265659009969616010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2182014867330636320, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3682222003841396394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7407410829400022801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 855cd7650b6b80a42911fde80d31bb06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3771233733918005767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 526917302075061421, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3682222003841396394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16dfa3177a92dda47aa371d3817e1fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4665301792888126325 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8333799116962338271, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3682222003841396394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16dfa3177a92dda47aa371d3817e1fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7407410829400022801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6185000846327214523, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3682222003841396394}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1746458747073951440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7407410829400022801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e9ecf830d6c364ab3f5e0c121815ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animal_GO: {fileID: 7407410829400022801}
+  AnimalData: {fileID: 11400000, guid: 941f05dec2486014b8676e36218b8c93, type: 2}
+  AnimalState: 0
+  AnimalIdentity:
+    Name: Leopard
+    AnimalType: 2
+    AnimalBehaviour: 3
+  Animal_HP_UI: {fileID: 3096374071002928904}
+  CurrentHP: 0
+  MaxHP: 0
+  AnimalMasterState:
+    AnimalStates:
+    - rid: 1805994195917471768
+    - rid: 1805994195917471769
+    - rid: 1805994195917471770
+  MasterState_Index: 0
+  State_Index: 0
+  CurrentAnimalAction:
+    rid: -2
+  Animal_Detected_Collider: {fileID: 1905596802870575183}
+  MissAuraHit_Action:
+    rid: -2
+  BodyHit_Action:
+    rid: 1805994195917471781
+  HeadHit_Action:
+    rid: 1805994195917471782
+  OnDeath_Action:
+    rid: -2
+  AnimationManager: {fileID: 3265659009969616010}
+  BloodHit_Particle: {fileID: 141388099998965240}
+  WeaponHit_Effect: {fileID: 3771233733918005767}
+  AnimalDieBlood_Effect: {fileID: 4665301792888126325}
+  ReactState: 0
+  Previous_MasterState_Index: 0
+  Previous_State_Index: 0
+  Previous_ReactState: 0
+  SeePrey_Action:
+    rid: 1805994195917471783
+  SeePredator_PredatorAtLeft_Action:
+    rid: -2
+  SeePredator_PredatorAtRight_Action:
+    rid: -2
+  NoMorePredator_Action:
+    rid: -2
+  ReactToArrow: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 1805994195917471768
+      type: {class: AnimalState, ns: , asm: Assembly-CSharp}
+      data:
+        StateName: 'Default: Walk to Right'
+        AnimalActions:
+        - rid: 1805994195917471771
+    - rid: 1805994195917471769
+      type: {class: AnimalState, ns: , asm: Assembly-CSharp}
+      data:
+        StateName: Run After Prey
+        AnimalActions:
+        - rid: 1805994195917471772
+        - rid: 1805994195917471773
+        - rid: 1805994195917471774
+    - rid: 1805994195917471770
+      type: {class: AnimalState, ns: , asm: Assembly-CSharp}
+      data:
+        StateName: Walk To Scavenger Or Flyer
+        AnimalActions:
+        - rid: 1805994195917471775
+        - rid: 1805994195917471776
+    - rid: 1805994195917471771
+      type: {class: AnimalAction_WalkToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994195917471777
+        ActionPriority: 0
+        WalkDestination: {x: 14, y: 1.05, z: 12.5}
+    - rid: 1805994195917471772
+      type: {class: AnimalAction_Idle, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994195917471778
+        ActionPriority: 0
+        IdleDuration: 0.1
+    - rid: 1805994195917471773
+      type: {class: AnimalAction_RunToTarget, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994195917471779
+        ActionPriority: 0
+    - rid: 1805994195917471774
+      type: {class: AnimalAction_Eat, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: -2
+        ActionPriority: 0
+        EatDuration: 2.5
+    - rid: 1805994195917471775
+      type: {class: AnimalAction_WalkToTarget, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994195917471780
+        ActionPriority: 0
+    - rid: 1805994195917471776
+      type: {class: AnimalAction_Eat, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: -2
+        ActionPriority: 0
+        EatDuration: 1.5
+    - rid: 1805994195917471777
+      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        NewStatus: 2
+    - rid: 1805994195917471778
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
+    - rid: 1805994195917471779
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
+    - rid: 1805994195917471780
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
+    - rid: 1805994195917471781
+      type: {class: AnimalFinishAction_Damage, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        DamageMultiplier: 1
+    - rid: 1805994195917471782
+      type: {class: AnimalFinishAction_Damage, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        DamageMultiplier: 1.7
+    - rid: 1805994195917471783
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 1
+        AlterType_StateIndex: 1
+        AlterValue_ActionIndex: 0
+        AlterType_ActionIndex: 1

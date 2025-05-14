@@ -1821,7 +1821,7 @@ MonoBehaviour:
   HuntingCase_Data: {fileID: 397264971}
   CurrentRank: 1
   CurrentLevel: 1
-  TestCase: {fileID: 11400000, guid: 1a78ccc615cd08b43b9766583beb9c39, type: 2}
+  TestCase: {fileID: 11400000, guid: 9a5074f077310f940957022ed661b3dc, type: 2}
   AnimalSpawnData_List: []
   Current_AnimalSpawnData_Index: 0
   AnimalSpawnData_Condition_List_NotYetSpawned: []
@@ -1882,17 +1882,17 @@ MonoBehaviour:
       - weight: 40
         theHuntingCase: {fileID: 11400000, guid: 4740798ee2e8e2e469e3c0643cd07ea7, type: 2}
       - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: 4740798ee2e8e2e469e3c0643cd07ea7, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: 136f31b59e01eba428430cf740e8bfce, type: 2}
   - allLevel_HuntingCase_Data:
     - level_HuntingCases:
       - weight: 40
         theHuntingCase: {fileID: 11400000, guid: 53e48d12eaeb1dc4ab8178bf6aa8c677, type: 2}
       - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: 53e48d12eaeb1dc4ab8178bf6aa8c677, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: 3a62e73c9cf017e4a8499da02ec78ec0, type: 2}
       - weight: 20
         theHuntingCase: {fileID: 11400000, guid: 53e48d12eaeb1dc4ab8178bf6aa8c677, type: 2}
       - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: 53e48d12eaeb1dc4ab8178bf6aa8c677, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: f4d2bd643bc089843923259567388f9e, type: 2}
     - level_HuntingCases:
       - weight: 80
         theHuntingCase: {fileID: 11400000, guid: a19290e94dab39544a925b0176ec55d9, type: 2}
@@ -1910,7 +1910,7 @@ MonoBehaviour:
   - allLevel_HuntingCase_Data:
     - level_HuntingCases:
       - weight: 30
-        theHuntingCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: 9a5074f077310f940957022ed661b3dc, type: 2}
       - weight: 30
         theHuntingCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
       - weight: 20

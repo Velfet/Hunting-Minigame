@@ -37,12 +37,14 @@ public class HuntingWinPanel : MonoBehaviour
         if(HuntingCaseManager.IsCurrentLevelTheLastLevel() == true)
         {
             //disable continue button
-            ContinueButton.gameObject.SetActive(false);
+            ContinueButton.interactable = false;
+            //ContinueButton.gameObject.SetActive(false);
         }
         else
         {
             //enable continue button
-            ContinueButton.gameObject.SetActive(true);
+            ContinueButton.interactable = true;
+            //ContinueButton.gameObject.SetActive(true);
             ContinueButton.onClick.AddListener(ContinueToNextLevel);
         }
         

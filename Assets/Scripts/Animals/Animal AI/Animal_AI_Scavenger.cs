@@ -89,7 +89,9 @@ public class Animal_AI_Scavenger : Animal_AI_Base
         BloodHit_Particle.Play();
 
         //Show crit text
-        ShowCritText(transform.position);
+        UnityEngine.Vector3 critText_WorldPos = transform.position;
+        critText_WorldPos.y += 1.25f;
+        ShowCritText(critText_WorldPos);
         
         //trigger the head hit action
         AnimalAction_ActivateData animalAction_ActivateData = new AnimalAction_ActivateData{

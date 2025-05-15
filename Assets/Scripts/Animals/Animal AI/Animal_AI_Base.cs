@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+//using System.Numerics;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -734,7 +735,9 @@ public class Animal_AI_Base : MonoBehaviour
         BloodHit_Particle.Play();
 
         //Show crit text
-        ShowCritText(transform.position);
+        UnityEngine.Vector3 critText_WorldPos = transform.position;
+        critText_WorldPos.y += 1.25f;
+        ShowCritText(critText_WorldPos);
         
         //trigger the head hit action
         AnimalAction_ActivateData animalAction_ActivateData = new AnimalAction_ActivateData{
@@ -886,7 +889,7 @@ public class Animal_AI_Base : MonoBehaviour
             //predator was in the predator list, it has not been removed
 
             //also remove from react list
-            myPredators.Remove(thePredator);
+            bool didRemovePredator = myPredators.Remove(thePredator);
             
             //unsubscribe from the predator's events
             Sub_Or_Unsub_PredatorEvents(thePredator, false);
@@ -896,7 +899,11 @@ public class Animal_AI_Base : MonoBehaviour
                 currentPredator = null;
             }
             //potentially alter behaviour, call a function here
-            React_PreyPredator_AddRemove();
+            if(didRemovePredator == true)
+            {
+                React_PreyPredator_AddRemove();
+            }
+            
         }
 
         
@@ -1339,7 +1346,7 @@ public class Animal_AI_Base : MonoBehaviour
         return ReactState;
     }
 
-    protected void ShowCritText(Vector3 worldPos)
+    protected void ShowCritText(UnityEngine.Vector3 worldPos)
     {
         //Show crit text
         if(huntingUIManager != null)

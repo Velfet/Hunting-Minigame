@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using HuntingGame;
 using UnityEngine;
 
 public class Animal_AI_Predator : Animal_AI_Base
@@ -208,6 +209,9 @@ public class Animal_AI_Predator : Animal_AI_Base
         // Previous_MasterState_Index = MasterState_Index;
         // Previous_State_Index = State_Index;
         // Previous_ReactState = ReactState;
+
+        //play roar sound effect
+        AudioManager.Instance.PlayAudio(AnimalData.AnimalSoundName.Roar_SoundID);
 
         //set react state as roaring
         ReactState = AnimalReactState.Roaring;

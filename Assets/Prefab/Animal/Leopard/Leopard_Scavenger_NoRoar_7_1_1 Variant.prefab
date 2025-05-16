@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 1746458747073951440}
     - target: {fileID: 6185000846327214523, guid: 46a5305f596325347b973820f9c899ab, type: 3}
       propertyPath: m_Name
-      value: Leopard_Scavenger_NoRoar_7_2_1 Variant
+      value: Leopard_Scavenger_NoRoar_7_1_1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6185000846327214523, guid: 46a5305f596325347b973820f9c899ab, type: 3}
       propertyPath: m_IsActive
@@ -170,6 +170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16dfa3177a92dda47aa371d3817e1fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &7407398989850343917 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6185059969030297415, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+  m_PrefabInstance: {fileID: 3682222003841396394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7407410829400022801 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6185000846327214523, guid: 46a5305f596325347b973820f9c899ab, type: 3}
@@ -216,6 +221,7 @@ MonoBehaviour:
   OnDeath_Action:
     rid: -2
   AnimationManager: {fileID: 3265659009969616010}
+  Animal_AudioSource: {fileID: 7407398989850343917}
   BloodHit_Particle: {fileID: 141388099998965240}
   WeaponHit_Effect: {fileID: 3771233733918005767}
   AnimalDieBlood_Effect: {fileID: 4665301792888126325}

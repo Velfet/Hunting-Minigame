@@ -22,3 +22,5 @@ MonoBehaviour:
   - HitDelay: 0.4
     HitCooldown: 0.4
     ArrowStats: {fileID: 11400000, guid: db251f375ac645146bac1dae20c49fb6, type: 2}
+  BowShoot_AudioID: ArrowFly
+  BowCooldown_AudioID: BowDraw

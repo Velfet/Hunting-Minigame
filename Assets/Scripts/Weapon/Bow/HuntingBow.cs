@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using HuntingGame;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -114,6 +115,8 @@ public class HuntingBow : MonoBehaviour
                     //cooldown finished
                     IsOffCooldown = true;
                     currentCooldownTimer = maxCooldownTimer;
+                    //play the bow cooldown SFX
+                     AudioManager.Instance.PlayAudio(BowStat_All.BowCooldown_AudioID);
                     //hide cooldown UI
                     BowCooldownUI.Toggle_Active_GO(false);
                 }
@@ -122,6 +125,9 @@ public class HuntingBow : MonoBehaviour
             //check for left mouse button click
             if(Input.GetMouseButtonDown(0) && IsOffCooldown == true)
             {
+                //play the arrow fly SFX
+                AudioManager.Instance.PlayAudio(BowStat_All.BowShoot_AudioID);
+
                 //activate bow shoot cooldown
                 IsOffCooldown = false;
                 //show cooldown UI

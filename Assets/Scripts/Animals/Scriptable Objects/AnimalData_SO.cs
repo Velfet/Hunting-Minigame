@@ -13,5 +13,5 @@ public class AnimalData_SO : ScriptableObject
     public float FallSpeed;
     public int Experience;
     public Enum_LootOptions LootData;
-    //TODO add loot drop data here
+    public AnimalSoundName_SO AnimalSoundName;
 }

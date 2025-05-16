@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ArrowFly
   type: 0
-  clips: []
+  soundVolume: 1
+  clips:
+  - {fileID: 8300000, guid: e51e84d7f3ece514f88fac52b4db2b92, type: 3}
+  - {fileID: 8300000, guid: ab8ab7851b4f2214180eec4cd22b4880, type: 3}

@@ -6,4 +6,6 @@ using UnityEngine;
 public class BowStat_SO : ScriptableObject
 {
     public List<BowStat_Single> BowStats;
+    public string BowShoot_AudioID;
+    public string BowCooldown_AudioID;
 }

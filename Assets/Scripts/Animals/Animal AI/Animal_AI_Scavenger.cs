@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using HuntingGame;
 using UnityEngine;
 
 public class Animal_AI_Scavenger : Animal_AI_Base
@@ -56,6 +57,9 @@ public class Animal_AI_Scavenger : Animal_AI_Base
         BloodHit_Particle.transform.position = hitPosition;
         BloodHit_Particle.Play();
 
+        //play hit sound effect
+        AudioManager.Instance.PlayAudio(AnimalData.AnimalSoundName.Hit_SoundID);
+
         //trigger the body hit action
         AnimalAction_ActivateData animalAction_ActivateData = new AnimalAction_ActivateData{
             TheAnimal = this,
@@ -87,6 +91,9 @@ public class Animal_AI_Scavenger : Animal_AI_Base
         Debug.LogWarning("Play blood hit effect 2");
         BloodHit_Particle.transform.position = hitPosition;
         BloodHit_Particle.Play();
+
+        //play crit hit sound effect
+        AudioManager.Instance.PlayAudio(AnimalData.AnimalSoundName.CritHit_SoundID);
 
         //Show crit text
         UnityEngine.Vector3 critText_WorldPos = transform.position;

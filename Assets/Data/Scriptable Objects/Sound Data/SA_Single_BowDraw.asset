@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: BowDraw
   type: 0
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: fe8d5622dad1dfc4390fd02cc42fe9f6, type: 3}

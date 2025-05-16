@@ -225,6 +225,7 @@ MonoBehaviour:
   OnDeath_Action:
     rid: -2
   AnimationManager: {fileID: 3352437198932907521}
+  Animal_AudioSource: {fileID: 0}
   BloodHit_Particle: {fileID: 153548953736888179}
   WeaponHit_Effect: {fileID: 3999708112651974796}
   AnimalDieBlood_Effect: {fileID: 4857614938214996478}

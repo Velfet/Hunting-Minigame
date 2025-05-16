@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using HuntingGame;
+
 //using System.Numerics;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
@@ -33,6 +35,7 @@ public class Animal_AI_Base : MonoBehaviour
     [SerializeReference] protected AnimalFinishAction_Base OnDeath_Action;
     [Space(10)]
     [SerializeField] protected AnimalAnimationManager AnimationManager;
+    [SerializeField] protected AudioSource Animal_AudioSource;
     [Space(10)]
     [SerializeField] protected ParticleSystem BloodHit_Particle;
     [SerializeField] protected Anim2DEffect WeaponHit_Effect;
@@ -571,6 +574,12 @@ public class Animal_AI_Base : MonoBehaviour
     {
         //start eat here
         isEating = true;
+        //start eating sfx here
+        float eatSoundVolume = 0f;
+        Animal_AudioSource.clip = AudioManager.Instance.GetAudioClip(AnimalData.AnimalSoundName.Eat_SoundID, out eatSoundVolume);
+        Animal_AudioSource.volume = eatSoundVolume;
+        Animal_AudioSource.loop = true;
+        Animal_AudioSource.Play();
         //tell the case manager that this animal has started eating
         huntingCaseManager.Report_IsEating(AnimalIdentity);
         //inform the eaten animal that it is being eaten
@@ -596,6 +605,9 @@ public class Animal_AI_Base : MonoBehaviour
 
         //finish eating here
         isEating = false;
+        //stop eating sfx here
+        Animal_AudioSource.Stop();
+        Animal_AudioSource.loop = false;
         //trigger finish action
         ActivateCurrentAction_FinishAction();
         //Animal has finished eating, mark the eaten animal as "Eaten"
@@ -659,6 +671,10 @@ public class Animal_AI_Base : MonoBehaviour
             {
                 //No longer eating
                 isEating = false;
+                //stop eating sfx here
+                //stop eating sfx here
+                Animal_AudioSource.Stop();
+                Animal_AudioSource.loop = false;
                 //animal was eating but is interrupted, inform the eaten animal
                 currentPrey.BeingEaten_Interrupt(this);
             }
@@ -707,6 +723,9 @@ public class Animal_AI_Base : MonoBehaviour
         BloodHit_Particle.transform.position = hitPosition;
         BloodHit_Particle.Play();
 
+        //play hit sound effect
+        AudioManager.Instance.PlayAudio(AnimalData.AnimalSoundName.Hit_SoundID);
+
         //trigger the body hit action
         AnimalAction_ActivateData animalAction_ActivateData = new AnimalAction_ActivateData{
             TheAnimal = this,
@@ -730,9 +749,11 @@ public class Animal_AI_Base : MonoBehaviour
         WeaponHit_Effect.PlayEffectAnim();
 
         //play blood hit particle system
-        Debug.LogWarning("Play blood hit effect 2");
         BloodHit_Particle.transform.position = hitPosition;
         BloodHit_Particle.Play();
+
+        //play crit hit sound effect
+        AudioManager.Instance.PlayAudio(AnimalData.AnimalSoundName.CritHit_SoundID);
 
         //Show crit text
         UnityEngine.Vector3 critText_WorldPos = transform.position;
@@ -1095,11 +1116,14 @@ public class Animal_AI_Base : MonoBehaviour
                 StopAndDeleteAction();
                 //play dead animation
                 //[942] show and play blood animation
-                if(instantDeath == false)
+                if (instantDeath == false)
                 {
                     AnimationManager.Start_Animation(AnimalAnimationKeys.Die);
                     AnimalDieBlood_Effect.gameObject.SetActive(true);
                     AnimalDieBlood_Effect.PlayEffectAnim();
+                    
+                    //play the "death" sound for the animal
+                    AudioManager.Instance.PlayAudio(AnimalData.AnimalSoundName.Death_SoundID);
                 }
                 else
                 {
@@ -1107,6 +1131,7 @@ public class Animal_AI_Base : MonoBehaviour
                     AnimalDieBlood_Effect.gameObject.SetActive(true);
                     AnimalDieBlood_Effect.PlayEffectAnim_JumpToEnd();
                 }
+                
                 //invoke dead action
                 OnDeath?.Invoke(this);
                 //report status to the case manager

@@ -8,6 +8,8 @@ namespace HuntingGame
     {
         public string id;
         public SoundType type;
+        [Range(0f, 1f)]
+        public float soundVolume = 1f;
         public abstract AudioClip GetClip();
     }
 }

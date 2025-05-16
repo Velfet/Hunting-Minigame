@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using HuntingGame;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,6 +47,9 @@ public class HuntingLosePanel : MonoBehaviour
     //contact the hunting case manager to retry the current level
     private void RetryLevel()
     {
+        //play button click SFX
+        AudioManager.Instance.PlayAudio(AudioConst.ButtonClick_SFX);
+
         Toggle_Active_State(false);
         HuntingCaseManager.ReloadCurrentLevel();
     }
@@ -53,6 +57,9 @@ public class HuntingLosePanel : MonoBehaviour
     //TODO placeholder function, need to update the functionality
     private void GoTo_Town()
     {
+        //play button click SFX
+        AudioManager.Instance.PlayAudio(AudioConst.ButtonClick_SFX);
+
         Toggle_Active_State(false);
         #if UNITY_EDITOR
             // Stop playing the scene in the editor

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: CritShot
   type: 0
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 4783a21f2026b9841933f554b57d4c2b, type: 3}

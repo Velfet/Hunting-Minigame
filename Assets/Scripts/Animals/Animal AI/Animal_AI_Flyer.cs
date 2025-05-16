@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using HuntingGame;
 using UnityEngine;
 
 public class Animal_AI_Flyer : Animal_AI_Base
@@ -238,13 +239,17 @@ public class Animal_AI_Flyer : Animal_AI_Base
                 //play dead animation
                 //activate "OnDeath_Action" which should make:
                 React_Die_Start();
+                
+                //play the "death" sound for the animal
+                AudioManager.Instance.PlayAudio(AnimalData.AnimalSoundName.Death_SoundID);
+                
                 //0. disable the "Animal_Detected_Collider"
                 //1. the animal fall to the ground
                 //2. re-enable the "Animal_Detected_Collider"
                 //3. spawn blood effect
                 //4. invoke dead action (Raise_OnDeathEvent)
                 //[942] show and play blood animation
-                
+
                 //Old start, should remove later
                 // if(instantDeath == false)
                 // {

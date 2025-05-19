@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Hawk_Death
   type: 0
-  clip: {fileID: 0}
+  soundVolume: 0.4
+  clip: {fileID: 8300000, guid: 3d92970abbc81714cb94e2ba2b7bffa3, type: 3}

@@ -1323,7 +1323,7 @@ public class Animal_AI_Base : MonoBehaviour
             thePredator.OnEscape -= Handle_MyPredator_Escape;
         }
     }
-
+    
     public void FinalizeDeath()
     {
         //1. re-enable the "Animal_Detected_Collider"

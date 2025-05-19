@@ -7072,6 +7072,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4695029790422585135, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695029790422585135, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8889899636864772255, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -7133,12 +7141,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
+      propertyPath: Pos_X_Max
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
+      propertyPath: Pos_X_Min
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
       propertyPath: ArrowPooler
       value: 
       objectReference: {fileID: 1227373103}
     - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
       propertyPath: TestJobRank
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
+      propertyPath: Bow_X_Offset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
+      propertyPath: Bow_Y_Offset
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
       propertyPath: BowCooldownUI
@@ -7148,6 +7172,10 @@ PrefabInstance:
       propertyPath: HuntingCursor
       value: 
       objectReference: {fileID: 1690322499}
+    - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
+      propertyPath: Bow_X_Pos_Multiplier
+      value: 0.35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
 --- !u!4 &9205660648556974373 stripped

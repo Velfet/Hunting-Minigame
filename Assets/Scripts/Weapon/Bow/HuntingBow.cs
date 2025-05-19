@@ -24,6 +24,8 @@ public class HuntingBow : MonoBehaviour
     [SerializeField] private float Bow_X_Offset;
     [SerializeField] private float Bow_Y_Offset;
     [Space(10)]
+    [SerializeField] private float Bow_X_Pos_Multiplier;
+    [Space(10)]
     [SerializeField] private float Pos_X_Min;
     [SerializeField] private float Pos_X_Max;
     [SerializeField] private float Pos_Y_Min;
@@ -74,8 +76,15 @@ public class HuntingBow : MonoBehaviour
             // mousePos_Normalized.y = mousePos_Screen.y / Screen.height;
             
             Vector3 bowPos = new Vector3();
-            bowPos.x = mousePos_World.x;
+            //bowPos.x = mousePos_World.x;
+            //Test
+            bowPos.x = (-mousePos_World.x) * Bow_X_Pos_Multiplier;
+            //bowPos.x = mousePos_World.x * Bow_X_Pos_Multiplier;
+            //end of Test
             bowPos.y = mousePos_World.y;
+
+            
+
             // bowPos.x = Mathf.Lerp(Pos_X_Min, Pos_X_Max, mousePos_Normalized.x);
             // bowPos.y = Mathf.Lerp(Pos_Y_Min, Pos_Y_Max, mousePos_Normalized.y);
 

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Rabbit_Death
   type: 0
-  soundVolume: 1
-  clip: {fileID: 0}
+  soundVolume: 0.75
+  clip: {fileID: 8300000, guid: 7dc297da5b77f8c48820b36d7504fcc2, type: 3}

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: AnimalData_Hyena_2_2
   m_EditorClassIdentifier: 
   Name: Hyena
-  Health: 18
-  RunSpeed: 3.4
+  Health: 15
+  RunSpeed: 3.6
   RunSpeed_Faster: 4.5
-  WalkSpeed: 2.2
+  WalkSpeed: 2.5
   FallSpeed: 0
   Experience: 6
-  LootData: 1
+  LootData: 2
   AnimalSoundName: {fileID: 11400000, guid: 0d0f36044f3c4bd4784edbc9397e3241, type: 2}

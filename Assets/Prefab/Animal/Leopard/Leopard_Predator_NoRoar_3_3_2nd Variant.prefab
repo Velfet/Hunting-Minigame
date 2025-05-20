@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1368543182324609412
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1668884658036777870, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668884658036777870, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674300918801794621, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: managedReferences[3243458701720289280].StateName
+      value: 'Default: Walk to Right'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674300918801794621, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: managedReferences[3243458701720289283].WalkDestination.x
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674300918801794621, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: managedReferences[3243458701720289283].WalkDestination.z
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214500, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214523, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_Name
+      value: Leopard_Predator_NoRoar_3_3_2nd Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185000846327214523, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 46a5305f596325347b973820f9c899ab, type: 3}

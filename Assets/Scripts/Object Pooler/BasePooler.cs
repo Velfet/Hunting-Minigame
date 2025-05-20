@@ -42,11 +42,6 @@ public class BasePooler<T> : MonoBehaviour where T : MonoBehaviour
     //receive returned object back to the object pooler
     public void ReturnObject(T pooledObject)
     {
-        //remove the pooled object from the used list
-        usedList.Remove(pooledObject);
-        //add the pooled object to the free list
-        freeList.Add(pooledObject);
-
         //set the parent of the pooled object to this object pooler
         var theObject_Transform = pooledObject.transform;
         theObject_Transform.SetParent(this.transform);
@@ -54,6 +49,11 @@ public class BasePooler<T> : MonoBehaviour where T : MonoBehaviour
         theObject_Transform.localPosition = Vector3.zero;
         theObject_Transform.localRotation = Quaternion.identity;
         theObject_Transform.gameObject.SetActive(false);
+        
+        //remove the pooled object from the used list
+        usedList.Remove(pooledObject);
+        //add the pooled object to the free list
+        freeList.Add(pooledObject);
     }
 
     private void CreateObject(int theAmount)

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9799588efb1804a90a8eac639fcd15, type: 3}
+  m_Name: AnimalData_Vulture_7
+  m_EditorClassIdentifier: 
+  Name: Vulture
+  Health: 6
+  RunSpeed: 5.2
+  RunSpeed_Faster: 5.5
+  WalkSpeed: 2
+  FallSpeed: 4.5
+  Experience: 3
+  LootData: 9
+  AnimalSoundName: {fileID: 11400000, guid: 9e6abb2117eb110408255e54689dd898, type: 2}

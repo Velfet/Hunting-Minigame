@@ -44,6 +44,8 @@ public class HuntingBow : MonoBehaviour
     //bow shoot coolddown timer fields
     private float maxCooldownTimer;
     private float currentCooldownTimer;
+    [Space(10)]
+    [SerializeField] private BowMove_Mode CurrentBowMove_Mode;
 
     public void Setup_Bow()
     {
@@ -58,11 +60,17 @@ public class HuntingBow : MonoBehaviour
         //end of testing
     }
 
+    private enum BowMove_Mode
+    {
+        mode1,
+        mode2
+    }
+
     //on update, if bow state is active, then follow the mouse position with positional offset
     private void Update()
     {
         //if bow is active, follow the mouse position with an offset
-        if(BowState == Enum_BowState.Active)
+        if (BowState == Enum_BowState.Active)
         {
             // Vector3 mousePos_Screen = Input.mousePosition;
             // mousePos_Screen.z = Bow_GO.transform.position.z - Camera.main.transform.position.z;
@@ -74,16 +82,24 @@ public class HuntingBow : MonoBehaviour
             // Vector2 mousePos_Normalized = new Vector2();
             // mousePos_Normalized.x = mousePos_Screen.x / Screen.width;
             // mousePos_Normalized.y = mousePos_Screen.y / Screen.height;
-            
+
             Vector3 bowPos = new Vector3();
             //bowPos.x = mousePos_World.x;
             //Test
-            bowPos.x = (-mousePos_World.x) * Bow_X_Pos_Multiplier;
+            if (CurrentBowMove_Mode == BowMove_Mode.mode1)
+            {
+                bowPos.x = (-mousePos_World.x) * Bow_X_Pos_Multiplier;
+            }
+            else if (CurrentBowMove_Mode == BowMove_Mode.mode2)
+            {
+                bowPos.x = mousePos_World.x * Bow_X_Pos_Multiplier;
+            }
+            //bowPos.x = (-mousePos_World.x) * Bow_X_Pos_Multiplier;
             //bowPos.x = mousePos_World.x * Bow_X_Pos_Multiplier;
             //end of Test
             bowPos.y = mousePos_World.y;
 
-            
+
 
             // bowPos.x = Mathf.Lerp(Pos_X_Min, Pos_X_Max, mousePos_Normalized.x);
             // bowPos.y = Mathf.Lerp(Pos_Y_Min, Pos_Y_Max, mousePos_Normalized.y);
@@ -114,25 +130,25 @@ public class HuntingBow : MonoBehaviour
             Bow_GO.transform.rotation = bowLookDirection * Quaternion.Euler(0, -90, 0);
 
             //tick down bow shoot cooldown if needed
-            if(IsOffCooldown == false)
+            if (IsOffCooldown == false)
             {
                 currentCooldownTimer -= Time.deltaTime;
                 //update cooldown UI visual according to the timer
-                BowCooldownUI.Update_Slider_Visual((maxCooldownTimer-currentCooldownTimer)/maxCooldownTimer);
-                if(currentCooldownTimer <= 0f)
+                BowCooldownUI.Update_Slider_Visual((maxCooldownTimer - currentCooldownTimer) / maxCooldownTimer);
+                if (currentCooldownTimer <= 0f)
                 {
                     //cooldown finished
                     IsOffCooldown = true;
                     currentCooldownTimer = maxCooldownTimer;
                     //play the bow cooldown SFX
-                     AudioManager.Instance.PlayAudio(BowStat_All.BowCooldown_AudioID);
+                    AudioManager.Instance.PlayAudio(BowStat_All.BowCooldown_AudioID);
                     //hide cooldown UI
                     BowCooldownUI.Toggle_Active_GO(false);
                 }
             }
 
             //check for left mouse button click
-            if(Input.GetMouseButtonDown(0) && IsOffCooldown == true)
+            if (Input.GetMouseButtonDown(0) && IsOffCooldown == true)
             {
                 //play the arrow fly SFX
                 AudioManager.Instance.PlayAudio(BowStat_All.BowShoot_AudioID);
@@ -164,7 +180,7 @@ public class HuntingBow : MonoBehaviour
                 theArrow.StartArrowMovement(bowPos, arrowTargetPos, CurrentBowStat.HitDelay, travelDir_After);
             }
         }
-        
+
 
 
 

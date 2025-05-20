@@ -21,6 +21,10 @@ MonoBehaviour:
     SpawnTime: 2
     SpawnPosition: {x: -14, y: 1.05, z: 12}
     DeadOnSpawn: 0
+  - Animal_Prefab: {fileID: 0}
+    SpawnTime: 8
+    SpawnPosition: {x: -14, y: 1.05, z: 12}
+    DeadOnSpawn: 0
   All_AnimalSpawnData_Condition: []
   All_AnimalSpawnData_WeirdCondition: []
   WinCondition_Immediate_MultiChain:
@@ -66,6 +70,10 @@ MonoBehaviour:
         - Name: Boar
           AnimalType: 5
           AnimalBehaviour: 0
+        - Name: Boar
+          AnimalType: 5
+          AnimalBehaviour: 0
+        Must_BeAlive: []
     - rid: 1805994175564087309
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
       data:
@@ -78,3 +86,7 @@ MonoBehaviour:
         - Name: Boar
           AnimalType: 5
           AnimalBehaviour: 0
+        - Name: Boar
+          AnimalType: 5
+          AnimalBehaviour: 0
+        Must_BeAlive: []

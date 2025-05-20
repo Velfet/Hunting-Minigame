@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c5887927c44cb945bd3262cfb1bbb33, type: 3}
-  m_Name: HuntingCase_SO_6_1
+  m_Name: HuntingCase_SO_6_4
   m_EditorClassIdentifier: 
   All_AnimalSpawnData:
   - Animal_Prefab: {fileID: 207686276472821050, guid: 0f14763c7eeab2b468959780a9da52cf, type: 3}
@@ -26,19 +26,19 @@ MonoBehaviour:
     SpawnPosition: {x: -14, y: 1.05, z: 12.5}
     DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 3594437038610991596, guid: 353cc8ce9fc36c54db67980c82df8145, type: 3}
-    SpawnTime: 10
+    SpawnTime: 9
     SpawnPosition: {x: -14, y: 4.8, z: 13}
+    DeadOnSpawn: 0
+  - Animal_Prefab: {fileID: 6685717237477771016, guid: d5272829e0b88084da89654d7e03f115, type: 3}
+    SpawnTime: 12
+    SpawnPosition: {x: 14, y: 1.05, z: 12.5}
     DeadOnSpawn: 0
   All_AnimalSpawnData_Condition: []
   All_AnimalSpawnData_WeirdCondition: []
   WinCondition_Immediate_MultiChain:
-    UsingDefaultCondition: 0
+    UsingDefaultCondition: 1
     DefaultCondition: 0
-    AllHuntingCondition_Chains:
-    - UsingDefaultCondition: 0
-      DefaultCondition: 0
-      AllHuntingConditions:
-      - rid: 1805994175564087311
+    AllHuntingCondition_Chains: []
   LoseCondition_Immediate_MultiChain:
     UsingDefaultCondition: 1
     DefaultCondition: 0
@@ -74,26 +74,4 @@ MonoBehaviour:
         - Name: Hyena
           AnimalType: 1
           AnimalBehaviour: 1
-        Must_BeAlive: []
-    - rid: 1805994175564087311
-      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
-      data:
-        UsingDefaultCondition: 0
-        DefaultCondition: 0
-        Must_Die: []
-        Must_Escape: []
-        Must_BeEaten: []
-        Must_BeKilled:
-        - Name: Boar
-          AnimalType: 4
-          AnimalBehaviour: 0
-        - Name: Hawk
-          AnimalType: 3
-          AnimalBehaviour: 2
-        - Name: Hyena
-          AnimalType: 1
-          AnimalBehaviour: 1
-        - Name: Hawk
-          AnimalType: 3
-          AnimalBehaviour: 2
         Must_BeAlive: []

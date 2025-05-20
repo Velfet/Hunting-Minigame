@@ -145,7 +145,7 @@ public class Animal_AI_Flyer : Animal_AI_Base
                 //check closest prey
                 Animal_AI_Base closestPrey = GetClosestAnimal(myPreys);
                 Debug.LogWarning($"B this animal is {gameObject.name}, current prey just got updated which is {currentPrey.gameObject.name}");
-                if(closestPrey != currentPrey)
+                if(closestPrey != currentPrey && isEating == false)
                 {
                     //replace current prey with the closest prey
                     currentPrey = closestPrey;

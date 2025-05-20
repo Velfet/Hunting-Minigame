@@ -25,16 +25,16 @@ MonoBehaviour:
     SpawnTime: 2
     SpawnPosition: {x: 14, y: 1.05, z: 12.5}
     DeadOnSpawn: 0
+  - Animal_Prefab: {fileID: 780579596402340900, guid: 6cec661239f9ea840b28148fee8ef847, type: 3}
+    SpawnTime: 0
+    SpawnPosition: {x: -14, y: 1.05, z: 12.5}
+    DeadOnSpawn: 0
   All_AnimalSpawnData_Condition: []
   All_AnimalSpawnData_WeirdCondition: []
   WinCondition_Immediate_MultiChain:
-    UsingDefaultCondition: 0
+    UsingDefaultCondition: 1
     DefaultCondition: 0
-    AllHuntingCondition_Chains:
-    - UsingDefaultCondition: 0
-      DefaultCondition: 0
-      AllHuntingConditions:
-      - rid: 1805994175564087305
+    AllHuntingCondition_Chains: []
   LoseCondition_Immediate_MultiChain:
     UsingDefaultCondition: 1
     DefaultCondition: 0
@@ -56,19 +56,6 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 1805994175564087304
-      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
-      data:
-        UsingDefaultCondition: 0
-        DefaultCondition: 0
-        Must_Die: []
-        Must_Escape: []
-        Must_BeEaten: []
-        Must_BeKilled:
-        - Name: Hyena
-          AnimalType: 1
-          AnimalBehaviour: 1
-        Must_BeAlive: []
-    - rid: 1805994175564087305
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
       data:
         UsingDefaultCondition: 0

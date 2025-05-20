@@ -1565,7 +1565,7 @@ MonoBehaviour:
         AnimalFinishAction:
           rid: -2
         ActionPriority: 0
-        EatDuration: 2.5
+        EatDuration: 2
     - rid: 3243458722425208840
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:

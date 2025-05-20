@@ -5,11 +5,13 @@ using UnityEngine;
 public enum Enum_LootOptions
 {
     None,
-    Loot1,
-    Loot2,
-    Loot3,
-    Loot4,
-    Loot5,
-    Loot6,
-    Loot7,
+    Loot_Deer,
+    Loot_Hyena,
+    Loot_Hawk,
+    Loot_Boar,
+    Loot_Lion,
+    Loot_Rabbit,
+    Loot_Leopard,
+    Loot_Buffalo,
+    Loot_Vulture
 }

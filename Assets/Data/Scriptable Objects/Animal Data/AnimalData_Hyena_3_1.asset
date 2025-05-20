@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a9799588efb1804a90a8eac639fcd15, type: 3}
-  m_Name: AnimalData_Hawk_7
+  m_Name: AnimalData_Hyena_3_1
   m_EditorClassIdentifier: 
-  Name: Hawk
-  Health: 6
-  RunSpeed: 5.2
-  RunSpeed_Faster: 5.5
-  WalkSpeed: 2
-  FallSpeed: 4.5
-  Experience: 3
-  LootData: 3
-  AnimalSoundName: {fileID: 11400000, guid: 9e6abb2117eb110408255e54689dd898, type: 2}
+  Name: Hyena
+  Health: 18
+  RunSpeed: 3.2
+  RunSpeed_Faster: 3.4
+  WalkSpeed: 2.5
+  FallSpeed: 0
+  Experience: 7
+  LootData: 2
+  AnimalSoundName: {fileID: 11400000, guid: 0d0f36044f3c4bd4784edbc9397e3241, type: 2}

@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
       propertyPath: AnimalData
       value: 
-      objectReference: {fileID: 11400000, guid: 592809f93ed60d94f9937ed2e8004b89, type: 2}
+      objectReference: {fileID: 11400000, guid: da14501bed07bf142af26bca851ec41b, type: 2}
     - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
       propertyPath: SeePredator_Action
       value: -2

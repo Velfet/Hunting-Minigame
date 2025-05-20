@@ -1424,7 +1424,7 @@ GameObject:
   - component: {fileID: 1681508497253887123}
   - component: {fileID: 2997583377870701538}
   m_Layer: 0
-  m_Name: Hyena_Predator_6_2
+  m_Name: Hyena_Predator_6_4_2nd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 6685717237477771016}
-  AnimalData: {fileID: 11400000, guid: 941f05dec2486014b8676e36218b8c93, type: 2}
+  AnimalData: {fileID: 11400000, guid: c7fabd64025d333479d24ab9237f2725, type: 2}
   AnimalState: 0
   AnimalIdentity:
     Name: Hyena
@@ -1565,7 +1565,7 @@ MonoBehaviour:
         AnimalFinishAction:
           rid: -2
         ActionPriority: 0
-        EatDuration: 1.5
+        EatDuration: 2
     - rid: 3243458722425208840
       type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
       data:

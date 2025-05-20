@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c5887927c44cb945bd3262cfb1bbb33, type: 3}
-  m_Name: HuntingCase_SO_1_2
+  m_Name: HuntingCase_SO_1_Unused
   m_EditorClassIdentifier: 
   All_AnimalSpawnData:
   - Animal_Prefab: {fileID: 6685717237477771016, guid: 5b66766dc69e4324597b29627a87183b, type: 3}

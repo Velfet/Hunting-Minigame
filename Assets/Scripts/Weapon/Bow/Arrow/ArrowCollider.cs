@@ -32,13 +32,26 @@ public class ArrowCollider : MonoBehaviour, IWeaponHitSource
 
     public void Set_GameObject_Active(bool newState)
     {
-        ParentGameObject.SetActive(newState);
+        bool prevState = ParentGameObject.activeSelf;
 
-        if(huntingArrow == null)
+        if (newState == true)
+        {
+            ParentGameObject.SetActive(newState);
+        }
+        //if the new state is false, then "huntingArrow.DestroyArrow();" will deactivate the parent game object
+        //so no need to do it here
+        
+
+        if (huntingArrow == null)
         {
             huntingArrow = ParentGameObject.GetComponent<HuntingArrow>();
         }
-        huntingArrow.DestroyArrow();
+
+        if (prevState == true)
+        {
+            huntingArrow.DestroyArrow();
+        }
+        
         
     }
 }

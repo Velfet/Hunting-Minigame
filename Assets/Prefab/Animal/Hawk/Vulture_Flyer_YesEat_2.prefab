@@ -329,7 +329,7 @@ Animator:
   m_GameObject: {fileID: 2431601683197267114}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6b2ff4b19c30dac439c87990b1e02167, type: 2}
+  m_Controller: {fileID: 9100000, guid: f93c76ae21821794cb177a90be7ef24d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 7442956887652517754}
   - component: {fileID: 5587634129703047838}
   m_Layer: 0
-  m_Name: Hawk_Flyer_YesEat_2
+  m_Name: Vulture_Flyer_YesEat_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -899,11 +899,11 @@ MonoBehaviour:
   DefaultFaceIsRight: 1
   AnimalAnimationClipKeys: 0000000001000000020000000300000004000000
   AnimalAnimationClipNames:
-  - Hawk_FLY
-  - Hawk_FLY
-  - Hawk_FLY
-  - Hawk_FLY
-  - Hawk_DIE
+  - Vulture_Fly
+  - Vulture_Fly
+  - Vulture_Fly
+  - Vulture_Fly
+  - Vulture_Die
 --- !u!114 &7442956887652517754
 MonoBehaviour:
   m_ObjectHideFlags: 0

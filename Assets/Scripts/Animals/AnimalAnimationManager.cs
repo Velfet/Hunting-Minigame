@@ -36,7 +36,7 @@ public class AnimalAnimationManager : MonoBehaviour
             Animator.enabled = true;
         }
 
-        Animator.Play(AnimalAnimationClips_Dictionary[newAnimation]);
+        Animator.Play(AnimalAnimationClips_Dictionary[newAnimation], 0, 0f);
 
         CurrentAnimation = newAnimation;
     }

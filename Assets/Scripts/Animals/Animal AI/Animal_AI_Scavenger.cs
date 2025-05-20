@@ -302,7 +302,7 @@ public class Animal_AI_Scavenger : Animal_AI_Base
                 {
                     //check closest prey
                     Animal_AI_Base closestPrey = GetClosestAnimal(myPreys);
-                    if(closestPrey != currentPrey)
+                    if(closestPrey != currentPrey && isEating == false)
                     {
                         //replace current prey with the closest prey
                         currentPrey = closestPrey;

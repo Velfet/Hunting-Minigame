@@ -165,6 +165,7 @@ public class HuntingArrow : MonoBehaviour
 
     public void DestroyArrow()
     {
+        InterruptArrowMovement();
         arrowPooler.ReturnHuntingArrow(this);
     }
 }

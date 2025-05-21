@@ -145,6 +145,8 @@ public class HuntingCaseManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        //Update level icon UI
+        HuntingUI.Toggle_LevelIcon(CurrentLevel);
         //clear the list of spawned animals
         SpawnedAnimals.Clear();
         //empty list of dead, escaped, and eaten animals

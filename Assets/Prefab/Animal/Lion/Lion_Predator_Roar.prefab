@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 381606223924918939}
-  AnimalData: {fileID: 11400000, guid: 82670474610d7de48a11d4472fb37b59, type: 2}
+  AnimalData: {fileID: 11400000, guid: 4b35f6e2b7b03f94681a207449e6d5a0, type: 2}
   AnimalState: 0
   AnimalIdentity:
     Name: Lion

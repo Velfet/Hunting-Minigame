@@ -7,6 +7,7 @@ public class HuntingUIManager : MonoBehaviour
     [SerializeField] private HuntingStageTimer StageTimer;
     [SerializeField] private HuntingLosePanel LosePanel;
     [SerializeField] private HuntingWinPanel WinPanel;
+    [SerializeField] private LevelIconManager LevelIconManager;
     [SerializeField] private float ActivateDelayDuration;
     [Space(10)]
     [SerializeField] private FloatingReactionText_Manager FloatingReactionText_Manager;
@@ -80,6 +81,12 @@ public class HuntingUIManager : MonoBehaviour
     }
     #endregion
 
+    #region level icon
+    public void Toggle_LevelIcon(int amount)
+    {
+        LevelIconManager.ActivateImages(amount);
+    }
+    #endregion
 
     #region floating text
     public void Activate_FloatingText(string theText, Vector3 worldPos)

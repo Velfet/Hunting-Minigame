@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Leopard_Death
   type: 0
-  clip: {fileID: 0}
+  soundVolume: 0.25
+  clip: {fileID: 8300000, guid: 5041a9c8d4cc5d349b244de59490b338, type: 3}

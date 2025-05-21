@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9799588efb1804a90a8eac639fcd15, type: 3}
+  m_Name: AnimalData_Leopard_4_4
+  m_EditorClassIdentifier: 
+  Name: Leopard
+  Health: 21
+  RunSpeed: 3.65
+  RunSpeed_Faster: 4.65
+  WalkSpeed: 2.6
+  FallSpeed: 0
+  Experience: 10
+  LootData: 7
+  AnimalSoundName: {fileID: 11400000, guid: fc5810f9bbc29d94c9b9939b738a53de, type: 2}

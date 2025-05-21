@@ -15,9 +15,9 @@ MonoBehaviour:
   Name: Leopard
   Health: 21
   RunSpeed: 3.4
-  RunSpeed_Faster: 3.3
+  RunSpeed_Faster: 3.8
   WalkSpeed: 2.6
   FallSpeed: 0
-  Experience: 7
+  Experience: 10
   LootData: 7
   AnimalSoundName: {fileID: 11400000, guid: fc5810f9bbc29d94c9b9939b738a53de, type: 2}

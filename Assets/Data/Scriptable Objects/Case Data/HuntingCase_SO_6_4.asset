@@ -55,7 +55,7 @@ MonoBehaviour:
     UsingDefaultCondition: 1
     DefaultCondition: 1
     AllHuntingCondition_Chains: []
-  TimerDuration: 18
+  TimerDuration: 21
   references:
     version: 2
     RefIds:

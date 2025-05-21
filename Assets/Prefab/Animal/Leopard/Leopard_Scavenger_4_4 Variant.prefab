@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 7285597867408653722}
-  AnimalData: {fileID: 11400000, guid: 5b82fbc493fff9145afc37b482bd272b, type: 2}
+  AnimalData: {fileID: 11400000, guid: b5e1fc820a9d5694bb718c635f39886d, type: 2}
   AnimalState: 0
   AnimalIdentity:
     Name: Leopard

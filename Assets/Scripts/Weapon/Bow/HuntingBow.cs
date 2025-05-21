@@ -45,7 +45,7 @@ public class HuntingBow : MonoBehaviour
     private float maxCooldownTimer;
     private float currentCooldownTimer;
     [Space(10)]
-    [SerializeField] private BowMove_Mode CurrentBowMove_Mode;
+    public BowMove_Mode CurrentBowMove_Mode;
 
     public void Setup_Bow()
     {
@@ -60,7 +60,7 @@ public class HuntingBow : MonoBehaviour
         //end of testing
     }
 
-    private enum BowMove_Mode
+    public enum BowMove_Mode
     {
         mode1,
         mode2

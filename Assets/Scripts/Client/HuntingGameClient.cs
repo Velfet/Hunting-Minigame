@@ -19,7 +19,7 @@ public class HuntingGameClient : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Start_TestCase();
+        //Start_TestCase();
     }
 
     public void Start_TestCase()

@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animal_GO: {fileID: 4228822538139295346}
-  AnimalData: {fileID: 11400000, guid: ddd21bc58817dad47a92587f25fa75ff, type: 2}
+  AnimalData: {fileID: 11400000, guid: 7c0a98741e1ea7c42a3157a5d559753b, type: 2}
   AnimalState: 0
   AnimalIdentity:
     Name: Hyena

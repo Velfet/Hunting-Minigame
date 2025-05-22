@@ -206,8 +206,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2288731, y: 0.83976454, z: 1}
-  m_Center: {x: 0.1239416, y: 0.41609082, z: 0}
+  m_Size: {x: 1.7281014, y: 0.88696074, z: 1}
+  m_Center: {x: 0.37355572, y: 0.45672014, z: 0}
 --- !u!54 &3678384702230510353
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -287,8 +287,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.68825245, y: 1.0105454, z: 1}
-  m_Center: {x: -0.15358329, y: 0.08829992, z: 0}
+  m_Size: {x: 0.64353466, y: 0.8221828, z: 1}
+  m_Center: {x: -0.2368021, y: 0.1906368, z: 0}
 --- !u!54 &2867338704730626358
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &381606223924918916
 Transform:
   m_ObjectHideFlags: 0
@@ -593,12 +593,12 @@ MonoBehaviour:
   DefaultFaceIsRight: 0
   AnimalAnimationClipKeys: 000000000100000002000000030000000400000005000000
   AnimalAnimationClipNames:
-  - Bear_IDLE
-  - Bear_EAT
-  - Bear_WALK
-  - Bear_RUN
-  - Bear_DEATH
-  - Bear_ATTACK
+  - Lion_Idle
+  - Lion_Eat
+  - Lion_Walk
+  - Lion_Run
+  - Lion_Death
+  - Lion_Roar
 --- !u!82 &4956647082987685308
 AudioSource:
   m_ObjectHideFlags: 0
@@ -907,7 +907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625775860932404926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -955,7 +955,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bda6ce401b7f23d40918978f77cecd4e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76129f3c5ceb92c4bb3a1ad295689ca3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.9019608}
   m_FlipX: 0
   m_FlipY: 0
@@ -1478,7 +1478,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.544, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2108,6 +2108,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7185376427538843677}
     m_Modifications:
+    - target: {fileID: 1291979417624866875, guid: c774699d8e745cd479e87a79553b1871, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1291979417624866875, guid: c774699d8e745cd479e87a79553b1871, type: 3}
       propertyPath: m_SortingOrder
       value: -1

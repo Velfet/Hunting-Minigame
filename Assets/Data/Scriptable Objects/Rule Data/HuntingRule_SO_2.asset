@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69fcc05c8161df40a767aec9142c30a, type: 3}
+  m_Name: HuntingRule_SO_2
+  m_EditorClassIdentifier: 
+  RuleTitle_String: Poaching Rules
+  RuleDetail_String: "1. Hunt as many targets as you can see on the screen to collect
+    their loot.\n\n2. Beware \u2014 some animals will consume the corpses of others.
+    If you don\u2019t stop them in time, you\u2019ll lose the chance to loot those
+    kills.\r\n\n3. Win conditions are usually based on eliminating specific animals.
+    It\u2019s up to you to discover the optimal kill order for the best results.\r\n\n4.
+    The same animal may behave differently across different games \u2014 taking on
+    roles such as predator, prey, or scavenger.\r\n\n5. Headshots deal Critical Damage.
+    Aim for the head to kill faster and earn bonus EXP."

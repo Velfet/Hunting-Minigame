@@ -84,7 +84,12 @@ public class HuntingUIManager : MonoBehaviour
     #region level icon
     public void Toggle_LevelIcon(int amount)
     {
-        LevelIconManager.ActivateImages(amount);
+        LevelIconManager.ActivateImages(amount - 1);
+    }
+
+    public void Toggle_LevelIcon_Win(int amount)
+    {
+        LevelIconManager.ActivateImages_NewDone(amount - 1);
     }
     #endregion
 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69fcc05c8161df40a767aec9142c30a, type: 3}
+  m_Name: HuntingRule_SO_1
+  m_EditorClassIdentifier: 
+  RuleTitle_String: General Rules
+  RuleDetail_String: "1. There are 3 Ranks: Novice, Expert, and Master.\r\n\n2. Each
+    Rank offers 3 different games you can play daily.\r\n\n3. Earn EXP and rewards
+    by successfully completing these games and progress through the Ranks.\r\n\n4.
+    If you miss your Job for 3 consecutive days, you will start to lose EXP.\r\n\n5.
+    At the end of the day, you can quicksell your rewards \u2014 but keep in mind
+    this is less profitable than selling directly to NPCs.\r\n\n6. Upon reaching
+    the Master Rank, you will no longer gain Job EXP. Instead, any further EXP earned
+    will be converted to Main EXP."

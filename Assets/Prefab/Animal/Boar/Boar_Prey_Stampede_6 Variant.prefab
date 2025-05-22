@@ -72,8 +72,52 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: da14501bed07bf142af26bca851ec41b, type: 2}
     - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[1805994536210792448]
+      value: Assembly-CSharp AnimalAction_RunFasterToPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[1805994536210792449]
+      value: Assembly-CSharp AnimalFinishAction_AlterStatus
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[1805994536210792449].NewStatus
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[1805994536210792448].ActionPriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[1805994536210792448].RunDestination.x
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[1805994536210792448].RunDestination.y
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[1805994536210792448].RunDestination.z
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
       propertyPath: managedReferences[3243458837987459072].RunDestination.x
-      value: 21
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[1805994536210792449].ExecuteEvenIfDead
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[1805994536210792448].AnimalFinishAction
+      value: 1805994536210792449
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[1805994536210792449].FinishActionPriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483467602423845305, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}
+      propertyPath: managedReferences[3243458698102964225].AnimalActions.Array.data[1]
+      value: 1805994536210792448
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16eebb7f2d24fb54c9648f9311317901, type: 3}

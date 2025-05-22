@@ -15,6 +15,14 @@ PrefabInstance:
       propertyPath: managedReferences[1805994195917471771].WalkDestination.x
       value: -14
       objectReference: {fileID: 0}
+    - target: {fileID: 2607848780648041764, guid: d1d79fc8ef10daf488540c5e7a677e67, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.544
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607848780648041764, guid: d1d79fc8ef10daf488540c5e7a677e67, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7407410829400022798, guid: d1d79fc8ef10daf488540c5e7a677e67, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -61,7 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7407410829400022801, guid: d1d79fc8ef10daf488540c5e7a677e67, type: 3}
       propertyPath: m_Name
-      value: Leopard_Scavenger_NoRoar_7_2_2 Variant
+      value: Leopard_Scavenger_NoRoar_7_1_2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407410829400022801, guid: d1d79fc8ef10daf488540c5e7a677e67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1d79fc8ef10daf488540c5e7a677e67, type: 3}

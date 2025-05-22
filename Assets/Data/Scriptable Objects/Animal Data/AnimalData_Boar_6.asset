@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Boar
   Health: 42
-  RunSpeed: 3.8
-  RunSpeed_Faster: 4.5
+  RunSpeed: 4.2
+  RunSpeed_Faster: 4.8
   WalkSpeed: 2
   FallSpeed: 0
   Experience: 10

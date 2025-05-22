@@ -56,6 +56,9 @@ public class HuntingWinPanel : MonoBehaviour
             ContinueButton.onClick.AddListener(ContinueToNextLevel);
             ContinueButton_Text.color = ContinueButtonText_ActiveColor;
         }
+
+        //Update level icon UI
+        HuntingCaseManager.Get_HuntingUIManager().Toggle_LevelIcon_Win(HuntingCaseManager.Get_CurrentLevel() + 1);
         
         TownButton.onClick.AddListener(GoTo_Town);
 

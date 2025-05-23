@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c5887927c44cb945bd3262cfb1bbb33, type: 3}
-  m_Name: HuntingCase_SO_7_Unused
+  m_Name: HuntingCase_SO_7_1
   m_EditorClassIdentifier: 
   All_AnimalSpawnData:
-  - Animal_Prefab: {fileID: 3542341469290630306, guid: 69f91ba0bbcba35489e893975797f2b7, type: 3}
+  - Animal_Prefab: {fileID: 5526649761390754851, guid: 2e189cf48de63b24abbf93826d2eea27, type: 3}
     SpawnTime: 0
     SpawnPosition: {x: -0.25, y: 1.05, z: 12}
     DeadOnSpawn: 0
@@ -120,9 +120,9 @@ MonoBehaviour:
         Must_Escape: []
         Must_BeEaten: []
         Must_BeKilled:
-        - Name: Hyena
-          AnimalType: 1
-          AnimalBehaviour: 3
+        - Name: Deer
+          AnimalType: 0
+          AnimalBehaviour: 0
         Must_BeAlive: []
     - rid: 1805994175564087317
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
@@ -133,9 +133,9 @@ MonoBehaviour:
         Must_Escape: []
         Must_BeEaten: []
         Must_BeKilled:
-        - Name: Hyena
-          AnimalType: 1
-          AnimalBehaviour: 3
+        - Name: Deer
+          AnimalType: 0
+          AnimalBehaviour: 0
         Must_BeAlive: []
     - rid: 1805994175564087318
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
@@ -146,9 +146,9 @@ MonoBehaviour:
         Must_Escape: []
         Must_BeEaten: []
         Must_BeKilled:
-        - Name: Hyena
-          AnimalType: 1
-          AnimalBehaviour: 3
+        - Name: Deer
+          AnimalType: 0
+          AnimalBehaviour: 0
         Must_BeAlive: []
     - rid: 1805994195917471766
       type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
@@ -159,7 +159,7 @@ MonoBehaviour:
         Must_Escape: []
         Must_BeEaten: []
         Must_BeKilled:
-        - Name: Hyena
-          AnimalType: 1
-          AnimalBehaviour: 3
+        - Name: Deer
+          AnimalType: 0
+          AnimalBehaviour: 0
         Must_BeAlive: []

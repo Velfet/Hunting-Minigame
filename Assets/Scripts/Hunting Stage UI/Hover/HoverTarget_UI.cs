@@ -11,6 +11,8 @@ public class HoverTarget_UI : MonoBehaviour
     [SerializeField] private Image Image;
     [SerializeField] private Sprite HighlightSprite;
     [SerializeField] private Sprite NormalSprite;
+    [Space(10)]
+    [SerializeField] private Vector2 Offset_ScreenPos;
 
 
 
@@ -29,5 +31,10 @@ public class HoverTarget_UI : MonoBehaviour
     public void Update_HoverText(string newText)
     {
         HoverText = newText;
+    }
+
+    public Vector2 Get_Offset_ScreenPos()
+    {
+        return Offset_ScreenPos;
     }
 }

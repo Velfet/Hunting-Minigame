@@ -59,20 +59,23 @@ public class HuntingWinPanel : MonoBehaviour
 
         //Update level icon UI
         HuntingCaseManager.Get_HuntingUIManager().Toggle_LevelIcon_Win(HuntingCaseManager.Get_CurrentLevel() + 1);
-        
+
         TownButton.onClick.AddListener(GoTo_Town);
 
         if (ReplayButton != null)
         {
             ReplayButton.onClick.AddListener(RetryLevel);
         }
-        
+
 
         //Update loot info text
         LootInfo.text = HuntingCaseManager.GetLootData_String();
 
         //TODO use this list of enums to get the real loot later
         List<Enum_LootOptions> lootDrop = HuntingCaseManager.GetLootData_List();
+
+        //TODO use this int data to get rank experience from dead animals (note, you don't get experience from animals that have been eaten)
+        int experienceAmount = HuntingCaseManager.GetExperienceFromDeadAnimals();
     }
 
     void OnDisable()

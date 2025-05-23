@@ -1213,6 +1213,11 @@ public class Animal_AI_Base : MonoBehaviour
         return AnimalData.LootData;
     }
 
+    public int GetAnimalExp()
+    {
+        return AnimalData.Experience;
+    }
+
     public int GetStateIndex()
     {
         return State_Index;

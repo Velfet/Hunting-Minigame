@@ -19,6 +19,8 @@ public class HoverVisual_Text_UI : MonoBehaviour
     private float textBoxSizeX, textBoxSizeY;
     Vector2 mousePosWorldPoint, mousePosScreen;
 
+    Vector2 screenPos_Offset;
+
 
     public void Disable_HoverVisual()
     {
@@ -46,17 +48,23 @@ public class HoverVisual_Text_UI : MonoBehaviour
         UpdatePosition();
     }
 
+    public void SetPositionOffset(Vector2 newOffset)
+    {
+        screenPos_Offset = newOffset;
+    }
+
 
 
     private void UpdatePosition()
     {
-        if(tooltipGO.gameObject.activeInHierarchy == false)
+        if (tooltipGO.gameObject.activeInHierarchy == false)
         {
             return;
         }
         //update position to follow active cursor's position; may need to make some sort of "CursorManager" class
         //get cursor screen position
         mousePosScreen = CursorManager.Get_CurrentCursor_ScreenPos();
+        mousePosScreen += screenPos_Offset;
         //get cursor world position
         mousePosWorldPoint = CursorManager.Get_CurrentCursor_WorldPos();
         //mousePosWorldPoint = mainCamera.ScreenToWorldPoint(mousePosScreen);

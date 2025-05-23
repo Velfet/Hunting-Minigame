@@ -72,13 +72,9 @@ MonoBehaviour:
         - rid: 1805994175564087318
   All_AnimalSpawnData_WeirdCondition: []
   WinCondition_Immediate_MultiChain:
-    UsingDefaultCondition: 0
+    UsingDefaultCondition: 1
     DefaultCondition: 0
-    AllHuntingCondition_Chains:
-    - UsingDefaultCondition: 0
-      DefaultCondition: 0
-      AllHuntingConditions:
-      - rid: 1805994175564087314
+    AllHuntingCondition_Chains: []
   LoseCondition_Immediate_MultiChain:
     UsingDefaultCondition: 1
     DefaultCondition: 0
@@ -108,28 +104,6 @@ MonoBehaviour:
         Must_Escape: []
         Must_BeEaten: []
         Must_BeKilled:
-        - Name: Hawk
-          AnimalType: 3
-          AnimalBehaviour: 2
-        - Name: Hawk
-          AnimalType: 3
-          AnimalBehaviour: 2
-        Must_BeAlive: []
-    - rid: 1805994175564087314
-      type: {class: HuntingCondition, ns: , asm: Assembly-CSharp}
-      data:
-        UsingDefaultCondition: 0
-        DefaultCondition: 0
-        Must_Die: []
-        Must_Escape: []
-        Must_BeEaten: []
-        Must_BeKilled:
-        - Name: Deer
-          AnimalType: 0
-          AnimalBehaviour: 0
-        - Name: Hyena
-          AnimalType: 1
-          AnimalBehaviour: 1
         - Name: Hawk
           AnimalType: 3
           AnimalBehaviour: 2

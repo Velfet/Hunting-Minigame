@@ -34,6 +34,7 @@ public class HoverManager_UI : MonoBehaviour
         else
         {
             //Debug.LogWarning("hover not null");
+            hoverVisual_Text_UI.SetPositionOffset(CurrentHoverTarget.Get_Offset_ScreenPos());
             hoverVisual_Text_UI.SetHoverText(CurrentHoverTarget.HoverText);
             //tell the current hover object that is is being hovered on
             CurrentHoverTarget.OnBeingHovered();

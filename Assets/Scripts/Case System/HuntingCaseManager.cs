@@ -710,6 +710,22 @@ public class HuntingCaseManager : MonoBehaviour
         return lootData;
     }
 
+    public int GetExperienceFromDeadAnimals()
+    {
+        //go through all spawned animals; Get the experience from the dead ones
+        int totalExperience = 0;
+        for (int i = 0; i < SpawnedAnimals.Count; i++)
+        {
+            Animal_AI_Base theAnimal = SpawnedAnimals[i].GetComponent<Animal_AI_Base>();
+            if (theAnimal.GetAnimalStatus() == AnimalStatus.Dead)
+            {
+                totalExperience += theAnimal.GetAnimalExp();
+            }
+        }
+
+        return totalExperience;
+    }
+
     public HuntingUIManager Get_HuntingUIManager()
     {
         return HuntingUI;

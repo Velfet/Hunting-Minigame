@@ -2481,13 +2481,13 @@ MonoBehaviour:
   - allLevel_HuntingCase_Data:
     - level_HuntingCases:
       - weight: 30
-        theHuntingCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: 9a5074f077310f940957022ed661b3dc, type: 2}
       - weight: 30
-        theHuntingCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: e504f0addf88e5c4780ffd5d2b808c40, type: 2}
       - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: e504f0addf88e5c4780ffd5d2b808c40, type: 2}
       - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: fc1c7deff93a4dc47b3487447225e456, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: e504f0addf88e5c4780ffd5d2b808c40, type: 2}
     - level_HuntingCases:
       - weight: 50
         theHuntingCase: {fileID: 11400000, guid: 44e3b09520795ce4e8ec23b143c42601, type: 2}
@@ -3864,8 +3864,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4664,7 +4664,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
@@ -4786,7 +4786,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920585887}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5463,6 +5463,7 @@ MonoBehaviour:
   Image: {fileID: 1210904250}
   HighlightSprite: {fileID: 21300000, guid: 795ebd83245ae494e9551bbe4bc85f85, type: 3}
   NormalSprite: {fileID: 21300000, guid: 1453dac43f98e6741b1503a15345de99, type: 3}
+  Offset_ScreenPos: {x: 125, y: 0}
 --- !u!1 &1227373101
 GameObject:
   m_ObjectHideFlags: 0
@@ -6118,6 +6119,7 @@ MonoBehaviour:
   Image: {fileID: 0}
   HighlightSprite: {fileID: 0}
   NormalSprite: {fileID: 0}
+  Offset_ScreenPos: {x: -125, y: 0}
   Image_GO_List:
   - {fileID: 563634353}
   - {fileID: 684257775}
@@ -7653,8 +7655,8 @@ MonoBehaviour:
   - Expert
   - Master
   HuntingBGM_SoundID: HuntingBGM1
-  TestRank: 3
-  TestLevel: 2
+  TestRank: 1
+  TestLevel: 1
 --- !u!114 &1781754564
 MonoBehaviour:
   m_ObjectHideFlags: 0

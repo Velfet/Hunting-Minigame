@@ -1274,7 +1274,7 @@ MonoBehaviour:
   - Leopard_Idle
   - Leopard_Eat
   - Leopard_Walk
-  - Leopard_Run
+  - Leopard_Run_V3
   - Leopard_Die
   - Leopard_Roar
 --- !u!82 &6185059969030297415

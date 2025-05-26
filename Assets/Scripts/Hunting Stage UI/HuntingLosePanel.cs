@@ -11,9 +11,14 @@ public class HuntingLosePanel : MonoBehaviour
     [Space(10)]
     [SerializeField] private Button RetryButton;
     [SerializeField] private Button TownButton;
+    [Space(20)]
+    [SerializeField] private GameObject ClickBlocker_GO;
+    [SerializeField] private float ClickBlocker_Duration;
+
 
 
     private bool hasStarted = false;
+    private IEnumerator ToggleClickBlocker_Routine;
 
     void Start()
     {
@@ -23,7 +28,7 @@ public class HuntingLosePanel : MonoBehaviour
 
     void OnEnable()
     {
-        if(hasStarted == true)
+        if (hasStarted == true)
         {
             //subscribe button function here
             OnEnable_Or_Start();
@@ -32,6 +37,9 @@ public class HuntingLosePanel : MonoBehaviour
 
     void OnEnable_Or_Start()
     {
+        //start coroutine to enable the click blocker for a certain amount of time
+        Start_ClickBlockToggle();
+
         //subscribe button function here
         RetryButton.onClick.AddListener(RetryLevel);
         TownButton.onClick.AddListener(GoTo_Town);
@@ -39,6 +47,9 @@ public class HuntingLosePanel : MonoBehaviour
 
     void OnDisable()
     {
+        //stop the toggle click blocker coroutine
+        Interrupt_ClickBlockToggle();
+
         //unsubscribe button function here
         RetryButton.onClick.RemoveAllListeners();
         TownButton.onClick.RemoveAllListeners();
@@ -61,18 +72,55 @@ public class HuntingLosePanel : MonoBehaviour
         AudioManager.Instance.PlayAudio(AudioConst.ButtonClick_SFX);
 
         Toggle_Active_State(false);
-        #if UNITY_EDITOR
-            // Stop playing the scene in the editor
-            EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        // Stop playing the scene in the editor
+        EditorApplication.isPlaying = false;
+#else
             // Quit the application in a build
             Application.Quit();
-        #endif
+#endif
     }
 
     public void Toggle_Active_State(bool activeState)
     {
         gameObject.SetActive(activeState);
+    }
+    
+    private void Interrupt_ClickBlockToggle()
+    {
+        //deactivate the click blocker now
+        ClickBlocker_GO.SetActive(false);
+
+        if (ToggleClickBlocker_Routine != null)
+        {
+            StopCoroutine(ToggleClickBlocker_Routine);
+            ToggleClickBlocker_Routine = null;
+        }
+    }
+
+    private void Start_ClickBlockToggle()
+    {
+        Interrupt_ClickBlockToggle();
+
+        ToggleClickBlocker_Routine = ToggleClickBlocker();
+        StartCoroutine(ToggleClickBlocker_Routine);
+    }
+
+    private IEnumerator ToggleClickBlocker()
+    {
+        //activate the click blocker
+        ClickBlocker_GO.SetActive(true);
+
+        float currentTime = 0f;
+
+        while (currentTime < ClickBlocker_Duration)
+        {
+            yield return null;
+            currentTime += Time.deltaTime;
+        }
+
+        //delay is done, deactivate the click blocker now
+        ClickBlocker_GO.SetActive(false);
     }
 
 

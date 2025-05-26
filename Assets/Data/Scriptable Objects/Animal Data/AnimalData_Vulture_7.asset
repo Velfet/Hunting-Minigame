@@ -20,4 +20,4 @@ MonoBehaviour:
   FallSpeed: 4.5
   Experience: 3
   LootData: 9
-  AnimalSoundName: {fileID: 11400000, guid: 9e6abb2117eb110408255e54689dd898, type: 2}
+  AnimalSoundName: {fileID: 11400000, guid: 17e09ba3ea4acab4cae782924b921def, type: 2}

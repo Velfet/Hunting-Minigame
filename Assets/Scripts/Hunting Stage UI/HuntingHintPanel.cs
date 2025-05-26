@@ -21,15 +21,35 @@ public class HuntingHintPanel : MonoBehaviour
     [SerializeField] private Button PreviousButton;
     [SerializeField] private Button NextButton;
     [Space(10)]
+    [SerializeField] private Button RuleToggleButton;
+    [SerializeField] private Sprite RuleToggle_ActiveSprite;
+    [SerializeField] private Sprite RuleToggle_InactiveSprite;
+    [Space(10)]
     [SerializeField] private TextMeshProUGUI TitleText;
     [SerializeField] private TextMeshProUGUI DescriptionText;
 
     public void Toggle_HintPanel()
     {
         //play button click SFX
-        AudioManager.Instance.PlayAudio(AudioConst.ButtonClick_SFX);
+        AudioManager.Instance.PlayAudio(AudioConst.RuleOpenAndClose_SFX);
 
         IsVisibleState = !IsVisibleState;
+
+        //update Rule toggle button's visual depending if the Rule UI is visible or not
+        SpriteState ruleToggle_SpriteState = RuleToggleButton.spriteState;
+        if (IsVisibleState == true)
+        {
+            //rule UI is visible, use the active sprite
+            RuleToggleButton.image.sprite = RuleToggle_ActiveSprite;
+            ruleToggle_SpriteState.selectedSprite = RuleToggle_ActiveSprite;
+        }
+        else
+        {
+            //rule UI is not visible, use the inactive sprite
+            RuleToggleButton.image.sprite = RuleToggle_InactiveSprite;
+            ruleToggle_SpriteState.selectedSprite = RuleToggle_InactiveSprite;
+        }
+        RuleToggleButton.spriteState = ruleToggle_SpriteState;
 
         //decide on the duration of the tween based on current distance to target position
         Vector2 targetPos = IsVisibleState ? Visible_Pos : Non_Visible_Pos;
@@ -57,7 +77,7 @@ public class HuntingHintPanel : MonoBehaviour
             MaxSlideIndex = AllHuntingRuleData.Count - 1;
             UpdateSlideIndex(0, true);
         }
-        
+
     }
 
     private void OnDisable()
@@ -83,7 +103,7 @@ public class HuntingHintPanel : MonoBehaviour
     {
         //play button click SFX
         AudioManager.Instance.PlayAudio(AudioConst.ButtonClick_SFX);
-        
+
         int newIndex = CurrentSlideIndex + 1;
         if (newIndex <= MaxSlideIndex)
         {
@@ -130,7 +150,7 @@ public class HuntingHintPanel : MonoBehaviour
         //update visual
         UpdateRulePanelVisual();
     }
-        
+
     private void UpdateRulePanelVisual()
     {
         //update title and description text

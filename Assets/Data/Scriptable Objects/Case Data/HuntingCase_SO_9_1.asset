@@ -21,6 +21,10 @@ MonoBehaviour:
     SpawnTime: 1
     SpawnPosition: {x: -14, y: 1.05, z: 12}
     DeadOnSpawn: 0
+  - Animal_Prefab: {fileID: 4228822538139295346, guid: a595c006f99f2c443b13f36ac3a3b03f, type: 3}
+    SpawnTime: 1
+    SpawnPosition: {x: -14, y: 1.05, z: 12}
+    DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 3637393954337427599, guid: 5e566bb543a919b4bbfa19b60f12fbb7, type: 3}
     SpawnTime: 2
     SpawnPosition: {x: 14, y: 4.8, z: 12}
@@ -29,12 +33,8 @@ MonoBehaviour:
     SpawnTime: 2
     SpawnPosition: {x: -14, y: 4.8, z: 12}
     DeadOnSpawn: 0
-  - Animal_Prefab: {fileID: 4228822538139295346, guid: a595c006f99f2c443b13f36ac3a3b03f, type: 3}
-    SpawnTime: 3
-    SpawnPosition: {x: -14, y: 1.05, z: 12}
-    DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 381606223924918939, guid: 0892d276be50c544e860a8d0f9cdeb3e, type: 3}
-    SpawnTime: 4
+    SpawnTime: 3
     SpawnPosition: {x: 14, y: 1.05, z: 12}
     DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 2707184905777834170, guid: 8c29f23be5f74e84da3ee8115c71a6e6, type: 3}
@@ -91,7 +91,7 @@ MonoBehaviour:
     UsingDefaultCondition: 1
     DefaultCondition: 1
     AllHuntingCondition_Chains: []
-  TimerDuration: 18
+  TimerDuration: 19
   references:
     version: 2
     RefIds:

@@ -4,6 +4,7 @@ using HuntingGame;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 using UnityEngine.UI;
 
 public class HuntingWinPanel : MonoBehaviour
@@ -15,13 +16,18 @@ public class HuntingWinPanel : MonoBehaviour
     [SerializeField] private Button TownButton;
     [SerializeField] private TextMeshProUGUI ContinueButton_Text;
     [Space(10)]
+    [SerializeField] private TextMeshProUGUI CritHit_Text;
+    [Space(10)]
     [SerializeField] private Color ContinueButtonText_ActiveColor;
     [SerializeField] private Color ContinueButtonText_NonactiveColor;
     [Space(10)]
     [SerializeField] private Button ReplayButton;
+    [Space(20)]
+    [SerializeField] private GameObject ClickBlocker_GO;
+    [SerializeField] private float ClickBlocker_Duration;
 
     private bool hasStarted = false;
-
+    private IEnumerator ToggleClickBlocker_Routine;
 
     void Start()
     {
@@ -31,7 +37,7 @@ public class HuntingWinPanel : MonoBehaviour
 
     void OnEnable()
     {
-        if(hasStarted == true)
+        if (hasStarted == true)
         {
             //subscribe button function here
             OnEnable_Or_Start();
@@ -40,6 +46,9 @@ public class HuntingWinPanel : MonoBehaviour
 
     void OnEnable_Or_Start()
     {
+        //start coroutine to enable the click blocker for a certain amount of time
+        Start_ClickBlockToggle();
+
         //subscribe button function here
         if (HuntingCaseManager.IsCurrentLevelTheLastLevel() == true)
         {
@@ -71,6 +80,9 @@ public class HuntingWinPanel : MonoBehaviour
         //Update loot info text
         LootInfo.text = HuntingCaseManager.GetLootData_String();
 
+        //Update crit text
+        CritHit_Text.text = "X" + HuntingCaseManager.Get_CritHitAmount().ToString();
+
         //TODO use this list of enums to get the real loot later
         List<Enum_LootOptions> lootDrop = HuntingCaseManager.GetLootData_List();
 
@@ -80,6 +92,9 @@ public class HuntingWinPanel : MonoBehaviour
 
     void OnDisable()
     {
+        //stop the toggle click blocker coroutine
+        Interrupt_ClickBlockToggle();
+
         //unsubscribe button function here
         ContinueButton.onClick.RemoveAllListeners();
         TownButton.onClick.RemoveAllListeners();
@@ -87,7 +102,7 @@ public class HuntingWinPanel : MonoBehaviour
         {
             ReplayButton.onClick.RemoveAllListeners();
         }
-        
+
     }
 
     //contact the hunting case manager to retry the current level
@@ -105,17 +120,17 @@ public class HuntingWinPanel : MonoBehaviour
     {
         //play button click SFX
         AudioManager.Instance.PlayAudio(AudioConst.ButtonClick_SFX);
-        
+
         Toggle_Active_State(false);
-        #if UNITY_EDITOR
-            // Stop playing the scene in the editor
-            EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        // Stop playing the scene in the editor
+        EditorApplication.isPlaying = false;
+#else
             // Quit the application in a build
             Application.Quit();
-        #endif
+#endif
     }
-    
+
     //contact the hunting case manager to retry the current level
     private void RetryLevel()
     {
@@ -130,6 +145,43 @@ public class HuntingWinPanel : MonoBehaviour
     {
         gameObject.SetActive(activeState);
 
+    }
+
+    private void Interrupt_ClickBlockToggle()
+    {
+        //deactivate the click blocker now
+        ClickBlocker_GO.SetActive(false);
+
+        if (ToggleClickBlocker_Routine != null)
+        {
+            StopCoroutine(ToggleClickBlocker_Routine);
+            ToggleClickBlocker_Routine = null;
+        }
+    }
+
+    private void Start_ClickBlockToggle()
+    {
+        Interrupt_ClickBlockToggle();
+
+        ToggleClickBlocker_Routine = ToggleClickBlocker();
+        StartCoroutine(ToggleClickBlocker_Routine);
+    }
+
+    private IEnumerator ToggleClickBlocker()
+    {
+        //activate the click blocker
+        ClickBlocker_GO.SetActive(true);
+
+        float currentTime = 0f;
+
+        while (currentTime < ClickBlocker_Duration)
+        {
+            yield return null;
+            currentTime += Time.deltaTime;
+        }
+
+        //delay is done, deactivate the click blocker now
+        ClickBlocker_GO.SetActive(false);
     }
 
 }

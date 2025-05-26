@@ -99,6 +99,9 @@ public class Animal_AI_Scavenger : Animal_AI_Base
         UnityEngine.Vector3 critText_WorldPos = transform.position;
         critText_WorldPos.y += 1.25f;
         ShowCritText(critText_WorldPos);
+
+        //report to hunting case that a crit hit as occured
+        huntingCaseManager.Update_CritHitAmount(1);
         
         //trigger the head hit action
         AnimalAction_ActivateData animalAction_ActivateData = new AnimalAction_ActivateData{

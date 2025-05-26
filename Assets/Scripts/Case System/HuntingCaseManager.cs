@@ -40,6 +40,8 @@ public class HuntingCaseManager : MonoBehaviour
     [SerializeField] private float MaxTimer;
     [SerializeField] private float CurrentTimer;    //this timer goes from MaxTimer to 0
     [Space(10)]
+    [SerializeField] private int CurrentLevel_CriticalHitCount;
+    [Space(10)]
     [SerializeField] private List<GameObject> SpawnedAnimals;
     //[SerializeField] private List<GameObject> CurrentLevel_SpawnedAnimals;  //used for reloading levels; Unused
     [Space(10)]
@@ -154,6 +156,8 @@ public class HuntingCaseManager : MonoBehaviour
         Animal_Escape.Clear();
         Animal_Eaten.Clear();
         Animal_Killed.Clear();
+        //set number of critical hits to 0
+        Set_CriticalHitAmount(0);
         //store list of "AnimalSpawnData" from the case
         if (CurrentHuntingCase == null)
         {
@@ -679,12 +683,12 @@ public class HuntingCaseManager : MonoBehaviour
                 if (string.IsNullOrEmpty(theData))
                 {
                     //first loot data
-                    theData += theAnimal.GetLootData_String();
+                    theData += theAnimal.GetAnimalData().Name;
                 }
                 else
                 {
                     //NOT first loot data
-                    theData += ", " + theAnimal.GetLootData_String();
+                    theData += ", " + theAnimal.GetAnimalData().Name;
                 }
             }
         }
@@ -734,6 +738,21 @@ public class HuntingCaseManager : MonoBehaviour
     public int Get_CurrentLevel()
     {
         return CurrentLevel;
+    }
+
+    public void Update_CritHitAmount(int addAmount)
+    {
+        CurrentLevel_CriticalHitCount += addAmount;
+    }
+
+    public void Set_CriticalHitAmount(int newAmount)
+    {
+        CurrentLevel_CriticalHitCount = newAmount;
+    }
+
+    public int Get_CritHitAmount()
+    {
+        return CurrentLevel_CriticalHitCount;
     }
 
 

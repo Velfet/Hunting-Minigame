@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7be5c1eaff9d09346bd611fc19872462, type: 3}
-  m_Name: SA_Single_Hawk_Death
+  m_Name: SA_Single_Vulture_Eat
   m_EditorClassIdentifier: 
-  id: Hawk_Death
+  id: Vulture_Eat
   type: 0
-  soundVolume: 0.4
-  clip: {fileID: 8300000, guid: d2be9cde124d170468ca2433998f9181, type: 3}
+  soundVolume: 1
+  clip: {fileID: 8300000, guid: 12bfd4c9851c2cf409cd7841777d1bf8, type: 3}

@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5117381835110890232
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 381606223924918916, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381606223924918916, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 381606223924918916, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 381606223924918916, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 381606223924918916, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 381606223924918916, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381606223924918916, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381606223924918916, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381606223924918916, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381606223924918916, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381606223924918916, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 381606223924918939, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_Name
+      value: Lion_Predator_NoRoar_WalkToRight Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069909907964940379, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: reactSources.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069909907964940379, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: reactSources.Array.data[2]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069909907964940379, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: reactSources.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167639331286558894, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167639331286558894, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809092218909745549, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: reactSources.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809092218909745549, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: reactSources.Array.data[2]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809092218909745549, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: reactSources.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089660190061956381, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: Roar_Action
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089660190061956381, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: managedReferences[3243458701720289285].EatDuration
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089660190061956381, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: managedReferences[3243458701720289287].EatDuration
+      value: 3.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}

@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7188155685735464215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 106192467975976619, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 926846897037178668, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 926846897037178668, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646425430116583553, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: BodyHit_Action
+      value: 1805994650462322732
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: HeadHit_Action
+      value: 1805994650462322733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: MissAuraHit_Action
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: SeePredator_Action
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: SeePredator_PredatorAtLeft_Action
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: SeePredator_PredatorAtRight_Action
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322729]
+      value: Assembly-CSharp AnimalState
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322730]
+      value: Assembly-CSharp AnimalAction_Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322731]
+      value: Assembly-CSharp AnimalFinishAction_DoNothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322732]
+      value: Assembly-CSharp AnimalFinishAction_Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322733]
+      value: Assembly-CSharp AnimalFinishAction_Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: AnimalMasterState.AnimalStates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: AnimalMasterState.AnimalStates.Array.data[0]
+      value: 1805994650462322729
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322729].StateName
+      value: 'Default: Idle'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322730].IdleDuration
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322730].ActionPriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322732].DamageMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322733].DamageMultiplier
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322731].ExecuteEvenIfDead
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322732].ExecuteEvenIfDead
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322733].ExecuteEvenIfDead
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322730].AnimalFinishAction
+      value: 1805994650462322731
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322731].FinishActionPriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322732].FinishActionPriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322733].FinishActionPriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322729].AnimalActions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499575727978750210, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: managedReferences[1805994650462322729].AnimalActions.Array.data[0]
+      value: 1805994650462322730
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705286, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705286, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705286, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705286, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705286, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705286, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705286, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705286, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705286, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705286, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705286, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629580994888705305, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}
+      propertyPath: m_Name
+      value: Impala_Prey_Case7 Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf051caa38fc1ed4c820a78cb6bb4051, type: 3}

@@ -2574,7 +2574,7 @@ MonoBehaviour:
       - weight: 50
         theHuntingCase: {fileID: 11400000, guid: 12e47a618c579e247a3b55a9cdf71d24, type: 2}
       - weight: 30
-        theHuntingCase: {fileID: 11400000, guid: 12e47a618c579e247a3b55a9cdf71d24, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: 46b161939dd3af84f95fb4d575115866, type: 2}
       - weight: 20
         theHuntingCase: {fileID: 11400000, guid: 1a78ccc615cd08b43b9766583beb9c39, type: 2}
     - level_HuntingCases:
@@ -2583,12 +2583,12 @@ MonoBehaviour:
       - weight: 30
         theHuntingCase: {fileID: 11400000, guid: 8ea7c8916ea5bd34c989367dc2f88d6e, type: 2}
       - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: c079e99bcf33a1248aa6434b64281ac1, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: cf438b46b0c374f40af2cff804dcf7ee, type: 2}
     - level_HuntingCases:
       - weight: 40
         theHuntingCase: {fileID: 11400000, guid: 4740798ee2e8e2e469e3c0643cd07ea7, type: 2}
       - weight: 40
-        theHuntingCase: {fileID: 11400000, guid: 4740798ee2e8e2e469e3c0643cd07ea7, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: 8eb6089f41e7792439d8643c2f7fc0bb, type: 2}
       - weight: 20
         theHuntingCase: {fileID: 11400000, guid: 136f31b59e01eba428430cf740e8bfce, type: 2}
   - allLevel_HuntingCase_Data:
@@ -2598,7 +2598,7 @@ MonoBehaviour:
       - weight: 20
         theHuntingCase: {fileID: 11400000, guid: 3a62e73c9cf017e4a8499da02ec78ec0, type: 2}
       - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: 53e48d12eaeb1dc4ab8178bf6aa8c677, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: c536c1d605bee004e898bf1af12e52e7, type: 2}
       - weight: 20
         theHuntingCase: {fileID: 11400000, guid: f4d2bd643bc089843923259567388f9e, type: 2}
     - level_HuntingCases:
@@ -2622,14 +2622,14 @@ MonoBehaviour:
       - weight: 30
         theHuntingCase: {fileID: 11400000, guid: e504f0addf88e5c4780ffd5d2b808c40, type: 2}
       - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: e504f0addf88e5c4780ffd5d2b808c40, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: 8416c935dc6d639469a06d61e13c0744, type: 2}
       - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: e504f0addf88e5c4780ffd5d2b808c40, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: addbf7e58a836eb44b0e0d757cbe9edf, type: 2}
     - level_HuntingCases:
       - weight: 50
         theHuntingCase: {fileID: 11400000, guid: 44e3b09520795ce4e8ec23b143c42601, type: 2}
       - weight: 50
-        theHuntingCase: {fileID: 11400000, guid: 44e3b09520795ce4e8ec23b143c42601, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: 4bb8df71e5b1bde4985066d45c38110e, type: 2}
     - level_HuntingCases:
       - weight: 50
         theHuntingCase: {fileID: 11400000, guid: 42dfe362aa44c6341855b2cd6e4b6189, type: 2}
@@ -5432,7 +5432,7 @@ MonoBehaviour:
   CurrentSlideIndex: 0
   PreviousButton: {fileID: 1795013559}
   NextButton: {fileID: 738225778}
-  RuleToggleButton: {fileID: 1680079173}
+  RuleToggleButton: {fileID: 1680079176}
   RuleToggle_ActiveSprite: {fileID: 21300000, guid: 7a1a803a26005aa45972756bc21e8831, type: 3}
   RuleToggle_InactiveSprite: {fileID: 21300000, guid: 4033fa8b5a713a240a28a76c3577d0f1, type: 3}
   TitleText: {fileID: 330166949}
@@ -6772,7 +6772,7 @@ GameObject:
   - component: {fileID: 1680079172}
   - component: {fileID: 1680079175}
   - component: {fileID: 1680079174}
-  - component: {fileID: 1680079173}
+  - component: {fileID: 1680079176}
   m_Layer: 5
   m_Name: Hint_Button
   m_TagString: Untagged
@@ -6800,62 +6800,6 @@ RectTransform:
   m_AnchoredPosition: {x: -87.5, y: 87.5}
   m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1680079173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680079171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 7a1a803a26005aa45972756bc21e8831, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 872b0a0ee60671b4eb82df10f884a94f, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 7a1a803a26005aa45972756bc21e8831, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 4033fa8b5a713a240a28a76c3577d0f1, type: 3}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1680079174}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1157915829}
-        m_TargetAssemblyTypeName: HuntingHintPanel, Assembly-CSharp
-        m_MethodName: Toggle_HintPanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1680079174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6894,6 +6838,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680079171}
   m_CullTransparentMesh: 1
+--- !u!114 &1680079176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680079171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a33bc166504050344ad671fef6a32f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 2
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 21300000, guid: 7a1a803a26005aa45972756bc21e8831, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 872b0a0ee60671b4eb82df10f884a94f, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 4033fa8b5a713a240a28a76c3577d0f1, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 4033fa8b5a713a240a28a76c3577d0f1, type: 3}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1680079174}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1157915829}
+        m_TargetAssemblyTypeName: HuntingHintPanel, Assembly-CSharp
+        m_MethodName: Toggle_HintPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1690322497
 GameObject:
   m_ObjectHideFlags: 0
@@ -7412,7 +7412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RE-PLAY
+  m_text: Replay
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9350,7 +9350,7 @@ PrefabInstance:
       objectReference: {fileID: 1227373103}
     - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
       propertyPath: TestJobRank
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
       propertyPath: Bow_X_Offset

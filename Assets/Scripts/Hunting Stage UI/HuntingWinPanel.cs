@@ -81,7 +81,7 @@ public class HuntingWinPanel : MonoBehaviour
         LootInfo.text = HuntingCaseManager.GetLootData_String();
 
         //Update crit text
-        CritHit_Text.text = "X" + HuntingCaseManager.Get_CritHitAmount().ToString();
+        CritHit_Text.text = "x" + HuntingCaseManager.Get_CritHitAmount().ToString();
 
         //TODO use this list of enums to get the real loot later
         List<Enum_LootOptions> lootDrop = HuntingCaseManager.GetLootData_List();

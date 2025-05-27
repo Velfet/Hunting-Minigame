@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Hyena
   Health: 18
-  RunSpeed: 3.8
-  RunSpeed_Faster: 4.5
-  WalkSpeed: 2.9
+  RunSpeed: 4.5
+  RunSpeed_Faster: 5.5
+  WalkSpeed: 3.7
   FallSpeed: 0
   Experience: 6
   LootData: 2

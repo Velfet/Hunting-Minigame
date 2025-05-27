@@ -24,7 +24,7 @@ MonoBehaviour:
   All_AnimalSpawnData_Condition:
   - Animal_Prefab: {fileID: 6685717237477771016, guid: 66c052b5bb99edd4b846e5786a3844dd, type: 3}
     SpawnTime: 0
-    SpawnPosition: {x: -14, y: 1.05, z: 12.5}
+    SpawnPosition: {x: -14.5, y: 1.05, z: 12.5}
     DeadOnSpawn: 0
     SpawnCondition_MultiChain:
       UsingDefaultCondition: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
         - rid: 1805994175564087316
   - Animal_Prefab: {fileID: 6685717237477771016, guid: 9c5c067842b3f3143ac1827c0c30a43e, type: 3}
     SpawnTime: 0
-    SpawnPosition: {x: 14, y: 1.05, z: 12.5}
+    SpawnPosition: {x: 14.5, y: 1.05, z: 12.5}
     DeadOnSpawn: 0
     SpawnCondition_MultiChain:
       UsingDefaultCondition: 0

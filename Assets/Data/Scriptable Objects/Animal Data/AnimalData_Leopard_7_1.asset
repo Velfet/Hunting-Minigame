@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Leopard
   Health: 21
-  RunSpeed: 3.3
-  RunSpeed_Faster: 3.8
-  WalkSpeed: 2.5
+  RunSpeed: 3.8
+  RunSpeed_Faster: 4.2
+  WalkSpeed: 2.9
   FallSpeed: 0
   Experience: 10
   LootData: 7

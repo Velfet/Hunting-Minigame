@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Deer
   Health: 12
-  RunSpeed: 3.55
+  RunSpeed: 4.2
   RunSpeed_Faster: 4.5
   WalkSpeed: 2.6
   FallSpeed: 0

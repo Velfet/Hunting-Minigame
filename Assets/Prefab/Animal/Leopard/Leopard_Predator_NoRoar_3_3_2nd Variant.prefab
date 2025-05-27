@@ -20,6 +20,14 @@ PrefabInstance:
       value: 'Default: Walk to Right'
       objectReference: {fileID: 0}
     - target: {fileID: 3674300918801794621, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: managedReferences[3243458701720289285].EatDuration
+      value: 2.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674300918801794621, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: managedReferences[3243458701720289287].EatDuration
+      value: 2.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674300918801794621, guid: 46a5305f596325347b973820f9c899ab, type: 3}
       propertyPath: managedReferences[3243458701720289283].WalkDestination.x
       value: 14
       objectReference: {fileID: 0}

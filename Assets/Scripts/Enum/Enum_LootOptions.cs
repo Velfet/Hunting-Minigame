@@ -13,5 +13,6 @@ public enum Enum_LootOptions
     Loot_Rabbit,
     Loot_Leopard,
     Loot_Buffalo,
-    Loot_Vulture
+    Loot_Vulture,
+    Loot_Impala
 }

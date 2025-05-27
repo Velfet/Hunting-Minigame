@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Rabbit
   Health: 6
-  RunSpeed: 3.4
-  RunSpeed_Faster: 4.5
-  WalkSpeed: 2.35
+  RunSpeed: 4.1
+  RunSpeed_Faster: 4.6
+  WalkSpeed: 3.1
   FallSpeed: 0
   Experience: 10
   LootData: 6

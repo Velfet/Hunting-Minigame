@@ -1714,7 +1714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4d793ff5f8081469182891b1f6d3d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 01000000
+  reactSources: 0100000004000000
   reactAction:
     rid: 3243458698102964224
   theAnimal: {fileID: 5744586817381956135}
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9901bc35c2bbfa146930d1e7ef631ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactSources: 01000000
+  reactSources: 0100000004000000
   theAnimal: {fileID: 5744586817381956135}
 --- !u!1001 &1463286268905498659
 PrefabInstance:

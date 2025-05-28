@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5069909907964940379, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
       propertyPath: reactSources.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5069909907964940379, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
       propertyPath: reactSources.Array.data[2]
@@ -66,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 5069909907964940379, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
       propertyPath: reactSources.Array.data[3]
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069909907964940379, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: reactSources.Array.data[4]
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5167639331286558894, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
       propertyPath: m_AnchorMax.x
@@ -77,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5809092218909745549, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
       propertyPath: reactSources.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5809092218909745549, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
       propertyPath: reactSources.Array.data[2]
@@ -86,6 +90,10 @@ PrefabInstance:
     - target: {fileID: 5809092218909745549, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
       propertyPath: reactSources.Array.data[3]
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809092218909745549, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
+      propertyPath: reactSources.Array.data[4]
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7089660190061956381, guid: f35aa78d287842d4c91223d471f2ffe9, type: 3}
       propertyPath: Roar_Action

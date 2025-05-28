@@ -38,7 +38,7 @@ public class Animal_React_Collider_Prey : Animal_React_Collider_Base
         }
 
         //add prey to the animal's list of preys
-        Debug.LogWarning("[PreySensor] detect prey: " + theOtherAnimal.GetAnimalType());
+        Debug.LogWarning($"[PreySensor] {theAnimal.gameObject.name} is detecting prey: " + theOtherAnimal.GetAnimalType());
         theAnimal.AddPrey(theOtherAnimal);
     }
 

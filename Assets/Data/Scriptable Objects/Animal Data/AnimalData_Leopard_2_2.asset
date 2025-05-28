@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Leopard
   Health: 21
-  RunSpeed: 4.5
+  RunSpeed: 4.3
   RunSpeed_Faster: 5.3
   WalkSpeed: 3.9
   FallSpeed: 0

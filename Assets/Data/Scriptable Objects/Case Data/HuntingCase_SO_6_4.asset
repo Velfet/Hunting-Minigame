@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: HuntingCase_SO_6_4
   m_EditorClassIdentifier: 
   All_AnimalSpawnData:
-  - Animal_Prefab: {fileID: 207686276472821050, guid: 0f14763c7eeab2b468959780a9da52cf, type: 3}
-    SpawnTime: 0
-    SpawnPosition: {x: -14, y: 1.05, z: 12}
-    DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 3594437038610991596, guid: 353cc8ce9fc36c54db67980c82df8145, type: 3}
     SpawnTime: 0
     SpawnPosition: {x: -14, y: 4.8, z: 13}
     DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 6685717237477771016, guid: c0033134ee2c3e74599025911b95b986, type: 3}
-    SpawnTime: 0.5
+    SpawnTime: 0
     SpawnPosition: {x: -14, y: 1.05, z: 12.5}
+    DeadOnSpawn: 0
+  - Animal_Prefab: {fileID: 207686276472821050, guid: 0f14763c7eeab2b468959780a9da52cf, type: 3}
+    SpawnTime: 1
+    SpawnPosition: {x: -14, y: 1.05, z: 12}
     DeadOnSpawn: 0
   - Animal_Prefab: {fileID: 6685717237477771016, guid: d5272829e0b88084da89654d7e03f115, type: 3}
     SpawnTime: 8

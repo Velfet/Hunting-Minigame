@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Buffalo
   Health: 60
-  RunSpeed: 3.75
-  RunSpeed_Faster: 4.3
+  RunSpeed: 4.7
+  RunSpeed_Faster: 4.9
   WalkSpeed: 2
   FallSpeed: 0
   Experience: 10

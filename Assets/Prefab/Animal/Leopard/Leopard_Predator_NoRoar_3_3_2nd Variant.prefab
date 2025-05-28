@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 70157994322605, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: reactSources.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 70157994322605, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: reactSources.Array.data[4]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640934679290207099, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: reactSources.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640934679290207099, guid: 46a5305f596325347b973820f9c899ab, type: 3}
+      propertyPath: reactSources.Array.data[4]
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1668884658036777870, guid: 46a5305f596325347b973820f9c899ab, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

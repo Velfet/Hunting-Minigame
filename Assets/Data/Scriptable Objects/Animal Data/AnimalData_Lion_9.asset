@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AnimalData_Lion_9
   m_EditorClassIdentifier: 
   Name: Lion
-  Health: 32
-  RunSpeed: 3.4
-  RunSpeed_Faster: 3.7
+  Health: 36
+  RunSpeed: 3.8
+  RunSpeed_Faster: 4.3
   WalkSpeed: 2.7
   FallSpeed: 0
   Experience: 14

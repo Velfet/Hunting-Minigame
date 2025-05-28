@@ -27,13 +27,14 @@ public class Animal_AI_Predator : Animal_AI_Base
         //, making the prey not optimal
         bool preyIsNotOptimal = thePrey.Get_IsBeingEaten_Status() == true;
 
-        if(preyIsNotOptimal == true)
+        if (preyIsNotOptimal == true)
         {
             //prey is not optimal
             //add prey to the potential prey list
-            if(potentialPreys.Contains(thePrey) == false)
+            if (potentialPreys.Contains(thePrey) == false)
             {
                 potentialPreys.Add(thePrey);
+                Debug.LogWarning($"[Eat_Test] {gameObject.name} is putting the animal {thePrey.gameObject.name} into the potential prey list");
                 //also add to the reactcollider_preys list
                 reactCollider_Preys.Add(thePrey);
             }
@@ -42,7 +43,7 @@ public class Animal_AI_Predator : Animal_AI_Base
         }
 
         //check if the prey has not already been added to the prey list
-        if(myPreys.Contains(thePrey) == false)
+        if (myPreys.Contains(thePrey) == false)
         {
             //add the prey to the list of preys
             myPreys.Add(thePrey);
@@ -52,7 +53,7 @@ public class Animal_AI_Predator : Animal_AI_Base
             AnimalType preyAnimalType = thePrey.GetAnimalType();
             bool doesAnimalCauseRoar = roarReactSources.Contains(preyAnimalType);
 
-            if(Roar_Action == null || thePrey.GetAnimalStatus() != AnimalStatus.Alive || doesAnimalCauseRoar == false)
+            if (Roar_Action == null || thePrey.GetAnimalStatus() != AnimalStatus.Alive || doesAnimalCauseRoar == false)
             {
                 //potentially alter behaviour, call a function here
                 React_PreyPredator_AddRemove();
@@ -62,7 +63,18 @@ public class Animal_AI_Predator : Animal_AI_Base
                 //Do roar action here
                 React_Roar(thePrey);
             }
-            
+
+        }
+        else
+        {
+            Debug.LogWarning($"[Eat_Test] {gameObject.name} already has the animal {thePrey.gameObject.name} in their myPreys list");
+            Debug.LogWarning($"[Eat_Test] {gameObject.name} is the prey in question in react collider prey list: {reactCollider_Preys.Contains(thePrey)}");
+        }
+
+        if (reactCollider_Preys.Contains(thePrey) == false)
+        {
+            //add prey to the reactcollider_preys
+            reactCollider_Preys.Add(thePrey);
         }
     }
 

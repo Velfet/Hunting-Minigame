@@ -572,7 +572,7 @@ MonoBehaviour:
   State_Index: 0
   CurrentAnimalAction:
     rid: -2
-  Animal_Detected_Collider: {fileID: 0}
+  Animal_Detected_Collider: {fileID: 9179616417710095799}
   MissAuraHit_Action:
     rid: 3243458698102964235
   BodyHit_Action:

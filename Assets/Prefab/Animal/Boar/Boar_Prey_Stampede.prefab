@@ -387,12 +387,12 @@ MonoBehaviour:
   MaxHP: 0
   AnimalMasterState:
     AnimalStates:
-    - rid: 3243458698102964225
+    - rid: 1805994672735911936
   MasterState_Index: 0
   State_Index: 0
   CurrentAnimalAction:
     rid: -2
-  Animal_Detected_Collider: {fileID: 0}
+  Animal_Detected_Collider: {fileID: 4183374271348116748}
   MissAuraHit_Action:
     rid: -2
   BodyHit_Action:
@@ -423,13 +423,42 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 3243458698102964225
+    - rid: 1805994672735911936
       type: {class: AnimalState, ns: , asm: Assembly-CSharp}
       data:
         StateName: 'Default: Run Left to Right, Right to Left'
         AnimalActions:
-        - rid: 3243458837987459072
-        - rid: 3243458837987459073
+        - rid: 1805994672735911937
+        - rid: 1805994672735911938
+    - rid: 1805994672735911937
+      type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994672735911939
+        ActionPriority: 0
+        RunDestination: {x: 14, y: 1.05, z: 12}
+    - rid: 1805994672735911938
+      type: {class: AnimalAction_RunFasterToPoint, ns: , asm: Assembly-CSharp}
+      data:
+        AnimalFinishAction:
+          rid: 1805994672735911940
+        ActionPriority: 0
+        RunDestination: {x: -14, y: 1.05, z: 12}
+    - rid: 1805994672735911939
+      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        AlterValue_StateIndex: 0
+        AlterType_StateIndex: 0
+        AlterValue_ActionIndex: 1
+        AlterType_ActionIndex: 0
+    - rid: 1805994672735911940
+      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
+      data:
+        FinishActionPriority: 0
+        ExecuteEvenIfDead: 0
+        NewStatus: 2
     - rid: 3243458698102964238
       type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
       data:
@@ -448,35 +477,6 @@ MonoBehaviour:
         AlterType_StateIndex: 1
         AlterValue_ActionIndex: 0
         AlterType_ActionIndex: 1
-    - rid: 3243458837987459072
-      type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
-      data:
-        AnimalFinishAction:
-          rid: 3243458837987459076
-        ActionPriority: 0
-        RunDestination: {x: 14, y: 1.05, z: 12}
-    - rid: 3243458837987459073
-      type: {class: AnimalAction_RunToPoint, ns: , asm: Assembly-CSharp}
-      data:
-        AnimalFinishAction:
-          rid: 3243458837987459074
-        ActionPriority: 0
-        RunDestination: {x: -14, y: 1.05, z: 12}
-    - rid: 3243458837987459074
-      type: {class: AnimalFinishAction_AlterStatus, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        ExecuteEvenIfDead: 0
-        NewStatus: 2
-    - rid: 3243458837987459076
-      type: {class: AnimalFinishAction_AlterIndex, ns: , asm: Assembly-CSharp}
-      data:
-        FinishActionPriority: 0
-        ExecuteEvenIfDead: 0
-        AlterValue_StateIndex: 0
-        AlterType_StateIndex: 0
-        AlterValue_ActionIndex: 1
-        AlterType_ActionIndex: 0
     - rid: 3243458837987459077
       type: {class: AnimalFinishAction_Damage, ns: , asm: Assembly-CSharp}
       data:

@@ -809,7 +809,7 @@ public class Animal_AI_Base : MonoBehaviour
     public virtual void AddPrey(Animal_AI_Base thePrey)
     {
         //check if the prey has not already been added to the prey list
-        if(myPreys.Contains(thePrey) == false)
+        if (myPreys.Contains(thePrey) == false)
         {
             //add the prey to the list of preys
             myPreys.Add(thePrey);
@@ -817,6 +817,12 @@ public class Animal_AI_Base : MonoBehaviour
             reactCollider_Preys.Add(thePrey);
             //potentially alter behaviour, call a function here
             React_PreyPredator_AddRemove();
+        }
+
+        if (reactCollider_Preys.Contains(thePrey) == false)
+        {
+            //add prey to the reactcollider_preys
+            reactCollider_Preys.Add(thePrey);
         }
     }
 
@@ -826,10 +832,20 @@ public class Animal_AI_Base : MonoBehaviour
         //new: do nothing; only remove prey if it is out of sight
 
         //remove from potential preys
+        Debug.LogWarning($"[Eat_Test] {gameObject.name} is removing the animal {thePrey.gameObject.name} from the potential prey list");
+
+        // if (potentialPreys.Contains(thePrey) == true)
+        // {
+        //     //remove from myPreys list
+        //     myPreys.Remove(thePrey);
+        // }
+
         potentialPreys.Remove(thePrey);
 
         //remove from reactcollider_preys
         reactCollider_Preys.Remove(thePrey);
+
+        
     }
 
     //call this function, enter react and predator is alive
@@ -1043,9 +1059,10 @@ public class Animal_AI_Base : MonoBehaviour
         }
 
         //we are not the eater, our prey is being eaten by someone else
+        Debug.LogWarning($"[Eat_Test] this animal {gameObject.name} now removes {theEatenPrey.gameObject.name} from their myPreys list");
 
         //find out if the eaten prey is in the reactcollider_prey list
-        if(reactCollider_Preys.Contains(theEatenPrey) == true)
+        if (reactCollider_Preys.Contains(theEatenPrey) == true)
         {
             //the eaten prey is still in the react collider of this animal
             //remove the eaten prey from the "myPreys" list
@@ -1053,11 +1070,11 @@ public class Animal_AI_Base : MonoBehaviour
             //and add it to the "potentialPreys" list
             potentialPreys.Add(theEatenPrey);
             Debug.LogWarning($"Remove {theEatenPrey.AnimalIdentity.Name} from prey list, it is potential prey now. This animal: {gameObject.name}");
-            if(currentPrey != null)
+            if (currentPrey != null)
             {
                 Debug.LogWarning($"Previous prey is {currentPrey.gameObject.name}. This animal: {gameObject.name}");
             }
-            
+
         }
         else
         {
@@ -1078,23 +1095,29 @@ public class Animal_AI_Base : MonoBehaviour
     //gets called when the prey was getting eaten but the eater was interrupted, so the prey's corpse remains
     protected virtual void Handle_MyPrey_EatenGotInterrupted(Animal_AI_Base theEatenPrey, Animal_AI_Base thePreviousEater)
     {
+        Debug.LogWarning($"[Eat_Test] {gameObject.name} reacts to {theEatenPrey.gameObject.name} not being eaten anymore part 1");
+
         //fing out if we are the previous eater or not
-        if(thePreviousEater == this)
+        if (thePreviousEater == this)
         {
             //we are the previous eater, no need to do anything else
             return;
         }
 
+        
+        Debug.LogWarning($"[Eat_Test] {gameObject.name} reacts to {theEatenPrey.gameObject.name} not being eaten anymore part 2");
         //we are not the previous eater, try to move the eaten prey from the "potentialPreys" list
         //to the "myPreys" list
-        if(potentialPreys.Contains(theEatenPrey) == true)
+        if (potentialPreys.Contains(theEatenPrey) == true)
         {
+            Debug.LogWarning($"[Eat_Test] {gameObject.name} reacts to {theEatenPrey.gameObject.name} not being eaten anymore part 3");
             //remove from "potentialPreys" list
             potentialPreys.Remove(theEatenPrey);
             //add to "myPreys" list
             myPreys.Add(theEatenPrey);
             //potentially alter behaviour
             React_PreyPredator_AddRemove();
+            Debug.LogWarning($"[Eat_Test] {gameObject.name} reacts to {theEatenPrey.gameObject.name} not being eaten anymore part 4");
         }
 
     }
@@ -1251,6 +1274,7 @@ public class Animal_AI_Base : MonoBehaviour
 
     public void BeingEaten_Interrupt(Animal_AI_Base thePreviousEater)
     {
+        Debug.LogWarning($"[Eat_Test] {gameObject.name} was being eaten by {thePreviousEater.gameObject.name} but was interrupted");
         //set the being eaten status
         isBeingEaten = false;
         //invoke the being eaten interrupt event

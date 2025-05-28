@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1287618205461780907
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 50581098920284758, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50581098920284758, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[1805994672735911941]
+      value: Assembly-CSharp AnimalAction_RunToTarget
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[1805994672735911942]
+      value: Assembly-CSharp AnimalFinishAction_AlterIndex
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[3243458701720289281].StateName
+      value: Run After Prey
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[1805994672735911941].ActionPriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[1805994672735911942].ExecuteEvenIfDead
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[1805994672735911941].AnimalFinishAction
+      value: 1805994672735911942
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[1805994672735911942].AlterType_StateIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[1805994672735911942].FinishActionPriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[1805994672735911942].AlterType_ActionIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[1805994672735911942].AlterValue_StateIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[1805994672735911942].AlterValue_ActionIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: managedReferences[3243458701720289281].AnimalActions.Array.data[0]
+      value: 1805994672735911941
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001507, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_Name
+      value: Lion_Predator_NoRoar_WalkToRight_6 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001532, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001532, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001532, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001532, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001532, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001532, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001532, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001532, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001532, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001532, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778085544474001532, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}

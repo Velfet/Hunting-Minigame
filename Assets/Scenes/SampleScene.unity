@@ -2530,7 +2530,7 @@ MonoBehaviour:
   HuntingCase_Data: {fileID: 397264971}
   CurrentRank: 1
   CurrentLevel: 1
-  TestCase: {fileID: 0}
+  TestCase: {fileID: 11400000, guid: 164311a592ca1b949885a71b96f70e77, type: 2}
   AnimalSpawnData_List: []
   Current_AnimalSpawnData_Index: 0
   AnimalSpawnData_Condition_List_NotYetSpawned: []
@@ -2602,18 +2602,16 @@ MonoBehaviour:
       - weight: 20
         theHuntingCase: {fileID: 11400000, guid: f4d2bd643bc089843923259567388f9e, type: 2}
     - level_HuntingCases:
-      - weight: 80
+      - weight: 40
         theHuntingCase: {fileID: 11400000, guid: a19290e94dab39544a925b0176ec55d9, type: 2}
-      - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: a19290e94dab39544a925b0176ec55d9, type: 2}
+      - weight: 60
+        theHuntingCase: {fileID: 11400000, guid: 1272b1d7aaff5ae4191c8aefd75ac386, type: 2}
     - level_HuntingCases:
       - weight: 30
-        theHuntingCase: {fileID: 11400000, guid: 164311a592ca1b949885a71b96f70e77, type: 2}
-      - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: 164311a592ca1b949885a71b96f70e77, type: 2}
-      - weight: 20
-        theHuntingCase: {fileID: 11400000, guid: 164311a592ca1b949885a71b96f70e77, type: 2}
+        theHuntingCase: {fileID: 11400000, guid: f07ddddfe2541694f8b4a013a354a19f, type: 2}
       - weight: 30
+        theHuntingCase: {fileID: 11400000, guid: 56e9a2011f3db494c9b3735bc809dea4, type: 2}
+      - weight: 40
         theHuntingCase: {fileID: 11400000, guid: 164311a592ca1b949885a71b96f70e77, type: 2}
   - allLevel_HuntingCase_Data:
     - level_HuntingCases:
@@ -2631,9 +2629,7 @@ MonoBehaviour:
       - weight: 50
         theHuntingCase: {fileID: 11400000, guid: 4bb8df71e5b1bde4985066d45c38110e, type: 2}
     - level_HuntingCases:
-      - weight: 50
-        theHuntingCase: {fileID: 11400000, guid: 42dfe362aa44c6341855b2cd6e4b6189, type: 2}
-      - weight: 50
+      - weight: 100
         theHuntingCase: {fileID: 11400000, guid: 42dfe362aa44c6341855b2cd6e4b6189, type: 2}
 --- !u!1 &409417614
 GameObject:
@@ -4439,7 +4435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &857196348
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7802,7 +7798,7 @@ MonoBehaviour:
   - Expert
   - Master
   HuntingBGM_SoundID: HuntingBGM1
-  TestRank: 1
+  TestRank: 2
   TestLevel: 1
 --- !u!114 &1781754564
 MonoBehaviour:
@@ -9350,7 +9346,7 @@ PrefabInstance:
       objectReference: {fileID: 1227373103}
     - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
       propertyPath: TestJobRank
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9063971130422100900, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
       propertyPath: Bow_X_Offset

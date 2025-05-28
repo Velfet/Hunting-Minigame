@@ -16,7 +16,7 @@ MonoBehaviour:
   Health: 20
   RunSpeed: 4
   RunSpeed_Faster: 4.4
-  WalkSpeed: 3.7
+  WalkSpeed: 3
   FallSpeed: 0
   Experience: 7
   LootData: 2

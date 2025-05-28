@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 98911625241291427, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
       propertyPath: reactSources.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 98911625241291427, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
       propertyPath: reactSources.Array.data[2]
@@ -26,10 +26,14 @@ PrefabInstance:
     - target: {fileID: 98911625241291427, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
       propertyPath: reactSources.Array.data[3]
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 98911625241291427, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: reactSources.Array.data[4]
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1700844647935105909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
       propertyPath: reactSources.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1700844647935105909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
       propertyPath: reactSources.Array.data[2]
@@ -38,6 +42,10 @@ PrefabInstance:
     - target: {fileID: 1700844647935105909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
       propertyPath: reactSources.Array.data[3]
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700844647935105909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
+      propertyPath: reactSources.Array.data[4]
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2695157859465639909, guid: 4a6cb4b2dc16d714cb12b732d67df3d2, type: 3}
       propertyPath: managedReferences[3243458701720289280].StateName

@@ -45,7 +45,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.2, y: 2.2, z: 1}
+  m_Size: {x: 2.25, y: 2.25, z: 1}
   m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!54 &5677602962043393129
 Rigidbody:
@@ -396,7 +396,7 @@ MonoBehaviour:
   State_Index: 0
   CurrentAnimalAction:
     rid: -2
-  Animal_Detected_Collider: {fileID: 0}
+  Animal_Detected_Collider: {fileID: 1828682630460669871}
   MissAuraHit_Action:
     rid: -2
   BodyHit_Action:
@@ -526,11 +526,11 @@ MonoBehaviour:
   DefaultFaceIsRight: 0
   AnimalAnimationClipKeys: 0000000001000000020000000300000004000000
   AnimalAnimationClipNames:
-  - Wild_Boar_IDLE
-  - Wild_Boar_EAT
-  - Wild_Boar_WALK
-  - Wild_Boar_RUN
-  - Wild_Boar_DEATH
+  - Buffalo_Run
+  - Buffalo_Run
+  - Buffalo_Run
+  - Buffalo_Run
+  - Buffalo_Die
 --- !u!82 &1353043789844357274
 AudioSource:
   m_ObjectHideFlags: 0
@@ -672,8 +672,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.92946434, y: 0.7591962, z: 1}
-  m_Center: {x: 0.17552558, y: 0.2065244, z: 0}
+  m_Size: {x: 1.4794153, y: 0.8841849, z: 1}
+  m_Center: {x: 0.28384936, y: 0.51899606, z: 0}
 --- !u!54 &2189748819144222347
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -753,8 +753,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.59230065, y: 0.6871304, z: 1}
-  m_Center: {x: 0.09778388, y: -0.056831762, z: 0}
+  m_Size: {x: 0.7422874, y: 0.97043824, z: 1}
+  m_Center: {x: -0.23551914, y: 0.22647582, z: 0}
 --- !u!54 &767132333096600748
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1188,7 +1188,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f363f91fdf0d7ac478aadd8c00094707, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea92e2131502b71448b3b25fb429d4cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.9019608}
   m_FlipX: 0
   m_FlipY: 0

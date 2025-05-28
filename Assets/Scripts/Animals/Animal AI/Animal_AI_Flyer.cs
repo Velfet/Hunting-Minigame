@@ -67,7 +67,7 @@ public class Animal_AI_Flyer : Animal_AI_Base
         bool isPreyDead = thePrey.GetAnimalStatus() == AnimalStatus.Dead;
 
         bool preyIsNotOptimal;
-        if(isPreyBeingEaten == false && isPreyDead == true)
+        if (isPreyBeingEaten == false && isPreyDead == true)
         {
             //prey is optimal
             preyIsNotOptimal = false;
@@ -78,11 +78,11 @@ public class Animal_AI_Flyer : Animal_AI_Base
             preyIsNotOptimal = true;
         }
 
-        if(preyIsNotOptimal == true)
+        if (preyIsNotOptimal == true)
         {
             //prey is not optimal
             //add prey to the potential prey list
-            if(potentialPreys.Contains(thePrey) == false)
+            if (potentialPreys.Contains(thePrey) == false)
             {
                 potentialPreys.Add(thePrey);
                 //also add to the reactcollider_preys list
@@ -93,7 +93,7 @@ public class Animal_AI_Flyer : Animal_AI_Base
         }
 
         //check if the prey has not already been added to the prey list
-        if(myPreys.Contains(thePrey) == false)
+        if (myPreys.Contains(thePrey) == false)
         {
             //add the prey to the list of preys
             myPreys.Add(thePrey);
@@ -101,7 +101,13 @@ public class Animal_AI_Flyer : Animal_AI_Base
             reactCollider_Preys.Add(thePrey);
 
             React_PreyPredator_AddRemove();
-            
+
+        }
+        
+        if (reactCollider_Preys.Contains(thePrey) == false)
+        {
+            //add prey to the reactcollider_preys
+            reactCollider_Preys.Add(thePrey);
         }
     }
 

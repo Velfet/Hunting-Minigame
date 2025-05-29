@@ -2530,7 +2530,7 @@ MonoBehaviour:
   HuntingCase_Data: {fileID: 397264971}
   CurrentRank: 1
   CurrentLevel: 1
-  TestCase: {fileID: 11400000, guid: 164311a592ca1b949885a71b96f70e77, type: 2}
+  TestCase: {fileID: 0}
   AnimalSpawnData_List: []
   Current_AnimalSpawnData_Index: 0
   AnimalSpawnData_Condition_List_NotYetSpawned: []
@@ -3449,7 +3449,7 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.3}
-  m_AnchorMax: {x: 0.225, y: 0.625}
+  m_AnchorMax: {x: 0.17, y: 0.625}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4435,7 +4435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &857196348
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7798,7 +7798,7 @@ MonoBehaviour:
   - Expert
   - Master
   HuntingBGM_SoundID: HuntingBGM1
-  TestRank: 2
+  TestRank: 1
   TestLevel: 1
 --- !u!114 &1781754564
 MonoBehaviour:
@@ -9247,6 +9247,14 @@ PrefabInstance:
     - target: {fileID: 282720063434926461, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 805121363043501841, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 805121363043501841, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 805121363043501841, guid: 66854cc969e9f4a45bf0c204419ed1c8, type: 3}
       propertyPath: m_LocalRotation.w

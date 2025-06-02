@@ -22,6 +22,8 @@ public class HuntingWinPanel : MonoBehaviour
     [SerializeField] private Color ContinueButtonText_NonactiveColor;
     [Space(10)]
     [SerializeField] private Button ReplayButton;
+    [Space(10)]
+    [SerializeField] private GameObject FlawlessVisual_GO;
     [Space(20)]
     [SerializeField] private GameObject ClickBlocker_GO;
     [SerializeField] private float ClickBlocker_Duration;
@@ -68,6 +70,9 @@ public class HuntingWinPanel : MonoBehaviour
 
         //Update level icon UI
         HuntingCaseManager.Get_HuntingUIManager().Toggle_LevelIcon_Win(HuntingCaseManager.Get_CurrentLevel() + 1);
+
+        //Update flawless visual display depending if the outcome of the level was flawless or not
+        FlawlessVisual_GO.SetActive(HuntingCaseManager.IsGameOutcome_Flawless());
 
         TownButton.onClick.AddListener(GoTo_Town);
 

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Lion
   Health: 36
-  RunSpeed: 3.8
-  RunSpeed_Faster: 4.3
-  WalkSpeed: 2.7
+  RunSpeed: 4.3
+  RunSpeed_Faster: 4.7
+  WalkSpeed: 2.9
   FallSpeed: 0
   Experience: 14
   LootData: 5

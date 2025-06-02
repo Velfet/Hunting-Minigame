@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Hawk
   Health: 6
-  RunSpeed: 4.4
-  RunSpeed_Faster: 4.8
+  RunSpeed: 5.5
+  RunSpeed_Faster: 6
   WalkSpeed: 2
   FallSpeed: 4.5
   Experience: 3

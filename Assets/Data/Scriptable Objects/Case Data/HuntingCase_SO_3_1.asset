@@ -67,4 +67,7 @@ MonoBehaviour:
         - Name: Hyena
           AnimalType: 1
           AnimalBehaviour: 1
+        - Name: Hawk
+          AnimalType: 3
+          AnimalBehaviour: 2
         Must_BeAlive: []

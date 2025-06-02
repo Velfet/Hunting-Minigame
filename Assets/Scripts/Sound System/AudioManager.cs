@@ -60,6 +60,7 @@ namespace HuntingGame
                         {
                             AudioSource_BGM.Stop();
                         }
+                        AudioSource_BGM.loop = true;
                         AudioSource_BGM.clip = theClip;
                         AudioSource_BGM.volume = soundAsset.soundVolume;
                         AudioSource_BGM.Play();

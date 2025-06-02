@@ -727,7 +727,51 @@ public class HuntingCaseManager : MonoBehaviour
             }
         }
 
+        //detect if game outcome is flawless; if so, add flawless experience to the totla experience
+        if (IsGameOutcome_Flawless() == true)
+        {
+            //formula: (3 * current rank) + (2 * current level)
+            int flawlessExperience = (3 * CurrentRank) + (2 * CurrentLevel);
+            totalExperience += flawlessExperience;
+        }
+        
+
         return totalExperience;
+    }
+
+    public bool IsGameOutcome_Flawless()
+    {
+        //get number of animals in the level
+        int totalAnimalInTheLevel = 0;
+        if (CurrentHuntingCase.All_AnimalSpawnData != null)
+        {
+            totalAnimalInTheLevel += CurrentHuntingCase.All_AnimalSpawnData.Count;
+        }
+
+        if (CurrentHuntingCase.All_AnimalSpawnData_Condition != null)
+        {
+            totalAnimalInTheLevel += CurrentHuntingCase.All_AnimalSpawnData_Condition.Count;
+        }
+
+        if (CurrentHuntingCase.All_AnimalSpawnData_WeirdCondition != null)
+        {
+            totalAnimalInTheLevel += CurrentHuntingCase.All_AnimalSpawnData_WeirdCondition.Count;
+        }
+
+        //get the number of animals that are dead in the level; Does not include animals that have been eaten
+        int totalAnimal_Dead = 0;
+        for (int i = 0; i < SpawnedAnimals.Count; i++)
+        {
+            Animal_AI_Base theAnimal = SpawnedAnimals[i].GetComponent<Animal_AI_Base>();
+            if (theAnimal.GetAnimalStatus() == AnimalStatus.Dead)
+            {
+                totalAnimal_Dead++;
+            }
+        }
+
+
+        bool result = totalAnimal_Dead == totalAnimalInTheLevel;
+        return result;
     }
 
     public HuntingUIManager Get_HuntingUIManager()
